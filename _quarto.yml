@@ -1,0 +1,11 @@
+project:
+  title: "Foundations of Mathematics — Slides"
+
+format:
+  revealjs:
+    theme: [serif, custom.scss]
+    slide-number: c/t
+    transition: fade
+    incremental: false
+    footer: "Math 558 · Foundations of Mathematics"
+
