@@ -1,0 +1,408 @@
+[
+  {
+    "objectID": "lectures/lec02.html#recap-and-roadmap",
+    "href": "lectures/lec02.html#recap-and-roadmap",
+    "title": "The Foundational Crisis",
+    "section": "Recap and Roadmap",
+    "text": "Recap and Roadmap\nLast time: Dedekind & Cantor’s existential, set-theoretic style of mathematics — and Russell’s paradox, which broke Frege’s comprehension principle.\nToday\n\nparadoxes and consistency, predicativity, the axiom of choice\nBrouwer’s intuitionism vs. Hilbert’s program\n\nThe question throughout: what is a legitimate mathematical object, definition, or proof?"
+  },
+  {
+    "objectID": "lectures/lec02.html#the-comprehension-principle-again",
+    "href": "lectures/lec02.html#the-comprehension-principle-again",
+    "title": "The Foundational Crisis",
+    "section": "The Comprehension Principle, Again",
+    "text": "The Comprehension Principle, Again\nRecall the principle that broke under Russell’s paradox:\n\\[\n\\text{for any well-defined property } p,\\ \\text{there exists } \\{x : p(x)\\}\n\\]\n\nThis was the basis for the logicist understanding of set theory — “naive” set theory\nNot just Russell’s paradox: two families of paradoxes emerged around 1900\n\nset-theoretic paradoxes (Burali-Forti, Cantor, Russell/Zermelo)\nsemantic paradoxes (Richard, König, Grelling) — about truth and definability"
+  },
+  {
+    "objectID": "lectures/lec02.html#the-set-theoretic-paradoxes",
+    "href": "lectures/lec02.html#the-set-theoretic-paradoxes",
+    "title": "The Foundational Crisis",
+    "section": "The Set-Theoretic Paradoxes",
+    "text": "The Set-Theoretic Paradoxes\n\nBurali-Forti (1897; Cantor 1896): the set of all ordinals would itself be well-ordered, hence have an ordinal \\(&gt;\\) every ordinal in it — contradiction\nCantor (1899): the set of all cardinals leads to the same kind of contradiction\nZermelo–Russell (1901–02): let \\(p(x)\\) be “\\(x \\notin x\\)” and consider \\(R = \\{x : x \\notin x\\}\\)\n\nComprehension is contradictory in the simplest possible way — no need for a theory of the transfinite to state it."
+  },
+  {
+    "objectID": "lectures/lec02.html#hilbert-and-existence",
+    "href": "lectures/lec02.html#hilbert-and-existence",
+    "title": "The Foundational Crisis",
+    "section": "Hilbert and Existence",
+    "text": "Hilbert and Existence\nHilbert abandoned logicism. He proposed working with axiom systems that comprise non-logical axioms.\nThis, however, requires a new kind of justification why the ojects we are trying to axiomatize exist.\nHilbert’s proposal:\n\nA set of objects “exists” only if we can prove its defining axiom system consistent\nconcept \\(\\to\\) set becomes consistency proof \\(\\to\\) legitimate existence\nObjects have a kind of ideal existence “in the realm of thought,” not independent metaphysical existence"
+  },
+  {
+    "objectID": "lectures/lec02.html#predicativity-poincarés-diagnosis",
+    "href": "lectures/lec02.html#predicativity-poincarés-diagnosis",
+    "title": "The Foundational Crisis",
+    "section": "Predicativity — Poincaré’s Diagnosis",
+    "text": "Predicativity — Poincaré’s Diagnosis\nWhen Frege’s and Russell’s paradoxes became widely known (1903), Poincaré offered his own culprit: impredicative definitions.\n\nA definition is impredicative when it refers to a totality that already contains the very element being defined.\n\n\nExample: least upper bound – defining the supremum involves quantifying over “all upper bounds,” a set of real numbers, in order to pin down a particular real number. That real number is thus specified by reference to a totality it belongs to.\nPoincaré: this kind of circularity is exactly what licenses the paradoxes"
+  },
+  {
+    "objectID": "lectures/lec02.html#richards-paradox-a-semantic-paradox",
+    "href": "lectures/lec02.html#richards-paradox-a-semantic-paradox",
+    "title": "The Foundational Crisis",
+    "section": "Richard’s Paradox (a Semantic Paradox)",
+    "text": "Richard’s Paradox (a Semantic Paradox)\n\nOnly countably many reals are definable by a finite expression — list them \\(a_1, a_2, a_3, \\dots\\) (lexicographic order)\nDefine \\(r\\): the \\(n\\)th decimal digit of \\(r\\) differs from the \\(n\\)th digit of \\(a_n\\)\n\\(r\\) is not on the list — yet \\(r\\) was just defined, in finitely many words!\n\nPoincaré’s diagnosis: \\(r\\)’s definition refers to the totality of all definable numbers, of which \\(r\\) is itself meant to be a member. Impredicative."
+  },
+  {
+    "objectID": "lectures/lec02.html#two-responses-to-impredicativity",
+    "href": "lectures/lec02.html#two-responses-to-impredicativity",
+    "title": "The Foundational Crisis",
+    "section": "Two Responses to Impredicativity",
+    "text": "Two Responses to Impredicativity\n\n\nZermelo — unconvinced\n\nImpredicative definitions are everywhere in classical analysis (e.g. least upper bound)\nHarmless: the object isn’t created by the definition, only singled out from what already exists\n\n\nRussell — convinced\n\nAdopts Poincaré’s “vicious circle principle”\nBuilds a theory of types: objects stratified into levels; no set of “mixed” type\nResult: Principia Mathematica (1910–13)"
+  },
+  {
+    "objectID": "lectures/lec02.html#where-predicativity-led",
+    "href": "lectures/lec02.html#where-predicativity-led",
+    "title": "The Foundational Crisis",
+    "section": "Where Predicativity Led",
+    "text": "Where Predicativity Led\n\nRussell’s ramified type theory needed extra ad hoc machinery (the axiom of reducibility) to recover ordinary mathematics\nWeyl, in Das Kontinuum (1918), tried a leaner predicative foundation: accept classical logic and \\(\\mathbb{N}\\), but build the reals predicatively\n\ncost: \\(\\mathbb{R}\\) is no longer complete — the Bolzano–Weierstrass theorem fails\n\nPredicative mathematics survives today as a serious middle ground between classical and constructive mathematics"
+  },
+  {
+    "objectID": "lectures/lec02.html#controversy-on-the-axiom-of-choice",
+    "href": "lectures/lec02.html#controversy-on-the-axiom-of-choice",
+    "title": "The Foundational Crisis",
+    "section": "Controversy on the Axiom of Choice",
+    "text": "Controversy on the Axiom of Choice\nZermelo (1904): \\(\\mathrm{AC} \\implies\\) every set — in particular \\(\\mathbb{R}\\) — can be well-ordered.\n\n\\(\\mathrm{AC}\\): given any family of disjoint nonempty sets, a choice set exists containing one element from each\nThe proof gives no explicit construction of the well-ordering\nCritics: \\(\\mathrm{AC}\\) merely asserts the choice set exists, without a defining property for it\n\n\\(\\Rightarrow\\) a deep debate followed, cutting across the logicism/predicativism divide."
+  },
+  {
+    "objectID": "lectures/lec02.html#from-controversy-to-axiom-system",
+    "href": "lectures/lec02.html#from-controversy-to-axiom-system",
+    "title": "The Foundational Crisis",
+    "section": "From Controversy to Axiom System",
+    "text": "From Controversy to Axiom System\nThe AC debate spurred Zermelo to work out his axiom system for set theory (1908) — a careful, mathematical (not logical) analysis of Cantor’s and Dedekind’s set theory.\n\nFraenkel & von Neumann (1920s) add: Replacement and Regularity\nWeyl & Skolem: formalize within first-order logic — quantify only over sets, not over properties\n\n\\[\n\\rightsquigarrow \\quad \\mathrm{ZF(C)}\n\\]"
+  },
+  {
+    "objectID": "lectures/lec02.html#what-zfc-codifies",
+    "href": "lectures/lec02.html#what-zfc-codifies",
+    "title": "The Foundational Crisis",
+    "section": "What ZFC Codifies",
+    "text": "What ZFC Codifies\nZFC settles the early-1900s controversies by simply building in the modern, anti-Kroneckerian traits:\n\nimpredicative definitions — allowed\narbitrary functions and subsets — allowed\npurely existential proofs — allowed\n\n\nThe result: a working “Platonistic” view of mathematics — the objects a theory refers to are treated as if they exist independently of what a mathematician can explicitly define or construct.\n\nBy the 1920s, Russell’s (simplified) type theory and Zermelo’s set theory had largely converged on this same methodology."
+  },
+  {
+    "objectID": "lectures/lec02.html#summary---response-to-the-paradoxes",
+    "href": "lectures/lec02.html#summary---response-to-the-paradoxes",
+    "title": "The Foundational Crisis",
+    "section": "Summary - Response to the Paradoxes",
+    "text": "Summary - Response to the Paradoxes\nThe paradoxes did not kill modern mathematics.\n\nThey forced a clarification: existence via consistency, not naive comprehension\nPoincaré’s predicativism and Russell’s type theory tried to restrain the new methods\nZermelo’s set theory — soon ZFC — codified the new methods instead."
+  },
+  {
+    "objectID": "lectures/lec02.html#a-new-kind-of-critique",
+    "href": "lectures/lec02.html#a-new-kind-of-critique",
+    "title": "The Foundational Crisis",
+    "section": "A New Kind of Critique",
+    "text": "A New Kind of Critique\n1921: Weyl publishes a paper in the Mathematische Zeitschrift — a disciple of Hilbert’s — openly siding with Brouwer, diagnosing a “crisis in the foundations.”\n\nWeyl’s paper: deliberately a propaganda pamphlet, “to rouse the sleepers”\nHilbert’s reply, same year: Brouwer and Weyl are attempting a “putsch” — a “dictatorship à la Kronecker”\n\nThe foundational debate turns into open battle: Hilbert’s classical mathematics vs. Brouwer’s constructive “revolution.”"
+  },
+  {
+    "objectID": "lectures/lec02.html#what-is-brouwers-revolution",
+    "href": "lectures/lec02.html#what-is-brouwers-revolution",
+    "title": "The Foundational Crisis",
+    "section": "What is Brouwer’s “Revolution”?",
+    "text": "What is Brouwer’s “Revolution”?\nUp to 1920, the debate concerned: real numbers, impredicativity, and the strong existential assumptions of set theory (esp. AC).\nBrouwer went further: \n\nHe put classical logic itself on trial: quantifiers over infinite domains, and the principle of excluded middle (PEM)\nPoincaré, Klein, and others had said logic is not the whole of mathematics; Brouwer said mathematics is prior to and independent of logic and language altogether."
+  },
+  {
+    "objectID": "lectures/lec02.html#intuitionism-first-principles",
+    "href": "lectures/lec02.html#intuitionism-first-principles",
+    "title": "The Foundational Crisis",
+    "section": "Intuitionism — First Principles",
+    "text": "Intuitionism — First Principles\n\nFor Brouwer, mathematical objects are mental constructions; mathematics does not depend on language or logic to exist\nClassical logic (including PEM) was abstracted from experience with finite sets — and wrongly extrapolated to infinite ones\nPEM: \\(p \\vee \\neg p\\) — “either \\(p\\) or not \\(p\\)” — always holds, classically\n\nBrouwer’s claim: this is not a law of thought, but an unjustified generalization."
+  },
+  {
+    "objectID": "lectures/lec02.html#the-constructive-standard",
+    "href": "lectures/lec02.html#the-constructive-standard",
+    "title": "The Foundational Crisis",
+    "section": "The Constructive Standard",
+    "text": "The Constructive Standard\n\nConsequence: proof by contradiction is invalid.\n\nClassically: assume \\(\\neg p\\), derive a contradiction, conclude \\(p\\)\nConstructively: this only shows \\(\\neg\\neg p\\) — not the same as a construction of \\(p\\)"
+  },
+  {
+    "objectID": "lectures/lec02.html#a-different-notion-of-truth",
+    "href": "lectures/lec02.html#a-different-notion-of-truth",
+    "title": "The Foundational Crisis",
+    "section": "A Different Notion of Truth",
+    "text": "A Different Notion of Truth\nFor a constructivist:\n\n“\\(p\\) is true” means: we possess a proof of \\(p\\) by stringent constructive methods\n“\\(p\\) is false” means: we possess a counterexample to \\(p\\)\n\n\nTo a constructivist, the statement “π is normal” currently has no truth value — not true, not false, not “unknown-but-determinate.” Truth is not timeless; it is made."
+  },
+  {
+    "objectID": "lectures/lec02.html#rebuilding-analysis-choice-sequences",
+    "href": "lectures/lec02.html#rebuilding-analysis-choice-sequences",
+    "title": "The Foundational Crisis",
+    "section": "Rebuilding Analysis: Choice Sequences",
+    "text": "Rebuilding Analysis: Choice Sequences\nBrouwer (1918) replaces Cantorian sets with constructive substitutes: spreads and species.\n\nA choice sequence: a sequence of rationals not required to be fully specified in advance\n\nmay be generated by a fixed rule (e.g. Newton’s method for \\(\\sqrt 2\\))\nor by choices the mathematician makes freely, over time, subject to constraints\n\n\nIntuitionistic mathematics is “mathematics in the making” — unlike the timeless, fully-determinate objects of classical analysis."
+  },
+  {
+    "objectID": "lectures/lec02.html#spreads-and-a-new-continuum",
+    "href": "lectures/lec02.html#spreads-and-a-new-continuum",
+    "title": "The Foundational Crisis",
+    "section": "Spreads and a New Continuum",
+    "text": "Spreads and a New Continuum\n\nA spread is a law regulating which choice sequences are admissible — the basis for Brouwer’s reconstruction of \\(\\mathbb{R}\\)\nThe continuum becomes a genuinely continuous domain, not a set of pre-existing points\n\nan echo of Aristotle: the continuum is not made up of unextended points\n\n\nA function on a spread must be determined from a finite initial segment of any choice sequence — this has a startling consequence."
+  },
+  {
+    "objectID": "lectures/lec02.html#the-startling-consequence",
+    "href": "lectures/lec02.html#the-startling-consequence",
+    "title": "The Foundational Crisis",
+    "section": "The Startling Consequence",
+    "text": "The Startling Consequence\nEvery intuitionistically total function on \\(\\mathbb{R}\\) is (uniformly) continuous.\n\nThe classical step function \\[\nf(x) = \\begin{cases} 0 & x \\leq 0 \\\\ 1 & x &gt; 0 \\end{cases}\n\\] is not a legitimate function for Brouwer\nReason: deciding \\(x &gt; 0\\) vs. \\(x \\leq 0\\) is not always possible — not decidable from a finite stage of the sequence\n\n(Anticipates the later, independent discovery that all computable real functions are continuous — Turing and others.)"
+  },
+  {
+    "objectID": "lectures/lec02.html#the-cost-of-intuitionism",
+    "href": "lectures/lec02.html#the-cost-of-intuitionism",
+    "title": "The Foundational Crisis",
+    "section": "The Cost of Intuitionism",
+    "text": "The Cost of Intuitionism\nRebuilding analysis this way is hard. Weyl, who once championed Brouwer’s program, wrote in 1925:\n\n“The mathematician watches with pain the largest part of his towering theories dissolve into mist before his eyes.”\n\nBrouwer himself, unfazed, replied (1933):\n\n“The spheres of truth are less transparent than those of illusion.”\n\nWeyl abandoned intuitionism shortly after. But Hilbert had another answer in mind."
+  },
+  {
+    "objectID": "lectures/lec02.html#hilberts-program",
+    "href": "lectures/lec02.html#hilberts-program",
+    "title": "The Foundational Crisis",
+    "section": "Hilbert’s Program",
+    "text": "Hilbert’s Program\nHilbert (1928): to “eliminate from the world once and for all the skeptical doubts” about classical mathematics.\n\nStrategy: use Kroneckerian (finitary, constructive) means to justify anti-Kroneckerian (classical) methods\nKey move: turn proofs into formal, syntactic objects — finite strings of symbols manipulated by explicit rules\nA proof becomes something a finitary, combinatorial argument can reason about, from the outside — metamathematics"
+  },
+  {
+    "objectID": "lectures/lec02.html#the-four-steps-of-the-program",
+    "href": "lectures/lec02.html#the-four-steps-of-the-program",
+    "title": "The Foundational Crisis",
+    "section": "The Four Steps of the Program",
+    "text": "The Four Steps of the Program\n\nFind suitable axioms and primitive concepts for a theory \\(T\\) (e.g. the real numbers)\nFind axioms and rules for classical logic — syntactic rules turning propositions into new propositions\nFormalize \\(T\\): propositions become strings of symbols, proofs become sequences of strings obeying formal rules\nGive a finitary proof that no string expressing a contradiction can ever be the last line of a proof\n\nIf (iv) succeeds for \\(T\\): consistency is established by means even a strict finitist should accept."
+  },
+  {
+    "objectID": "lectures/lec02.html#finitism-what-counts-as-given",
+    "href": "lectures/lec02.html#finitism-what-counts-as-given",
+    "title": "The Foundational Crisis",
+    "section": "Finitism: What Counts as “Given”",
+    "text": "Finitism: What Counts as “Given”\nHilbert’s answer to Poincaré’s 1905 circularity worry (a consistency proof for arithmetic would need induction):\n\nWhat is genuinely, intuitively given: signs and formulas themselves, as concrete finite objects\nMetamathematical reasoning about them needs only a very weak form of induction — much weaker than full arithmetical induction\nFinitary mathematics needs no further justification — it is where justification bottoms out"
+  },
+  {
+    "objectID": "lectures/lec02.html#progress-and-limits-1920s",
+    "href": "lectures/lec02.html#progress-and-limits-1920s",
+    "title": "The Foundational Crisis",
+    "section": "Progress and Limits (1920s)",
+    "text": "Progress and Limits (1920s)\n\nPropositional logic: proved consistent and complete\nFirst-order (predicate) logic: proved complete — Gödel’s dissertation, 1929\nAckermann, von Neumann: consistency results for subsystems of arithmetic (1928–1930)\nBy 1930 Hilbert believed full consistency of arithmetic was within reach\n\nA crucial hidden assumption: that the axiomatic systems in question would also be complete."
+  },
+  {
+    "objectID": "lectures/lec02.html#formalism-a-slightly-misleading-name",
+    "href": "lectures/lec02.html#formalism-a-slightly-misleading-name",
+    "title": "The Foundational Crisis",
+    "section": "“Formalism” — a Slightly Misleading Name",
+    "text": "“Formalism” — a Slightly Misleading Name\n\nThe label comes from Hilbert’s method: formalize a theory, study its formal proof-structure\nBut Hilbert did not think mathematics is a meaningless game with symbols\n\nhe consistently stressed the meaningfulness of informal mathematical statements\n\nUnlike intuitionism, formalism was never a full philosophy of mathematics — it was a method for justifying the classical one"
+  },
+  {
+    "objectID": "lectures/lec02.html#a-personal-crisis-too",
+    "href": "lectures/lec02.html#a-personal-crisis-too",
+    "title": "The Foundational Crisis",
+    "section": "A Personal Crisis, Too",
+    "text": "A Personal Crisis, Too\nThe dispute was not only intellectual.\n\nHilbert and Brouwer: strong-willed, brilliant, and deeply incompatible personalities\n1928: Hilbert moves to remove Brouwer from the editorial board of Mathematische Annalen\n\nEinstein: the move is “unwise” and wants no part of it\nThe board is dissolved and reconstituted without Brouwer — the journal loses Einstein and Carathéodory\n\nBrouwer, disturbed, withdraws from the scene for years — as political tensions fade, so does the sense of “crisis”"
+  },
+  {
+    "objectID": "lectures/lec02.html#looking-ahead",
+    "href": "lectures/lec02.html#looking-ahead",
+    "title": "The Foundational Crisis",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\n \nHilbert’s program looked to be within reach by 1930 — one more push on the consistency of arithmetic.\n \nThings turned out otherwise…"
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html",
+    "href": "notes/zfc-as-a-foundation.html",
+    "title": "ZFC as a Foundational Theory",
+    "section": "",
+    "text": "These notes accompany Lecture 3. They expand the handwritten notes and follow Kunen, The Foundations of Mathematics, §0.4 and §I.1–I.6. Where Lecture 2 ended — Hilbert’s program — is where we begin."
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html#from-hilberts-program-to-a-working-foundation",
+    "href": "notes/zfc-as-a-foundation.html#from-hilberts-program-to-a-working-foundation",
+    "title": "ZFC as a Foundational Theory",
+    "section": "From Hilbert’s program to a working foundation",
+    "text": "From Hilbert’s program to a working foundation\nHilbert’s response to the foundational crisis was formalism: not the claim that mathematics is a meaningless game with symbols, but a method. Take a mathematical theory, write its axioms in a formal language, and study its formal proof-structure with modest, uncontroversial means. This method forces a distinction that will organize everything that follows."
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html#metatheory-and-object-theory",
+    "href": "notes/zfc-as-a-foundation.html#metatheory-and-object-theory",
+    "title": "ZFC as a Foundational Theory",
+    "section": "Metatheory and object theory",
+    "text": "Metatheory and object theory\nFormalism introduces a split between two levels of discourse.\n\nThe two levels\n\n\n\n\n\n\n\n\nObject theory (formal theory)\nMetatheory\n\n\n\n\nExample\na theory of arithmetic, or ZFC itself\nour reasoning about that theory\n\n\nStatus\na combinatorial object: sets of symbols, strings, rules\nordinary mathematical reasoning\n\n\nLanguage\na fixed formal language, e.g. first-order logic\ninformal natural language\n\n\n“Proof”\na finite symbolic derivation\nan intuitively convincing argument\n\n\n\n\nThe object theory is formalized\nTo say the object theory is formalized means two things:\n\nits axioms are expressed in a formal language (for us, first-order logic with ∈);\nits theorems are deduced in a purely symbolic fashion — as Kleene put it, like a list of chess moves written in chess notation. Whether a string is a correct proof is decided by inspecting symbols, not by understanding meaning.\n\nA consequence Hilbert exploited: once proofs are finite strings manipulated by explicit rules, the combinatorics of proof becomes essentially elementary arithmetic. Reasoning about proofs is reasoning about finite syntactic objects.\n\n\nReasoning in the metatheory\nThe metatheory is where we actually work when we prove things about the formal system. That reasoning is:\n\ninformal — carried out in natural language;\nintuitively clear and convincing — it must persuade without itself being formalized;\nfinitistic — close to elementary number theory. We do not treat infinite totalities as completed wholes unless they can be clearly and explicitly specified. In flavour this is the intuitionist / constructivist standpoint: an existence claim should come with a construction.\n\n\n\nA finitistic statement, and a non-statement\nConsider the claim\n\\[\nP \\text{ and } \\mathbb{N}\\setminus P \\text{ are both infinite,}\n\\qquad P = \\{\\text{primes}\\}.\n\\]\nThis is a statement involving completed infinite sets (i.e. it is a statement about the natural numbers as a whole). But it can be rewritten finitistically:\n\nFor every natural number \\(n &gt; 1\\) there is a composite number \\(c\\) with \\(n &lt; c \\le 2n\\), and a prime \\(p\\) with \\(n &lt; p \\le n! + 1\\).\n\nBoth witnesses are bounded (and even can be explicitely defined). This is the kind of fact the metatheory is entitled to assert.\nContrast this with\n\\[\n|\\mathbb{R}| = |\\mathbb{C}|,\n\\]\nwhich is meaningless in the metatheory — it is a statement about the cardinality of uncountable sets, with no finitistic content. It only makes sense inside an object theory such as ZFC."
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html#the-foundational-loop-formalizing-the-metatheory",
+    "href": "notes/zfc-as-a-foundation.html#the-foundational-loop-formalizing-the-metatheory",
+    "title": "ZFC as a Foundational Theory",
+    "section": "The foundational loop: formalizing the metatheory",
+    "text": "The foundational loop: formalizing the metatheory\n\nFor a foundational theory such as ZFC, the formal (object) theory should be strong enough to formalize its own metatheory. Otherwise the reasoning we use to study ZFC would sit outside the foundation ZFC claims to provide.\n\nThis motivates a thesis about ZFC — a property we would want a foundation to have:\n\nThesis. Every finitistic fact can be formalized and proved within ZFC.\n\nMaking this precise takes care, because most everyday mathematical statements are not literally in the language of ZFC. For instance\n\\[\n\\forall x \\in \\mathbb{R}\\;\\bigl(x^{3}\\cdot x^{5} = x^{8}\\bigr)\n\\]\nuses \\(\\mathbb{R}\\), multiplication, and exponentiation — none of which are primitive symbols of a language whose only non-logical symbol is ∈. Such statements enter ZFC through codings / representations.\n\nExample: an arithmetic fact and its formal shadow\n“\\(2 + 8 = 10\\)” is a fact of the metatheory. Inside ZFC we find:\n\na representation of each natural number as a specific set — write \\(\\ulcorner 2 \\urcorner\\), \\(\\ulcorner 8 \\urcorner\\), \\(\\ulcorner 10 \\urcorner\\);\na defined binary function symbol \\(+\\) for addition of such representations;\n\nand then we can prove\n\\[\n\\mathrm{ZFC} \\;\\vdash\\; \\ulcorner 2 \\urcorner + \\ulcorner 8 \\urcorner\n= \\ulcorner 10 \\urcorner .\n\\]\nThe metatheoretic fact and its formal counterpart are different objects; the thesis says the second always tracks the first."
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html#zfc-as-a-foundational-theory",
+    "href": "notes/zfc-as-a-foundation.html#zfc-as-a-foundational-theory",
+    "title": "ZFC as a Foundational Theory",
+    "section": "ZFC as a foundational theory",
+    "text": "ZFC as a foundational theory\nThe claim that ZFC founds mathematics rests on two theses:\n\nAll abstract mathematical concepts are set-theoretical.\nAll concrete mathematical objects are specific sets.\n\nIf one does not accept formalism, the “are” can be weakened to “have set-theoretical representations.”\n\nEverything reduces to sets.\n\n\nExample: what a function is\n\\[\n\\text{function} \\;\\cong\\; \\text{graph} \\;\\cong\\;\n\\text{a set of ordered pairs } f \\text{ with }\n\\forall x, y, z\\,\\bigl((x,y)\\in f \\wedge (x,z)\\in f \\rightarrow y = z\\bigr).\n\\]\nThis pushes the question back to ordered pairs, which are themselves described as special kinds of sets — the standard choice being\n\\[\n(x, y) := \\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\},\n\\]\nfor which one verifies \\((x,y) = (x',y') \\rightarrow (x = x' \\wedge y = y')\\).\n\n\nThe special nature of the ZFC axioms\nKunen distinguishes axioms used as statements of faith (obviously true facts, as the Greeks viewed Euclid’s postulates) from definitional axioms (merely delimiting a useful class of structures, as with the group axioms).\nYou can read the ZFC axioms in the first sense: To a Platonist, these might appear as obviously true facts. But we have seen that an all too careless treatment of the notion of set can lead to contradictions. However, one can, independent of the ontological status of the axioms, read ZFC as the theory of everything: one postulates the ZFC axioms once and for all, and every other axiom system — groups, rings, topological spaces — is defined inside it.\n\n\nWhat we will do\n\nThe basic level. State the axioms and interpret them; work out what exactly the representations of \\(3\\) and of \\(\\mathbb{R}\\) are. (Following von Neumann, \\(0 = \\varnothing\\), \\(1 = \\{\\varnothing\\}\\), \\(2 = \\{0,1\\}\\), \\(3 = \\{0,1,2\\}\\), …, \\(\\mathbb{N} = \\omega\\); and \\(\\mathbb{R}\\) via Dedekind cuts.)\nThe advanced level. Draw out the consequences of the axioms for uncountable sets."
+  },
+  {
+    "objectID": "notes/zfc-as-a-foundation.html#the-axioms-of-zfc",
+    "href": "notes/zfc-as-a-foundation.html#the-axioms-of-zfc",
+    "title": "ZFC as a Foundational Theory",
+    "section": "The axioms of ZFC",
+    "text": "The axioms of ZFC\nThe language is first-order logic with a single binary relation symbol ∈ (and equality). There is one sort of variable: everything ranges over sets. In the Union and Replacement axioms below, the capital letters \\(A, Y,\n\\mathcal{F}, B\\) are still just set variables — the capitals only aid reading.\nConvention. Every axiom is understood to be universally quantified over its free variables (\\(\\forall x\\,\\forall y\\,\\dots\\)).\n\n\nAxiom 0 — Set Existence\n\n\\(\\exists x\\,(x = x)\\)\n\nAxiom 1 — Extensionality\n\n\\(\\forall z\\,(z \\in x \\leftrightarrow z \\in y) \\;\\rightarrow\\; x = y\\)\n\n\nA set is determined by its members.\n\nAxiom 2 — Foundation\n\n\\(\\exists y\\,(y \\in x) \\;\\rightarrow\\;\n\\exists y\\,\\bigl(y \\in x \\wedge \\neg\\exists z\\,(z \\in x \\wedge z \\in y)\\bigr)\\)\n\n\nEvery nonempty set has an ∈-minimal element; no infinite descending ∈-chains.\n\nAxiom 3 — Comprehension (Separation) — scheme\n\nFor each formula \\(\\varphi\\) with \\(y\\) not free: \\(\\exists y\\,\\forall x\\,\\bigl(x \\in y \\leftrightarrow x \\in v \\wedge\n\\varphi(x)\\bigr)\\)\n\n\nSubsets are carved out of a set \\(v\\) that already exists — the restriction to \\(x \\in v\\) is what defuses Russell’s paradox (there is no universal set). There is one axiom per formula, so this is infinitely many axioms; that is harmless in the metatheory, since “being a formula” is a finitistically decidable property.\n\nAxiom 4 — Pairing\n\n\\(\\exists z\\,(x \\in z \\wedge y \\in z)\\)\n\nAxiom 5 — Union\n\n\\(\\exists A\\,\\forall Y\\,\\forall x\\,\n\\bigl(x \\in Y \\wedge Y \\in \\mathcal{F} \\;\\rightarrow\\; x \\in A\\bigr)\\)\n\nAxiom 6 — Replacement — scheme\n\nFor each formula \\(\\varphi\\) with \\(B\\) not free: \\(\\forall x \\in A\\;\\exists! y\\,\\varphi(x, y) \\;\\rightarrow\\;\n\\exists B\\,\\forall x \\in A\\;\\exists y \\in B\\;\\varphi(x, y)\\)\n\n\nThe image of a set under a definable class function is a set. Here \\(\\exists! y\\,\\varphi(x,y)\\) abbreviates \\(\\exists y\\,\\bigl(\\varphi(x,y) \\wedge \\forall z\\,(\\varphi(x,z) \\rightarrow\ny = z)\\bigr)\\). Again a scheme, and again finitistically unproblematic.\n\n\n\n\nSome defined symbols\nOn the basis of Axioms 1, 3, 4, 5 we abbreviate:\n\\[\n\\begin{aligned}\nx \\subseteq y \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in x \\rightarrow z \\in y)\\\\[2pt]\nx = \\varnothing \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\notin x)\\\\[2pt]\ny = S(x) \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in y \\leftrightarrow z \\in x \\vee z = x)\n     \\qquad\\bigl(\\,y = x \\cup \\{x\\}\\,\\bigr)\\\\[2pt]\ny = v \\cap w \\;&:\\Longleftrightarrow\\; \\forall x\\,(x \\in y \\leftrightarrow x \\in v \\wedge x \\in w)\\\\[2pt]\n\\mathrm{SING}(x) \\;&:\\Longleftrightarrow\\; \\exists y \\in x\\;\\forall z \\in x\\,(z = y)\n\\end{aligned}\n\\]\nThe remaining axioms are easier to state with these in hand.\n\n\nAxiom 7 — Infinity\n\n\\(\\exists x\\,\\bigl(\\varnothing \\in x \\wedge \\forall y \\in x\\,(S(y) \\in x)\\bigr)\\)\n\n\nThere is a set containing \\(\\varnothing\\) and closed under \\(y \\mapsto y \\cup\n\\{y\\}\\). Here “\\(\\varnothing \\in x\\)” abbreviates \\(\\exists y\\,(y = \\varnothing\n\\wedge y \\in x)\\), and “\\(S(y) \\in x\\)” abbreviates \\(\\exists z\\,(z = S(y) \\wedge\nz \\in x)\\).\n\nAxiom 8 — Power Set\n\n\\(\\exists y\\,\\forall z\\,(z \\subseteq x \\rightarrow z \\in y)\\)\n\nAxiom 9 — Choice (AC)\n\n\\(\\varnothing \\notin F \\wedge \\forall x \\in F\\;\\forall y \\in F\\,\n(x \\neq y \\rightarrow x \\cap y = \\varnothing) \\;\\rightarrow\\;\n\\exists C\\;\\forall x \\in F\\;\\mathrm{SING}(C \\cap x)\\)\n\n\nFor a family \\(F\\) of pairwise disjoint nonempty sets there is a set \\(C\\) meeting each member in exactly one point.\n\n\n\n\n\nNamed subsystems\n\n\n\n\n\n\n\nSystem\nAxioms\n\n\n\n\nZFC\n1–9\n\n\nZF\n1–8 (no Choice)\n\n\nZC\nZFC without Replacement (6)\n\n\nZ\nZF without Replacement (6)\n\n\n\nOther important subsystems:\n\n\\(X^{-}\\) — drop Foundation (2);\n\\(X{-}\\mathrm{P}\\) — drop Power Set (8);\n\\(X{-}\\mathrm{Inf}\\) — drop Infinity (7).\n\nMost of elementary mathematics can be carried out in \\(\\mathrm{ZC}^{-}\\). A minimal working fragment is Basic Set Theory:\n\\[\n\\mathrm{BST} \\;=\\; \\text{Axioms } 1, 2, 3, 4, 5 \\;+\\; (6 \\vee 8).\n\\]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Foundations of Mathematics",
+    "section": "",
+    "text": "A comparative study of the three dominant modern approaches to mathematical foundations: set theory (ZFC), category theory, and type theory (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all."
+  },
+  {
+    "objectID": "index.html#lecture-slides",
+    "href": "index.html#lecture-slides",
+    "title": "Foundations of Mathematics",
+    "section": "Lecture slides",
+    "text": "Lecture slides\n\n1 · Some History and Setting the Stage — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.\n2 · The Foundational Crisis — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs. Hilbert’s program."
+  },
+  {
+    "objectID": "index.html#notes",
+    "href": "index.html#notes",
+    "title": "Foundations of Mathematics",
+    "section": "Notes",
+    "text": "Notes\n\n3 · ZFC as a Foundational Theory — metatheory vs. object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC. Follows Kunen, The Foundations of Mathematics, §0.4 and §I.1–I.6."
+  },
+  {
+    "objectID": "lectures/lec01.html#where-were-going",
+    "href": "lectures/lec01.html#where-were-going",
+    "title": "Foundations of Mathematics",
+    "section": "Where We’re Going",
+    "text": "Where We’re Going\n\nThis course compares three modern foundations of mathematics: set theory, category theory, type theory\nBefore any of that: a 19th-century story about rigor, completeness, and infinity\nToday: Prologue – Bolzano (1817) \\(\\to\\) Dedekind (1872) \\(\\to\\) Cantor (1874)"
+  },
+  {
+    "objectID": "lectures/lec01.html#gauss-and-the-fundamental-theorem-of-algebra",
+    "href": "lectures/lec01.html#gauss-and-the-fundamental-theorem-of-algebra",
+    "title": "Foundations of Mathematics",
+    "section": "Gauss and the Fundamental Theorem of Algebra",
+    "text": "Gauss and the Fundamental Theorem of Algebra\n\nTHM: Every non-constant polynomial has a root over the complex numbers.\nGauss’s proofs (from 1799 on) quietly depend on the Intermediate Value Theorem\n\n\\[\nf \\text{ continuous},\\ f(a)&lt;0,\\ f(b)&gt;0 \\ \\implies\\ f(c)=0 \\text{ for some } c\\in(a,b)\n\\]\n\nIVT feels obvious: a curve can’t get from below the axis to above it without crossing. (Gauss and many others at the time thought so.)"
+  },
+  {
+    "objectID": "lectures/lec01.html#bolzanos-insight-1817",
+    "href": "lectures/lec01.html#bolzanos-insight-1817",
+    "title": "Foundations of Mathematics",
+    "section": "Bolzano’s Insight (1817)",
+    "text": "Bolzano’s Insight (1817)\n\n\nBernard Bolzano was the first to realize importance of continuity in the proof of Fundamental Theorem of Algebra.\n\nHe attempted a genuine proof of the IVT.\nBut he had no clear concept of the real numbers to work with.\nHis proof was not fully satisfactory — a rigorous treatment of continuity had to wait for Weierstrass (1874).\n\n\n\n\n\n\n\n\nBernard Bolzano\n(1781–1848)"
+  },
+  {
+    "objectID": "lectures/lec01.html#completeness-an-ancient-intuition",
+    "href": "lectures/lec01.html#completeness-an-ancient-intuition",
+    "title": "Foundations of Mathematics",
+    "section": "Completeness: An Ancient Intuition",
+    "text": "Completeness: An Ancient Intuition\nBolzano’s realization:\n\\[\n\\text{completeness of } \\mathbb{R} \\quad\\longleftrightarrow\\quad \\text{absence of gaps}\n\\]\n\nAncient intuition: a line has no gaps\nBut then — what are the “parts” of a line?\n\nTo capture this, Bolzano introduced two principles:\n\nthe least upper bound principle\nthe nested interval property"
+  },
+  {
+    "objectID": "lectures/lec01.html#how-to-prove-completeness",
+    "href": "lectures/lec01.html#how-to-prove-completeness",
+    "title": "Foundations of Mathematics",
+    "section": "How to Prove Completeness?",
+    "text": "How to Prove Completeness?\n\nBolzano could state completeness — but not prove it\nProving it requires first knowing what a real number is\nThat formalization of \\(\\mathbb{R}\\) did not arrive until the 1870s\n\ne.g. via Dedekind cuts"
+  },
+  {
+    "objectID": "lectures/lec01.html#dedekinds-breakthrough-1872",
+    "href": "lectures/lec01.html#dedekinds-breakthrough-1872",
+    "title": "Foundations of Mathematics",
+    "section": "Dedekind’s Breakthrough (1872)",
+    "text": "Dedekind’s Breakthrough (1872)\n\n\nDedekind’s key move: stop presupposing what \\(x \\in \\mathbb{R}\\) is.\n\nA real number is a Dedekind cut \\((L, U)\\).\n\n\n\\((L,U)\\) partitions \\(\\mathbb{Q}\\): every element of \\(L\\) is less than every element of \\(U\\)\nCompleteness is now straightforward — union of left-sides of cuts defines a cut.\n\n\n\n\n\n\n\n\nRichard Dedekind\n(1831–1916)"
+  },
+  {
+    "objectID": "lectures/lec01.html#a-deeper-problem",
+    "href": "lectures/lec01.html#a-deeper-problem",
+    "title": "Foundations of Mathematics",
+    "section": "A Deeper Problem",
+    "text": "A Deeper Problem\nDedekind (1872) solved the problem “What is a real number?”\n— but in doing so, he opened a deeper problem: the nature of infinity.\n\nReals are introduced as (pairs of) infinite sets of rationals\nThere seemed to be no way around this"
+  },
+  {
+    "objectID": "lectures/lec01.html#a-new-kind-of-object",
+    "href": "lectures/lec01.html#a-new-kind-of-object",
+    "title": "Foundations of Mathematics",
+    "section": "A New Kind of Object",
+    "text": "A New Kind of Object\n\nSets — and infinity — stop being background intuition.\nThey become mathematical objects in their own right\nThis shift is the seed of everything that follows in this course"
+  },
+  {
+    "objectID": "lectures/lec01.html#cantor-1874-two-kinds-of-infinity",
+    "href": "lectures/lec01.html#cantor-1874-two-kinds-of-infinity",
+    "title": "Foundations of Mathematics",
+    "section": "Cantor (1874): Two Kinds of Infinity",
+    "text": "Cantor (1874): Two Kinds of Infinity\n\n\nCantor showed that \\(\\mathbb{N}\\) and \\(\\mathbb{R}\\) represent different types of infinity.\nHis first proof of the uncountability of \\(\\mathbb{R}\\):\n\nTake any sequence \\((x_m)_{m \\in \\mathbb{N}}\\) of distinct real numbers.\nConstruct nested intervals that exclude one \\(x_m\\) at a time.\n\n\n\n\n\n\n\n\nGeorg Cantor\n(1845–1918)"
+  },
+  {
+    "objectID": "lectures/lec01.html#cantors-construction",
+    "href": "lectures/lec01.html#cantors-construction",
+    "title": "Foundations of Mathematics",
+    "section": "Cantor’s Construction",
+    "text": "Cantor’s Construction\nBuild nested intervals\n\\[\na_0 &lt; a_1 &lt; a_2 &lt; \\cdots &lt; b_2 &lt; b_1 &lt; b_0\n\\]\nsuch that\n\\[\n\\forall m\\ \\exists i \\quad x_m \\notin [a_i, b_i]\n\\]\n(at each stage, shrink the interval just enough to exclude the next \\(x_m\\))"
+  },
+  {
+    "objectID": "lectures/lec01.html#cantors-argument",
+    "href": "lectures/lec01.html#cantors-argument",
+    "title": "Foundations of Mathematics",
+    "section": "Cantor’s Argument",
+    "text": "Cantor’s Argument\nBy the nested interval property:\n\\[\n\\bigcap_i [a_i, b_i] \\neq \\emptyset\n\\]\nLet \\(x\\) be a point in this intersection.\n\nBy construction, \\(x \\neq x_i\\) for every \\(i\\).\nSo \\((x_m)\\) could not have enumerated all of \\(\\mathbb{R}\\).\nHence \\(\\mathbb{R}\\) is uncountable.\n\n\nThis only works because \\(\\mathbb{R}\\) is complete — the nested interval property fails over \\(\\mathbb{Q}\\)."
+  },
+  {
+    "objectID": "lectures/lec01.html#a-bonus-transcendental-numbers",
+    "href": "lectures/lec01.html#a-bonus-transcendental-numbers",
+    "title": "Foundations of Mathematics",
+    "section": "A Bonus: Transcendental Numbers",
+    "text": "A Bonus: Transcendental Numbers\nThe same construction gives more than uncountability:\n\nThe set of algebraic numbers is countable.\nSo the same nested-interval argument produces a real number not among the algebraic numbers\n\n\\[\n\\implies \\text{transcendental numbers exist}\n\\]\n— without ever exhibiting one!"
+  },
+  {
+    "objectID": "lectures/lec01.html#not-everyone-was-convinced",
+    "href": "lectures/lec01.html#not-everyone-was-convinced",
+    "title": "Foundations of Mathematics",
+    "section": "Not Everyone Was Convinced",
+    "text": "Not Everyone Was Convinced\nDedekind’s cuts and ideals, Cantor’s infinite sets — both rely on purely existential proofs:\n\nthey show an object exists, without showing how to construct or compute it.\nthis was a genuinely new style of mathematics in the 1870s–80s.\n\nNot everyone welcomed it."
+  },
+  {
+    "objectID": "lectures/lec01.html#kroneckers-critique",
+    "href": "lectures/lec01.html#kroneckers-critique",
+    "title": "Foundations of Mathematics",
+    "section": "Kronecker’s Critique",
+    "text": "Kronecker’s Critique\n\n\n\n\n\n\n\n\nLeopold Kronecker\n(1823–1891)\n\n\nLeopold Kronecker, one of the leading algebraists of the day, objected on principle.\n\n1870: points out that the accumulation point in the Bolzano–Weierstrass theorem cannot be constructed by elementary operations from the rational numbers.\n1882: publicly attacked Dedekind’s ideals — used to prove unique factorization exists but the proof does not tell you how to compute it.\nCombated Cantor’s transfinite sets as well.\n\n\n“Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk.” — attributed to Kronecker: “God made the integers; all else is the work of man.”"
+  },
+  {
+    "objectID": "lectures/lec01.html#a-debate-ensues",
+    "href": "lectures/lec01.html#a-debate-ensues",
+    "title": "Foundations of Mathematics",
+    "section": "A Debate Ensues",
+    "text": "A Debate Ensues\n\nDedekind replied in 1888 with a fully set-theoretic theory of the natural numbers (“Was sind und was sollen die Zahlen?”, includes his definition of an infinite set).\nThe “early round” of the debate ended in victory for the infinitary side.\n\nHurwitz, Minkowski, Hilbert, Volterra, Peano, Hadamard, Klein all sided with Dedekind and Cantor.\n\nArbitrary functions, infinite sets, and existential proofs become the mainstream of analysis and algebra.\n\nKronecker’s constructivist objection doesn’t disappear — it resurfaces in Brouwer’s intuitionism, decades later."
+  },
+  {
+    "objectID": "lectures/lec01.html#freges-logicism",
+    "href": "lectures/lec01.html#freges-logicism",
+    "title": "Foundations of Mathematics",
+    "section": "Frege’s Logicism",
+    "text": "Frege’s Logicism\n\n\nGottlob Frege pursued an even more ambitious foundation: reduce all of arithmetic to pure logic.\n\nBasic mathematical concepts should be definable in purely logical terms\nBasic mathematical truths should be derivable from purely logical laws\nCentral logical law (the comprehension principle): for any well-defined property \\(p\\), there is a set \\[\n\\{x : p(x)\\}\n\\]\nFrege built his Grundgesetze der Arithmetik (1893, 1903) on exactly this idea.\n\n\n\n\n\n\n\n\nGottlob Frege\n(1848–1925)"
+  },
+  {
+    "objectID": "lectures/lec01.html#freges-logicism-1",
+    "href": "lectures/lec01.html#freges-logicism-1",
+    "title": "Foundations of Mathematics",
+    "section": "Frege’s Logicism",
+    "text": "Frege’s Logicism\nFrege needed the comprehension principle to define the natural numbers in a purely logical way.\n\nFrege (as later Russell and Whitehead) realized that natural numbers are logical attributes that belong to concepts, not to things.\n“There are four horses in the barn” should be thought of as four objects fall under the concept “horse in barn”.\nIf \\(f\\) is a concept, we can then define “at least two objects fall under \\(f\\)” as \\[\n2_m(f) := \\exists x \\exists y \\: [ x \\neq y \\: \\wedge f(x) \\: \\wedge \\: f(y)]\n\\] and can define the number \\(2\\) as \\(2() := 2_m() \\: \\wedge \\ \\neg 3_m()\\).\n\nFor this definition to work, Frege needed the comprehension principle - every concept determines a class containing exactly the objects falling under it."
+  },
+  {
+    "objectID": "lectures/lec01.html#russells-paradox-190102",
+    "href": "lectures/lec01.html#russells-paradox-190102",
+    "title": "Foundations of Mathematics",
+    "section": "Russell’s Paradox (1901–02)",
+    "text": "Russell’s Paradox (1901–02)\nAround 1901, Bertrand Russell (and, independently, Zermelo) found that comprehension is inconsistent.\nLet \\[\nR = \\{\\, x : x \\notin x \\,\\}\n\\]\n\nIf \\(R \\in R\\), then by definition \\(R \\notin R\\)\nIf \\(R \\notin R\\), then by definition \\(R \\in R\\)\n\nEither way, contradiction. The very principle underlying Frege’s logic — and “naive” set theory generally — collapses."
+  },
+  {
+    "objectID": "lectures/lec01.html#letter-to-frege-16-june-1902",
+    "href": "lectures/lec01.html#letter-to-frege-16-june-1902",
+    "title": "Foundations of Mathematics",
+    "section": "Letter to Frege, 16 June 1902",
+    "text": "Letter to Frege, 16 June 1902\n\n\n\n“Let \\(w\\) be the predicate: to be a predicate that cannot be predicated of itself. Can \\(w\\) be predicated of itself? From each answer its opposite follows. […] Likewise there is no class (as a totality) of those classes which, each taken as a totality, do not belong to themselves.”\n— Bertrand Russell, letter to Gottlob Frege\n\n\n\n\n\n\n\n\nBertrand Russell\n(1872–1970)\n\n\nRussell had been reading Frege’s Grundgesetze closely — and found the one crack in its foundation."
+  },
+  {
+    "objectID": "lectures/lec01.html#freges-reply-22-june-1902",
+    "href": "lectures/lec01.html#freges-reply-22-june-1902",
+    "title": "Foundations of Mathematics",
+    "section": "Frege’s Reply, 22 June 1902",
+    "text": "Frege’s Reply, 22 June 1902\n\n“Your discovery of the contradiction caused me the greatest surprise and, I would almost say, consternation, since it has shaken the basis on which I intended to build arithmetic. […] It is all the more serious since, with the loss of my Rule V, not only the foundations of my arithmetic, but also the sole possible foundations of arithmetic, seem to vanish.”\n— Gottlob Frege, letter to Bertrand Russell\n\nFrege added a hasty appendix to Volume II of the Grundgesetze, already at the printer, acknowledging the disaster."
+  },
+  {
+    "objectID": "lectures/lec01.html#what-now",
+    "href": "lectures/lec01.html#what-now",
+    "title": "Foundations of Mathematics",
+    "section": "What now?",
+    "text": "What now?\nOther set theoretic paradoxes had emerged before Russell’s.\n\nBurali-Forti paradox (Cantor, 1896): There cannot be a set of all ordinals.\n\nBut these were tied deeply to Cantor’s transfinite set theory, which many people still viewed as remote and suspect.\nRussell’s antinomy struck right at the heart of the very foundation of all of mathematics: the efforts to define the natural numbers."
+  }
+]
