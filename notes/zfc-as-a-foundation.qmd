@@ -1,0 +1,310 @@
+---
+title: "ZFC as a Foundational Theory"
+subtitle: "Metatheory, the finitistic standpoint, and the axioms"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.box}
+These notes accompany Lecture 3. They expand the handwritten notes and follow
+Kunen, *The Foundations of Mathematics*, §0.4 and §I.1–I.6. Where Lecture 2 ended — Hilbert's program — is where we begin.
+:::
+
+## From Hilbert's program to a working foundation
+
+Hilbert's response to the foundational crisis was **formalism**: not the claim
+that mathematics is a meaningless game with symbols, but a *method*. Take a
+mathematical theory, write its axioms in a formal language, and study its
+formal proof-structure with modest, uncontroversial means. This method forces a
+distinction that will organize everything that follows.
+
+## Metatheory and object theory
+
+Formalism introduces a split between two levels of discourse.
+
+| | **Object theory** (formal theory) | **Metatheory** |
+|---|---|---|
+| Example | a theory of arithmetic, or ZFC itself | our reasoning *about* that theory |
+| Status | a combinatorial object: sets of symbols, strings, rules | ordinary mathematical reasoning |
+| Language | a fixed formal language, e.g. first-order logic | informal natural language |
+| "Proof" | a finite symbolic derivation | an intuitively convincing argument |
+
+: The two levels {tbl-colwidths="[12,44,44]"}
+
+### The object theory is *formalized*
+
+To say the object theory is formalized means two things:
+
+- its axioms are expressed in a **formal language** (for us, first-order logic
+  with `∈`);
+- its theorems are **deduced in a purely symbolic fashion** — as Kleene put it,
+  *like a list of chess moves written in chess notation*. Whether a string is a
+  correct proof is decided by inspecting symbols, not by understanding meaning.
+
+A consequence Hilbert exploited: once proofs are finite strings manipulated by
+explicit rules, the **combinatorics of proof becomes essentially elementary
+arithmetic**. Reasoning about proofs is reasoning about finite syntactic
+objects.
+
+### Reasoning *in* the metatheory
+
+The metatheory is where we actually work when we prove things *about* the formal
+system. That reasoning is:
+
+- **informal** — carried out in natural language;
+- **intuitively clear and convincing** — it must persuade without itself being
+  formalized;
+- **finitistic** — close to elementary number theory. We do not treat infinite
+  totalities as completed wholes unless they can be clearly and explicitly
+  specified. In flavour this is the intuitionist / constructivist standpoint:
+  an existence claim should come with a construction.
+
+### A finitistic statement, and a non-statement
+
+Consider the claim
+
+$$
+P \text{ and } \mathbb{N}\setminus P \text{ are both infinite,}
+\qquad P = \{\text{primes}\}.
+$$
+
+This is a statement involving completed infinite sets (i.e. it is a statement about the natural numbers *as a whole*). But it can be **rewritten finitistically**:
+
+> For every natural number $n > 1$ there is a composite number $c$ with
+> $n < c \le 2n$, and a prime $p$ with $n < p \le n! + 1$.
+
+Both witnesses are bounded (and even can be explicitely defined). This is the kind of fact the metatheory is entitled to assert.
+
+Contrast this with
+
+$$
+|\mathbb{R}| = |\mathbb{C}|,
+$$
+
+which is **meaningless in the metatheory** — it is a statement about the
+cardinality of uncountable sets, with no finitistic content. It only makes sense
+*inside* an object theory such as ZFC.
+
+## The foundational loop: formalizing the metatheory
+
+::: {.box}
+For a *foundational* theory such as ZFC, the
+formal (object) theory should be strong enough to **formalize its own
+metatheory**. Otherwise the reasoning we use to study ZFC would sit outside the
+foundation ZFC claims to provide.
+:::
+
+This motivates a thesis about ZFC — a property we would *want* a foundation to
+have:
+
+::: {.box}
+**Thesis.** Every finitistic fact can be formalized and proved within ZFC.
+:::
+
+Making this precise takes care, because most everyday mathematical statements
+are **not literally in the language of ZFC**. For instance
+
+$$
+\forall x \in \mathbb{R}\;\bigl(x^{3}\cdot x^{5} = x^{8}\bigr)
+$$
+
+uses $\mathbb{R}$, multiplication, and exponentiation — none of which are
+primitive symbols of a language whose only non-logical symbol is `∈`. Such
+statements enter ZFC through **codings / representations**.
+
+### Example: an arithmetic fact and its formal shadow
+
+"$2 + 8 = 10$" is a fact of the metatheory. Inside ZFC we find:
+
+- a **representation** of each natural number as a specific set — write
+  $\ulcorner 2 \urcorner$, $\ulcorner 8 \urcorner$, $\ulcorner 10 \urcorner$;
+- a **defined binary function symbol** $+$ for addition of such
+  representations;
+
+and then we can *prove*
+
+$$
+\mathrm{ZFC} \;\vdash\; \ulcorner 2 \urcorner + \ulcorner 8 \urcorner
+= \ulcorner 10 \urcorner .
+$$
+
+The metatheoretic fact and its formal counterpart are different objects; the
+thesis says the second always tracks the first.
+
+<!-- ### Symbolic entities live in the hereditarily finite sets
+
+The same coding trick handles *symbols*. Polynomials (regarded as formal
+expressions, not functions), words in a free group, and — closest to our theme —
+**formulas and proofs** are all finite strings. Represent each symbol by a
+natural number and a string by a finite sequence; then every such object is a
+**hereditarily finite set**. Finite mathematics — including the entire syntax of
+first-order logic and the ZFC axioms themselves — is carried out within $HF$.
+This is exactly what lets ZFC reason about its own formal system. *(Kunen §I.15.)* -->
+
+## ZFC as a foundational theory
+
+The claim that ZFC founds mathematics rests on two theses:
+
+1. **All abstract mathematical concepts are set-theoretical.**
+2. **All concrete mathematical objects are specific sets.**
+
+If one does not accept formalism, the "are" can be weakened to *"have
+set-theoretical representations."*
+
+::: {.box}
+**Everything reduces to sets.**
+:::
+
+### Example: what a function *is*
+
+$$
+\text{function} \;\cong\; \text{graph} \;\cong\;
+\text{a set of ordered pairs } f \text{ with }
+\forall x, y, z\,\bigl((x,y)\in f \wedge (x,z)\in f \rightarrow y = z\bigr).
+$$
+
+This pushes the question back to *ordered pairs*, which are themselves
+described as special kinds of sets — the standard choice being
+
+$$
+(x, y) := \bigl\{\{x\}, \{x, y\}\bigr\},
+$$
+
+for which one verifies $(x,y) = (x',y') \rightarrow (x = x' \wedge y = y')$.
+
+### The special nature of the ZFC axioms
+
+Kunen distinguishes axioms used as *statements of faith* (obviously true facts,
+as the Greeks viewed Euclid's postulates) from *definitional axioms* (merely
+delimiting a useful class of structures, as with the group axioms). 
+
+You can read the ZFC axioms in the first sense: To a Platonist, these might appear as obviously true facts. But we have seen that an all too careless treatment of the notion of set can lead to contradictions. However, one can, independent of the ontological status of the axioms, read ZFC as **the theory of everything**: one
+postulates the ZFC axioms once and for all, and every other axiom system —
+groups, rings, topological spaces — is *defined* inside it.
+
+
+### What we will do
+
+- **The basic level.** State the axioms and interpret them; work out *what
+  exactly* the representations of $3$ and of $\mathbb{R}$ are. (Following von
+  Neumann, $0 = \varnothing$, $1 = \{\varnothing\}$, $2 = \{0,1\}$,
+  $3 = \{0,1,2\}$, …, $\mathbb{N} = \omega$; and $\mathbb{R}$ via Dedekind cuts.)
+- **The advanced level.** Draw out the consequences of the axioms for
+  **uncountable sets**.
+
+## The axioms of ZFC
+
+The language is **first-order logic with a single binary relation symbol `∈`**
+(and equality). There is **one sort of variable**: everything ranges over sets.
+In the Union and Replacement axioms below, the capital letters $A, Y,
+\mathcal{F}, B$ are still just set variables — the capitals only aid reading.
+
+**Convention.** Every axiom is understood to be **universally quantified** over
+its free variables ($\forall x\,\forall y\,\dots$).
+
+::: {.axioms}
+
+Axiom 0 — Set Existence
+:   $\exists x\,(x = x)$
+
+Axiom 1 — Extensionality
+:   $\forall z\,(z \in x \leftrightarrow z \in y) \;\rightarrow\; x = y$
+:   A set is determined by its members.
+
+Axiom 2 — Foundation
+:   $\exists y\,(y \in x) \;\rightarrow\;
+    \exists y\,\bigl(y \in x \wedge \neg\exists z\,(z \in x \wedge z \in y)\bigr)$
+:   Every nonempty set has an `∈`-minimal element; no infinite descending
+    `∈`-chains.
+
+Axiom 3 — Comprehension (Separation) — *scheme*
+:   For each formula $\varphi$ with $y$ not free:
+    $\exists y\,\forall x\,\bigl(x \in y \leftrightarrow x \in v \wedge
+    \varphi(x)\bigr)$
+:   Subsets are carved out of a set $v$ that **already exists** — the restriction
+    to $x \in v$ is what defuses Russell's paradox (there is no universal set).
+    There is one axiom per formula, so this is infinitely many axioms; that is
+    harmless in the metatheory, since "being a formula" is a finitistically
+    decidable property.
+
+Axiom 4 — Pairing
+:   $\exists z\,(x \in z \wedge y \in z)$
+
+Axiom 5 — Union
+:   $\exists A\,\forall Y\,\forall x\,
+    \bigl(x \in Y \wedge Y \in \mathcal{F} \;\rightarrow\; x \in A\bigr)$
+
+Axiom 6 — Replacement — *scheme*
+:   For each formula $\varphi$ with $B$ not free:
+    $\forall x \in A\;\exists! y\,\varphi(x, y) \;\rightarrow\;
+    \exists B\,\forall x \in A\;\exists y \in B\;\varphi(x, y)$
+:   The image of a set under a definable class function is a set. Here
+    $\exists! y\,\varphi(x,y)$ abbreviates
+    $\exists y\,\bigl(\varphi(x,y) \wedge \forall z\,(\varphi(x,z) \rightarrow
+    y = z)\bigr)$. Again a scheme, and again finitistically unproblematic.
+
+:::
+
+### Some defined symbols
+
+On the basis of Axioms 1, 3, 4, 5 we abbreviate:
+
+$$
+\begin{aligned}
+x \subseteq y \;&:\Longleftrightarrow\; \forall z\,(z \in x \rightarrow z \in y)\\[2pt]
+x = \varnothing \;&:\Longleftrightarrow\; \forall z\,(z \notin x)\\[2pt]
+y = S(x) \;&:\Longleftrightarrow\; \forall z\,(z \in y \leftrightarrow z \in x \vee z = x)
+     \qquad\bigl(\,y = x \cup \{x\}\,\bigr)\\[2pt]
+y = v \cap w \;&:\Longleftrightarrow\; \forall x\,(x \in y \leftrightarrow x \in v \wedge x \in w)\\[2pt]
+\mathrm{SING}(x) \;&:\Longleftrightarrow\; \exists y \in x\;\forall z \in x\,(z = y)
+\end{aligned}
+$$
+
+The remaining axioms are easier to state with these in hand.
+
+::: {.axioms}
+
+Axiom 7 — Infinity
+:   $\exists x\,\bigl(\varnothing \in x \wedge \forall y \in x\,(S(y) \in x)\bigr)$
+:   There is a set containing $\varnothing$ and closed under $y \mapsto y \cup
+    \{y\}$. Here "$\varnothing \in x$" abbreviates $\exists y\,(y = \varnothing
+    \wedge y \in x)$, and "$S(y) \in x$" abbreviates $\exists z\,(z = S(y) \wedge
+    z \in x)$.
+
+Axiom 8 — Power Set
+:   $\exists y\,\forall z\,(z \subseteq x \rightarrow z \in y)$
+
+Axiom 9 — Choice (AC)
+:   $\varnothing \notin F \wedge \forall x \in F\;\forall y \in F\,
+    (x \neq y \rightarrow x \cap y = \varnothing) \;\rightarrow\;
+    \exists C\;\forall x \in F\;\mathrm{SING}(C \cap x)$
+:   For a family $F$ of pairwise disjoint nonempty sets there is a set $C$
+    meeting each member in exactly one point.
+
+:::
+
+### Named subsystems
+
+| System | Axioms |
+|---|---|
+| **ZFC** | 1–9 |
+| **ZF** | 1–8 (no Choice) |
+| **ZC** | ZFC without Replacement (6) |
+| **Z** | ZF without Replacement (6) |
+
+: {tbl-colwidths="[20,80]"}
+
+Other important subsystems:
+
+- $X^{-}$ — drop **Foundation** (2);
+- $X{-}\mathrm{P}$ — drop **Power Set** (8);
+- $X{-}\mathrm{Inf}$ — drop **Infinity** (7).
+
+Most of elementary mathematics can be carried out in $\mathrm{ZC}^{-}$. A minimal
+working fragment is **Basic Set Theory**:
+
+$$
+\mathrm{BST} \;=\; \text{Axioms } 1, 2, 3, 4, 5 \;+\; (6 \vee 8).
+$$

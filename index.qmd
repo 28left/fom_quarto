@@ -1,0 +1,26 @@
+---
+title: "Foundations of Mathematics"
+subtitle: "Math 558 · Penn State"
+format: html
+toc: false
+---
+
+A comparative study of the three dominant modern approaches to mathematical
+foundations: **set theory** (ZFC), **category theory**, and **type theory**
+(Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations).
+The course examines each framework on its own terms and then asks what it means
+to "found" mathematics at all.
+
+## Lecture slides
+
+- [1 · Some History and Setting the Stage](lectures/lec01.qmd) — Bolzano,
+  Dedekind, Cantor, Kronecker, Frege, Russell's paradox.
+- [2 · The Foundational Crisis](lectures/lec02.qmd) — paradoxes and consistency,
+  predicativity, the axiom of choice, intuitionism vs. Hilbert's program.
+
+## Notes
+
+- [3 · ZFC as a Foundational Theory](notes/zfc-as-a-foundation.qmd) — metatheory
+  vs. object theory, the finitistic standpoint, formalizing the metatheory
+  inside ZFC, and the axioms of ZFC. Follows Kunen, *The Foundations of
+  Mathematics*, §0.4 and §I.1–I.6.

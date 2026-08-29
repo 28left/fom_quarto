@@ -4,6 +4,7 @@ subtitle: "Week 1: Some History and Setting the Stage"
 author: "Jan Reimann"
 institute: "Penn State — Math 558"
 date: ""
+format: revealjs
 ---
 
 ## Where We're Going {.smaller}

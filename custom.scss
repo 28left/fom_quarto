@@ -27,3 +27,36 @@ $presentation-font-size-root: 32px;
   color: #666;
   text-align: center;
 }
+
+.reveal .box {
+  background: #E7E4D8;
+  border-radius: 6px;
+  padding: 0.6em 0.9em;
+  margin: 0.4em 0;
+}
+
+/* ---- Web pages (non-reveal) ---- */
+
+.box {
+  background: #E7E4D8;
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  margin: 1em 0;
+}
+
+main blockquote {
+  border-left: 4px solid #2980b9;
+  padding-left: 0.8em;
+  font-style: italic;
+}
+
+/* axiom / definition callouts on note pages */
+.axioms dt {
+  font-weight: 600;
+  margin-top: 0.6em;
+}
+
+.axioms dd {
+  margin-left: 0;
+  margin-bottom: 0.4em;
+}

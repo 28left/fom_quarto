@@ -1,0 +1,327 @@
+---
+title: "The Foundational Crisis"
+subtitle: "From Paradox to Program"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: revealjs
+---
+
+## Recap and Roadmap
+Last time: Dedekind & Cantor's existential, set-theoretic style of mathematics — and Russell's paradox, which broke Frege's comprehension principle.
+
+Today 
+
+- paradoxes and consistency, predicativity, the axiom of choice
+- Brouwer's intuitionism vs. Hilbert's program
+
+The question throughout: *what is a legitimate mathematical object, definition, or proof?*
+
+
+## The Comprehension Principle, Again
+
+Recall the principle that broke under Russell's paradox:
+
+$$
+\text{for any well-defined property } p,\ \text{there exists } \{x : p(x)\}
+$$
+
+- This was the *basis for the logicist understanding of set theory* — "naive" set theory
+- Not just Russell's paradox: **two families** of paradoxes emerged around 1900
+  - **set-theoretic** paradoxes (Burali-Forti, Cantor, Russell/Zermelo)
+  - **semantic** paradoxes (Richard, König, Grelling) — about truth and definability
+
+## The Set-Theoretic Paradoxes
+
+- **Burali-Forti (1897; Cantor 1896):** the set of all ordinals would itself be well-ordered, hence have an ordinal $>$ every ordinal in it — contradiction
+- **Cantor (1899):** the set of all cardinals leads to the same kind of contradiction
+- **Zermelo–Russell (1901–02):** let $p(x)$ be "$x \notin x$" and consider $R = \{x : x \notin x\}$
+
+Comprehension is contradictory in the *simplest possible way* — no need for a theory of the transfinite to state it.
+
+## Hilbert and Existence
+
+Hilbert abandoned logicism. He proposed working with axiom systems that comprise non-logical axioms. 
+
+This, however, requires a new kind of justification why the ojects we are trying to axiomatize exist.
+
+**Hilbert's proposal:**
+
+- A set of objects "exists" only if we can prove its defining axiom system **consistent**
+- *concept $\to$ set* becomes *consistency proof $\to$ legitimate existence*
+- Objects have a kind of **ideal existence** "in the realm of thought," not independent metaphysical existence
+<!-- - Task handed to **Zermelo**: axiomatize set theory as a *mathematical*, not logical, theory -->
+
+## Predicativity — Poincaré's Diagnosis
+
+When Frege's and Russell's paradoxes became widely known (1903), **Poincaré** offered his own culprit: **impredicative definitions**.
+
+> A definition is *impredicative* when it refers to a totality that already contains the very element being defined.
+
+- Example: **least upper bound** – defining the supremum involves quantifying over "all upper bounds," a set of real numbers, in order to pin down a particular real number. That real number is thus specified by reference to a totality it belongs to.<br>
+- Poincaré: this kind of circularity is exactly what licenses the paradoxes
+
+
+## Richard's Paradox (a Semantic Paradox) 
+
+- Only countably many reals are *definable* by a finite expression — list them $a_1, a_2, a_3, \dots$ (lexicographic order)
+- Define $r$: the $n$th decimal digit of $r$ differs from the $n$th digit of $a_n$
+- $r$ is not on the list — yet $r$ was just *defined*, in finitely many words!
+
+Poincaré's diagnosis: $r$'s definition refers to the totality of *all* definable numbers, of which $r$ is itself meant to be a member. Impredicative.
+
+## Two Responses to Impredicativity
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Zermelo — unconvinced**
+
+- Impredicative definitions are everywhere in classical analysis (e.g. least upper bound)
+- Harmless: the object isn't *created* by the definition, only *singled out* from what already exists
+:::
+
+::: {.column width="50%"}
+**Russell — convinced**
+
+- Adopts Poincaré's "vicious circle principle"
+- Builds a **theory of types**: objects stratified into levels; no set of "mixed" type
+- Result: *Principia Mathematica* (1910–13)
+:::
+
+::::
+
+## Where Predicativity Led 
+
+- Russell's *ramified* type theory needed extra ad hoc machinery (the axiom of **reducibility**) to recover ordinary mathematics
+- **Weyl**, in *Das Kontinuum* (1918), tried a leaner predicative foundation: accept classical logic and $\mathbb{N}$, but build the reals predicatively
+  - cost: $\mathbb{R}$ is no longer complete — the Bolzano–Weierstrass theorem fails
+- Predicative mathematics survives today as a serious *middle ground* between classical and constructive mathematics
+
+## Controversy on the Axiom of Choice
+
+**Zermelo (1904):** $\mathrm{AC} \implies$ every set — in particular $\mathbb{R}$ — can be **well-ordered**.
+
+- $\mathrm{AC}$: given any family of disjoint nonempty sets, a *choice set* exists containing one element from each
+- The proof gives **no explicit construction** of the well-ordering
+- Critics: $\mathrm{AC}$ merely *asserts* the choice set exists, without a defining property for it
+
+$\Rightarrow$ a deep debate followed, cutting across the logicism/predicativism divide.
+
+## From Controversy to Axiom System
+
+The AC debate spurred Zermelo to work out his **axiom system** for set theory (1908) — a careful, mathematical (not logical) analysis of Cantor's and Dedekind's set theory.
+
+- **Fraenkel & von Neumann** (1920s) add: **Replacement** and **Regularity**
+- **Weyl & Skolem**: formalize within **first-order logic** — quantify only over *sets*, not over *properties*
+
+$$
+\rightsquigarrow \quad \mathrm{ZF(C)}
+$$
+
+## What ZFC Codifies
+
+ZFC settles the early-1900s controversies by simply **building in** the modern, anti-Kroneckerian traits:
+
+- impredicative definitions — **allowed**
+- arbitrary functions and subsets — **allowed**
+- purely existential proofs — **allowed**
+
+::: {.box}
+The result: a working **"Platonistic" view** of mathematics — the objects a theory refers to are treated *as if* they exist independently of what a mathematician can explicitly define or construct.
+:::
+
+By the 1920s, Russell's (simplified) type theory and Zermelo's set theory had largely converged on this same methodology.
+
+## Summary - Response to the Paradoxes
+
+The paradoxes did **not** kill modern mathematics.
+
+- They forced a *clarification*: existence via **consistency**, not naive comprehension
+- Poincaré's predicativism and Russell's type theory tried to *restrain* the new methods
+- Zermelo's set theory — soon ZFC — *codified* the new methods instead.
+
+<!-- But not everyone was satisfied. A young Dutch mathematician was about to say so, loudly. -->
+
+## A New Kind of Critique
+
+**1921:** Weyl publishes a paper in the *Mathematische Zeitschrift* — a disciple of Hilbert's — openly siding with **Brouwer**, diagnosing a "crisis in the foundations."
+
+- Weyl's paper: deliberately a *propaganda pamphlet*, "to rouse the sleepers"
+- **Hilbert's reply**, same year: Brouwer and Weyl are attempting a **"putsch"** — a "dictatorship à la Kronecker"
+
+The foundational debate turns into open battle: Hilbert's classical mathematics vs. Brouwer's constructive "revolution."
+
+## What is Brouwer's "Revolution"? 
+
+Up to 1920, the debate concerned: real numbers, impredicativity, and the strong existential assumptions of set theory (esp. AC).
+
+Brouwer went further:
+<!-- — asking a question no one else had posed:
+
+> **Can one make legitimate use of "arbitrary subsets" at all?** -->
+
+- He put **classical logic itself** on trial: quantifiers over infinite domains, and the **principle of excluded middle** (PEM)
+- Poincaré, Klein, and others had said logic is not the whole of mathematics; Brouwer said mathematics is *prior to and independent of* logic and language altogether.
+
+## Intuitionism — First Principles
+
+- For Brouwer, mathematical objects are **mental constructions**; mathematics does not depend on language or logic to exist
+- Classical logic (including PEM) was abstracted from experience with **finite** sets — and wrongly extrapolated to infinite ones
+- PEM: $p \vee \neg p$ — "either $p$ or not $p$" — always holds, classically
+
+Brouwer's claim: this is *not* a law of thought, but an unjustified generalization.
+
+## The Constructive Standard
+
+<!-- **Classical:** to assert "$p$ or $q$," it suffices to derive a contradiction from $\neg p \wedge \neg q$.
+
+**Constructive:** to assert "$p$ or $q$," one must actually **give** a proof of $p$, or a proof of $q$. -->
+
+Consequence: **proof by contradiction is invalid**.
+
+- Classically: assume $\neg p$, derive a contradiction, conclude $p$
+- Constructively: this only shows $\neg\neg p$ — not the same as a *construction* of $p$
+
+<!-- ## A Concrete Failure of PEM
+
+**Catalan's constant:**
+$$
+K = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)^2}
+$$
+
+It is *not known* whether $K$ is transcendental.
+
+- No constructive proof that $K$ is transcendental — and no counterexample either
+- A constructivist will not assert "$K$ is transcendental, or $K$ is not" — PEM simply fails to apply here, *right now* -->
+
+## A Different Notion of Truth 
+
+For a constructivist:
+
+- "$p$ is **true**" means: we possess a proof of $p$ by stringent constructive methods
+- "$p$ is **false**" means: we possess a counterexample to $p$
+
+::: {.box}
+To a constructivist, the statement **"π is normal"** currently has *no truth value* — not true, not false, not "unknown-but-determinate." Truth is not timeless; it is made.
+:::
+
+<!-- (Still: **Gödel–Gentzen (1933)** show classical arithmetic is consistent *relative to* intuitionistic arithmetic — a small, surprising rapprochement.) -->
+
+## Rebuilding Analysis: Choice Sequences
+
+Brouwer (1918) replaces Cantorian sets with constructive substitutes: **spreads** and **species**.
+
+- A **choice sequence**: a sequence of rationals not required to be fully specified in advance
+  - may be generated by a fixed rule (e.g. Newton's method for $\sqrt 2$)
+  - or by choices the mathematician makes freely, *over time*, subject to constraints
+
+Intuitionistic mathematics is *"mathematics in the making"* — unlike the timeless, fully-determinate objects of classical analysis.
+
+## Spreads and a New Continuum
+
+- A **spread** is a law regulating which choice sequences are admissible — the basis for Brouwer's reconstruction of $\mathbb{R}$
+- The continuum becomes a genuinely **continuous domain**, not a set of pre-existing points
+  - an echo of Aristotle: the continuum is *not* made up of unextended points
+
+A function on a spread must be determined from a **finite initial segment** of any choice sequence — this has a startling consequence.
+
+## The Startling Consequence
+
+Every intuitionistically total function on $\mathbb{R}$ is (uniformly) **continuous**.
+
+- The classical step function
+$$
+f(x) = \begin{cases} 0 & x \leq 0 \\ 1 & x > 0 \end{cases}
+$$
+is **not a legitimate function** for Brouwer
+- Reason: deciding $x > 0$ vs. $x \leq 0$ is not always possible — not *decidable* from a finite stage of the sequence
+
+*(Anticipates the later, independent discovery that all computable real functions are continuous — Turing and others.)*
+
+## The Cost of Intuitionism
+
+Rebuilding analysis this way is hard. Weyl, who once championed Brouwer's program, wrote in 1925:
+
+> "The mathematician watches with pain the largest part of his towering theories dissolve into mist before his eyes."
+
+Brouwer himself, unfazed, replied (1933):
+
+> "The spheres of truth are less transparent than those of illusion."
+
+Weyl abandoned intuitionism shortly after. But Hilbert had another answer in mind.
+
+## Hilbert's Program
+
+Hilbert (1928): to **"eliminate from the world once and for all the skeptical doubts"** about classical mathematics.
+
+- Strategy: use **Kroneckerian** (finitary, constructive) means to justify **anti-Kroneckerian** (classical) methods
+- Key move: turn proofs into **formal, syntactic objects** — finite strings of symbols manipulated by explicit rules
+- A proof becomes something a **finitary, combinatorial** argument can reason *about*, from the outside — **metamathematics**
+
+## The Four Steps of the Program
+
+1. Find suitable **axioms and primitive concepts** for a theory $T$ (e.g. the real numbers)
+2. Find axioms and rules for **classical logic** — syntactic rules turning propositions into new propositions
+3. **Formalize** $T$: propositions become strings of symbols, proofs become sequences of strings obeying formal rules
+4. Give a **finitary** proof that no string expressing a contradiction can ever be the last line of a proof
+
+If (iv) succeeds for $T$: consistency is established by means even a strict finitist should accept.
+
+## Finitism: What Counts as "Given"
+
+Hilbert's answer to Poincaré's 1905 circularity worry (a consistency proof for arithmetic would need induction):
+
+- What is genuinely, intuitively given: **signs and formulas** themselves, as concrete finite objects
+- Metamathematical reasoning about them needs only a *very weak* form of induction — much weaker than full arithmetical induction
+- Finitary mathematics needs **no further justification** — it is where justification bottoms out
+
+## Progress and Limits (1920s) 
+
+- Propositional logic: proved **consistent and complete**
+- First-order (predicate) logic: proved **complete** — Gödel's dissertation, 1929
+- Ackermann, von Neumann: consistency results for **subsystems** of arithmetic (1928–1930)
+- By 1930 Hilbert believed full consistency of arithmetic was within reach
+
+A crucial hidden assumption: that the axiomatic systems in question would also be **complete**.
+
+## "Formalism" — a Slightly Misleading Name
+
+- The label comes from Hilbert's *method*: formalize a theory, study its formal proof-structure
+- But Hilbert did **not** think mathematics is a meaningless game with symbols
+  - he consistently stressed the *meaningfulness* of informal mathematical statements
+- Unlike intuitionism, formalism was never a full philosophy of mathematics — it was a **method** for justifying the classical one
+
+## A Personal Crisis, Too
+
+The dispute was not only intellectual.
+
+- Hilbert and Brouwer: strong-willed, brilliant, and deeply incompatible personalities
+- **1928:** Hilbert moves to remove Brouwer from the editorial board of *Mathematische Annalen*
+  - Einstein: the move is "unwise" and wants no part of it
+  - The board is dissolved and reconstituted without Brouwer — the journal loses Einstein and Carathéodory
+- Brouwer, disturbed, withdraws from the scene for years — as political tensions fade, so does the sense of "crisis"
+
+## Looking Ahead
+
+<br>
+<br>
+
+Hilbert's program looked to be within reach by 1930 — one more push on the consistency of arithmetic.
+
+<br>
+<br>
+
+Things turned out otherwise...
+<!-- Next time: **Gödel, 1931.**
+
+- Gödel's incompleteness theorems will show why that push could never succeed as planned
+- A "purely constructivist and even finitistic" result — respected by *all* parties to the debate
+
+## Takeaways {.smaller}
+
+- **Logicism** collapsed under its own comprehension principle; **set theory (ZFC)** absorbed and codified the modern, existential methodology instead
+- **Predicativity** (Poincaré, Weyl) and **intuitionism** (Brouwer) both restrict what counts as a legitimate mathematical object or proof — for different reasons, to different degrees
+- **Formalism** (Hilbert) tries to *justify* classical mathematics by finitary means, without restricting it
+
+> "When it comes to laying out the bare beginnings [of mathematics], philosophical issues cannot be avoided." — Ferreirós -->
