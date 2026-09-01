@@ -24,3 +24,6 @@ to "found" mathematics at all.
   vs. object theory, the finitistic standpoint, formalizing the metatheory
   inside ZFC, and the axioms of ZFC. Follows Kunen, *The Foundations of
   Mathematics*, §0.4 and §I.1–I.6.
+- [4 · First Consequences of the ZFC Axioms](notes/first-consequences.qmd) —
+  classes and proper classes, no universal set, the empty set, unordered and
+  ordered pairs, and building the first numbers with Union. Follows Kunen §I.6.

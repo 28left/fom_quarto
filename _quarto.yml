@@ -20,6 +20,8 @@ website:
         menu:
           - href: notes/zfc-as-a-foundation.qmd
             text: "3 · ZFC as a Foundational Theory"
+          - href: notes/first-consequences.qmd
+            text: "4 · First Consequences of the ZFC Axioms"
   page-footer:
     left: "Math 558 · Foundations of Mathematics · Penn State"
 

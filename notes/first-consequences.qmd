@@ -1,0 +1,233 @@
+---
+title: "First Consequences of the ZFC Axioms"
+subtitle: "Extensionality, Comprehension, Pairing, Union — classes, the empty set, pairs, and the first numbers"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.box}
+We take the axioms of [ZFC](zfc-as-a-foundation.qmd) as
+given and start deriving things — beginning with Axioms **1, 3, 4, 5**
+(Extensionality, Comprehension, Pairing, Union).
+:::
+
+## Extensionality and Comprehension
+
+**Axiom 1 (Extensionality).** A set is *completely determined by its elements*:
+
+$$
+\forall z\,(z \in x \leftrightarrow z \in y) \;\rightarrow\; x = y .
+$$
+
+This does more than it seems. It also fixes what our universe contains. If we
+allowed an object with no members that is *not* the empty set — a duck $D$ and a
+badger $B$, say — then $\forall z\,(z \in B \leftrightarrow z \in D)$ would hold
+vacuously, forcing $B = D = \varnothing$. So every object in our universe is a
+set, and hereditarily so: its members, their members, and so on are all sets.
+The universe of hereditary sets is informally called $V$.
+
+**Axiom 3 (Comprehension / Separation).** For each formula $\varphi$ (with $y$
+not free),
+
+$$
+\forall v\;\exists y\;\forall x\,\bigl(x \in y \leftrightarrow x \in v \wedge
+\varphi(x)\bigr).
+$$
+
+Subsets are *separated out of a set that already exists*. This restriction is
+the whole point, as the next section shows.
+
+## How Comprehension avoids Russell's paradox
+
+Naive comprehension — "for every property $Q$, the set $\{x : Q(x)\}$ exists" —
+is inconsistent. With $Q(x) \equiv x \notin x$ we get Russell's set $R$ and the
+contradiction $R \in R \leftrightarrow R \notin R$.
+
+Under Axiom 3 we may only form, relative to a set $v$,
+
+$$
+R_v \;=\; \{\,x \in v : x \notin x\,\}.
+$$
+
+Run Russell's argument on this. *If* $R_v \in v$, then $R_v \in R_v
+\leftrightarrow R_v \notin R_v$ — still a contradiction. The escape is that we
+are no longer forced into it: we simply conclude
+
+$$
+R_v \notin v .
+$$
+
+Since $v$ was arbitrary, every set omits some object, and there is no set of all
+sets:
+
+::: {.box}
+**Theorem (no universal set).** $\;\forall v\;\exists R\;(R \notin v).$
+:::
+
+Whether this is a *desirable* feature is a fair question — a foundation in which
+"the collection of all sets" is not itself an object can feel like a defect. It
+is better read as the price of consistency: the same restriction that blocks
+Russell blocks the universal set.
+
+## Formal definitions versus their metatheoretic meaning
+
+A defined symbol is introduced by a **purely symbolic** clause. For
+intersection:
+
+$$
+\mathrm{int}(a, b, y) \;:\Longleftrightarrow\;
+\forall x\,\bigl(x \in y \leftrightarrow (x \in a \wedge x \in b)\bigr).
+$$
+
+Informally we read $y = a \cap b$, but that reading lives in the metatheory.
+Before we are entitled to write the *term* $a \cap b$, we must check that it
+names exactly one set:
+
+::: {.box}
+**Lemma.** $\;\forall a, b\;\exists! y\;\mathrm{int}(a, b, y).$
+:::
+
+*Existence* is Comprehension applied to $v = a$ with $\varphi(x) \equiv x \in a
+\wedge x \in b$. *Uniqueness* is Extensionality: if $\mathrm{int}(a,b,y)$ and
+$\mathrm{int}(a,b,z)$, then $\forall x\,(x \in y \leftrightarrow x \in z)$, hence
+$y = z$.
+
+This is the standard pattern. We name an operation (or a constant) only after
+proving that the defining formula is satisfied by **exactly one** set — just as
+one proves $\sqrt{2}$ is the unique $y > 0$ with $y^2 = 2$ before using the
+notation.
+
+## Classes and the class-builder notation
+
+Let $\varphi(x)$ be any formula. Informally $\{x : \varphi(x)\}$ is a **class** —
+this is just notation.
+
+- **If** there is a set $A$ with $\forall x\,(x \in A \leftrightarrow
+  \varphi(x))$, then $A$ is unique by Extensionality; we write $A = \{x :
+  \varphi(x)\}$ and say the class **exists** (is a set).
+- **Otherwise** $\{x : \varphi(x)\}$ is a **proper class** — a figure of speech,
+  not an object.
+
+Two examples:
+
+$$
+\varphi(x) \equiv x \notin x
+\qquad\rightsquigarrow\qquad
+\mathrm{ZFC} \vdash \neg\exists y\,\forall x\,(x \in y \leftrightarrow x \notin
+x),
+$$
+
+so Russell's class is proper;
+
+$$
+\varphi(x) \equiv x = x
+\qquad\rightsquigarrow\qquad
+\neg\exists A\,\forall x\,(x \in A),
+$$
+
+so the **universal class** $V = \{x : x = x\}$ is proper. Saying "$V$ does not
+exist" is just another way of writing $\neg\exists A\,\forall x\,(x \in A)$;
+there is no more of a puzzle here than in "trolls do not exist."
+
+Finally, $\{x \in z : \varphi(x)\}$ abbreviates $\{x : x \in z \wedge
+\varphi(x)\}$, and Comprehension says **these always exist**.
+
+## Building sets from nothing
+
+### The empty set
+
+::: {.axioms}
+
+$\varnothing$
+:   the unique $y$ with $\forall z\,(z \notin y)$.
+
+:::
+
+*Existence*: take any set (Axiom 0) and apply Comprehension with an always-false
+$\varphi$, e.g. $x \neq x$. *Uniqueness*: Extensionality. At this point
+$\varnothing$ is the **only specific** set we have proved to exist.
+
+
+### Pairs
+
+Pairing gives $\exists z\,(x \in z \wedge y \in z)$; the $z$ may have other elements, so
+trim it with Comprehension to $\{w \in z : w = x \vee w = y\}$. This licenses:
+
+::: {.axioms}
+$\{x, y\} := \{w : w = x \vee w = y\}$
+
+$\{x\} := \{x, x\}$
+
+$\langle x, y \rangle = (x, y) := \bigl\{\{x\},\, \{x, y\}\bigr\}$
+:::
+
+The one property the ordered pair must have is
+
+$$
+\langle x, y \rangle = \langle x', y' \rangle \;\rightarrow\;
+x = x' \wedge y = y'
+$$
+
+(prove it by splitting into the cases $x = y$ and $x \neq y$). Any other
+definition with this property would serve equally well; the bracket notation
+$\langle\,\cdot\,,\cdot\,\rangle$ marks that we mean *this* one.
+
+We can now start counting:
+
+$$
+0 = \varnothing, \qquad
+1 = \{0\} = \{\varnothing\}, \qquad
+2 = \{0, 1\} = \bigl\{\varnothing, \{\varnothing\}\bigr\}.
+$$
+
+The axioms so far generate infinitely many different sets — for example, $\varnothing$, $\{\varnothing\}$,
+$\{\{\varnothing\}\}$, … — but **none with more than two elements**.
+
+### Union: getting bigger sets
+
+::: {.axioms}
+Axiom 5 — Union
+:   $\forall \mathcal{F}\;\exists A\;\forall Y\;\forall x\,
+    \bigl(x \in Y \wedge Y \in \mathcal{F} \;\rightarrow\; x \in A\bigr)$
+
+$\bigcup \mathcal{F} := \{x : \exists Y \in \mathcal{F}\;(x \in Y)\}$ — the members of members of
+    $\mathcal{F}$.
+    
+It exists: take $A$ from the axiom and separate
+    $\{x \in A : \exists Y \in \mathcal{F}\,(x \in Y)\}$.
+
+$u \cup v :=  \bigcup \{u, v\}$
+:::
+
+The axiom is stated for arbitrary families so that it covers **infinite** unions
+too, not just $u \cup v$.
+
+**Worked example: the number 3.** We have $0, 1, 2$. Then:
+
+1. $\{0, 1\}$ by Pairing;
+2. $\{2\} = \{2, 2\}$ by Pairing;
+3. $\mathcal{F} = \bigl\{\{0,1\},\, \{2\}\bigr\}$ by Pairing;
+4. $\bigcup \mathcal{F} = \{0, 1, 2\} =: 3$.
+
+Equivalently $3 = 2 \cup \{2\}$. In general the **successor** is
+
+$$
+S(x) = x \cup \{x\}, \qquad
+3 = S(2),\quad 4 = S(3),\quad \dots
+$$
+
+<!-- ## Where this is heading
+
+- **Infinity** (Axiom 7) provides a set containing $0$ and closed under $S$;
+  separating its $S$-closed part gives $\omega = \mathbb{N}$.
+- Family **intersection** $\bigcap \mathcal{F}$ (for $\mathcal{F} \neq
+  \varnothing$) needs no new axiom — Comprehension applied to any $E \in
+  \mathcal{F}$ suffices. Note $\bigcup \varnothing = \varnothing$, whereas
+  $\bigcap \varnothing$ would be $V$ and does not exist.
+
+As in Kunen's Remark I.3.2, once the axioms are in place the proofs are
+**informal**, as in the rest of mathematics; we derive what you already know
+about $\cup$, $\cap$, $\subseteq$ rather than re-verifying every step
+symbolically. -->
