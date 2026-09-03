@@ -1,0 +1,320 @@
+---
+title: "Relations and Functions"
+subtitle: "Relations, functions, Cartesian products via Replacement, isomorphism, quotients — and the object-theory/metatheory split"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.box}
+You have used relations
+(orderings) and functions all your life; the point here is to say what they
+*are* inside axiomatic set theory, and to notice where an extra axiom
+(Replacement) is needed to build them.
+:::
+
+## Relations
+
+**Definition (binary relation).** $R$ is a *(binary) relation* iff $R$ is a set
+of ordered pairs:
+
+$$
+\forall u \in R\;\exists x, y\;\bigl(u = \langle x, y\rangle\bigr).
+$$
+
+Here $\forall u \in R\,(\dots)$ is shorthand for $\forall u\,(u \in R
+\rightarrow \dots)$. We write
+
+$$
+x \mathbin{R} y \quad\text{for}\quad \langle x, y\rangle \in R,
+\qquad\qquad
+x \mathbin{\not\mathrel{R}} y \quad\text{for}\quad \langle x, y\rangle \notin R.
+$$
+
+The abbreviations $x \mathbin{R} y$ and $x \mathbin{\not\mathrel{R}} y$ are
+meaningful even when $R$ is not a relation — we will use this later.
+
+### Usual terminology
+
+Fix a set $A$. The following say what it means for $R$ to have a property *on
+$A$*; each is just an abbreviation, obtained by plugging $R$ into a formula.
+
+- **transitive:** $x \mathbin{R} y \wedge y \mathbin{R} z \rightarrow x \mathbin{R} z$
+- **reflexive / irreflexive:** $\forall x \in A\;(x \mathbin{R} x)$  /  $\forall x \in A\;(x \mathbin{\not\mathrel{R}} x)$
+- **trichotomy:** $\forall x, y \in A\;\bigl(x \mathbin{R} y \vee y \mathbin{R} x \vee x = y\bigr)$
+- **symmetric:** $x \mathbin{R} y \leftrightarrow y \mathbin{R} x$
+
+and the three composite notions we care about:
+
+::: {.axioms}
+
+$R$ (strictly) **partially orders** $A$
+:   $R$ is transitive and irreflexive on $A$.
+
+$R$ (strictly) **totally orders** $A$
+:   $R$ is transitive, irreflexive, and satisfies trichotomy on $A$.
+
+$R$ is an **equivalence relation** on $A$
+:   $R$ is transitive, reflexive, and symmetric on $A$.
+
+:::
+
+We take the *strict* $<$ as basic and read $x \le y$ as $x < y \vee x = y$. For
+example, $<$ on $\mathbb{Q}$ is a strict total order; $\le$ is not (it is not
+irreflexive).
+
+### Domain, range, restriction
+
+::: {.axioms}
+
+$\operatorname{dom}(R) := \{\,x : \exists y\,(\langle x, y\rangle \in R)\,\}$
+
+$\operatorname{ran}(R) := \{\,y : \exists x\,(\langle x, y\rangle \in R)\,\}$
+
+$R \restriction A := \{\,\langle x, y\rangle \in R : x \in A\,\}$
+
+:::
+
+The definitions are stated for an arbitrary set $R$, not only for
+relations. The restriction $R \restriction A$ is used mostly for functions.
+
+**Justification (these classes are sets).** Recall $\langle x, y\rangle =
+\bigl\{\{x\}, \{x, y\}\bigr\}$. So if $\langle x, y\rangle \in R$, then $\{x\}$
+and $\{x, y\}$ lie in $\bigcup R$, and hence $x, y \in \bigcup\bigcup R$.
+Comprehension then gives
+
+$$
+\operatorname{dom}(R) = \bigl\{\,x \in \textstyle\bigcup\bigcup R : \exists y\,(\langle x, y\rangle \in R)\,\bigr\},
+$$
+
+and similarly for $\operatorname{ran}(R)$. 
+
+
+## Functions
+
+**Definition (function).** $R$ is a *function* iff $R$ is a relation and for
+every $x \in \operatorname{dom}(R)$ there is a *unique* $y$ with $\langle x,
+y\rangle \in R$; that unique $y$ is written $R(x)$.
+
+::: {.axioms}
+
+$F : A \to B$: &emsp;  $F$ is a function with $\operatorname{dom}(F) = A$ and $\operatorname{ran}(F) \subseteq B$.
+
+$F : A \xrightarrow[\text{onto}]{} B$: &emsp;  $F : A \to B$ and $\operatorname{ran}(F) = B$  (a *surjection*).
+
+$F : A \xrightarrow{1\text{-}1} B$:  &emsp; $F : A \to B$ and $\forall x, x' \in A\;\bigl(F(x) = F(x') \rightarrow x = x'\bigr)$  (an *injection*).
+
+$F : A \xrightarrow[\text{onto}]{1\text{-}1} B$: &emsp;  both of the above  (a *bijection from $A$ onto $B$*).
+:::
+
+**Image of a set.**
+
+$$
+F(A) \;=\; F{}''A \;=\; \operatorname{ran}(F \restriction A).
+$$
+
+The notation $F(A)$ is standard but ambiguous when $A$ happens to be both a
+member and a subset of $\operatorname{dom}(F)$ — e.g. with $\operatorname{dom}(F)
+= 3 = \{0, 1, 2\}$, is $F(2)$ the value at $2$ or the image of $\{0, 1\}$? Write
+$F{}''A$ when this could be confused.
+
+## Building relations and functions
+
+The axioms used so far (Extensionality, Comprehension, Pairing, Union) do not
+let us build many relations. The obvious source is the **Cartesian product**
+
+$$
+A \times B \;=\; \{\,\langle x, y\rangle : x \in A \wedge y \in B\,\},
+$$
+
+after which any relation between $A$ and $B$ is a subset of $A \times B$, cut
+out by Comprehension. So everything reduces to: *does $A \times B$ exist?*
+
+### First method: Power Set
+
+If $x \in A$ and $y \in B$ then $\{x\}, \{x, y\} \subseteq A \cup B$, so
+$\langle x, y\rangle = \bigl\{\{x\}, \{x, y\}\bigr\} \in \mathcal{P}\bigl(\mathcal{P}(A \cup B)\bigr)$.
+Hence
+
+$$
+A \times B \;=\; \bigl\{\, w \in \mathcal{P}(\mathcal{P}(A \cup B)) : \exists x \in A\;\exists y \in B\;(w = \langle x, y\rangle)\,\bigr\}
+$$
+
+exists by Power Set (twice) and Comprehension.
+
+This works, but it is a little "wasteful" in terms of *cardinality*. The sets
+
+$$
+\{0\} \times \omega, \qquad
+\operatorname{id}_\omega = \{\,\langle x, x\rangle : x \in \omega\,\}
+$$
+
+have the same "size" as $\omega$, yet the justification above manufactures them
+as subsets of $\mathcal{P}(\mathcal{P}(\omega))$ — a set of size $2^{2^{\aleph_0}}$.
+We are invoking the existence of a huge set to produce a countable one.
+
+### Second method: Replacement
+
+::: {.box}
+**General method.** Suppose $\forall x \in A\;\exists! y\;\varphi(x, y)$. Then
+Replacement gives a set $B$ with $\forall x \in A\;\exists y \in B\;\varphi(x,
+y)$, and Comprehension trims it to $\{\,y \in B : \exists x \in A\;\varphi(x,
+y)\,\} = \{\,y : \exists x \in A\;\varphi(x, y)\,\}$. So *the image of a set
+under a definable single-valued relation is a set.*
+:::
+
+Apply this to build $A \times B$ without Power Set. Fix $b \in B$ and let
+
+$$
+\varphi(x, y) \;\equiv\; y = \langle x, b\rangle .
+$$
+
+Then $\forall x \in A\;\exists! y\;\varphi(x, y)$, so by Replacement +
+Comprehension the set
+
+$$
+A \times \{b\} \;=\; \{\,\langle x, b\rangle : x \in A\,\}
+$$
+
+exists. Applying Replacement again — now over $b \in B$ — gives
+
+$$
+S \;:=\; \bigl\{\, A \times \{b\} : b \in B\,\bigr\},
+$$
+
+and finally $A \times B = \bigcup S$ by Union.
+
+::: {.box}
+This argument never opened up $\langle x, b\rangle$; it used only that
+$\langle x, b\rangle$ is *some* set determined by $x$ and $b$. So it proves
+$A \times B$ (and also $\operatorname{dom}(R)$, $\operatorname{ran}(R)$)
+exist for **any** definition of the ordered pair.
+:::
+
+Packaging the general method as a statement about functions:
+
+::: {.axioms}
+**Lemma.** If $\forall x \in A\;\exists! y\;\varphi(x, y)$, then there is
+a function $f$ with $\operatorname{dom}(f) = A$ such that for each $x \in A$,
+$f(x)$ is the unique $y$ with $\varphi(x, y)$.
+:::
+
+*Proof.* Fix $B$ from Replacement and set $f = \{\,\langle x, y\rangle \in A
+\times B : \varphi(x, y)\,\}$. $\square$
+
+## Inverses, composition, isomorphism
+
+::: {.axioms}
+
+$R^{-1} := \{\,\langle y, x\rangle : \langle x, y\rangle \in R\,\}$
+:   a subset of $\operatorname{ran}(R) \times \operatorname{dom}(R)$. If $f$ is a
+    function, $f^{-1}$ is a function iff $f$ is $1$-$1$.
+
+$G \circ F := \{\,\langle x, z\rangle : \exists y\,(\langle x, y\rangle \in F \wedge \langle y, z\rangle \in G)\,\}$
+:   when $F, G$ are functions with $\operatorname{ran}(F) \subseteq
+    \operatorname{dom}(G)$, this is just $(G \circ F)(x) = G(F(x))$.
+
+:::
+
+**Isomorphism.** Let $R$ be a binary relation on $A$ and $S$ a binary relation
+on $B$. Then $F$ is an *isomorphism* from $(A, R)$ onto $(B, S)$ iff
+
+$$
+F : A \xrightarrow[\text{onto}]{1\text{-}1} B
+\qquad\text{and}\qquad
+\forall x, y \in A\;\bigl[\,x \mathbin{R} y \leftrightarrow F(x) \mathbin{S} F(y)\,\bigr].
+$$
+
+We write $(A, R) \cong (B, S)$ when such an $F$ exists. The definition makes
+sense for arbitrary relations; for now we use it for orderings.
+
+## Equivalence relations and quotients
+
+Let $R$ be an equivalence relation on a set $A$, and $x \in A$. Define
+
+$$
+[x] \;:=\; \{\,y \in A : x \mathbin{R} y\,\}
+\qquad\text{(Comprehension)},
+$$
+
+the *equivalence class* of $x$, and
+
+$$
+A / R \;:=\; \bigl\{\, [x] : x \in A\,\bigr\}.
+$$
+
+To see $A/R$ is a set, apply the general method with $\varphi(x, y) \equiv y =
+[x]$: by Lemma I.7.9 there is a function $f$ with $\operatorname{dom}(f) = A$
+and $f(x) = [x]$ — the **quotient map** $x \mapsto [x]$ — and then $A/R =
+\operatorname{ran}(f)$.
+
+This is the standard justification, in books on group theory and topology, for
+forming a quotient of a structure by an equivalence relation; the extra
+structure on $A/R$ is defined separately.
+
+## Object theory versus metatheory
+
+The informal notions "relation" and "function" get **two** representations in
+set theory: as *sets* (objects of the formal theory ZFC), and as *abbreviations*
+in the metatheory.
+
+### As sets
+
+A relation is a specific kind of set, handled inside ZFC. The defining property
+is a formula of the object theory — for example
+
+$$
+\operatorname{Rel}(R) \;:\equiv\; \forall u \in R\;\exists y, z\;\bigl(u = \langle y, z\rangle\bigr).
+$$
+
+We then prove facts *about* such sets as theorems of ZFC, e.g.
+
+$$
+\mathrm{ZFC} \;\vdash\; \operatorname{Rel}(R) \rightarrow \exists z\,\bigl(z = \operatorname{dom}(R)\bigr),
+$$
+
+using the justification given earlier. A concrete function such as $f = \{\langle
+1, 2\rangle, \langle 2, 2\rangle, \langle 3, 1\rangle\}$ is likewise a set
+formally defined in ZFC.
+
+### As abbreviations in the metatheory
+
+By contrast, $\in$, $=$, $\subseteq$ are *informal* relations — a different kind
+of animal. The "relation"
+
+$$
+S \;=\; \{\,p : \exists x, y\;(p = \langle x, y\rangle \wedge x \subseteq y)\,\}
+$$
+
+does **not** exist: it is a proper class, since $\operatorname{dom}(S)$ would be
+the universe $V$. We view $x \subseteq y$ instead as an abbreviation in the
+metatheory for $\forall z\,(z \in x \rightarrow z \in y)$; likewise $(A, R)
+\cong (B, S)$ abbreviates a longer statement. Membership and equality, $\in$ and
+$=$, are already primitive symbols.
+
+Many properties from the terminology list still make sense for such
+**pseudorelations**, by plugging them into the defining formula. For instance
+$\in$ totally orders $3 = \{0, 1, 2\}$ (i.e. $\forall x, y, z \in 3\,[x \in y
+\wedge y \in z \rightarrow x \in z]$, plus trichotomy), while $\subseteq$ is
+transitive on all of $V$ but not a total order of $3$, and $\in$ is not
+transitive on $V$ (since $0 \in \{0\} \in \{\{0\}\}$ but $0 \notin \{\{0\}\}$).
+
+Similarly for functions: $\bigcup : V \to V$ and $\mathcal{P} : V \to V$ are
+**pseudofunctions**. There is no set of pairs $\bigcup = \{\langle \mathcal{F},
+\bigcup \mathcal{F}\rangle : \mathcal{F} \in V\}$; instead there is a formula
+$\varphi(\mathcal{F}, Z)$ saying "$Z$ is the union of the members of
+$\mathcal{F}$", we prove $\forall \mathcal{F}\;\exists! Z\;\varphi(\mathcal{F},
+Z)$, and $\bigcup \mathcal{F}$ *denotes* that $Z$. Function properties still
+apply as abbreviations — e.g. "$\bigcup$ is not $1$-$1$" is the formula
+
+$$
+\exists x_1, x_2, y\;\bigl[\varphi(x_1, y) \wedge \varphi(x_2, y) \wedge x_1 \neq x_2\bigr].
+$$
+
+<!-- ### Sentences versus schemes
+
+Lemma I.7.9 is really a *theorem scheme*: one theorem of ZFC for each formula
+$\varphi(x, y)$. By contrast, a statement like "$\cong$ is an equivalence
+relation" (Kunen's Exercise I.7.18) unwinds to a *single* sentence provable from
+ZFC. -->

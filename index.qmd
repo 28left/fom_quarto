@@ -27,3 +27,7 @@ to "found" mathematics at all.
 - [4 · First Consequences of the ZFC Axioms](notes/first-consequences.qmd) —
   classes and proper classes, no universal set, the empty set, unordered and
   ordered pairs, and building the first numbers with Union. Follows Kunen §I.6.
+- [5 · Relations and Functions](notes/relations-and-functions.qmd) — relations
+  and their terminology, domain/range, functions, Cartesian products via
+  Replacement, isomorphism, quotients by an equivalence relation, and the
+  object-theory/metatheory split. Follows Kunen §I.7.1–I.7.2.
