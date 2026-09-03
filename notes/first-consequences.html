@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jan Reimann">
 
-<title>Foundations of Mathematics – Math 558 · Foundations of Mathematics</title>
+<title>First Consequences of the ZFC Axioms – Math 558 · Foundations of Mathematics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +30,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bad96e4dcbc378b98c04d7911bfa5ef5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bad96e4dcbc378b98c04d7911bfa5ef5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,17 +75,46 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Math 558 · Foundations of Mathematics</span>
     </a>
   </div>
@@ -95,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -104,11 +134,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-lecture-slides">    
         <li>
-    <a class="dropdown-item" href="./lectures/lec01.html">
+    <a class="dropdown-item" href="../lectures/lec01.html">
  <span class="dropdown-text">1 · Some History and Setting the Stage</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./lectures/lec02.html">
+    <a class="dropdown-item" href="../lectures/lec02.html">
  <span class="dropdown-text">2 · The Foundational Crisis</span></a>
   </li>  
     </ul>
@@ -119,15 +149,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
         <li>
-    <a class="dropdown-item" href="./notes/zfc-as-a-foundation.html">
+    <a class="dropdown-item" href="../notes/zfc-as-a-foundation.html">
  <span class="dropdown-text">3 · ZFC as a Foundational Theory</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./notes/first-consequences.html">
+    <a class="dropdown-item" href="../notes/first-consequences.html">
  <span class="dropdown-text">4 · First Consequences of the ZFC Axioms</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./notes/relations-and-functions.html">
+    <a class="dropdown-item" href="../notes/relations-and-functions.html">
  <span class="dropdown-text">5 · Relations and Functions</span></a>
   </li>  
     </ul>
@@ -148,21 +178,51 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#extensionality-and-comprehension" id="toc-extensionality-and-comprehension" class="nav-link active" data-scroll-target="#extensionality-and-comprehension">Extensionality and Comprehension</a></li>
+  <li><a href="#how-comprehension-avoids-russells-paradox" id="toc-how-comprehension-avoids-russells-paradox" class="nav-link" data-scroll-target="#how-comprehension-avoids-russells-paradox">How Comprehension avoids Russell’s paradox</a></li>
+  <li><a href="#formal-definitions-versus-their-metatheoretic-meaning" id="toc-formal-definitions-versus-their-metatheoretic-meaning" class="nav-link" data-scroll-target="#formal-definitions-versus-their-metatheoretic-meaning">Formal definitions versus their metatheoretic meaning</a></li>
+  <li><a href="#classes-and-the-class-builder-notation" id="toc-classes-and-the-class-builder-notation" class="nav-link" data-scroll-target="#classes-and-the-class-builder-notation">Classes and the class-builder notation</a></li>
+  <li><a href="#building-sets-from-nothing" id="toc-building-sets-from-nothing" class="nav-link" data-scroll-target="#building-sets-from-nothing">Building sets from nothing</a>
+  <ul class="collapse">
+  <li><a href="#the-empty-set" id="toc-the-empty-set" class="nav-link" data-scroll-target="#the-empty-set">The empty set</a></li>
+  <li><a href="#pairs" id="toc-pairs" class="nav-link" data-scroll-target="#pairs">Pairs</a></li>
+  <li><a href="#union-getting-bigger-sets" id="toc-union-getting-bigger-sets" class="nav-link" data-scroll-target="#union-getting-bigger-sets">Union: getting bigger sets</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Foundations of Mathematics</h1>
-<p class="subtitle lead">Math 558 · Penn State</p>
+<h1 class="title">First Consequences of the ZFC Axioms</h1>
+<p class="subtitle lead">Extensionality, Comprehension, Pairing, Union — classes, the empty set, pairs, and the first numbers</p>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -172,23 +232,161 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A comparative study of the three dominant modern approaches to mathematical foundations: <strong>set theory</strong> (ZFC), <strong>category theory</strong>, and <strong>type theory</strong> (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all.</p>
-<section id="lecture-slides" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-slides">Lecture slides</h2>
-<ul>
-<li><a href="./lectures/lec01.html">1 · Some History and Setting the Stage</a> — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.</li>
-<li><a href="./lectures/lec02.html">2 · The Foundational Crisis</a> — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs.&nbsp;Hilbert’s program.</li>
-</ul>
+<div class="box">
+<p>We take the axioms of <a href="../notes/zfc-as-a-foundation.html">ZFC</a> as given and start deriving things — beginning with Axioms <strong>1, 3, 4, 5</strong> (Extensionality, Comprehension, Pairing, Union).</p>
+</div>
+<section id="extensionality-and-comprehension" class="level2">
+<h2 class="anchored" data-anchor-id="extensionality-and-comprehension">Extensionality and Comprehension</h2>
+<p><strong>Axiom 1 (Extensionality).</strong> A set is <em>completely determined by its elements</em>:</p>
+<p><span class="math display">\[
+\forall z\,(z \in x \leftrightarrow z \in y) \;\rightarrow\; x = y .
+\]</span></p>
+<p>This does more than it seems. It also fixes what our universe contains. If we allowed an object with no members that is <em>not</em> the empty set — a duck <span class="math inline">\(D\)</span> and a badger <span class="math inline">\(B\)</span>, say — then <span class="math inline">\(\forall z\,(z \in B \leftrightarrow z \in D)\)</span> would hold vacuously, forcing <span class="math inline">\(B = D = \varnothing\)</span>. So every object in our universe is a set, and hereditarily so: its members, their members, and so on are all sets. The universe of hereditary sets is informally called <span class="math inline">\(V\)</span>.</p>
+<p><strong>Axiom 3 (Comprehension / Separation).</strong> For each formula <span class="math inline">\(\varphi\)</span> (with <span class="math inline">\(y\)</span> not free),</p>
+<p><span class="math display">\[
+\forall v\;\exists y\;\forall x\,\bigl(x \in y \leftrightarrow x \in v \wedge
+\varphi(x)\bigr).
+\]</span></p>
+<p>Subsets are <em>separated out of a set that already exists</em>. This restriction is the whole point, as the next section shows.</p>
 </section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<section id="how-comprehension-avoids-russells-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="how-comprehension-avoids-russells-paradox">How Comprehension avoids Russell’s paradox</h2>
+<p>Naive comprehension — “for every property <span class="math inline">\(Q\)</span>, the set <span class="math inline">\(\{x : Q(x)\}\)</span> exists” — is inconsistent. With <span class="math inline">\(Q(x) \equiv x \notin x\)</span> we get Russell’s set <span class="math inline">\(R\)</span> and the contradiction <span class="math inline">\(R \in R \leftrightarrow R \notin R\)</span>.</p>
+<p>Under Axiom 3 we may only form, relative to a set <span class="math inline">\(v\)</span>,</p>
+<p><span class="math display">\[
+R_v \;=\; \{\,x \in v : x \notin x\,\}.
+\]</span></p>
+<p>Run Russell’s argument on this. <em>If</em> <span class="math inline">\(R_v \in v\)</span>, then <span class="math inline">\(R_v \in R_v
+\leftrightarrow R_v \notin R_v\)</span> — still a contradiction. The escape is that we are no longer forced into it: we simply conclude</p>
+<p><span class="math display">\[
+R_v \notin v .
+\]</span></p>
+<p>Since <span class="math inline">\(v\)</span> was arbitrary, every set omits some object, and there is no set of all sets:</p>
+<div class="box">
+<p><strong>Theorem (no universal set).</strong> <span class="math inline">\(\;\forall v\;\exists R\;(R \notin v).\)</span></p>
+</div>
+<p>Whether this is a <em>desirable</em> feature is a fair question — a foundation in which “the collection of all sets” is not itself an object can feel like a defect. It is better read as the price of consistency: the same restriction that blocks Russell blocks the universal set.</p>
+</section>
+<section id="formal-definitions-versus-their-metatheoretic-meaning" class="level2">
+<h2 class="anchored" data-anchor-id="formal-definitions-versus-their-metatheoretic-meaning">Formal definitions versus their metatheoretic meaning</h2>
+<p>A defined symbol is introduced by a <strong>purely symbolic</strong> clause. For intersection:</p>
+<p><span class="math display">\[
+\mathrm{int}(a, b, y) \;:\Longleftrightarrow\;
+\forall x\,\bigl(x \in y \leftrightarrow (x \in a \wedge x \in b)\bigr).
+\]</span></p>
+<p>Informally we read <span class="math inline">\(y = a \cap b\)</span>, but that reading lives in the metatheory. Before we are entitled to write the <em>term</em> <span class="math inline">\(a \cap b\)</span>, we must check that it names exactly one set:</p>
+<div class="box">
+<p><strong>Lemma.</strong> <span class="math inline">\(\;\forall a, b\;\exists! y\;\mathrm{int}(a, b, y).\)</span></p>
+</div>
+<p><em>Existence</em> is Comprehension applied to <span class="math inline">\(v = a\)</span> with <span class="math inline">\(\varphi(x) \equiv x \in a
+\wedge x \in b\)</span>. <em>Uniqueness</em> is Extensionality: if <span class="math inline">\(\mathrm{int}(a,b,y)\)</span> and <span class="math inline">\(\mathrm{int}(a,b,z)\)</span>, then <span class="math inline">\(\forall x\,(x \in y \leftrightarrow x \in z)\)</span>, hence <span class="math inline">\(y = z\)</span>.</p>
+<p>This is the standard pattern. We name an operation (or a constant) only after proving that the defining formula is satisfied by <strong>exactly one</strong> set — just as one proves <span class="math inline">\(\sqrt{2}\)</span> is the unique <span class="math inline">\(y &gt; 0\)</span> with <span class="math inline">\(y^2 = 2\)</span> before using the notation.</p>
+</section>
+<section id="classes-and-the-class-builder-notation" class="level2">
+<h2 class="anchored" data-anchor-id="classes-and-the-class-builder-notation">Classes and the class-builder notation</h2>
+<p>Let <span class="math inline">\(\varphi(x)\)</span> be any formula. Informally <span class="math inline">\(\{x : \varphi(x)\}\)</span> is a <strong>class</strong> — this is just notation.</p>
 <ul>
-<li><a href="./notes/zfc-as-a-foundation.html">3 · ZFC as a Foundational Theory</a> — metatheory vs.&nbsp;object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC. Follows Kunen, <em>The Foundations of Mathematics</em>, §0.4 and §I.1–I.6.</li>
-<li><a href="./notes/first-consequences.html">4 · First Consequences of the ZFC Axioms</a> — classes and proper classes, no universal set, the empty set, unordered and ordered pairs, and building the first numbers with Union. Follows Kunen §I.6.</li>
-<li><a href="./notes/relations-and-functions.html">5 · Relations and Functions</a> — relations and their terminology, domain/range, functions, Cartesian products via Replacement, isomorphism, quotients by an equivalence relation, and the object-theory/metatheory split. Follows Kunen §I.7.1–I.7.2.</li>
+<li><strong>If</strong> there is a set <span class="math inline">\(A\)</span> with <span class="math inline">\(\forall x\,(x \in A \leftrightarrow
+\varphi(x))\)</span>, then <span class="math inline">\(A\)</span> is unique by Extensionality; we write <span class="math inline">\(A = \{x :
+\varphi(x)\}\)</span> and say the class <strong>exists</strong> (is a set).</li>
+<li><strong>Otherwise</strong> <span class="math inline">\(\{x : \varphi(x)\}\)</span> is a <strong>proper class</strong> — a figure of speech, not an object.</li>
 </ul>
+<p>Two examples:</p>
+<p><span class="math display">\[
+\varphi(x) \equiv x \notin x
+\qquad\rightsquigarrow\qquad
+\mathrm{ZFC} \vdash \neg\exists y\,\forall x\,(x \in y \leftrightarrow x \notin
+x),
+\]</span></p>
+<p>so Russell’s class is proper;</p>
+<p><span class="math display">\[
+\varphi(x) \equiv x = x
+\qquad\rightsquigarrow\qquad
+\neg\exists A\,\forall x\,(x \in A),
+\]</span></p>
+<p>so the <strong>universal class</strong> <span class="math inline">\(V = \{x : x = x\}\)</span> is proper. Saying “<span class="math inline">\(V\)</span> does not exist” is just another way of writing <span class="math inline">\(\neg\exists A\,\forall x\,(x \in A)\)</span>; there is no more of a puzzle here than in “trolls do not exist.”</p>
+<p>Finally, <span class="math inline">\(\{x \in z : \varphi(x)\}\)</span> abbreviates <span class="math inline">\(\{x : x \in z \wedge
+\varphi(x)\}\)</span>, and Comprehension says <strong>these always exist</strong>.</p>
+</section>
+<section id="building-sets-from-nothing" class="level2">
+<h2 class="anchored" data-anchor-id="building-sets-from-nothing">Building sets from nothing</h2>
+<section id="the-empty-set" class="level3">
+<h3 class="anchored" data-anchor-id="the-empty-set">The empty set</h3>
+<div class="axioms">
+<dl>
+<dt><span class="math inline">\(\varnothing\)</span></dt>
+<dd>
+the unique <span class="math inline">\(y\)</span> with <span class="math inline">\(\forall z\,(z \notin y)\)</span>.
+</dd>
+</dl>
+</div>
+<p><em>Existence</em>: take any set (Axiom 0) and apply Comprehension with an always-false <span class="math inline">\(\varphi\)</span>, e.g.&nbsp;<span class="math inline">\(x \neq x\)</span>. <em>Uniqueness</em>: Extensionality. At this point <span class="math inline">\(\varnothing\)</span> is the <strong>only specific</strong> set we have proved to exist.</p>
+</section>
+<section id="pairs" class="level3">
+<h3 class="anchored" data-anchor-id="pairs">Pairs</h3>
+<p>Pairing gives <span class="math inline">\(\exists z\,(x \in z \wedge y \in z)\)</span>; the <span class="math inline">\(z\)</span> may have other elements, so trim it with Comprehension to <span class="math inline">\(\{w \in z : w = x \vee w = y\}\)</span>. This licenses:</p>
+<div class="axioms">
+<p><span class="math inline">\(\{x, y\} := \{w : w = x \vee w = y\}\)</span></p>
+<p><span class="math inline">\(\{x\} := \{x, x\}\)</span></p>
+<p><span class="math inline">\(\langle x, y \rangle = (x, y) := \bigl\{\{x\},\, \{x, y\}\bigr\}\)</span></p>
+</div>
+<p>The one property the ordered pair must have is</p>
+<p><span class="math display">\[
+\langle x, y \rangle = \langle x', y' \rangle \;\rightarrow\;
+x = x' \wedge y = y'
+\]</span></p>
+<p>(prove it by splitting into the cases <span class="math inline">\(x = y\)</span> and <span class="math inline">\(x \neq y\)</span>). Any other definition with this property would serve equally well; the bracket notation <span class="math inline">\(\langle\,\cdot\,,\cdot\,\rangle\)</span> marks that we mean <em>this</em> one.</p>
+<p>We can now start counting:</p>
+<p><span class="math display">\[
+0 = \varnothing, \qquad
+1 = \{0\} = \{\varnothing\}, \qquad
+2 = \{0, 1\} = \bigl\{\varnothing, \{\varnothing\}\bigr\}.
+\]</span></p>
+<p>The axioms so far generate infinitely many different sets — for example, <span class="math inline">\(\varnothing\)</span>, <span class="math inline">\(\{\varnothing\}\)</span>, <span class="math inline">\(\{\{\varnothing\}\}\)</span>, … — but <strong>none with more than two elements</strong>.</p>
+</section>
+<section id="union-getting-bigger-sets" class="level3">
+<h3 class="anchored" data-anchor-id="union-getting-bigger-sets">Union: getting bigger sets</h3>
+<div class="axioms">
+<dl>
+<dt>Axiom 5 — Union</dt>
+<dd>
+<span class="math inline">\(\forall \mathcal{F}\;\exists A\;\forall Y\;\forall x\,
+\bigl(x \in Y \wedge Y \in \mathcal{F} \;\rightarrow\; x \in A\bigr)\)</span>
+</dd>
+</dl>
+<p><span class="math inline">\(\bigcup \mathcal{F} := \{x : \exists Y \in \mathcal{F}\;(x \in Y)\}\)</span> — the members of members of <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<p>It exists: take <span class="math inline">\(A\)</span> from the axiom and separate <span class="math inline">\(\{x \in A : \exists Y \in \mathcal{F}\,(x \in Y)\}\)</span>.</p>
+<p><span class="math inline">\(u \cup v :=  \bigcup \{u, v\}\)</span></p>
+</div>
+<p>The axiom is stated for arbitrary families so that it covers <strong>infinite</strong> unions too, not just <span class="math inline">\(u \cup v\)</span>.</p>
+<p><strong>Worked example: the number 3.</strong> We have <span class="math inline">\(0, 1, 2\)</span>. Then:</p>
+<ol type="1">
+<li><span class="math inline">\(\{0, 1\}\)</span> by Pairing;</li>
+<li><span class="math inline">\(\{2\} = \{2, 2\}\)</span> by Pairing;</li>
+<li><span class="math inline">\(\mathcal{F} = \bigl\{\{0,1\},\, \{2\}\bigr\}\)</span> by Pairing;</li>
+<li><span class="math inline">\(\bigcup \mathcal{F} = \{0, 1, 2\} =: 3\)</span>.</li>
+</ol>
+<p>Equivalently <span class="math inline">\(3 = 2 \cup \{2\}\)</span>. In general the <strong>successor</strong> is</p>
+<p><span class="math display">\[
+S(x) = x \cup \{x\}, \qquad
+3 = S(2),\quad 4 = S(3),\quad \dots
+\]</span></p>
+<!-- ## Where this is heading
+
+- **Infinity** (Axiom 7) provides a set containing $0$ and closed under $S$;
+  separating its $S$-closed part gives $\omega = \mathbb{N}$.
+- Family **intersection** $\bigcap \mathcal{F}$ (for $\mathcal{F} \neq
+  \varnothing$) needs no new axiom — Comprehension applied to any $E \in
+  \mathcal{F}$ suffices. Note $\bigcup \varnothing = \varnothing$, whereas
+  $\bigcap \varnothing$ would be $V$ and does not exist.
+
+As in Kunen's Remark I.3.2, once the axioms are in place the proofs are
+**informal**, as in the rest of mathematics; we derive what you already know
+about $\cup$, $\cap$, $\subseteq$ rather than re-verifying every step
+symbolically. -->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

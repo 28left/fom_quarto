@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jan Reimann">
 
-<title>ZFC as a Foundational Theory – Math 558 · Foundations of Mathematics</title>
+<title>Relations and Functions – Math 558 · Foundations of Mathematics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -183,27 +183,23 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#from-hilberts-program-to-a-working-foundation" id="toc-from-hilberts-program-to-a-working-foundation" class="nav-link active" data-scroll-target="#from-hilberts-program-to-a-working-foundation">From Hilbert’s program to a working foundation</a></li>
-  <li><a href="#metatheory-and-object-theory" id="toc-metatheory-and-object-theory" class="nav-link" data-scroll-target="#metatheory-and-object-theory">Metatheory and object theory</a>
+  <li><a href="#relations" id="toc-relations" class="nav-link active" data-scroll-target="#relations">Relations</a>
   <ul class="collapse">
-  <li><a href="#the-object-theory-is-formalized" id="toc-the-object-theory-is-formalized" class="nav-link" data-scroll-target="#the-object-theory-is-formalized">The object theory is <em>formalized</em></a></li>
-  <li><a href="#reasoning-in-the-metatheory" id="toc-reasoning-in-the-metatheory" class="nav-link" data-scroll-target="#reasoning-in-the-metatheory">Reasoning <em>in</em> the metatheory</a></li>
-  <li><a href="#a-finitistic-statement-and-a-non-statement" id="toc-a-finitistic-statement-and-a-non-statement" class="nav-link" data-scroll-target="#a-finitistic-statement-and-a-non-statement">A finitistic statement, and a non-statement</a></li>
+  <li><a href="#usual-terminology" id="toc-usual-terminology" class="nav-link" data-scroll-target="#usual-terminology">Usual terminology</a></li>
+  <li><a href="#domain-range-restriction" id="toc-domain-range-restriction" class="nav-link" data-scroll-target="#domain-range-restriction">Domain, range, restriction</a></li>
   </ul></li>
-  <li><a href="#the-foundational-loop-formalizing-the-metatheory" id="toc-the-foundational-loop-formalizing-the-metatheory" class="nav-link" data-scroll-target="#the-foundational-loop-formalizing-the-metatheory">The foundational loop: formalizing the metatheory</a>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#building-relations-and-functions" id="toc-building-relations-and-functions" class="nav-link" data-scroll-target="#building-relations-and-functions">Building relations and functions</a>
   <ul class="collapse">
-  <li><a href="#example-an-arithmetic-fact-and-its-formal-shadow" id="toc-example-an-arithmetic-fact-and-its-formal-shadow" class="nav-link" data-scroll-target="#example-an-arithmetic-fact-and-its-formal-shadow">Example: an arithmetic fact and its formal shadow</a></li>
+  <li><a href="#first-method-power-set" id="toc-first-method-power-set" class="nav-link" data-scroll-target="#first-method-power-set">First method: Power Set</a></li>
+  <li><a href="#second-method-replacement" id="toc-second-method-replacement" class="nav-link" data-scroll-target="#second-method-replacement">Second method: Replacement</a></li>
   </ul></li>
-  <li><a href="#zfc-as-a-foundational-theory" id="toc-zfc-as-a-foundational-theory" class="nav-link" data-scroll-target="#zfc-as-a-foundational-theory">ZFC as a foundational theory</a>
+  <li><a href="#inverses-composition-isomorphism" id="toc-inverses-composition-isomorphism" class="nav-link" data-scroll-target="#inverses-composition-isomorphism">Inverses, composition, isomorphism</a></li>
+  <li><a href="#equivalence-relations-and-quotients" id="toc-equivalence-relations-and-quotients" class="nav-link" data-scroll-target="#equivalence-relations-and-quotients">Equivalence relations and quotients</a></li>
+  <li><a href="#object-theory-versus-metatheory" id="toc-object-theory-versus-metatheory" class="nav-link" data-scroll-target="#object-theory-versus-metatheory">Object theory versus metatheory</a>
   <ul class="collapse">
-  <li><a href="#example-what-a-function-is" id="toc-example-what-a-function-is" class="nav-link" data-scroll-target="#example-what-a-function-is">Example: what a function <em>is</em></a></li>
-  <li><a href="#the-special-nature-of-the-zfc-axioms" id="toc-the-special-nature-of-the-zfc-axioms" class="nav-link" data-scroll-target="#the-special-nature-of-the-zfc-axioms">The special nature of the ZFC axioms</a></li>
-  <li><a href="#what-we-will-do" id="toc-what-we-will-do" class="nav-link" data-scroll-target="#what-we-will-do">What we will do</a></li>
-  </ul></li>
-  <li><a href="#the-axioms-of-zfc" id="toc-the-axioms-of-zfc" class="nav-link" data-scroll-target="#the-axioms-of-zfc">The axioms of ZFC</a>
-  <ul class="collapse">
-  <li><a href="#some-defined-symbols" id="toc-some-defined-symbols" class="nav-link" data-scroll-target="#some-defined-symbols">Some defined symbols</a></li>
-  <li><a href="#named-subsystems" id="toc-named-subsystems" class="nav-link" data-scroll-target="#named-subsystems">Named subsystems</a></li>
+  <li><a href="#as-sets" id="toc-as-sets" class="nav-link" data-scroll-target="#as-sets">As sets</a></li>
+  <li><a href="#as-abbreviations-in-the-metatheory" id="toc-as-abbreviations-in-the-metatheory" class="nav-link" data-scroll-target="#as-abbreviations-in-the-metatheory">As abbreviations in the metatheory</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -213,8 +209,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ZFC as a Foundational Theory</h1>
-<p class="subtitle lead">Metatheory, the finitistic standpoint, and the axioms</p>
+<h1 class="title">Relations and Functions</h1>
+<p class="subtitle lead">Relations, functions, Cartesian products via Replacement, isomorphism, quotients — and the object-theory/metatheory split</p>
 </div>
 
 
@@ -245,302 +241,212 @@ window.Quarto = {
 
 
 <div class="box">
-<p>These notes accompany Lecture 3. They expand the handwritten notes and follow Kunen, <em>The Foundations of Mathematics</em>, §0.4 and §I.1–I.6. Where Lecture 2 ended — Hilbert’s program — is where we begin.</p>
+<p>You have used relations (orderings) and functions all your life; the point here is to say what they <em>are</em> inside axiomatic set theory, and to notice where an extra axiom (Replacement) is needed to build them.</p>
 </div>
-<section id="from-hilberts-program-to-a-working-foundation" class="level2">
-<h2 class="anchored" data-anchor-id="from-hilberts-program-to-a-working-foundation">From Hilbert’s program to a working foundation</h2>
-<p>Hilbert’s response to the foundational crisis was <strong>formalism</strong>: not the claim that mathematics is a meaningless game with symbols, but a <em>method</em>. Take a mathematical theory, write its axioms in a formal language, and study its formal proof-structure with modest, uncontroversial means. This method forces a distinction that will organize everything that follows.</p>
-</section>
-<section id="metatheory-and-object-theory" class="level2">
-<h2 class="anchored" data-anchor-id="metatheory-and-object-theory">Metatheory and object theory</h2>
-<p>Formalism introduces a split between two levels of discourse.</p>
-<table class="caption-top table">
-<caption>The two levels</caption>
-<colgroup>
-<col style="width: 12%">
-<col style="width: 44%">
-<col style="width: 44%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Object theory</strong> (formal theory)</th>
-<th><strong>Metatheory</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Example</td>
-<td>a theory of arithmetic, or ZFC itself</td>
-<td>our reasoning <em>about</em> that theory</td>
-</tr>
-<tr class="even">
-<td>Status</td>
-<td>a combinatorial object: sets of symbols, strings, rules</td>
-<td>ordinary mathematical reasoning</td>
-</tr>
-<tr class="odd">
-<td>Language</td>
-<td>a fixed formal language, e.g.&nbsp;first-order logic</td>
-<td>informal natural language</td>
-</tr>
-<tr class="even">
-<td>“Proof”</td>
-<td>a finite symbolic derivation</td>
-<td>an intuitively convincing argument</td>
-</tr>
-</tbody>
-</table>
-<section id="the-object-theory-is-formalized" class="level3">
-<h3 class="anchored" data-anchor-id="the-object-theory-is-formalized">The object theory is <em>formalized</em></h3>
-<p>To say the object theory is formalized means two things:</p>
-<ul>
-<li>its axioms are expressed in a <strong>formal language</strong> (for us, first-order logic with <code>∈</code>);</li>
-<li>its theorems are <strong>deduced in a purely symbolic fashion</strong> — as Kleene put it, <em>like a list of chess moves written in chess notation</em>. Whether a string is a correct proof is decided by inspecting symbols, not by understanding meaning.</li>
-</ul>
-<p>A consequence Hilbert exploited: once proofs are finite strings manipulated by explicit rules, the <strong>combinatorics of proof becomes essentially elementary arithmetic</strong>. Reasoning about proofs is reasoning about finite syntactic objects.</p>
-</section>
-<section id="reasoning-in-the-metatheory" class="level3">
-<h3 class="anchored" data-anchor-id="reasoning-in-the-metatheory">Reasoning <em>in</em> the metatheory</h3>
-<p>The metatheory is where we actually work when we prove things <em>about</em> the formal system. That reasoning is:</p>
-<ul>
-<li><strong>informal</strong> — carried out in natural language;</li>
-<li><strong>intuitively clear and convincing</strong> — it must persuade without itself being formalized;</li>
-<li><strong>finitistic</strong> — close to elementary number theory. We do not treat infinite totalities as completed wholes unless they can be clearly and explicitly specified. In flavour this is the intuitionist / constructivist standpoint: an existence claim should come with a construction.</li>
-</ul>
-</section>
-<section id="a-finitistic-statement-and-a-non-statement" class="level3">
-<h3 class="anchored" data-anchor-id="a-finitistic-statement-and-a-non-statement">A finitistic statement, and a non-statement</h3>
-<p>Consider the claim</p>
+<section id="relations" class="level2">
+<h2 class="anchored" data-anchor-id="relations">Relations</h2>
+<p><strong>Definition (binary relation).</strong> <span class="math inline">\(R\)</span> is a <em>(binary) relation</em> iff <span class="math inline">\(R\)</span> is a set of ordered pairs:</p>
 <p><span class="math display">\[
-P \text{ and } \mathbb{N}\setminus P \text{ are both infinite,}
-\qquad P = \{\text{primes}\}.
+\forall u \in R\;\exists x, y\;\bigl(u = \langle x, y\rangle\bigr).
 \]</span></p>
-<p>This is a statement involving completed infinite sets (i.e.&nbsp;it is a statement about the natural numbers <em>as a whole</em>). But it can be <strong>rewritten finitistically</strong>:</p>
-<blockquote class="blockquote">
-<p>For every natural number <span class="math inline">\(n &gt; 1\)</span> there is a composite number <span class="math inline">\(c\)</span> with <span class="math inline">\(n &lt; c \le 2n\)</span>, and a prime <span class="math inline">\(p\)</span> with <span class="math inline">\(n &lt; p \le n! + 1\)</span>.</p>
-</blockquote>
-<p>Both witnesses are bounded (and even can be explicitely defined). This is the kind of fact the metatheory is entitled to assert.</p>
-<p>Contrast this with</p>
+<p>Here <span class="math inline">\(\forall u \in R\,(\dots)\)</span> is shorthand for <span class="math inline">\(\forall u\,(u \in R
+\rightarrow \dots)\)</span>. We write</p>
 <p><span class="math display">\[
-|\mathbb{R}| = |\mathbb{C}|,
+x \mathbin{R} y \quad\text{for}\quad \langle x, y\rangle \in R,
+\qquad\qquad
+x \mathbin{\not\mathrel{R}} y \quad\text{for}\quad \langle x, y\rangle \notin R.
 \]</span></p>
-<p>which is <strong>meaningless in the metatheory</strong> — it is a statement about the cardinality of uncountable sets, with no finitistic content. It only makes sense <em>inside</em> an object theory such as ZFC.</p>
+<p>The abbreviations <span class="math inline">\(x \mathbin{R} y\)</span> and <span class="math inline">\(x \mathbin{\not\mathrel{R}} y\)</span> are meaningful even when <span class="math inline">\(R\)</span> is not a relation — we will use this later.</p>
+<section id="usual-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="usual-terminology">Usual terminology</h3>
+<p>Fix a set <span class="math inline">\(A\)</span>. The following say what it means for <span class="math inline">\(R\)</span> to have a property <em>on <span class="math inline">\(A\)</span></em>; each is just an abbreviation, obtained by plugging <span class="math inline">\(R\)</span> into a formula.</p>
+<ul>
+<li><strong>transitive:</strong> <span class="math inline">\(x \mathbin{R} y \wedge y \mathbin{R} z \rightarrow x \mathbin{R} z\)</span></li>
+<li><strong>reflexive / irreflexive:</strong> <span class="math inline">\(\forall x \in A\;(x \mathbin{R} x)\)</span> / <span class="math inline">\(\forall x \in A\;(x \mathbin{\not\mathrel{R}} x)\)</span></li>
+<li><strong>trichotomy:</strong> <span class="math inline">\(\forall x, y \in A\;\bigl(x \mathbin{R} y \vee y \mathbin{R} x \vee x = y\bigr)\)</span></li>
+<li><strong>symmetric:</strong> <span class="math inline">\(x \mathbin{R} y \leftrightarrow y \mathbin{R} x\)</span></li>
+</ul>
+<p>and the three composite notions we care about:</p>
+<div class="axioms">
+<dl>
+<dt><span class="math inline">\(R\)</span> (strictly) <strong>partially orders</strong> <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive and irreflexive on <span class="math inline">\(A\)</span>.
+</dd>
+<dt><span class="math inline">\(R\)</span> (strictly) <strong>totally orders</strong> <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive, irreflexive, and satisfies trichotomy on <span class="math inline">\(A\)</span>.
+</dd>
+<dt><span class="math inline">\(R\)</span> is an <strong>equivalence relation</strong> on <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive, reflexive, and symmetric on <span class="math inline">\(A\)</span>.
+</dd>
+</dl>
+</div>
+<p>We take the <em>strict</em> <span class="math inline">\(&lt;\)</span> as basic and read <span class="math inline">\(x \le y\)</span> as <span class="math inline">\(x &lt; y \vee x = y\)</span>. For example, <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(\mathbb{Q}\)</span> is a strict total order; <span class="math inline">\(\le\)</span> is not (it is not irreflexive).</p>
+</section>
+<section id="domain-range-restriction" class="level3">
+<h3 class="anchored" data-anchor-id="domain-range-restriction">Domain, range, restriction</h3>
+<div class="axioms">
+<p><span class="math inline">\(\operatorname{dom}(R) := \{\,x : \exists y\,(\langle x, y\rangle \in R)\,\}\)</span></p>
+<p><span class="math inline">\(\operatorname{ran}(R) := \{\,y : \exists x\,(\langle x, y\rangle \in R)\,\}\)</span></p>
+<p><span class="math inline">\(R \restriction A := \{\,\langle x, y\rangle \in R : x \in A\,\}\)</span></p>
+</div>
+<p>The definitions are stated for an arbitrary set <span class="math inline">\(R\)</span>, not only for relations. The restriction <span class="math inline">\(R \restriction A\)</span> is used mostly for functions.</p>
+<p><strong>Justification (these classes are sets).</strong> Recall <span class="math inline">\(\langle x, y\rangle =
+\bigl\{\{x\}, \{x, y\}\bigr\}\)</span>. So if <span class="math inline">\(\langle x, y\rangle \in R\)</span>, then <span class="math inline">\(\{x\}\)</span> and <span class="math inline">\(\{x, y\}\)</span> lie in <span class="math inline">\(\bigcup R\)</span>, and hence <span class="math inline">\(x, y \in \bigcup\bigcup R\)</span>. Comprehension then gives</p>
+<p><span class="math display">\[
+\operatorname{dom}(R) = \bigl\{\,x \in \textstyle\bigcup\bigcup R : \exists y\,(\langle x, y\rangle \in R)\,\bigr\},
+\]</span></p>
+<p>and similarly for <span class="math inline">\(\operatorname{ran}(R)\)</span>.</p>
 </section>
 </section>
-<section id="the-foundational-loop-formalizing-the-metatheory" class="level2">
-<h2 class="anchored" data-anchor-id="the-foundational-loop-formalizing-the-metatheory">The foundational loop: formalizing the metatheory</h2>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p><strong>Definition (function).</strong> <span class="math inline">\(R\)</span> is a <em>function</em> iff <span class="math inline">\(R\)</span> is a relation and for every <span class="math inline">\(x \in \operatorname{dom}(R)\)</span> there is a <em>unique</em> <span class="math inline">\(y\)</span> with <span class="math inline">\(\langle x,
+y\rangle \in R\)</span>; that unique <span class="math inline">\(y\)</span> is written <span class="math inline">\(R(x)\)</span>.</p>
+<div class="axioms">
+<p><span class="math inline">\(F : A \to B\)</span>:   <span class="math inline">\(F\)</span> is a function with <span class="math inline">\(\operatorname{dom}(F) = A\)</span> and <span class="math inline">\(\operatorname{ran}(F) \subseteq B\)</span>.</p>
+<p><span class="math inline">\(F : A \xrightarrow[\text{onto}]{} B\)</span>:   <span class="math inline">\(F : A \to B\)</span> and <span class="math inline">\(\operatorname{ran}(F) = B\)</span> (a <em>surjection</em>).</p>
+<p><span class="math inline">\(F : A \xrightarrow{1\text{-}1} B\)</span>:   <span class="math inline">\(F : A \to B\)</span> and <span class="math inline">\(\forall x, x' \in A\;\bigl(F(x) = F(x') \rightarrow x = x'\bigr)\)</span> (an <em>injection</em>).</p>
+<p><span class="math inline">\(F : A \xrightarrow[\text{onto}]{1\text{-}1} B\)</span>:   both of the above (a <em>bijection from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span></em>).</p>
+</div>
+<p><strong>Image of a set.</strong></p>
+<p><span class="math display">\[
+F(A) \;=\; F{}''A \;=\; \operatorname{ran}(F \restriction A).
+\]</span></p>
+<p>The notation <span class="math inline">\(F(A)\)</span> is standard but ambiguous when <span class="math inline">\(A\)</span> happens to be both a member and a subset of <span class="math inline">\(\operatorname{dom}(F)\)</span> — e.g.&nbsp;with <span class="math inline">\(\operatorname{dom}(F)
+= 3 = \{0, 1, 2\}\)</span>, is <span class="math inline">\(F(2)\)</span> the value at <span class="math inline">\(2\)</span> or the image of <span class="math inline">\(\{0, 1\}\)</span>? Write <span class="math inline">\(F{}''A\)</span> when this could be confused.</p>
+</section>
+<section id="building-relations-and-functions" class="level2">
+<h2 class="anchored" data-anchor-id="building-relations-and-functions">Building relations and functions</h2>
+<p>The axioms used so far (Extensionality, Comprehension, Pairing, Union) do not let us build many relations. The obvious source is the <strong>Cartesian product</strong></p>
+<p><span class="math display">\[
+A \times B \;=\; \{\,\langle x, y\rangle : x \in A \wedge y \in B\,\},
+\]</span></p>
+<p>after which any relation between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is a subset of <span class="math inline">\(A \times B\)</span>, cut out by Comprehension. So everything reduces to: <em>does <span class="math inline">\(A \times B\)</span> exist?</em></p>
+<section id="first-method-power-set" class="level3">
+<h3 class="anchored" data-anchor-id="first-method-power-set">First method: Power Set</h3>
+<p>If <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(\{x\}, \{x, y\} \subseteq A \cup B\)</span>, so <span class="math inline">\(\langle x, y\rangle = \bigl\{\{x\}, \{x, y\}\bigr\} \in \mathcal{P}\bigl(\mathcal{P}(A \cup B)\bigr)\)</span>. Hence</p>
+<p><span class="math display">\[
+A \times B \;=\; \bigl\{\, w \in \mathcal{P}(\mathcal{P}(A \cup B)) : \exists x \in A\;\exists y \in B\;(w = \langle x, y\rangle)\,\bigr\}
+\]</span></p>
+<p>exists by Power Set (twice) and Comprehension.</p>
+<p>This works, but it is a little “wasteful” in terms of <em>cardinality</em>. The sets</p>
+<p><span class="math display">\[
+\{0\} \times \omega, \qquad
+\operatorname{id}_\omega = \{\,\langle x, x\rangle : x \in \omega\,\}
+\]</span></p>
+<p>have the same “size” as <span class="math inline">\(\omega\)</span>, yet the justification above manufactures them as subsets of <span class="math inline">\(\mathcal{P}(\mathcal{P}(\omega))\)</span> — a set of size <span class="math inline">\(2^{2^{\aleph_0}}\)</span>. We are invoking the existence of a huge set to produce a countable one.</p>
+</section>
+<section id="second-method-replacement" class="level3">
+<h3 class="anchored" data-anchor-id="second-method-replacement">Second method: Replacement</h3>
 <div class="box">
-<p>For a <em>foundational</em> theory such as ZFC, the formal (object) theory should be strong enough to <strong>formalize its own metatheory</strong>. Otherwise the reasoning we use to study ZFC would sit outside the foundation ZFC claims to provide.</p>
+<p><strong>General method.</strong> Suppose <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>. Then Replacement gives a set <span class="math inline">\(B\)</span> with <span class="math inline">\(\forall x \in A\;\exists y \in B\;\varphi(x,
+y)\)</span>, and Comprehension trims it to <span class="math inline">\(\{\,y \in B : \exists x \in A\;\varphi(x,
+y)\,\} = \{\,y : \exists x \in A\;\varphi(x, y)\,\}\)</span>. So <em>the image of a set under a definable single-valued relation is a set.</em></p>
 </div>
-<p>This motivates a thesis about ZFC — a property we would <em>want</em> a foundation to have:</p>
+<p>Apply this to build <span class="math inline">\(A \times B\)</span> without Power Set. Fix <span class="math inline">\(b \in B\)</span> and let</p>
+<p><span class="math display">\[
+\varphi(x, y) \;\equiv\; y = \langle x, b\rangle .
+\]</span></p>
+<p>Then <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>, so by Replacement + Comprehension the set</p>
+<p><span class="math display">\[
+A \times \{b\} \;=\; \{\,\langle x, b\rangle : x \in A\,\}
+\]</span></p>
+<p>exists. Applying Replacement again — now over <span class="math inline">\(b \in B\)</span> — gives</p>
+<p><span class="math display">\[
+S \;:=\; \bigl\{\, A \times \{b\} : b \in B\,\bigr\},
+\]</span></p>
+<p>and finally <span class="math inline">\(A \times B = \bigcup S\)</span> by Union.</p>
 <div class="box">
-<p><strong>Thesis.</strong> Every finitistic fact can be formalized and proved within ZFC.</p>
+<p>This argument never opened up <span class="math inline">\(\langle x, b\rangle\)</span>; it used only that <span class="math inline">\(\langle x, b\rangle\)</span> is <em>some</em> set determined by <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span>. So it proves <span class="math inline">\(A \times B\)</span> (and also <span class="math inline">\(\operatorname{dom}(R)\)</span>, <span class="math inline">\(\operatorname{ran}(R)\)</span>) exist for <strong>any</strong> definition of the ordered pair.</p>
 </div>
-<p>Making this precise takes care, because most everyday mathematical statements are <strong>not literally in the language of ZFC</strong>. For instance</p>
+<p>Packaging the general method as a statement about functions:</p>
+<div class="axioms">
+<p><strong>Lemma.</strong> If <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>, then there is a function <span class="math inline">\(f\)</span> with <span class="math inline">\(\operatorname{dom}(f) = A\)</span> such that for each <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(f(x)\)</span> is the unique <span class="math inline">\(y\)</span> with <span class="math inline">\(\varphi(x, y)\)</span>.</p>
+</div>
+<p><em>Proof.</em> Fix <span class="math inline">\(B\)</span> from Replacement and set <span class="math inline">\(f = \{\,\langle x, y\rangle \in A
+\times B : \varphi(x, y)\,\}\)</span>. <span class="math inline">\(\square\)</span></p>
+</section>
+</section>
+<section id="inverses-composition-isomorphism" class="level2">
+<h2 class="anchored" data-anchor-id="inverses-composition-isomorphism">Inverses, composition, isomorphism</h2>
+<div class="axioms">
+<dl>
+<dt><span class="math inline">\(R^{-1} := \{\,\langle y, x\rangle : \langle x, y\rangle \in R\,\}\)</span></dt>
+<dd>
+a subset of <span class="math inline">\(\operatorname{ran}(R) \times \operatorname{dom}(R)\)</span>. If <span class="math inline">\(f\)</span> is a function, <span class="math inline">\(f^{-1}\)</span> is a function iff <span class="math inline">\(f\)</span> is <span class="math inline">\(1\)</span>-<span class="math inline">\(1\)</span>.
+</dd>
+<dt><span class="math inline">\(G \circ F := \{\,\langle x, z\rangle : \exists y\,(\langle x, y\rangle \in F \wedge \langle y, z\rangle \in G)\,\}\)</span></dt>
+<dd>
+when <span class="math inline">\(F, G\)</span> are functions with <span class="math inline">\(\operatorname{ran}(F) \subseteq
+\operatorname{dom}(G)\)</span>, this is just <span class="math inline">\((G \circ F)(x) = G(F(x))\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Isomorphism.</strong> Let <span class="math inline">\(R\)</span> be a binary relation on <span class="math inline">\(A\)</span> and <span class="math inline">\(S\)</span> a binary relation on <span class="math inline">\(B\)</span>. Then <span class="math inline">\(F\)</span> is an <em>isomorphism</em> from <span class="math inline">\((A, R)\)</span> onto <span class="math inline">\((B, S)\)</span> iff</p>
 <p><span class="math display">\[
-\forall x \in \mathbb{R}\;\bigl(x^{3}\cdot x^{5} = x^{8}\bigr)
+F : A \xrightarrow[\text{onto}]{1\text{-}1} B
+\qquad\text{and}\qquad
+\forall x, y \in A\;\bigl[\,x \mathbin{R} y \leftrightarrow F(x) \mathbin{S} F(y)\,\bigr].
 \]</span></p>
-<p>uses <span class="math inline">\(\mathbb{R}\)</span>, multiplication, and exponentiation — none of which are primitive symbols of a language whose only non-logical symbol is <code>∈</code>. Such statements enter ZFC through <strong>codings / representations</strong>.</p>
-<section id="example-an-arithmetic-fact-and-its-formal-shadow" class="level3">
-<h3 class="anchored" data-anchor-id="example-an-arithmetic-fact-and-its-formal-shadow">Example: an arithmetic fact and its formal shadow</h3>
-<p>“<span class="math inline">\(2 + 8 = 10\)</span>” is a fact of the metatheory. Inside ZFC we find:</p>
-<ul>
-<li>a <strong>representation</strong> of each natural number as a specific set — write <span class="math inline">\(\ulcorner 2 \urcorner\)</span>, <span class="math inline">\(\ulcorner 8 \urcorner\)</span>, <span class="math inline">\(\ulcorner 10 \urcorner\)</span>;</li>
-<li>a <strong>defined binary function symbol</strong> <span class="math inline">\(+\)</span> for addition of such representations;</li>
-</ul>
-<p>and then we can <em>prove</em></p>
+<p>We write <span class="math inline">\((A, R) \cong (B, S)\)</span> when such an <span class="math inline">\(F\)</span> exists. The definition makes sense for arbitrary relations; for now we use it for orderings.</p>
+</section>
+<section id="equivalence-relations-and-quotients" class="level2">
+<h2 class="anchored" data-anchor-id="equivalence-relations-and-quotients">Equivalence relations and quotients</h2>
+<p>Let <span class="math inline">\(R\)</span> be an equivalence relation on a set <span class="math inline">\(A\)</span>, and <span class="math inline">\(x \in A\)</span>. Define</p>
 <p><span class="math display">\[
-\mathrm{ZFC} \;\vdash\; \ulcorner 2 \urcorner + \ulcorner 8 \urcorner
-= \ulcorner 10 \urcorner .
+[x] \;:=\; \{\,y \in A : x \mathbin{R} y\,\}
+\qquad\text{(Comprehension)},
 \]</span></p>
-<p>The metatheoretic fact and its formal counterpart are different objects; the thesis says the second always tracks the first.</p>
-<!-- ### Symbolic entities live in the hereditarily finite sets
+<p>the <em>equivalence class</em> of <span class="math inline">\(x\)</span>, and</p>
+<p><span class="math display">\[
+A / R \;:=\; \bigl\{\, [x] : x \in A\,\bigr\}.
+\]</span></p>
+<p>To see <span class="math inline">\(A/R\)</span> is a set, apply the general method with <span class="math inline">\(\varphi(x, y) \equiv y =
+[x]\)</span>: by Lemma I.7.9 there is a function <span class="math inline">\(f\)</span> with <span class="math inline">\(\operatorname{dom}(f) = A\)</span> and <span class="math inline">\(f(x) = [x]\)</span> — the <strong>quotient map</strong> <span class="math inline">\(x \mapsto [x]\)</span> — and then <span class="math inline">\(A/R =
+\operatorname{ran}(f)\)</span>.</p>
+<p>This is the standard justification, in books on group theory and topology, for forming a quotient of a structure by an equivalence relation; the extra structure on <span class="math inline">\(A/R\)</span> is defined separately.</p>
+</section>
+<section id="object-theory-versus-metatheory" class="level2">
+<h2 class="anchored" data-anchor-id="object-theory-versus-metatheory">Object theory versus metatheory</h2>
+<p>The informal notions “relation” and “function” get <strong>two</strong> representations in set theory: as <em>sets</em> (objects of the formal theory ZFC), and as <em>abbreviations</em> in the metatheory.</p>
+<section id="as-sets" class="level3">
+<h3 class="anchored" data-anchor-id="as-sets">As sets</h3>
+<p>A relation is a specific kind of set, handled inside ZFC. The defining property is a formula of the object theory — for example</p>
+<p><span class="math display">\[
+\operatorname{Rel}(R) \;:\equiv\; \forall u \in R\;\exists y, z\;\bigl(u = \langle y, z\rangle\bigr).
+\]</span></p>
+<p>We then prove facts <em>about</em> such sets as theorems of ZFC, e.g.</p>
+<p><span class="math display">\[
+\mathrm{ZFC} \;\vdash\; \operatorname{Rel}(R) \rightarrow \exists z\,\bigl(z = \operatorname{dom}(R)\bigr),
+\]</span></p>
+<p>using the justification given earlier. A concrete function such as <span class="math inline">\(f = \{\langle
+1, 2\rangle, \langle 2, 2\rangle, \langle 3, 1\rangle\}\)</span> is likewise a set formally defined in ZFC.</p>
+</section>
+<section id="as-abbreviations-in-the-metatheory" class="level3">
+<h3 class="anchored" data-anchor-id="as-abbreviations-in-the-metatheory">As abbreviations in the metatheory</h3>
+<p>By contrast, <span class="math inline">\(\in\)</span>, <span class="math inline">\(=\)</span>, <span class="math inline">\(\subseteq\)</span> are <em>informal</em> relations — a different kind of animal. The “relation”</p>
+<p><span class="math display">\[
+S \;=\; \{\,p : \exists x, y\;(p = \langle x, y\rangle \wedge x \subseteq y)\,\}
+\]</span></p>
+<p>does <strong>not</strong> exist: it is a proper class, since <span class="math inline">\(\operatorname{dom}(S)\)</span> would be the universe <span class="math inline">\(V\)</span>. We view <span class="math inline">\(x \subseteq y\)</span> instead as an abbreviation in the metatheory for <span class="math inline">\(\forall z\,(z \in x \rightarrow z \in y)\)</span>; likewise <span class="math inline">\((A, R)
+\cong (B, S)\)</span> abbreviates a longer statement. Membership and equality, <span class="math inline">\(\in\)</span> and <span class="math inline">\(=\)</span>, are already primitive symbols.</p>
+<p>Many properties from the terminology list still make sense for such <strong>pseudorelations</strong>, by plugging them into the defining formula. For instance <span class="math inline">\(\in\)</span> totally orders <span class="math inline">\(3 = \{0, 1, 2\}\)</span> (i.e.&nbsp;<span class="math inline">\(\forall x, y, z \in 3\,[x \in y
+\wedge y \in z \rightarrow x \in z]\)</span>, plus trichotomy), while <span class="math inline">\(\subseteq\)</span> is transitive on all of <span class="math inline">\(V\)</span> but not a total order of <span class="math inline">\(3\)</span>, and <span class="math inline">\(\in\)</span> is not transitive on <span class="math inline">\(V\)</span> (since <span class="math inline">\(0 \in \{0\} \in \{\{0\}\}\)</span> but <span class="math inline">\(0 \notin \{\{0\}\}\)</span>).</p>
+<p>Similarly for functions: <span class="math inline">\(\bigcup : V \to V\)</span> and <span class="math inline">\(\mathcal{P} : V \to V\)</span> are <strong>pseudofunctions</strong>. There is no set of pairs <span class="math inline">\(\bigcup = \{\langle \mathcal{F},
+\bigcup \mathcal{F}\rangle : \mathcal{F} \in V\}\)</span>; instead there is a formula <span class="math inline">\(\varphi(\mathcal{F}, Z)\)</span> saying “<span class="math inline">\(Z\)</span> is the union of the members of <span class="math inline">\(\mathcal{F}\)</span>”, we prove <span class="math inline">\(\forall \mathcal{F}\;\exists! Z\;\varphi(\mathcal{F},
+Z)\)</span>, and <span class="math inline">\(\bigcup \mathcal{F}\)</span> <em>denotes</em> that <span class="math inline">\(Z\)</span>. Function properties still apply as abbreviations — e.g.&nbsp;“<span class="math inline">\(\bigcup\)</span> is not <span class="math inline">\(1\)</span>-<span class="math inline">\(1\)</span>” is the formula</p>
+<p><span class="math display">\[
+\exists x_1, x_2, y\;\bigl[\varphi(x_1, y) \wedge \varphi(x_2, y) \wedge x_1 \neq x_2\bigr].
+\]</span></p>
+<!-- ### Sentences versus schemes
 
-The same coding trick handles *symbols*. Polynomials (regarded as formal
-expressions, not functions), words in a free group, and — closest to our theme —
-**formulas and proofs** are all finite strings. Represent each symbol by a
-natural number and a string by a finite sequence; then every such object is a
-**hereditarily finite set**. Finite mathematics — including the entire syntax of
-first-order logic and the ZFC axioms themselves — is carried out within $HF$.
-This is exactly what lets ZFC reason about its own formal system. *(Kunen §I.15.)* -->
-</section>
-</section>
-<section id="zfc-as-a-foundational-theory" class="level2">
-<h2 class="anchored" data-anchor-id="zfc-as-a-foundational-theory">ZFC as a foundational theory</h2>
-<p>The claim that ZFC founds mathematics rests on two theses:</p>
-<ol type="1">
-<li><strong>All abstract mathematical concepts are set-theoretical.</strong></li>
-<li><strong>All concrete mathematical objects are specific sets.</strong></li>
-</ol>
-<p>If one does not accept formalism, the “are” can be weakened to <em>“have set-theoretical representations.”</em></p>
-<div class="box">
-<p><strong>Everything reduces to sets.</strong></p>
-</div>
-<section id="example-what-a-function-is" class="level3">
-<h3 class="anchored" data-anchor-id="example-what-a-function-is">Example: what a function <em>is</em></h3>
-<p><span class="math display">\[
-\text{function} \;\cong\; \text{graph} \;\cong\;
-\text{a set of ordered pairs } f \text{ with }
-\forall x, y, z\,\bigl((x,y)\in f \wedge (x,z)\in f \rightarrow y = z\bigr).
-\]</span></p>
-<p>This pushes the question back to <em>ordered pairs</em>, which are themselves described as special kinds of sets — the standard choice being</p>
-<p><span class="math display">\[
-(x, y) := \bigl\{\{x\}, \{x, y\}\bigr\},
-\]</span></p>
-<p>for which one verifies <span class="math inline">\((x,y) = (x',y') \rightarrow (x = x' \wedge y = y')\)</span>.</p>
-</section>
-<section id="the-special-nature-of-the-zfc-axioms" class="level3">
-<h3 class="anchored" data-anchor-id="the-special-nature-of-the-zfc-axioms">The special nature of the ZFC axioms</h3>
-<p>Kunen distinguishes axioms used as <em>statements of faith</em> (obviously true facts, as the Greeks viewed Euclid’s postulates) from <em>definitional axioms</em> (merely delimiting a useful class of structures, as with the group axioms).</p>
-<p>You can read the ZFC axioms in the first sense: To a Platonist, these might appear as obviously true facts. But we have seen that an all too careless treatment of the notion of set can lead to contradictions. However, one can, independent of the ontological status of the axioms, read ZFC as <strong>the theory of everything</strong>: one postulates the ZFC axioms once and for all, and every other axiom system — groups, rings, topological spaces — is <em>defined</em> inside it.</p>
-</section>
-<section id="what-we-will-do" class="level3">
-<h3 class="anchored" data-anchor-id="what-we-will-do">What we will do</h3>
-<ul>
-<li><strong>The basic level.</strong> State the axioms and interpret them; work out <em>what exactly</em> the representations of <span class="math inline">\(3\)</span> and of <span class="math inline">\(\mathbb{R}\)</span> are. (Following von Neumann, <span class="math inline">\(0 = \varnothing\)</span>, <span class="math inline">\(1 = \{\varnothing\}\)</span>, <span class="math inline">\(2 = \{0,1\}\)</span>, <span class="math inline">\(3 = \{0,1,2\}\)</span>, …, <span class="math inline">\(\mathbb{N} = \omega\)</span>; and <span class="math inline">\(\mathbb{R}\)</span> via Dedekind cuts.)</li>
-<li><strong>The advanced level.</strong> Draw out the consequences of the axioms for <strong>uncountable sets</strong>.</li>
-</ul>
-</section>
-</section>
-<section id="the-axioms-of-zfc" class="level2">
-<h2 class="anchored" data-anchor-id="the-axioms-of-zfc">The axioms of ZFC</h2>
-<p>The language is <strong>first-order logic with a single binary relation symbol <code>∈</code></strong> (and equality). There is <strong>one sort of variable</strong>: everything ranges over sets. In the Union and Replacement axioms below, the capital letters <span class="math inline">\(A, Y,
-\mathcal{F}, B\)</span> are still just set variables — the capitals only aid reading.</p>
-<p><strong>Convention.</strong> Every axiom is understood to be <strong>universally quantified</strong> over its free variables (<span class="math inline">\(\forall x\,\forall y\,\dots\)</span>).</p>
-<div class="axioms">
-<dl>
-<dt>Axiom 0 — Set Existence</dt>
-<dd>
-<span class="math inline">\(\exists x\,(x = x)\)</span>
-</dd>
-<dt>Axiom 1 — Extensionality</dt>
-<dd>
-<span class="math inline">\(\forall z\,(z \in x \leftrightarrow z \in y) \;\rightarrow\; x = y\)</span>
-</dd>
-<dd>
-A set is determined by its members.
-</dd>
-<dt>Axiom 2 — Foundation</dt>
-<dd>
-<span class="math inline">\(\exists y\,(y \in x) \;\rightarrow\;
-\exists y\,\bigl(y \in x \wedge \neg\exists z\,(z \in x \wedge z \in y)\bigr)\)</span>
-</dd>
-<dd>
-Every nonempty set has an <code>∈</code>-minimal element; no infinite descending <code>∈</code>-chains.
-</dd>
-<dt>Axiom 3 — Comprehension (Separation) — <em>scheme</em></dt>
-<dd>
-For each formula <span class="math inline">\(\varphi\)</span> with <span class="math inline">\(y\)</span> not free: <span class="math inline">\(\exists y\,\forall x\,\bigl(x \in y \leftrightarrow x \in v \wedge
-\varphi(x)\bigr)\)</span>
-</dd>
-<dd>
-Subsets are carved out of a set <span class="math inline">\(v\)</span> that <strong>already exists</strong> — the restriction to <span class="math inline">\(x \in v\)</span> is what defuses Russell’s paradox (there is no universal set). There is one axiom per formula, so this is infinitely many axioms; that is harmless in the metatheory, since “being a formula” is a finitistically decidable property.
-</dd>
-<dt>Axiom 4 — Pairing</dt>
-<dd>
-<span class="math inline">\(\exists z\,(x \in z \wedge y \in z)\)</span>
-</dd>
-<dt>Axiom 5 — Union</dt>
-<dd>
-<span class="math inline">\(\exists A\,\forall Y\,\forall x\,
-\bigl(x \in Y \wedge Y \in \mathcal{F} \;\rightarrow\; x \in A\bigr)\)</span>
-</dd>
-<dt>Axiom 6 — Replacement — <em>scheme</em></dt>
-<dd>
-For each formula <span class="math inline">\(\varphi\)</span> with <span class="math inline">\(B\)</span> not free: <span class="math inline">\(\forall x \in A\;\exists! y\,\varphi(x, y) \;\rightarrow\;
-\exists B\,\forall x \in A\;\exists y \in B\;\varphi(x, y)\)</span>
-</dd>
-<dd>
-The image of a set under a definable class function is a set. Here <span class="math inline">\(\exists! y\,\varphi(x,y)\)</span> abbreviates <span class="math inline">\(\exists y\,\bigl(\varphi(x,y) \wedge \forall z\,(\varphi(x,z) \rightarrow
-y = z)\bigr)\)</span>. Again a scheme, and again finitistically unproblematic.
-</dd>
-</dl>
-</div>
-<section id="some-defined-symbols" class="level3">
-<h3 class="anchored" data-anchor-id="some-defined-symbols">Some defined symbols</h3>
-<p>On the basis of Axioms 1, 3, 4, 5 we abbreviate:</p>
-<p><span class="math display">\[
-\begin{aligned}
-x \subseteq y \;&amp;:\Longleftrightarrow\; \forall z\,(z \in x \rightarrow z \in y)\\[2pt]
-x = \varnothing \;&amp;:\Longleftrightarrow\; \forall z\,(z \notin x)\\[2pt]
-y = S(x) \;&amp;:\Longleftrightarrow\; \forall z\,(z \in y \leftrightarrow z \in x \vee z = x)
-     \qquad\bigl(\,y = x \cup \{x\}\,\bigr)\\[2pt]
-y = v \cap w \;&amp;:\Longleftrightarrow\; \forall x\,(x \in y \leftrightarrow x \in v \wedge x \in w)\\[2pt]
-\mathrm{SING}(x) \;&amp;:\Longleftrightarrow\; \exists y \in x\;\forall z \in x\,(z = y)
-\end{aligned}
-\]</span></p>
-<p>The remaining axioms are easier to state with these in hand.</p>
-<div class="axioms">
-<dl>
-<dt>Axiom 7 — Infinity</dt>
-<dd>
-<span class="math inline">\(\exists x\,\bigl(\varnothing \in x \wedge \forall y \in x\,(S(y) \in x)\bigr)\)</span>
-</dd>
-<dd>
-There is a set containing <span class="math inline">\(\varnothing\)</span> and closed under <span class="math inline">\(y \mapsto y \cup
-\{y\}\)</span>. Here “<span class="math inline">\(\varnothing \in x\)</span>” abbreviates <span class="math inline">\(\exists y\,(y = \varnothing
-\wedge y \in x)\)</span>, and “<span class="math inline">\(S(y) \in x\)</span>” abbreviates <span class="math inline">\(\exists z\,(z = S(y) \wedge
-z \in x)\)</span>.
-</dd>
-<dt>Axiom 8 — Power Set</dt>
-<dd>
-<span class="math inline">\(\exists y\,\forall z\,(z \subseteq x \rightarrow z \in y)\)</span>
-</dd>
-<dt>Axiom 9 — Choice (AC)</dt>
-<dd>
-<span class="math inline">\(\varnothing \notin F \wedge \forall x \in F\;\forall y \in F\,
-(x \neq y \rightarrow x \cap y = \varnothing) \;\rightarrow\;
-\exists C\;\forall x \in F\;\mathrm{SING}(C \cap x)\)</span>
-</dd>
-<dd>
-For a family <span class="math inline">\(F\)</span> of pairwise disjoint nonempty sets there is a set <span class="math inline">\(C\)</span> meeting each member in exactly one point.
-</dd>
-</dl>
-</div>
-</section>
-<section id="named-subsystems" class="level3">
-<h3 class="anchored" data-anchor-id="named-subsystems">Named subsystems</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 80%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>System</th>
-<th>Axioms</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>ZFC</strong></td>
-<td>1–9</td>
-</tr>
-<tr class="even">
-<td><strong>ZF</strong></td>
-<td>1–8 (no Choice)</td>
-</tr>
-<tr class="odd">
-<td><strong>ZC</strong></td>
-<td>ZFC without Replacement (6)</td>
-</tr>
-<tr class="even">
-<td><strong>Z</strong></td>
-<td>ZF without Replacement (6)</td>
-</tr>
-</tbody>
-</table>
-<p>Other important subsystems:</p>
-<ul>
-<li><span class="math inline">\(X^{-}\)</span> — drop <strong>Foundation</strong> (2);</li>
-<li><span class="math inline">\(X{-}\mathrm{P}\)</span> — drop <strong>Power Set</strong> (8);</li>
-<li><span class="math inline">\(X{-}\mathrm{Inf}\)</span> — drop <strong>Infinity</strong> (7).</li>
-</ul>
-<p>Most of elementary mathematics can be carried out in <span class="math inline">\(\mathrm{ZC}^{-}\)</span>. A minimal working fragment is <strong>Basic Set Theory</strong>:</p>
-<p><span class="math display">\[
-\mathrm{BST} \;=\; \text{Axioms } 1, 2, 3, 4, 5 \;+\; (6 \vee 8).
-\]</span></p>
+Lemma I.7.9 is really a *theorem scheme*: one theorem of ZFC for each formula
+$\varphi(x, y)$. By contrast, a statement like "$\cong$ is an equivalence
+relation" (Kunen's Exercise I.7.18) unwinds to a *single* sentence provable from
+ZFC. -->
 
 
 </section>
