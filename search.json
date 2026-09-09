@@ -4,496 +4,789 @@
     "href": "lectures/lec02.html#recap-and-roadmap",
     "title": "The Foundational Crisis",
     "section": "Recap and Roadmap",
-    "text": "Recap and Roadmap\nLast time: Dedekind & Cantor’s existential, set-theoretic style of mathematics — and Russell’s paradox, which broke Frege’s comprehension principle.\nToday\n\nparadoxes and consistency, predicativity, the axiom of choice\nBrouwer’s intuitionism vs. Hilbert’s program\n\nThe question throughout: what is a legitimate mathematical object, definition, or proof?"
+    "text": "Recap and Roadmap\nLast time: Dedekind & Cantor’s existential, set-theoretic style of mathematics — and Russell’s paradox, which broke Frege’s comprehension principle.\nToday\n\nparadoxes and consistency, predicativity, the axiom of choice\nBrouwer’s intuitionism vs. Hilbert’s program\n\nThe question throughout: what is a legitimate mathematical object, definition, or proof?",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-comprehension-principle-again",
     "href": "lectures/lec02.html#the-comprehension-principle-again",
     "title": "The Foundational Crisis",
     "section": "The Comprehension Principle, Again",
-    "text": "The Comprehension Principle, Again\nRecall the principle that broke under Russell’s paradox:\n\\[\n\\text{for any well-defined property } p,\\ \\text{there exists } \\{x : p(x)\\}\n\\]\n\nThis was the basis for the logicist understanding of set theory — “naive” set theory\nNot just Russell’s paradox: two families of paradoxes emerged around 1900\n\nset-theoretic paradoxes (Burali-Forti, Cantor, Russell/Zermelo)\nsemantic paradoxes (Richard, König, Grelling) — about truth and definability"
+    "text": "The Comprehension Principle, Again\nRecall the principle that broke under Russell’s paradox:\n\\[\n\\text{for any well-defined property } p,\\ \\text{there exists } \\{x : p(x)\\}\n\\]\n\nThis was the basis for the logicist understanding of set theory — “naive” set theory\nNot just Russell’s paradox: two families of paradoxes emerged around 1900\n\nset-theoretic paradoxes (Burali-Forti, Cantor, Russell/Zermelo)\nsemantic paradoxes (Richard, König, Grelling) — about truth and definability",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-set-theoretic-paradoxes",
     "href": "lectures/lec02.html#the-set-theoretic-paradoxes",
     "title": "The Foundational Crisis",
     "section": "The Set-Theoretic Paradoxes",
-    "text": "The Set-Theoretic Paradoxes\n\nBurali-Forti (1897; Cantor 1896): the set of all ordinals would itself be well-ordered, hence have an ordinal \\(&gt;\\) every ordinal in it — contradiction\nCantor (1899): the set of all cardinals leads to the same kind of contradiction\nZermelo–Russell (1901–02): let \\(p(x)\\) be “\\(x \\notin x\\)” and consider \\(R = \\{x : x \\notin x\\}\\)\n\nComprehension is contradictory in the simplest possible way — no need for a theory of the transfinite to state it."
+    "text": "The Set-Theoretic Paradoxes\n\nBurali-Forti (1897; Cantor 1896): the set of all ordinals would itself be well-ordered, hence have an ordinal \\(&gt;\\) every ordinal in it — contradiction\nCantor (1899): the set of all cardinals leads to the same kind of contradiction\nZermelo–Russell (1901–02): let \\(p(x)\\) be “\\(x \\notin x\\)” and consider \\(R = \\{x : x \\notin x\\}\\)\n\nComprehension is contradictory in the simplest possible way — no need for a theory of the transfinite to state it.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#hilbert-and-existence",
     "href": "lectures/lec02.html#hilbert-and-existence",
     "title": "The Foundational Crisis",
     "section": "Hilbert and Existence",
-    "text": "Hilbert and Existence\nHilbert abandoned logicism. He proposed working with axiom systems that comprise non-logical axioms.\nThis, however, requires a new kind of justification why the ojects we are trying to axiomatize exist.\nHilbert’s proposal:\n\nA set of objects “exists” only if we can prove its defining axiom system consistent\nconcept \\(\\to\\) set becomes consistency proof \\(\\to\\) legitimate existence\nObjects have a kind of ideal existence “in the realm of thought,” not independent metaphysical existence"
+    "text": "Hilbert and Existence\nHilbert abandoned logicism. He proposed working with axiom systems that comprise non-logical axioms.\nThis, however, requires a new kind of justification why the ojects we are trying to axiomatize exist.\nHilbert’s proposal:\n\nA set of objects “exists” only if we can prove its defining axiom system consistent\nconcept \\(\\to\\) set becomes consistency proof \\(\\to\\) legitimate existence\nObjects have a kind of ideal existence “in the realm of thought,” not independent metaphysical existence",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#predicativity-poincarés-diagnosis",
     "href": "lectures/lec02.html#predicativity-poincarés-diagnosis",
     "title": "The Foundational Crisis",
     "section": "Predicativity — Poincaré’s Diagnosis",
-    "text": "Predicativity — Poincaré’s Diagnosis\nWhen Frege’s and Russell’s paradoxes became widely known (1903), Poincaré offered his own culprit: impredicative definitions.\n\nA definition is impredicative when it refers to a totality that already contains the very element being defined.\n\n\nExample: least upper bound – defining the supremum involves quantifying over “all upper bounds,” a set of real numbers, in order to pin down a particular real number. That real number is thus specified by reference to a totality it belongs to.\nPoincaré: this kind of circularity is exactly what licenses the paradoxes"
+    "text": "Predicativity — Poincaré’s Diagnosis\nWhen Frege’s and Russell’s paradoxes became widely known (1903), Poincaré offered his own culprit: impredicative definitions.\n\nA definition is impredicative when it refers to a totality that already contains the very element being defined.\n\n\nExample: least upper bound – defining the supremum involves quantifying over “all upper bounds,” a set of real numbers, in order to pin down a particular real number. That real number is thus specified by reference to a totality it belongs to.\nPoincaré: this kind of circularity is exactly what licenses the paradoxes",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#richards-paradox-a-semantic-paradox",
     "href": "lectures/lec02.html#richards-paradox-a-semantic-paradox",
     "title": "The Foundational Crisis",
     "section": "Richard’s Paradox (a Semantic Paradox)",
-    "text": "Richard’s Paradox (a Semantic Paradox)\n\nOnly countably many reals are definable by a finite expression — list them \\(a_1, a_2, a_3, \\dots\\) (lexicographic order)\nDefine \\(r\\): the \\(n\\)th decimal digit of \\(r\\) differs from the \\(n\\)th digit of \\(a_n\\)\n\\(r\\) is not on the list — yet \\(r\\) was just defined, in finitely many words!\n\nPoincaré’s diagnosis: \\(r\\)’s definition refers to the totality of all definable numbers, of which \\(r\\) is itself meant to be a member. Impredicative."
+    "text": "Richard’s Paradox (a Semantic Paradox)\n\nOnly countably many reals are definable by a finite expression — list them \\(a_1, a_2, a_3, \\dots\\) (lexicographic order)\nDefine \\(r\\): the \\(n\\)th decimal digit of \\(r\\) differs from the \\(n\\)th digit of \\(a_n\\)\n\\(r\\) is not on the list — yet \\(r\\) was just defined, in finitely many words!\n\nPoincaré’s diagnosis: \\(r\\)’s definition refers to the totality of all definable numbers, of which \\(r\\) is itself meant to be a member. Impredicative.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#two-responses-to-impredicativity",
     "href": "lectures/lec02.html#two-responses-to-impredicativity",
     "title": "The Foundational Crisis",
     "section": "Two Responses to Impredicativity",
-    "text": "Two Responses to Impredicativity\n\n\nZermelo — unconvinced\n\nImpredicative definitions are everywhere in classical analysis (e.g. least upper bound)\nHarmless: the object isn’t created by the definition, only singled out from what already exists\n\n\nRussell — convinced\n\nAdopts Poincaré’s “vicious circle principle”\nBuilds a theory of types: objects stratified into levels; no set of “mixed” type\nResult: Principia Mathematica (1910–13)"
+    "text": "Two Responses to Impredicativity\n\n\nZermelo — unconvinced\n\nImpredicative definitions are everywhere in classical analysis (e.g. least upper bound)\nHarmless: the object isn’t created by the definition, only singled out from what already exists\n\n\nRussell — convinced\n\nAdopts Poincaré’s “vicious circle principle”\nBuilds a theory of types: objects stratified into levels; no set of “mixed” type\nResult: Principia Mathematica (1910–13)",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#where-predicativity-led",
     "href": "lectures/lec02.html#where-predicativity-led",
     "title": "The Foundational Crisis",
     "section": "Where Predicativity Led",
-    "text": "Where Predicativity Led\n\nRussell’s ramified type theory needed extra ad hoc machinery (the axiom of reducibility) to recover ordinary mathematics\nWeyl, in Das Kontinuum (1918), tried a leaner predicative foundation: accept classical logic and \\(\\mathbb{N}\\), but build the reals predicatively\n\ncost: \\(\\mathbb{R}\\) is no longer complete — the Bolzano–Weierstrass theorem fails\n\nPredicative mathematics survives today as a serious middle ground between classical and constructive mathematics"
+    "text": "Where Predicativity Led\n\nRussell’s ramified type theory needed extra ad hoc machinery (the axiom of reducibility) to recover ordinary mathematics\nWeyl, in Das Kontinuum (1918), tried a leaner predicative foundation: accept classical logic and \\(\\mathbb{N}\\), but build the reals predicatively\n\ncost: \\(\\mathbb{R}\\) is no longer complete — the Bolzano–Weierstrass theorem fails\n\nPredicative mathematics survives today as a serious middle ground between classical and constructive mathematics",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#controversy-on-the-axiom-of-choice",
     "href": "lectures/lec02.html#controversy-on-the-axiom-of-choice",
     "title": "The Foundational Crisis",
     "section": "Controversy on the Axiom of Choice",
-    "text": "Controversy on the Axiom of Choice\nZermelo (1904): \\(\\mathrm{AC} \\implies\\) every set — in particular \\(\\mathbb{R}\\) — can be well-ordered.\n\n\\(\\mathrm{AC}\\): given any family of disjoint nonempty sets, a choice set exists containing one element from each\nThe proof gives no explicit construction of the well-ordering\nCritics: \\(\\mathrm{AC}\\) merely asserts the choice set exists, without a defining property for it\n\n\\(\\Rightarrow\\) a deep debate followed, cutting across the logicism/predicativism divide."
+    "text": "Controversy on the Axiom of Choice\nZermelo (1904): \\(\\mathrm{AC} \\implies\\) every set — in particular \\(\\mathbb{R}\\) — can be well-ordered.\n\n\\(\\mathrm{AC}\\): given any family of disjoint nonempty sets, a choice set exists containing one element from each\nThe proof gives no explicit construction of the well-ordering\nCritics: \\(\\mathrm{AC}\\) merely asserts the choice set exists, without a defining property for it\n\n\\(\\Rightarrow\\) a deep debate followed, cutting across the logicism/predicativism divide.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#from-controversy-to-axiom-system",
     "href": "lectures/lec02.html#from-controversy-to-axiom-system",
     "title": "The Foundational Crisis",
     "section": "From Controversy to Axiom System",
-    "text": "From Controversy to Axiom System\nThe AC debate spurred Zermelo to work out his axiom system for set theory (1908) — a careful, mathematical (not logical) analysis of Cantor’s and Dedekind’s set theory.\n\nFraenkel & von Neumann (1920s) add: Replacement and Regularity\nWeyl & Skolem: formalize within first-order logic — quantify only over sets, not over properties\n\n\\[\n\\rightsquigarrow \\quad \\mathrm{ZF(C)}\n\\]"
+    "text": "From Controversy to Axiom System\nThe AC debate spurred Zermelo to work out his axiom system for set theory (1908) — a careful, mathematical (not logical) analysis of Cantor’s and Dedekind’s set theory.\n\nFraenkel & von Neumann (1920s) add: Replacement and Regularity\nWeyl & Skolem: formalize within first-order logic — quantify only over sets, not over properties\n\n\\[\n\\rightsquigarrow \\quad \\mathrm{ZF(C)}\n\\]",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#what-zfc-codifies",
     "href": "lectures/lec02.html#what-zfc-codifies",
     "title": "The Foundational Crisis",
     "section": "What ZFC Codifies",
-    "text": "What ZFC Codifies\nZFC settles the early-1900s controversies by simply building in the modern, anti-Kroneckerian traits:\n\nimpredicative definitions — allowed\narbitrary functions and subsets — allowed\npurely existential proofs — allowed\n\n\nThe result: a working “Platonistic” view of mathematics — the objects a theory refers to are treated as if they exist independently of what a mathematician can explicitly define or construct.\n\nBy the 1920s, Russell’s (simplified) type theory and Zermelo’s set theory had largely converged on this same methodology."
+    "text": "What ZFC Codifies\nZFC settles the early-1900s controversies by simply building in the modern, anti-Kroneckerian traits:\n\nimpredicative definitions — allowed\narbitrary functions and subsets — allowed\npurely existential proofs — allowed\n\n\nThe result: a working “Platonistic” view of mathematics — the objects a theory refers to are treated as if they exist independently of what a mathematician can explicitly define or construct.\n\nBy the 1920s, Russell’s (simplified) type theory and Zermelo’s set theory had largely converged on this same methodology.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#summary---response-to-the-paradoxes",
     "href": "lectures/lec02.html#summary---response-to-the-paradoxes",
     "title": "The Foundational Crisis",
     "section": "Summary - Response to the Paradoxes",
-    "text": "Summary - Response to the Paradoxes\nThe paradoxes did not kill modern mathematics.\n\nThey forced a clarification: existence via consistency, not naive comprehension\nPoincaré’s predicativism and Russell’s type theory tried to restrain the new methods\nZermelo’s set theory — soon ZFC — codified the new methods instead."
+    "text": "Summary - Response to the Paradoxes\nThe paradoxes did not kill modern mathematics.\n\nThey forced a clarification: existence via consistency, not naive comprehension\nPoincaré’s predicativism and Russell’s type theory tried to restrain the new methods\nZermelo’s set theory — soon ZFC — codified the new methods instead.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#a-new-kind-of-critique",
     "href": "lectures/lec02.html#a-new-kind-of-critique",
     "title": "The Foundational Crisis",
     "section": "A New Kind of Critique",
-    "text": "A New Kind of Critique\n1921: Weyl publishes a paper in the Mathematische Zeitschrift — a disciple of Hilbert’s — openly siding with Brouwer, diagnosing a “crisis in the foundations.”\n\nWeyl’s paper: deliberately a propaganda pamphlet, “to rouse the sleepers”\nHilbert’s reply, same year: Brouwer and Weyl are attempting a “putsch” — a “dictatorship à la Kronecker”\n\nThe foundational debate turns into open battle: Hilbert’s classical mathematics vs. Brouwer’s constructive “revolution.”"
+    "text": "A New Kind of Critique\n1921: Weyl publishes a paper in the Mathematische Zeitschrift — a disciple of Hilbert’s — openly siding with Brouwer, diagnosing a “crisis in the foundations.”\n\nWeyl’s paper: deliberately a propaganda pamphlet, “to rouse the sleepers”\nHilbert’s reply, same year: Brouwer and Weyl are attempting a “putsch” — a “dictatorship à la Kronecker”\n\nThe foundational debate turns into open battle: Hilbert’s classical mathematics vs. Brouwer’s constructive “revolution.”",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#what-is-brouwers-revolution",
     "href": "lectures/lec02.html#what-is-brouwers-revolution",
     "title": "The Foundational Crisis",
     "section": "What is Brouwer’s “Revolution”?",
-    "text": "What is Brouwer’s “Revolution”?\nUp to 1920, the debate concerned: real numbers, impredicativity, and the strong existential assumptions of set theory (esp. AC).\nBrouwer went further: \n\nHe put classical logic itself on trial: quantifiers over infinite domains, and the principle of excluded middle (PEM)\nPoincaré, Klein, and others had said logic is not the whole of mathematics; Brouwer said mathematics is prior to and independent of logic and language altogether."
+    "text": "What is Brouwer’s “Revolution”?\nUp to 1920, the debate concerned: real numbers, impredicativity, and the strong existential assumptions of set theory (esp. AC).\nBrouwer went further: \n\nHe put classical logic itself on trial: quantifiers over infinite domains, and the principle of excluded middle (PEM)\nPoincaré, Klein, and others had said logic is not the whole of mathematics; Brouwer said mathematics is prior to and independent of logic and language altogether.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#intuitionism-first-principles",
     "href": "lectures/lec02.html#intuitionism-first-principles",
     "title": "The Foundational Crisis",
     "section": "Intuitionism — First Principles",
-    "text": "Intuitionism — First Principles\n\nFor Brouwer, mathematical objects are mental constructions; mathematics does not depend on language or logic to exist\nClassical logic (including PEM) was abstracted from experience with finite sets — and wrongly extrapolated to infinite ones\nPEM: \\(p \\vee \\neg p\\) — “either \\(p\\) or not \\(p\\)” — always holds, classically\n\nBrouwer’s claim: this is not a law of thought, but an unjustified generalization."
+    "text": "Intuitionism — First Principles\n\nFor Brouwer, mathematical objects are mental constructions; mathematics does not depend on language or logic to exist\nClassical logic (including PEM) was abstracted from experience with finite sets — and wrongly extrapolated to infinite ones\nPEM: \\(p \\vee \\neg p\\) — “either \\(p\\) or not \\(p\\)” — always holds, classically\n\nBrouwer’s claim: this is not a law of thought, but an unjustified generalization.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-constructive-standard",
     "href": "lectures/lec02.html#the-constructive-standard",
     "title": "The Foundational Crisis",
     "section": "The Constructive Standard",
-    "text": "The Constructive Standard\n\nConsequence: proof by contradiction is invalid.\n\nClassically: assume \\(\\neg p\\), derive a contradiction, conclude \\(p\\)\nConstructively: this only shows \\(\\neg\\neg p\\) — not the same as a construction of \\(p\\)"
+    "text": "The Constructive Standard\n\nConsequence: proof by contradiction is invalid.\n\nClassically: assume \\(\\neg p\\), derive a contradiction, conclude \\(p\\)\nConstructively: this only shows \\(\\neg\\neg p\\) — not the same as a construction of \\(p\\)",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#a-different-notion-of-truth",
     "href": "lectures/lec02.html#a-different-notion-of-truth",
     "title": "The Foundational Crisis",
     "section": "A Different Notion of Truth",
-    "text": "A Different Notion of Truth\nFor a constructivist:\n\n“\\(p\\) is true” means: we possess a proof of \\(p\\) by stringent constructive methods\n“\\(p\\) is false” means: we possess a counterexample to \\(p\\)\n\n\nTo a constructivist, the statement “π is normal” currently has no truth value — not true, not false, not “unknown-but-determinate.” Truth is not timeless; it is made."
+    "text": "A Different Notion of Truth\nFor a constructivist:\n\n“\\(p\\) is true” means: we possess a proof of \\(p\\) by stringent constructive methods\n“\\(p\\) is false” means: we possess a counterexample to \\(p\\)\n\n\nTo a constructivist, the statement “π is normal” currently has no truth value — not true, not false, not “unknown-but-determinate.” Truth is not timeless; it is made.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#rebuilding-analysis-choice-sequences",
     "href": "lectures/lec02.html#rebuilding-analysis-choice-sequences",
     "title": "The Foundational Crisis",
     "section": "Rebuilding Analysis: Choice Sequences",
-    "text": "Rebuilding Analysis: Choice Sequences\nBrouwer (1918) replaces Cantorian sets with constructive substitutes: spreads and species.\n\nA choice sequence: a sequence of rationals not required to be fully specified in advance\n\nmay be generated by a fixed rule (e.g. Newton’s method for \\(\\sqrt 2\\))\nor by choices the mathematician makes freely, over time, subject to constraints\n\n\nIntuitionistic mathematics is “mathematics in the making” — unlike the timeless, fully-determinate objects of classical analysis."
+    "text": "Rebuilding Analysis: Choice Sequences\nBrouwer (1918) replaces Cantorian sets with constructive substitutes: spreads and species.\n\nA choice sequence: a sequence of rationals not required to be fully specified in advance\n\nmay be generated by a fixed rule (e.g. Newton’s method for \\(\\sqrt 2\\))\nor by choices the mathematician makes freely, over time, subject to constraints\n\n\nIntuitionistic mathematics is “mathematics in the making” — unlike the timeless, fully-determinate objects of classical analysis.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#spreads-and-a-new-continuum",
     "href": "lectures/lec02.html#spreads-and-a-new-continuum",
     "title": "The Foundational Crisis",
     "section": "Spreads and a New Continuum",
-    "text": "Spreads and a New Continuum\n\nA spread is a law regulating which choice sequences are admissible — the basis for Brouwer’s reconstruction of \\(\\mathbb{R}\\)\nThe continuum becomes a genuinely continuous domain, not a set of pre-existing points\n\nan echo of Aristotle: the continuum is not made up of unextended points\n\n\nA function on a spread must be determined from a finite initial segment of any choice sequence — this has a startling consequence."
+    "text": "Spreads and a New Continuum\n\nA spread is a law regulating which choice sequences are admissible — the basis for Brouwer’s reconstruction of \\(\\mathbb{R}\\)\nThe continuum becomes a genuinely continuous domain, not a set of pre-existing points\n\nan echo of Aristotle: the continuum is not made up of unextended points\n\n\nA function on a spread must be determined from a finite initial segment of any choice sequence — this has a startling consequence.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-startling-consequence",
     "href": "lectures/lec02.html#the-startling-consequence",
     "title": "The Foundational Crisis",
     "section": "The Startling Consequence",
-    "text": "The Startling Consequence\nEvery intuitionistically total function on \\(\\mathbb{R}\\) is (uniformly) continuous.\n\nThe classical step function \\[\nf(x) = \\begin{cases} 0 & x \\leq 0 \\\\ 1 & x &gt; 0 \\end{cases}\n\\] is not a legitimate function for Brouwer\nReason: deciding \\(x &gt; 0\\) vs. \\(x \\leq 0\\) is not always possible — not decidable from a finite stage of the sequence\n\n(Anticipates the later, independent discovery that all computable real functions are continuous — Turing and others.)"
+    "text": "The Startling Consequence\nEvery intuitionistically total function on \\(\\mathbb{R}\\) is (uniformly) continuous.\n\nThe classical step function \\[\nf(x) = \\begin{cases} 0 & x \\leq 0 \\\\ 1 & x &gt; 0 \\end{cases}\n\\] is not a legitimate function for Brouwer\nReason: deciding \\(x &gt; 0\\) vs. \\(x \\leq 0\\) is not always possible — not decidable from a finite stage of the sequence\n\n(Anticipates the later, independent discovery that all computable real functions are continuous — Turing and others.)",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-cost-of-intuitionism",
     "href": "lectures/lec02.html#the-cost-of-intuitionism",
     "title": "The Foundational Crisis",
     "section": "The Cost of Intuitionism",
-    "text": "The Cost of Intuitionism\nRebuilding analysis this way is hard. Weyl, who once championed Brouwer’s program, wrote in 1925:\n\n“The mathematician watches with pain the largest part of his towering theories dissolve into mist before his eyes.”\n\nBrouwer himself, unfazed, replied (1933):\n\n“The spheres of truth are less transparent than those of illusion.”\n\nWeyl abandoned intuitionism shortly after. But Hilbert had another answer in mind."
+    "text": "The Cost of Intuitionism\nRebuilding analysis this way is hard. Weyl, who once championed Brouwer’s program, wrote in 1925:\n\n“The mathematician watches with pain the largest part of his towering theories dissolve into mist before his eyes.”\n\nBrouwer himself, unfazed, replied (1933):\n\n“The spheres of truth are less transparent than those of illusion.”\n\nWeyl abandoned intuitionism shortly after. But Hilbert had another answer in mind.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#hilberts-program",
     "href": "lectures/lec02.html#hilberts-program",
     "title": "The Foundational Crisis",
     "section": "Hilbert’s Program",
-    "text": "Hilbert’s Program\nHilbert (1928): to “eliminate from the world once and for all the skeptical doubts” about classical mathematics.\n\nStrategy: use Kroneckerian (finitary, constructive) means to justify anti-Kroneckerian (classical) methods\nKey move: turn proofs into formal, syntactic objects — finite strings of symbols manipulated by explicit rules\nA proof becomes something a finitary, combinatorial argument can reason about, from the outside — metamathematics"
+    "text": "Hilbert’s Program\nHilbert (1928): to “eliminate from the world once and for all the skeptical doubts” about classical mathematics.\n\nStrategy: use Kroneckerian (finitary, constructive) means to justify anti-Kroneckerian (classical) methods\nKey move: turn proofs into formal, syntactic objects — finite strings of symbols manipulated by explicit rules\nA proof becomes something a finitary, combinatorial argument can reason about, from the outside — metamathematics",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#the-four-steps-of-the-program",
     "href": "lectures/lec02.html#the-four-steps-of-the-program",
     "title": "The Foundational Crisis",
     "section": "The Four Steps of the Program",
-    "text": "The Four Steps of the Program\n\nFind suitable axioms and primitive concepts for a theory \\(T\\) (e.g. the real numbers)\nFind axioms and rules for classical logic — syntactic rules turning propositions into new propositions\nFormalize \\(T\\): propositions become strings of symbols, proofs become sequences of strings obeying formal rules\nGive a finitary proof that no string expressing a contradiction can ever be the last line of a proof\n\nIf (iv) succeeds for \\(T\\): consistency is established by means even a strict finitist should accept."
+    "text": "The Four Steps of the Program\n\nFind suitable axioms and primitive concepts for a theory \\(T\\) (e.g. the real numbers)\nFind axioms and rules for classical logic — syntactic rules turning propositions into new propositions\nFormalize \\(T\\): propositions become strings of symbols, proofs become sequences of strings obeying formal rules\nGive a finitary proof that no string expressing a contradiction can ever be the last line of a proof\n\nIf (iv) succeeds for \\(T\\): consistency is established by means even a strict finitist should accept.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#finitism-what-counts-as-given",
     "href": "lectures/lec02.html#finitism-what-counts-as-given",
     "title": "The Foundational Crisis",
     "section": "Finitism: What Counts as “Given”",
-    "text": "Finitism: What Counts as “Given”\nHilbert’s answer to Poincaré’s 1905 circularity worry (a consistency proof for arithmetic would need induction):\n\nWhat is genuinely, intuitively given: signs and formulas themselves, as concrete finite objects\nMetamathematical reasoning about them needs only a very weak form of induction — much weaker than full arithmetical induction\nFinitary mathematics needs no further justification — it is where justification bottoms out"
+    "text": "Finitism: What Counts as “Given”\nHilbert’s answer to Poincaré’s 1905 circularity worry (a consistency proof for arithmetic would need induction):\n\nWhat is genuinely, intuitively given: signs and formulas themselves, as concrete finite objects\nMetamathematical reasoning about them needs only a very weak form of induction — much weaker than full arithmetical induction\nFinitary mathematics needs no further justification — it is where justification bottoms out",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#progress-and-limits-1920s",
     "href": "lectures/lec02.html#progress-and-limits-1920s",
     "title": "The Foundational Crisis",
     "section": "Progress and Limits (1920s)",
-    "text": "Progress and Limits (1920s)\n\nPropositional logic: proved consistent and complete\nFirst-order (predicate) logic: proved complete — Gödel’s dissertation, 1929\nAckermann, von Neumann: consistency results for subsystems of arithmetic (1928–1930)\nBy 1930 Hilbert believed full consistency of arithmetic was within reach\n\nA crucial hidden assumption: that the axiomatic systems in question would also be complete."
+    "text": "Progress and Limits (1920s)\n\nPropositional logic: proved consistent and complete\nFirst-order (predicate) logic: proved complete — Gödel’s dissertation, 1929\nAckermann, von Neumann: consistency results for subsystems of arithmetic (1928–1930)\nBy 1930 Hilbert believed full consistency of arithmetic was within reach\n\nA crucial hidden assumption: that the axiomatic systems in question would also be complete.",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#formalism-a-slightly-misleading-name",
     "href": "lectures/lec02.html#formalism-a-slightly-misleading-name",
     "title": "The Foundational Crisis",
     "section": "“Formalism” — a Slightly Misleading Name",
-    "text": "“Formalism” — a Slightly Misleading Name\n\nThe label comes from Hilbert’s method: formalize a theory, study its formal proof-structure\nBut Hilbert did not think mathematics is a meaningless game with symbols\n\nhe consistently stressed the meaningfulness of informal mathematical statements\n\nUnlike intuitionism, formalism was never a full philosophy of mathematics — it was a method for justifying the classical one"
+    "text": "“Formalism” — a Slightly Misleading Name\n\nThe label comes from Hilbert’s method: formalize a theory, study its formal proof-structure\nBut Hilbert did not think mathematics is a meaningless game with symbols\n\nhe consistently stressed the meaningfulness of informal mathematical statements\n\nUnlike intuitionism, formalism was never a full philosophy of mathematics — it was a method for justifying the classical one",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#a-personal-crisis-too",
     "href": "lectures/lec02.html#a-personal-crisis-too",
     "title": "The Foundational Crisis",
     "section": "A Personal Crisis, Too",
-    "text": "A Personal Crisis, Too\nThe dispute was not only intellectual.\n\nHilbert and Brouwer: strong-willed, brilliant, and deeply incompatible personalities\n1928: Hilbert moves to remove Brouwer from the editorial board of Mathematische Annalen\n\nEinstein: the move is “unwise” and wants no part of it\nThe board is dissolved and reconstituted without Brouwer — the journal loses Einstein and Carathéodory\n\nBrouwer, disturbed, withdraws from the scene for years — as political tensions fade, so does the sense of “crisis”"
+    "text": "A Personal Crisis, Too\nThe dispute was not only intellectual.\n\nHilbert and Brouwer: strong-willed, brilliant, and deeply incompatible personalities\n1928: Hilbert moves to remove Brouwer from the editorial board of Mathematische Annalen\n\nEinstein: the move is “unwise” and wants no part of it\nThe board is dissolved and reconstituted without Brouwer — the journal loses Einstein and Carathéodory\n\nBrouwer, disturbed, withdraws from the scene for years — as political tensions fade, so does the sense of “crisis”",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "lectures/lec02.html#looking-ahead",
     "href": "lectures/lec02.html#looking-ahead",
     "title": "The Foundational Crisis",
     "section": "Looking Ahead",
-    "text": "Looking Ahead\n \nHilbert’s program looked to be within reach by 1930 — one more push on the consistency of arithmetic.\n \nThings turned out otherwise…"
+    "text": "Looking Ahead\n \nHilbert’s program looked to be within reach by 1930 — one more push on the consistency of arithmetic.\n \nThings turned out otherwise…",
+    "crumbs": [
+      "2 · The Foundational Crisis"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html",
     "href": "notes/relations-and-functions.html",
     "title": "Relations and Functions",
     "section": "",
-    "text": "You have used relations (orderings) and functions all your life; the point here is to say what they are inside axiomatic set theory, and to notice where an extra axiom (Replacement) is needed to build them."
+    "text": "You have used relations (orderings) and functions all your life; the point here is to say what they are inside axiomatic set theory, and to notice where an extra axiom (Replacement) is needed to build them.",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#relations",
     "href": "notes/relations-and-functions.html#relations",
     "title": "Relations and Functions",
     "section": "Relations",
-    "text": "Relations\nDefinition (binary relation). \\(R\\) is a (binary) relation iff \\(R\\) is a set of ordered pairs:\n\\[\n\\forall u \\in R\\;\\exists x, y\\;\\bigl(u = \\langle x, y\\rangle\\bigr).\n\\]\nHere \\(\\forall u \\in R\\,(\\dots)\\) is shorthand for \\(\\forall u\\,(u \\in R\n\\rightarrow \\dots)\\). We write\n\\[\nx \\mathbin{R} y \\quad\\text{for}\\quad \\langle x, y\\rangle \\in R,\n\\qquad\\qquad\nx \\mathbin{\\not\\mathrel{R}} y \\quad\\text{for}\\quad \\langle x, y\\rangle \\notin R.\n\\]\nThe abbreviations \\(x \\mathbin{R} y\\) and \\(x \\mathbin{\\not\\mathrel{R}} y\\) are meaningful even when \\(R\\) is not a relation — we will use this later.\n\nUsual terminology\nFix a set \\(A\\). The following say what it means for \\(R\\) to have a property on \\(A\\); each is just an abbreviation, obtained by plugging \\(R\\) into a formula.\n\ntransitive: \\(x \\mathbin{R} y \\wedge y \\mathbin{R} z \\rightarrow x \\mathbin{R} z\\)\nreflexive / irreflexive: \\(\\forall x \\in A\\;(x \\mathbin{R} x)\\) / \\(\\forall x \\in A\\;(x \\mathbin{\\not\\mathrel{R}} x)\\)\ntrichotomy: \\(\\forall x, y \\in A\\;\\bigl(x \\mathbin{R} y \\vee y \\mathbin{R} x \\vee x = y\\bigr)\\)\nsymmetric: \\(x \\mathbin{R} y \\leftrightarrow y \\mathbin{R} x\\)\n\nand the three composite notions we care about:\n\n\n\\(R\\) (strictly) partially orders \\(A\\)\n\n\\(R\\) is transitive and irreflexive on \\(A\\).\n\n\\(R\\) (strictly) totally orders \\(A\\)\n\n\\(R\\) is transitive, irreflexive, and satisfies trichotomy on \\(A\\).\n\n\\(R\\) is an equivalence relation on \\(A\\)\n\n\\(R\\) is transitive, reflexive, and symmetric on \\(A\\).\n\n\n\nWe take the strict \\(&lt;\\) as basic and read \\(x \\le y\\) as \\(x &lt; y \\vee x = y\\). For example, \\(&lt;\\) on \\(\\mathbb{Q}\\) is a strict total order; \\(\\le\\) is not (it is not irreflexive).\n\n\nDomain, range, restriction\n\n\\(\\operatorname{dom}(R) := \\{\\,x : \\exists y\\,(\\langle x, y\\rangle \\in R)\\,\\}\\)\n\\(\\operatorname{ran}(R) := \\{\\,y : \\exists x\\,(\\langle x, y\\rangle \\in R)\\,\\}\\)\n\\(R \\restriction A := \\{\\,\\langle x, y\\rangle \\in R : x \\in A\\,\\}\\)\n\nThe definitions are stated for an arbitrary set \\(R\\), not only for relations. The restriction \\(R \\restriction A\\) is used mostly for functions.\nJustification (these classes are sets). Recall \\(\\langle x, y\\rangle =\n\\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\}\\). So if \\(\\langle x, y\\rangle \\in R\\), then \\(\\{x\\}\\) and \\(\\{x, y\\}\\) lie in \\(\\bigcup R\\), and hence \\(x, y \\in \\bigcup\\bigcup R\\). Comprehension then gives\n\\[\n\\operatorname{dom}(R) = \\bigl\\{\\,x \\in \\textstyle\\bigcup\\bigcup R : \\exists y\\,(\\langle x, y\\rangle \\in R)\\,\\bigr\\},\n\\]\nand similarly for \\(\\operatorname{ran}(R)\\)."
+    "text": "Relations\nDefinition (binary relation). \\(R\\) is a (binary) relation iff \\(R\\) is a set of ordered pairs:\n\\[\n\\forall u \\in R\\;\\exists x, y\\;\\bigl(u = \\langle x, y\\rangle\\bigr).\n\\]\nHere \\(\\forall u \\in R\\,(\\dots)\\) is shorthand for \\(\\forall u\\,(u \\in R\n\\rightarrow \\dots)\\). We write\n\\[\nx \\mathbin{R} y \\quad\\text{for}\\quad \\langle x, y\\rangle \\in R,\n\\qquad\\qquad\nx \\mathbin{\\not\\mathrel{R}} y \\quad\\text{for}\\quad \\langle x, y\\rangle \\notin R.\n\\]\nThe abbreviations \\(x \\mathbin{R} y\\) and \\(x \\mathbin{\\not\\mathrel{R}} y\\) are meaningful even when \\(R\\) is not a relation — we will use this later.\n\nUsual terminology\nFix a set \\(A\\). The following say what it means for \\(R\\) to have a property on \\(A\\); each is just an abbreviation, obtained by plugging \\(R\\) into a formula.\n\ntransitive: \\(x \\mathbin{R} y \\wedge y \\mathbin{R} z \\rightarrow x \\mathbin{R} z\\)\nreflexive / irreflexive: \\(\\forall x \\in A\\;(x \\mathbin{R} x)\\) / \\(\\forall x \\in A\\;(x \\mathbin{\\not\\mathrel{R}} x)\\)\ntrichotomy: \\(\\forall x, y \\in A\\;\\bigl(x \\mathbin{R} y \\vee y \\mathbin{R} x \\vee x = y\\bigr)\\)\nsymmetric: \\(x \\mathbin{R} y \\leftrightarrow y \\mathbin{R} x\\)\n\nand the three composite notions we care about:\n\n\n\\(R\\) (strictly) partially orders \\(A\\)\n\n\\(R\\) is transitive and irreflexive on \\(A\\).\n\n\\(R\\) (strictly) totally orders \\(A\\)\n\n\\(R\\) is transitive, irreflexive, and satisfies trichotomy on \\(A\\).\n\n\\(R\\) is an equivalence relation on \\(A\\)\n\n\\(R\\) is transitive, reflexive, and symmetric on \\(A\\).\n\n\n\nWe take the strict \\(&lt;\\) as basic and read \\(x \\le y\\) as \\(x &lt; y \\vee x = y\\). For example, \\(&lt;\\) on \\(\\mathbb{Q}\\) is a strict total order; \\(\\le\\) is not (it is not irreflexive).\n\n\nDomain, range, restriction\n\n\\(\\operatorname{dom}(R) := \\{\\,x : \\exists y\\,(\\langle x, y\\rangle \\in R)\\,\\}\\)\n\\(\\operatorname{ran}(R) := \\{\\,y : \\exists x\\,(\\langle x, y\\rangle \\in R)\\,\\}\\)\n\\(R \\restriction A := \\{\\,\\langle x, y\\rangle \\in R : x \\in A\\,\\}\\)\n\nThe definitions are stated for an arbitrary set \\(R\\), not only for relations. The restriction \\(R \\restriction A\\) is used mostly for functions.\nJustification (these classes are sets). Recall \\(\\langle x, y\\rangle =\n\\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\}\\). So if \\(\\langle x, y\\rangle \\in R\\), then \\(\\{x\\}\\) and \\(\\{x, y\\}\\) lie in \\(\\bigcup R\\), and hence \\(x, y \\in \\bigcup\\bigcup R\\). Comprehension then gives\n\\[\n\\operatorname{dom}(R) = \\bigl\\{\\,x \\in \\textstyle\\bigcup\\bigcup R : \\exists y\\,(\\langle x, y\\rangle \\in R)\\,\\bigr\\},\n\\]\nand similarly for \\(\\operatorname{ran}(R)\\).",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#functions",
     "href": "notes/relations-and-functions.html#functions",
     "title": "Relations and Functions",
     "section": "Functions",
-    "text": "Functions\nDefinition (function). \\(R\\) is a function iff \\(R\\) is a relation and for every \\(x \\in \\operatorname{dom}(R)\\) there is a unique \\(y\\) with \\(\\langle x,\ny\\rangle \\in R\\); that unique \\(y\\) is written \\(R(x)\\).\n\n\\(F : A \\to B\\):   \\(F\\) is a function with \\(\\operatorname{dom}(F) = A\\) and \\(\\operatorname{ran}(F) \\subseteq B\\).\n\\(F : A \\xrightarrow[\\text{onto}]{} B\\):   \\(F : A \\to B\\) and \\(\\operatorname{ran}(F) = B\\) (a surjection).\n\\(F : A \\xrightarrow{1\\text{-}1} B\\):   \\(F : A \\to B\\) and \\(\\forall x, x' \\in A\\;\\bigl(F(x) = F(x') \\rightarrow x = x'\\bigr)\\) (an injection).\n\\(F : A \\xrightarrow[\\text{onto}]{1\\text{-}1} B\\):   both of the above (a bijection from \\(A\\) onto \\(B\\)).\n\nImage of a set.\n\\[\nF(A) \\;=\\; F{}''A \\;=\\; \\operatorname{ran}(F \\restriction A).\n\\]\nThe notation \\(F(A)\\) is standard but ambiguous when \\(A\\) happens to be both a member and a subset of \\(\\operatorname{dom}(F)\\) — e.g. with \\(\\operatorname{dom}(F)\n= 3 = \\{0, 1, 2\\}\\), is \\(F(2)\\) the value at \\(2\\) or the image of \\(\\{0, 1\\}\\)? Write \\(F{}''A\\) when this could be confused."
+    "text": "Functions\nDefinition (function). \\(R\\) is a function iff \\(R\\) is a relation and for every \\(x \\in \\operatorname{dom}(R)\\) there is a unique \\(y\\) with \\(\\langle x,\ny\\rangle \\in R\\); that unique \\(y\\) is written \\(R(x)\\).\n\n\\(F : A \\to B\\):   \\(F\\) is a function with \\(\\operatorname{dom}(F) = A\\) and \\(\\operatorname{ran}(F) \\subseteq B\\).\n\\(F : A \\xrightarrow[\\text{onto}]{} B\\):   \\(F : A \\to B\\) and \\(\\operatorname{ran}(F) = B\\) (a surjection).\n\\(F : A \\xrightarrow{1\\text{-}1} B\\):   \\(F : A \\to B\\) and \\(\\forall x, x' \\in A\\;\\bigl(F(x) = F(x') \\rightarrow x = x'\\bigr)\\) (an injection).\n\\(F : A \\xrightarrow[\\text{onto}]{1\\text{-}1} B\\):   both of the above (a bijection from \\(A\\) onto \\(B\\)).\n\nImage of a set.\n\\[\nF(A) \\;=\\; F{}''A \\;=\\; \\operatorname{ran}(F \\restriction A).\n\\]\nThe notation \\(F(A)\\) is standard but ambiguous when \\(A\\) happens to be both a member and a subset of \\(\\operatorname{dom}(F)\\) — e.g. with \\(\\operatorname{dom}(F)\n= 3 = \\{0, 1, 2\\}\\), is \\(F(2)\\) the value at \\(2\\) or the image of \\(\\{0, 1\\}\\)? Write \\(F{}''A\\) when this could be confused.",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#building-relations-and-functions",
     "href": "notes/relations-and-functions.html#building-relations-and-functions",
     "title": "Relations and Functions",
     "section": "Building relations and functions",
-    "text": "Building relations and functions\nThe axioms used so far (Extensionality, Comprehension, Pairing, Union) do not let us build many relations. The obvious source is the Cartesian product\n\\[\nA \\times B \\;=\\; \\{\\,\\langle x, y\\rangle : x \\in A \\wedge y \\in B\\,\\},\n\\]\nafter which any relation between \\(A\\) and \\(B\\) is a subset of \\(A \\times B\\), cut out by Comprehension. So everything reduces to: does \\(A \\times B\\) exist?\n\nFirst method: Power Set\nIf \\(x \\in A\\) and \\(y \\in B\\) then \\(\\{x\\}, \\{x, y\\} \\subseteq A \\cup B\\), so \\(\\langle x, y\\rangle = \\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\} \\in \\mathcal{P}\\bigl(\\mathcal{P}(A \\cup B)\\bigr)\\). Hence\n\\[\nA \\times B \\;=\\; \\bigl\\{\\, w \\in \\mathcal{P}(\\mathcal{P}(A \\cup B)) : \\exists x \\in A\\;\\exists y \\in B\\;(w = \\langle x, y\\rangle)\\,\\bigr\\}\n\\]\nexists by Power Set (twice) and Comprehension.\nThis works, but it is a little “wasteful” in terms of cardinality. The sets\n\\[\n\\{0\\} \\times \\omega, \\qquad\n\\operatorname{id}_\\omega = \\{\\,\\langle x, x\\rangle : x \\in \\omega\\,\\}\n\\]\nhave the same “size” as \\(\\omega\\), yet the justification above manufactures them as subsets of \\(\\mathcal{P}(\\mathcal{P}(\\omega))\\) — a set of size \\(2^{2^{\\aleph_0}}\\). We are invoking the existence of a huge set to produce a countable one.\n\n\nSecond method: Replacement\n\nGeneral method. Suppose \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\). Then Replacement gives a set \\(B\\) with \\(\\forall x \\in A\\;\\exists y \\in B\\;\\varphi(x,\ny)\\), and Comprehension trims it to \\(\\{\\,y \\in B : \\exists x \\in A\\;\\varphi(x,\ny)\\,\\} = \\{\\,y : \\exists x \\in A\\;\\varphi(x, y)\\,\\}\\). So the image of a set under a definable single-valued relation is a set.\n\nApply this to build \\(A \\times B\\) without Power Set. Fix \\(b \\in B\\) and let\n\\[\n\\varphi(x, y) \\;\\equiv\\; y = \\langle x, b\\rangle .\n\\]\nThen \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\), so by Replacement + Comprehension the set\n\\[\nA \\times \\{b\\} \\;=\\; \\{\\,\\langle x, b\\rangle : x \\in A\\,\\}\n\\]\nexists. Applying Replacement again — now over \\(b \\in B\\) — gives\n\\[\nS \\;:=\\; \\bigl\\{\\, A \\times \\{b\\} : b \\in B\\,\\bigr\\},\n\\]\nand finally \\(A \\times B = \\bigcup S\\) by Union.\n\nThis argument never opened up \\(\\langle x, b\\rangle\\); it used only that \\(\\langle x, b\\rangle\\) is some set determined by \\(x\\) and \\(b\\). So it proves \\(A \\times B\\) (and also \\(\\operatorname{dom}(R)\\), \\(\\operatorname{ran}(R)\\)) exist for any definition of the ordered pair.\n\nPackaging the general method as a statement about functions:\n\nLemma. If \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\), then there is a function \\(f\\) with \\(\\operatorname{dom}(f) = A\\) such that for each \\(x \\in A\\), \\(f(x)\\) is the unique \\(y\\) with \\(\\varphi(x, y)\\).\n\nProof. Fix \\(B\\) from Replacement and set \\(f = \\{\\,\\langle x, y\\rangle \\in A\n\\times B : \\varphi(x, y)\\,\\}\\). \\(\\square\\)"
+    "text": "Building relations and functions\nThe axioms used so far (Extensionality, Comprehension, Pairing, Union) do not let us build many relations. The obvious source is the Cartesian product\n\\[\nA \\times B \\;=\\; \\{\\,\\langle x, y\\rangle : x \\in A \\wedge y \\in B\\,\\},\n\\]\nafter which any relation between \\(A\\) and \\(B\\) is a subset of \\(A \\times B\\), cut out by Comprehension. So everything reduces to: does \\(A \\times B\\) exist?\n\nFirst method: Power Set\nIf \\(x \\in A\\) and \\(y \\in B\\) then \\(\\{x\\}, \\{x, y\\} \\subseteq A \\cup B\\), so \\(\\langle x, y\\rangle = \\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\} \\in \\mathcal{P}\\bigl(\\mathcal{P}(A \\cup B)\\bigr)\\). Hence\n\\[\nA \\times B \\;=\\; \\bigl\\{\\, w \\in \\mathcal{P}(\\mathcal{P}(A \\cup B)) : \\exists x \\in A\\;\\exists y \\in B\\;(w = \\langle x, y\\rangle)\\,\\bigr\\}\n\\]\nexists by Power Set (twice) and Comprehension.\nThis works, but it is a little “wasteful” in terms of cardinality. The sets\n\\[\n\\{0\\} \\times \\omega, \\qquad\n\\operatorname{id}_\\omega = \\{\\,\\langle x, x\\rangle : x \\in \\omega\\,\\}\n\\]\nhave the same “size” as \\(\\omega\\), yet the justification above manufactures them as subsets of \\(\\mathcal{P}(\\mathcal{P}(\\omega))\\) — a set of size \\(2^{2^{\\aleph_0}}\\). We are invoking the existence of a huge set to produce a countable one.\n\n\nSecond method: Replacement\n\nGeneral method. Suppose \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\). Then Replacement gives a set \\(B\\) with \\(\\forall x \\in A\\;\\exists y \\in B\\;\\varphi(x,\ny)\\), and Comprehension trims it to \\(\\{\\,y \\in B : \\exists x \\in A\\;\\varphi(x,\ny)\\,\\} = \\{\\,y : \\exists x \\in A\\;\\varphi(x, y)\\,\\}\\). So the image of a set under a definable single-valued relation is a set.\n\nApply this to build \\(A \\times B\\) without Power Set. Fix \\(b \\in B\\) and let\n\\[\n\\varphi(x, y) \\;\\equiv\\; y = \\langle x, b\\rangle .\n\\]\nThen \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\), so by Replacement + Comprehension the set\n\\[\nA \\times \\{b\\} \\;=\\; \\{\\,\\langle x, b\\rangle : x \\in A\\,\\}\n\\]\nexists. Applying Replacement again — now over \\(b \\in B\\) — gives\n\\[\nS \\;:=\\; \\bigl\\{\\, A \\times \\{b\\} : b \\in B\\,\\bigr\\},\n\\]\nand finally \\(A \\times B = \\bigcup S\\) by Union.\n\nThis argument never opened up \\(\\langle x, b\\rangle\\); it used only that \\(\\langle x, b\\rangle\\) is some set determined by \\(x\\) and \\(b\\). So it proves \\(A \\times B\\) (and also \\(\\operatorname{dom}(R)\\), \\(\\operatorname{ran}(R)\\)) exist for any definition of the ordered pair.\n\nPackaging the general method as a statement about functions:\n\nLemma. If \\(\\forall x \\in A\\;\\exists! y\\;\\varphi(x, y)\\), then there is a function \\(f\\) with \\(\\operatorname{dom}(f) = A\\) such that for each \\(x \\in A\\), \\(f(x)\\) is the unique \\(y\\) with \\(\\varphi(x, y)\\).\n\nProof. Fix \\(B\\) from Replacement and set \\(f = \\{\\,\\langle x, y\\rangle \\in A\n\\times B : \\varphi(x, y)\\,\\}\\). \\(\\square\\)",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#inverses-composition-isomorphism",
     "href": "notes/relations-and-functions.html#inverses-composition-isomorphism",
     "title": "Relations and Functions",
     "section": "Inverses, composition, isomorphism",
-    "text": "Inverses, composition, isomorphism\n\n\n\\(R^{-1} := \\{\\,\\langle y, x\\rangle : \\langle x, y\\rangle \\in R\\,\\}\\)\n\na subset of \\(\\operatorname{ran}(R) \\times \\operatorname{dom}(R)\\). If \\(f\\) is a function, \\(f^{-1}\\) is a function iff \\(f\\) is \\(1\\)-\\(1\\).\n\n\\(G \\circ F := \\{\\,\\langle x, z\\rangle : \\exists y\\,(\\langle x, y\\rangle \\in F \\wedge \\langle y, z\\rangle \\in G)\\,\\}\\)\n\nwhen \\(F, G\\) are functions with \\(\\operatorname{ran}(F) \\subseteq\n\\operatorname{dom}(G)\\), this is just \\((G \\circ F)(x) = G(F(x))\\).\n\n\n\nIsomorphism. Let \\(R\\) be a binary relation on \\(A\\) and \\(S\\) a binary relation on \\(B\\). Then \\(F\\) is an isomorphism from \\((A, R)\\) onto \\((B, S)\\) iff\n\\[\nF : A \\xrightarrow[\\text{onto}]{1\\text{-}1} B\n\\qquad\\text{and}\\qquad\n\\forall x, y \\in A\\;\\bigl[\\,x \\mathbin{R} y \\leftrightarrow F(x) \\mathbin{S} F(y)\\,\\bigr].\n\\]\nWe write \\((A, R) \\cong (B, S)\\) when such an \\(F\\) exists. The definition makes sense for arbitrary relations; for now we use it for orderings."
+    "text": "Inverses, composition, isomorphism\n\n\n\\(R^{-1} := \\{\\,\\langle y, x\\rangle : \\langle x, y\\rangle \\in R\\,\\}\\)\n\na subset of \\(\\operatorname{ran}(R) \\times \\operatorname{dom}(R)\\). If \\(f\\) is a function, \\(f^{-1}\\) is a function iff \\(f\\) is \\(1\\)-\\(1\\).\n\n\\(G \\circ F := \\{\\,\\langle x, z\\rangle : \\exists y\\,(\\langle x, y\\rangle \\in F \\wedge \\langle y, z\\rangle \\in G)\\,\\}\\)\n\nwhen \\(F, G\\) are functions with \\(\\operatorname{ran}(F) \\subseteq\n\\operatorname{dom}(G)\\), this is just \\((G \\circ F)(x) = G(F(x))\\).\n\n\n\nIsomorphism. Let \\(R\\) be a binary relation on \\(A\\) and \\(S\\) a binary relation on \\(B\\). Then \\(F\\) is an isomorphism from \\((A, R)\\) onto \\((B, S)\\) iff\n\\[\nF : A \\xrightarrow[\\text{onto}]{1\\text{-}1} B\n\\qquad\\text{and}\\qquad\n\\forall x, y \\in A\\;\\bigl[\\,x \\mathbin{R} y \\leftrightarrow F(x) \\mathbin{S} F(y)\\,\\bigr].\n\\]\nWe write \\((A, R) \\cong (B, S)\\) when such an \\(F\\) exists. The definition makes sense for arbitrary relations; for now we use it for orderings.",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#equivalence-relations-and-quotients",
     "href": "notes/relations-and-functions.html#equivalence-relations-and-quotients",
     "title": "Relations and Functions",
     "section": "Equivalence relations and quotients",
-    "text": "Equivalence relations and quotients\nLet \\(R\\) be an equivalence relation on a set \\(A\\), and \\(x \\in A\\). Define\n\\[\n[x] \\;:=\\; \\{\\,y \\in A : x \\mathbin{R} y\\,\\}\n\\qquad\\text{(Comprehension)},\n\\]\nthe equivalence class of \\(x\\), and\n\\[\nA / R \\;:=\\; \\bigl\\{\\, [x] : x \\in A\\,\\bigr\\}.\n\\]\nTo see \\(A/R\\) is a set, apply the general method with \\(\\varphi(x, y) \\equiv y =\n[x]\\): by Lemma I.7.9 there is a function \\(f\\) with \\(\\operatorname{dom}(f) = A\\) and \\(f(x) = [x]\\) — the quotient map \\(x \\mapsto [x]\\) — and then \\(A/R =\n\\operatorname{ran}(f)\\).\nThis is the standard justification, in books on group theory and topology, for forming a quotient of a structure by an equivalence relation; the extra structure on \\(A/R\\) is defined separately."
+    "text": "Equivalence relations and quotients\nLet \\(R\\) be an equivalence relation on a set \\(A\\), and \\(x \\in A\\). Define\n\\[\n[x] \\;:=\\; \\{\\,y \\in A : x \\mathbin{R} y\\,\\}\n\\qquad\\text{(Comprehension)},\n\\]\nthe equivalence class of \\(x\\), and\n\\[\nA / R \\;:=\\; \\bigl\\{\\, [x] : x \\in A\\,\\bigr\\}.\n\\]\nTo see \\(A/R\\) is a set, apply the general method with \\(\\varphi(x, y) \\equiv y =\n[x]\\): by Lemma I.7.9 there is a function \\(f\\) with \\(\\operatorname{dom}(f) = A\\) and \\(f(x) = [x]\\) — the quotient map \\(x \\mapsto [x]\\) — and then \\(A/R =\n\\operatorname{ran}(f)\\).\nThis is the standard justification, in books on group theory and topology, for forming a quotient of a structure by an equivalence relation; the extra structure on \\(A/R\\) is defined separately.",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
     "objectID": "notes/relations-and-functions.html#object-theory-versus-metatheory",
     "href": "notes/relations-and-functions.html#object-theory-versus-metatheory",
     "title": "Relations and Functions",
     "section": "Object theory versus metatheory",
-    "text": "Object theory versus metatheory\nThe informal notions “relation” and “function” get two representations in set theory: as sets (objects of the formal theory ZFC), and as abbreviations in the metatheory.\n\nAs sets\nA relation is a specific kind of set, handled inside ZFC. The defining property is a formula of the object theory — for example\n\\[\n\\operatorname{Rel}(R) \\;:\\equiv\\; \\forall u \\in R\\;\\exists y, z\\;\\bigl(u = \\langle y, z\\rangle\\bigr).\n\\]\nWe then prove facts about such sets as theorems of ZFC, e.g.\n\\[\n\\mathrm{ZFC} \\;\\vdash\\; \\operatorname{Rel}(R) \\rightarrow \\exists z\\,\\bigl(z = \\operatorname{dom}(R)\\bigr),\n\\]\nusing the justification given earlier. A concrete function such as \\(f = \\{\\langle\n1, 2\\rangle, \\langle 2, 2\\rangle, \\langle 3, 1\\rangle\\}\\) is likewise a set formally defined in ZFC.\n\n\nAs abbreviations in the metatheory\nBy contrast, \\(\\in\\), \\(=\\), \\(\\subseteq\\) are informal relations — a different kind of animal. The “relation”\n\\[\nS \\;=\\; \\{\\,p : \\exists x, y\\;(p = \\langle x, y\\rangle \\wedge x \\subseteq y)\\,\\}\n\\]\ndoes not exist: it is a proper class, since \\(\\operatorname{dom}(S)\\) would be the universe \\(V\\). We view \\(x \\subseteq y\\) instead as an abbreviation in the metatheory for \\(\\forall z\\,(z \\in x \\rightarrow z \\in y)\\); likewise \\((A, R)\n\\cong (B, S)\\) abbreviates a longer statement. Membership and equality, \\(\\in\\) and \\(=\\), are already primitive symbols.\nMany properties from the terminology list still make sense for such pseudorelations, by plugging them into the defining formula. For instance \\(\\in\\) totally orders \\(3 = \\{0, 1, 2\\}\\) (i.e. \\(\\forall x, y, z \\in 3\\,[x \\in y\n\\wedge y \\in z \\rightarrow x \\in z]\\), plus trichotomy), while \\(\\subseteq\\) is transitive on all of \\(V\\) but not a total order of \\(3\\), and \\(\\in\\) is not transitive on \\(V\\) (since \\(0 \\in \\{0\\} \\in \\{\\{0\\}\\}\\) but \\(0 \\notin \\{\\{0\\}\\}\\)).\nSimilarly for functions: \\(\\bigcup : V \\to V\\) and \\(\\mathcal{P} : V \\to V\\) are pseudofunctions. There is no set of pairs \\(\\bigcup = \\{\\langle \\mathcal{F},\n\\bigcup \\mathcal{F}\\rangle : \\mathcal{F} \\in V\\}\\); instead there is a formula \\(\\varphi(\\mathcal{F}, Z)\\) saying “\\(Z\\) is the union of the members of \\(\\mathcal{F}\\)”, we prove \\(\\forall \\mathcal{F}\\;\\exists! Z\\;\\varphi(\\mathcal{F},\nZ)\\), and \\(\\bigcup \\mathcal{F}\\) denotes that \\(Z\\). Function properties still apply as abbreviations — e.g. “\\(\\bigcup\\) is not \\(1\\)-\\(1\\)” is the formula\n\\[\n\\exists x_1, x_2, y\\;\\bigl[\\varphi(x_1, y) \\wedge \\varphi(x_2, y) \\wedge x_1 \\neq x_2\\bigr].\n\\]"
+    "text": "Object theory versus metatheory\nThe informal notions “relation” and “function” get two representations in set theory: as sets (objects of the formal theory ZFC), and as abbreviations in the metatheory.\n\nAs sets\nA relation is a specific kind of set, handled inside ZFC. The defining property is a formula of the object theory — for example\n\\[\n\\operatorname{Rel}(R) \\;:\\equiv\\; \\forall u \\in R\\;\\exists y, z\\;\\bigl(u = \\langle y, z\\rangle\\bigr).\n\\]\nWe then prove facts about such sets as theorems of ZFC, e.g.\n\\[\n\\mathrm{ZFC} \\;\\vdash\\; \\operatorname{Rel}(R) \\rightarrow \\exists z\\,\\bigl(z = \\operatorname{dom}(R)\\bigr),\n\\]\nusing the justification given earlier. A concrete function such as \\(f = \\{\\langle\n1, 2\\rangle, \\langle 2, 2\\rangle, \\langle 3, 1\\rangle\\}\\) is likewise a set formally defined in ZFC.\n\n\nAs abbreviations in the metatheory\nBy contrast, \\(\\in\\), \\(=\\), \\(\\subseteq\\) are informal relations — a different kind of animal. The “relation”\n\\[\nS \\;=\\; \\{\\,p : \\exists x, y\\;(p = \\langle x, y\\rangle \\wedge x \\subseteq y)\\,\\}\n\\]\ndoes not exist: it is a proper class, since \\(\\operatorname{dom}(S)\\) would be the universe \\(V\\). We view \\(x \\subseteq y\\) instead as an abbreviation in the metatheory for \\(\\forall z\\,(z \\in x \\rightarrow z \\in y)\\); likewise \\((A, R)\n\\cong (B, S)\\) abbreviates a longer statement. Membership and equality, \\(\\in\\) and \\(=\\), are already primitive symbols.\nMany properties from the terminology list still make sense for such pseudorelations, by plugging them into the defining formula. For instance \\(\\in\\) totally orders \\(3 = \\{0, 1, 2\\}\\) (i.e. \\(\\forall x, y, z \\in 3\\,[x \\in y\n\\wedge y \\in z \\rightarrow x \\in z]\\), plus trichotomy), while \\(\\subseteq\\) is transitive on all of \\(V\\) but not a total order of \\(3\\), and \\(\\in\\) is not transitive on \\(V\\) (since \\(0 \\in \\{0\\} \\in \\{\\{0\\}\\}\\) but \\(0 \\notin \\{\\{0\\}\\}\\)).\nSimilarly for functions: \\(\\bigcup : V \\to V\\) and \\(\\mathcal{P} : V \\to V\\) are pseudofunctions. There is no set of pairs \\(\\bigcup = \\{\\langle \\mathcal{F},\n\\bigcup \\mathcal{F}\\rangle : \\mathcal{F} \\in V\\}\\); instead there is a formula \\(\\varphi(\\mathcal{F}, Z)\\) saying “\\(Z\\) is the union of the members of \\(\\mathcal{F}\\)”, we prove \\(\\forall \\mathcal{F}\\;\\exists! Z\\;\\varphi(\\mathcal{F},\nZ)\\), and \\(\\bigcup \\mathcal{F}\\) denotes that \\(Z\\). Function properties still apply as abbreviations — e.g. “\\(\\bigcup\\) is not \\(1\\)-\\(1\\)” is the formula\n\\[\n\\exists x_1, x_2, y\\;\\bigl[\\varphi(x_1, y) \\wedge \\varphi(x_2, y) \\wedge x_1 \\neq x_2\\bigr].\n\\]",
+    "crumbs": [
+      "5 · Relations and Functions"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html",
-    "href": "notes/first-consequences.html",
-    "title": "First Consequences of the ZFC Axioms",
+    "objectID": "notes/ordinals.html",
+    "href": "notes/ordinals.html",
+    "title": "Ordinals",
     "section": "",
-    "text": "We take the axioms of ZFC as given and start deriving things — beginning with Axioms 1, 3, 4, 5 (Extensionality, Comprehension, Pairing, Union)."
+    "text": "We work in ZFC, but — as noted below — we deliberately avoid using Foundation, so that “being an ordinal” does real work.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html#extensionality-and-comprehension",
-    "href": "notes/first-consequences.html#extensionality-and-comprehension",
-    "title": "First Consequences of the ZFC Axioms",
-    "section": "Extensionality and Comprehension",
-    "text": "Extensionality and Comprehension\nAxiom 1 (Extensionality). A set is completely determined by its elements:\n\\[\n\\forall z\\,(z \\in x \\leftrightarrow z \\in y) \\;\\rightarrow\\; x = y .\n\\]\nThis does more than it seems. It also fixes what our universe contains. If we allowed an object with no members that is not the empty set — a duck \\(D\\) and a badger \\(B\\), say — then \\(\\forall z\\,(z \\in B \\leftrightarrow z \\in D)\\) would hold vacuously, forcing \\(B = D = \\varnothing\\). So every object in our universe is a set, and hereditarily so: its members, their members, and so on are all sets. The universe of hereditary sets is informally called \\(V\\).\nAxiom 3 (Comprehension / Separation). For each formula \\(\\varphi\\) (with \\(y\\) not free),\n\\[\n\\forall v\\;\\exists y\\;\\forall x\\,\\bigl(x \\in y \\leftrightarrow x \\in v \\wedge\n\\varphi(x)\\bigr).\n\\]\nSubsets are separated out of a set that already exists. This restriction is the whole point, as the next section shows."
+    "objectID": "notes/ordinals.html#why-count-past-mathbbn",
+    "href": "notes/ordinals.html#why-count-past-mathbbn",
+    "title": "Ordinals",
+    "section": "Why count past \\(\\mathbb{N}\\)?",
+    "text": "Why count past \\(\\mathbb{N}\\)?\nCantor was led to the transfinite by a concrete problem. Given \\(A \\subseteq\n\\mathbb{R}\\), its derivative is the set of its limit points,\n\\[\nA' = \\{\\, x \\in A : x \\text{ is a limit point of } A \\,\\}.\n\\]\nIterating gives a descending chain \\(A \\supseteq A' \\supseteq A'' \\supseteq\n\\cdots\\), and one can take a “limit” \\(A^{(\\infty)} = \\bigcap_n A^{(n)}\\). But \\(A^{(\\infty)}\\) may still have isolated points, so the process continues: \\(A^{(\\infty)} \\supsetneq (A^{(\\infty)})' \\supsetneq \\cdots\\). To index the stages we need numbers beyond the natural numbers:\n\\[\n0, 1, 2, \\dots, \\omega, \\omega+1, \\omega+2, \\dots, \\omega+\\omega, \\dots,\n\\omega\\cdot\\omega, \\dots\n\\]\nMaking “keep counting, even through limit stages” precise is exactly what the ordinals accomplish. The concept they rest on is the well-order.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html#how-comprehension-avoids-russells-paradox",
-    "href": "notes/first-consequences.html#how-comprehension-avoids-russells-paradox",
-    "title": "First Consequences of the ZFC Axioms",
-    "section": "How Comprehension avoids Russell’s paradox",
-    "text": "How Comprehension avoids Russell’s paradox\nNaive comprehension — “for every property \\(Q\\), the set \\(\\{x : Q(x)\\}\\) exists” — is inconsistent. With \\(Q(x) \\equiv x \\notin x\\) we get Russell’s set \\(R\\) and the contradiction \\(R \\in R \\leftrightarrow R \\notin R\\).\nUnder Axiom 3 we may only form, relative to a set \\(v\\),\n\\[\nR_v \\;=\\; \\{\\,x \\in v : x \\notin x\\,\\}.\n\\]\nRun Russell’s argument on this. If \\(R_v \\in v\\), then \\(R_v \\in R_v\n\\leftrightarrow R_v \\notin R_v\\) — still a contradiction. The escape is that we are no longer forced into it: we simply conclude\n\\[\nR_v \\notin v .\n\\]\nSince \\(v\\) was arbitrary, every set omits some object, and there is no set of all sets:\n\nTheorem (no universal set). \\(\\;\\forall v\\;\\exists R\\;(R \\notin v).\\)\n\nWhether this is a desirable feature is a fair question — a foundation in which “the collection of all sets” is not itself an object can feel like a defect. It is better read as the price of consistency: the same restriction that blocks Russell blocks the universal set."
+    "objectID": "notes/ordinals.html#well-founded-relations",
+    "href": "notes/ordinals.html#well-founded-relations",
+    "title": "Ordinals",
+    "section": "Well-founded relations",
+    "text": "Well-founded relations\nThroughout, \\(R\\) is a relation on a set \\(A\\), and for \\(X \\subseteq A\\) we write \\(R\\restriction X = \\{\\langle x,y\\rangle \\in R : x, y \\in X\\}\\).\n\n\n\\(y\\) is \\(R\\)-minimal in \\(X\\):\n\n\\(y \\in X\\) and \\(\\neg\\exists z\\,(z \\in X \\wedge z \\mathbin{R} y)\\) — nothing in \\(X\\) is \\(R\\)-below \\(y\\).\n\n\\(R\\) is well-founded on \\(A\\):\n\nevery nonempty \\(X \\subseteq A\\) has an \\(R\\)-minimal element: \\[\n\\forall X\\,\\bigl(\\varnothing \\neq X \\subseteq A \\;\\rightarrow\\;\n\\exists y \\in X\\;\\forall z \\in X\\;\\neg(z \\mathbin{R} y)\\bigr).\n\\]\n\n\n\nTwo basic facts:\n\nThe Axiom of Foundation says exactly that \\(\\in\\) is well-founded on every set. We will not assume this below.\nIf \\(A\\) is finite, then \\(R\\) is well-founded on \\(A\\) iff \\(R\\) has no cycles \\(a_0 \\mathbin{R} a_1 \\mathbin{R} \\cdots \\mathbin{R} a_n \\mathbin{R} a_0\\) on \\(A\\). (For infinite \\(A\\) this fails: the usual \\(&lt;\\) on \\(\\mathbb{Q}\\) is acyclic but not well-founded.)\n\nWell-foundedness is the “no infinite descent” condition; it is what makes proof by induction and definition by recursion possible.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html#formal-definitions-versus-their-metatheoretic-meaning",
-    "href": "notes/first-consequences.html#formal-definitions-versus-their-metatheoretic-meaning",
-    "title": "First Consequences of the ZFC Axioms",
-    "section": "Formal definitions versus their metatheoretic meaning",
-    "text": "Formal definitions versus their metatheoretic meaning\nA defined symbol is introduced by a purely symbolic clause. For intersection:\n\\[\n\\mathrm{int}(a, b, y) \\;:\\Longleftrightarrow\\;\n\\forall x\\,\\bigl(x \\in y \\leftrightarrow (x \\in a \\wedge x \\in b)\\bigr).\n\\]\nInformally we read \\(y = a \\cap b\\), but that reading lives in the metatheory. Before we are entitled to write the term \\(a \\cap b\\), we must check that it names exactly one set:\n\nLemma. \\(\\;\\forall a, b\\;\\exists! y\\;\\mathrm{int}(a, b, y).\\)\n\nExistence is Comprehension applied to \\(v = a\\) with \\(\\varphi(x) \\equiv x \\in a\n\\wedge x \\in b\\). Uniqueness is Extensionality: if \\(\\mathrm{int}(a,b,y)\\) and \\(\\mathrm{int}(a,b,z)\\), then \\(\\forall x\\,(x \\in y \\leftrightarrow x \\in z)\\), hence \\(y = z\\).\nThis is the standard pattern. We name an operation (or a constant) only after proving that the defining formula is satisfied by exactly one set — just as one proves \\(\\sqrt{2}\\) is the unique \\(y &gt; 0\\) with \\(y^2 = 2\\) before using the notation."
+    "objectID": "notes/ordinals.html#well-orders",
+    "href": "notes/ordinals.html#well-orders",
+    "title": "Ordinals",
+    "section": "Well-orders",
+    "text": "Well-orders\n\n\nDefinition. \\(R\\) is a well-order (WO) on \\(A\\):\n\n\\(R\\) totally orders \\(A\\) strictly and \\(R\\) is well-founded on \\(A\\).\n\n\n\nEquivalently: a strict total order in which every nonempty subset has a least element. (In a total order an \\(R\\)-minimal element of \\(X\\) is automatically the \\(R\\)-least element of \\(X\\).)\nExamples.\n\n\\((\\mathbb{N}, &lt;)\\) is a well-order — this is the least number principle.\n\\(\\bigl(\\{\\,1 - 2^{-n} : n \\in \\mathbb{N}\\,\\},\\,&lt;\\bigr)\\) is a well-order.\n\\(\\bigl(\\{\\,m - 2^{-n} : m, n \\geq 1\\,\\},\\,&lt;\\bigr)\\) is a well-order (a copy of \\(\\mathbb{N}\\) followed by another copy, then another, …).\n\\((\\mathbb{Q}, &lt;)\\), \\((\\mathbb{R}, &lt;)\\), \\((\\mathbb{Z}, &lt;)\\) are not WOs.\n\n\nWell-orders are rigid\nOrders are compared by embeddings: \\(f : (A, &lt;_A) \\to (B, &lt;_B)\\) with \\(x &lt;_A y \\leftrightarrow f(x) &lt;_B f(y)\\). An isomorphism is a bijective embedding; \\(\\mathbb{Z}\\) and \\(\\mathbb{R}\\) have nontrivial automorphisms (\\(z \\mapsto\nz+1\\)). Well-orders do not.\n\nProposition. Let \\((A, &lt;)\\) be a well-order and \\(f : A \\to A\\) a self-embedding. Then \\(x \\leq f(x)\\) for all \\(x \\in A\\).\n\nProof. If \\(\\{x \\in A : f(x) &lt; x\\} \\neq \\varnothing\\), it has a least element \\(z\\). Then \\(f(z) &lt; z\\), and applying the embedding \\(f\\bigl(f(z)\\bigr) &lt; f(z)\\) — so \\(f(z)\\) is a smaller element of the set, contradicting minimality of \\(z\\). \\(\\square\\)\n\nCorollary. The only automorphism of a well-order is the identity.\n\nProof. If \\(f\\) is an automorphism, both \\(f\\) and \\(f^{-1}\\) are self-embeddings, so \\(x \\leq f(x)\\) and \\(x \\leq f^{-1}(x)\\); the latter gives \\(f(x) \\leq x\\). \\(\\square\\)\nFor \\(b \\in A\\), the initial segment below \\(b\\) is\n\\[\nA_{&lt;b} \\;:=\\; \\{\\, a \\in A : a &lt; b \\,\\}.\n\\]\n\nCorollary. No well-order is isomorphic to a proper initial segment of itself.\n\nProof. Suppose \\(f : A \\xrightarrow{\\ \\cong\\ } A_{&lt;b}\\). Then \\(f(x) &lt; b\\) for every \\(x\\), in particular \\(f(b) &lt; b\\) — contradicting the Proposition. \\(\\square\\)",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html#classes-and-the-class-builder-notation",
-    "href": "notes/first-consequences.html#classes-and-the-class-builder-notation",
-    "title": "First Consequences of the ZFC Axioms",
-    "section": "Classes and the class-builder notation",
-    "text": "Classes and the class-builder notation\nLet \\(\\varphi(x)\\) be any formula. Informally \\(\\{x : \\varphi(x)\\}\\) is a class — this is just notation.\n\nIf there is a set \\(A\\) with \\(\\forall x\\,(x \\in A \\leftrightarrow\n\\varphi(x))\\), then \\(A\\) is unique by Extensionality; we write \\(A = \\{x :\n\\varphi(x)\\}\\) and say the class exists (is a set).\nOtherwise \\(\\{x : \\varphi(x)\\}\\) is a proper class — a figure of speech, not an object.\n\nTwo examples:\n\\[\n\\varphi(x) \\equiv x \\notin x\n\\qquad\\rightsquigarrow\\qquad\n\\mathrm{ZFC} \\vdash \\neg\\exists y\\,\\forall x\\,(x \\in y \\leftrightarrow x \\notin\nx),\n\\]\nso Russell’s class is proper;\n\\[\n\\varphi(x) \\equiv x = x\n\\qquad\\rightsquigarrow\\qquad\n\\neg\\exists A\\,\\forall x\\,(x \\in A),\n\\]\nso the universal class \\(V = \\{x : x = x\\}\\) is proper. Saying “\\(V\\) does not exist” is just another way of writing \\(\\neg\\exists A\\,\\forall x\\,(x \\in A)\\); there is no more of a puzzle here than in “trolls do not exist.”\nFinally, \\(\\{x \\in z : \\varphi(x)\\}\\) abbreviates \\(\\{x : x \\in z \\wedge\n\\varphi(x)\\}\\), and Comprehension says these always exist."
+    "objectID": "notes/ordinals.html#ordinal-numbers",
+    "href": "notes/ordinals.html#ordinal-numbers",
+    "title": "Ordinals",
+    "section": "Ordinal numbers",
+    "text": "Ordinal numbers\nCantor defined an ordinal as an isomorphism class of well-orders (an “order type”). von Neumann gave a canonical representative of each class: a specific set on which \\(\\in\\) is the ordering. For instance\n\\[\n3 = \\bigl\\{\\, \\varnothing,\\ \\{\\varnothing\\},\\ \\{\\varnothing, \\{\\varnothing\\}\\}\n\\,\\bigr\\}\n\\]\nis a \\(3\\)-element set well-ordered by \\(\\in\\).\n\n\nDefinition. A set \\(A\\) is transitive:\n\n\\(\\forall x \\in A\\;(x \\subseteq A)\\) — every element is also a subset. (A transitive set cannot “hide” members inside its members.)\n\nDefinition (von Neumann). A set \\(z\\) is an ordinal, \\(\\operatorname{Ord}(z)\\):\n\n\\(z\\) is transitive and well-ordered by \\(\\in\\).\n\n\n\n\nWe do not assume Foundation here. If we did, “well-ordered by \\(\\in\\)” could be weakened to “linearly ordered by \\(\\in\\)”, since well-foundedness would come for free. \n\n\n\nProposition 1. If \\(\\operatorname{Ord}(\\alpha)\\) and \\(x \\in \\alpha\\), then \\(\\operatorname{Ord}(x)\\). (Every element of an ordinal is an ordinal.)\n\nProof. Since \\(\\alpha\\) is transitive, \\(x \\subseteq \\alpha\\), so \\(\\in\\) well-orders \\(x\\) (a subset of a well-order is well-ordered). It remains to show \\(x\\) is a transitive set. Let \\(y \\in z \\in x\\). Then \\(z \\in \\alpha\\) (as \\(x \\subseteq\n\\alpha\\)), so \\(y \\in \\alpha\\) (as \\(z \\subseteq \\alpha\\)). Now \\(x, y \\in \\alpha\\) and \\(\\in\\) is a total order on \\(\\alpha\\), so\n\\[\ny \\in x \\quad\\vee\\quad x \\in y \\quad\\vee\\quad x = y.\n\\]\nIf \\(x = y\\) then \\(x \\in z \\in x\\); if \\(x \\in y\\) then \\(x \\in y \\in z \\in x\\) — both are \\(\\in\\)-cycles in \\(\\alpha\\), impossible since \\(\\in\\) is well-founded on \\(\\alpha\\). Hence \\(y \\in x\\). \\(\\square\\)\nThis suggests ordering ordinals by\n\\[\n\\alpha &lt; \\beta \\quad:\\Longleftrightarrow\\quad \\alpha \\in \\beta,\n\\]\nand Proposition 1 gives, for every ordinal,\n\\[\n\\alpha \\;=\\; \\{\\, \\beta : \\beta &lt; \\alpha \\,\\}\n\\]\n— an ordinal is the set of all smaller ordinals.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
-    "objectID": "notes/first-consequences.html#building-sets-from-nothing",
-    "href": "notes/first-consequences.html#building-sets-from-nothing",
-    "title": "First Consequences of the ZFC Axioms",
-    "section": "Building sets from nothing",
-    "text": "Building sets from nothing\n\nThe empty set\n\n\n\\(\\varnothing\\)\n\nthe unique \\(y\\) with \\(\\forall z\\,(z \\notin y)\\).\n\n\n\nExistence: take any set (Axiom 0) and apply Comprehension with an always-false \\(\\varphi\\), e.g. \\(x \\neq x\\). Uniqueness: Extensionality. At this point \\(\\varnothing\\) is the only specific set we have proved to exist.\n\n\nPairs\nPairing gives \\(\\exists z\\,(x \\in z \\wedge y \\in z)\\); the \\(z\\) may have other elements, so trim it with Comprehension to \\(\\{w \\in z : w = x \\vee w = y\\}\\). This licenses:\n\n\\(\\{x, y\\} := \\{w : w = x \\vee w = y\\}\\)\n\\(\\{x\\} := \\{x, x\\}\\)\n\\(\\langle x, y \\rangle = (x, y) := \\bigl\\{\\{x\\},\\, \\{x, y\\}\\bigr\\}\\)\n\nThe one property the ordered pair must have is\n\\[\n\\langle x, y \\rangle = \\langle x', y' \\rangle \\;\\rightarrow\\;\nx = x' \\wedge y = y'\n\\]\n(prove it by splitting into the cases \\(x = y\\) and \\(x \\neq y\\)). Any other definition with this property would serve equally well; the bracket notation \\(\\langle\\,\\cdot\\,,\\cdot\\,\\rangle\\) marks that we mean this one.\nWe can now start counting:\n\\[\n0 = \\varnothing, \\qquad\n1 = \\{0\\} = \\{\\varnothing\\}, \\qquad\n2 = \\{0, 1\\} = \\bigl\\{\\varnothing, \\{\\varnothing\\}\\bigr\\}.\n\\]\nThe axioms so far generate infinitely many different sets — for example, \\(\\varnothing\\), \\(\\{\\varnothing\\}\\), \\(\\{\\{\\varnothing\\}\\}\\), … — but none with more than two elements.\n\n\nUnion: getting bigger sets\n\n\nAxiom 5 — Union\n\n\\(\\forall \\mathcal{F}\\;\\exists A\\;\\forall Y\\;\\forall x\\,\n\\bigl(x \\in Y \\wedge Y \\in \\mathcal{F} \\;\\rightarrow\\; x \\in A\\bigr)\\)\n\n\n\\(\\bigcup \\mathcal{F} := \\{x : \\exists Y \\in \\mathcal{F}\\;(x \\in Y)\\}\\) — the members of members of \\(\\mathcal{F}\\).\nIt exists: take \\(A\\) from the axiom and separate \\(\\{x \\in A : \\exists Y \\in \\mathcal{F}\\,(x \\in Y)\\}\\).\n\\(u \\cup v :=  \\bigcup \\{u, v\\}\\)\n\nThe axiom is stated for arbitrary families so that it covers infinite unions too, not just \\(u \\cup v\\).\nWorked example: the number 3. We have \\(0, 1, 2\\). Then:\n\n\\(\\{0, 1\\}\\) by Pairing;\n\\(\\{2\\} = \\{2, 2\\}\\) by Pairing;\n\\(\\mathcal{F} = \\bigl\\{\\{0,1\\},\\, \\{2\\}\\bigr\\}\\) by Pairing;\n\\(\\bigcup \\mathcal{F} = \\{0, 1, 2\\} =: 3\\).\n\nEquivalently \\(3 = 2 \\cup \\{2\\}\\). In general the successor is\n\\[\nS(x) = x \\cup \\{x\\}, \\qquad\n3 = S(2),\\quad 4 = S(3),\\quad \\dots\n\\]"
+    "objectID": "notes/ordinals.html#the-well-ordering-of-the-ordinals",
+    "href": "notes/ordinals.html#the-well-ordering-of-the-ordinals",
+    "title": "Ordinals",
+    "section": "The well-ordering of the ordinals",
+    "text": "The well-ordering of the ordinals\n\nProposition 2. For ordinals \\(\\alpha, \\beta\\): \\(\\quad\\alpha &lt; \\beta \\;\\Longleftrightarrow\\; \\alpha \\subsetneq \\beta\\).\n\nProof. (\\(\\Rightarrow\\)) \\(\\alpha \\in \\beta\\) and \\(\\beta\\) transitive give \\(\\alpha\n\\subseteq \\beta\\); properly, since \\(\\alpha \\notin \\alpha\\) (well-foundedness) while \\(\\alpha \\in \\beta\\).\n(\\(\\Leftarrow\\)) We prove the stronger statement\n\\[\n\\operatorname{trans}(a) \\;\\wedge\\; a \\subsetneq \\beta\n\\quad\\Longrightarrow\\quad \\operatorname{Ord}(a) \\;\\wedge\\; a \\in \\beta.\n\\]\nIf \\(a \\subsetneq \\beta\\) then \\(a\\) is linearly ordered by \\(\\in\\) (subset of \\(\\beta\\)); being also transitive, \\(a\\) is an ordinal. For \\(a \\in \\beta\\): since \\(\\beta\n\\setminus a \\neq \\varnothing\\), pick \\(\\gamma\\) \\(\\in\\)-minimal in \\(\\beta \\setminus a\\). We claim \\(\\gamma = a\\).\n\n\\(\\gamma \\subseteq a\\): if \\(g \\in \\gamma\\) then \\(g \\notin \\beta \\setminus a\\) by minimality, and \\(g \\in \\beta\\) (transitivity of \\(\\beta\\)), so \\(g \\in a\\).\n\\(a \\subseteq \\gamma\\): let \\(x \\in a\\). Then \\(x \\in \\beta\\), so by trichotomy in \\(\\beta\\), \\(x \\in \\gamma \\vee \\gamma \\in x \\vee x = \\gamma\\). The last two force \\(\\gamma \\in a\\) (transitivity of \\(a\\), resp. directly), contradicting \\(\\gamma\n\\notin a\\). So \\(x \\in \\gamma\\).\n\nHence \\(a = \\gamma \\in \\beta\\). \\(\\square\\)\nWrite \\(ON = \\{\\, x : \\operatorname{Ord}(x) \\,\\}\\) for the collection of all ordinals.\n\nTheorem. \\(ON\\) is well-ordered by \\(&lt;\\) (\\(=\\in\\)).\nSince \\(ON\\) is not a set (next result), this is shorthand for a list of ZFC theorems: \\(\\in\\) on the ordinals is (1) transitive, (2) irreflexive, (3) trichotomous, and (4) well-founded — every nonempty set of ordinals has an \\(\\in\\)-least member.\n\nProof.\n\nTransitive: \\(\\alpha &lt; \\beta &lt; \\gamma\\) means \\(\\alpha \\in \\beta \\in \\gamma\\); \\(\\gamma\\) transitive gives \\(\\alpha \\in \\gamma\\).\nIrreflexive: \\(\\alpha \\in \\alpha\\) would be an \\(\\in\\)-cycle in \\(\\alpha\\), contradicting well-foundedness of \\(\\in\\) on \\(\\alpha\\).\nTrichotomy: first a lemma.\n\nLemma. \\(\\alpha \\cap \\beta\\) is an ordinal.\nIt is transitive (an intersection of transitive sets is transitive) and well-ordered by \\(\\in\\) (a subset of \\(\\alpha\\)).\n\nLet \\(\\gamma = \\alpha \\cap \\beta\\), so \\(\\gamma \\subseteq \\alpha\\) and \\(\\gamma\n\\subseteq \\beta\\). By Proposition 2, \\(\\gamma \\in \\alpha\\) or \\(\\gamma = \\alpha\\), and likewise for \\(\\beta\\). If \\(\\gamma \\in \\alpha\\) and \\(\\gamma \\in \\beta\\) then \\(\\gamma \\in \\alpha \\cap \\beta = \\gamma\\), impossible. So \\(\\gamma = \\alpha\\) or \\(\\gamma = \\beta\\); that is \\(\\alpha \\subseteq \\beta\\) or \\(\\beta \\subseteq \\alpha\\), hence (Proposition 2) \\(\\alpha \\leq \\beta\\) or \\(\\beta \\leq \\alpha\\).\nWell-founded: let \\(A \\neq \\varnothing\\) be a set of ordinals and \\(\\alpha \\in\nA\\). If \\(\\alpha\\) is \\(\\in\\)-least, done. Otherwise \\(\\alpha \\cap A = \\{\\beta \\in A\n: \\beta &lt; \\alpha\\}\\) is a nonempty subset of \\(\\alpha\\), so it has an \\(\\in\\)-least element (since \\(\\in\\) well-orders \\(\\alpha\\)) — and that is \\(\\in\\)-least in \\(A\\). \\(\\square\\)\n\n\nBurali-Forti. \\(ON\\) is a proper class: no set contains all the ordinals.\n\nProof. If every ordinal were in a set \\(X\\), then \\(ON = \\{y \\in X :\n\\operatorname{Ord}(y)\\}\\) would be a set. It is transitive (Proposition 1) and well-ordered by \\(\\in\\) (Theorem), hence an ordinal, hence \\(ON \\in ON\\) — contradicting irreflexivity. (This needs no Foundation: ordinals are by definition strictly ordered by \\(\\in\\).) \\(\\square\\)\nWorking in Cantor’s naive set theory, Burali-Forti (1897) put together “the well-ordering of all well-orderings” to get a well-ordering strictly longer than every well-ordering, including itself.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
+  },
+  {
+    "objectID": "notes/ordinals.html#the-natural-numbers-again",
+    "href": "notes/ordinals.html#the-natural-numbers-again",
+    "title": "Ordinals",
+    "section": "The natural numbers, again",
+    "text": "The natural numbers, again\nRecall \\(\\omega\\) was introduced (Axiom of Infinity) as the smallest inductive set — the smallest set containing \\(\\varnothing\\) and closed under the successor\n\\[\nS(x) = x \\cup \\{x\\}.\n\\]\n\nProposition 3. If \\(\\operatorname{Ord}(\\alpha)\\) then \\(\\operatorname{Ord}\\bigl(\nS(\\alpha)\\bigr)\\), and for every ordinal \\(\\gamma\\), \\(\\quad\\gamma &lt; S(\\alpha) \\;\\Longleftrightarrow\\; \\gamma \\leq \\alpha\\).\n\nProof (sketch). \\(S(\\alpha) = \\alpha \\cup \\{\\alpha\\}\\) is transitive: its members are the members of \\(\\alpha\\) (each \\(\\subseteq \\alpha \\subseteq S(\\alpha)\\)) and \\(\\alpha\\) itself (\\(\\subseteq S(\\alpha)\\)). It is well-ordered by \\(\\in\\): it is \\(\\alpha\\) with one new top element. The equivalence is then immediate from \\(\\gamma \\in \\alpha \\cup \\{\\alpha\\}\\). \\(\\square\\)\n\n\n\\(\\alpha\\) is a successor\n\n\\(\\alpha = S(\\beta)\\) for some ordinal \\(\\beta\\).\n\n\\(\\alpha\\) is a limit\n\n\\(\\alpha \\neq 0\\) and \\(\\alpha\\) is not a successor. Equivalently: \\(\\alpha \\neq 0\\) and \\(\\forall \\beta &lt; \\alpha\\;(S(\\beta) &lt; \\alpha)\\).\n\n\\(\\alpha\\) is finite (a natural number)\n\nevery \\(\\beta \\leq \\alpha\\) is either \\(0\\) or a successor.\n\n\n\n\nProposition 4. If \\(\\alpha\\) is finite, so is \\(S(\\alpha)\\).\n\nNow consider the class \\(X = \\{\\, x : x \\text{ is a finite ordinal} \\,\\}\\). It contains \\(0\\) and is closed under \\(S\\) (Proposition 4) — it is inductive. Since \\(\\omega\\) is the smallest inductive set, \\(\\omega \\subseteq X\\): every element of \\(\\omega\\) is a finite ordinal.\nClaim: there is no finite ordinal outside \\(\\omega\\). Suppose \\(n \\in X\n\\setminus \\omega\\). (We cannot apply the least-element principle to \\(X \\setminus\n\\omega\\) directly — it might be a proper class.) But \\(S(n) \\setminus \\omega\\) is a set (a subset of the ordinal \\(S(n)\\)), nonempty (\\(n\\) is in it), and consists of finite ordinals. So it has an \\(\\in\\)-least element \\(k\\).\n\n\\(k \\neq 0\\), since \\(0 \\in \\omega\\).\nSo \\(k\\) is a successor, \\(k = S(j)\\). Then \\(j \\in k\\), so by leastness \\(j \\notin\nS(n) \\setminus \\omega\\); but \\(j \\in S(n)\\), so \\(j \\in \\omega\\). Since \\(\\omega\\) is closed under \\(S\\), \\(k = S(j) \\in \\omega\\) — contradicting \\(k \\notin \\omega\\).\n\nSo \\(X \\setminus \\omega = \\varnothing\\). \\(\\square\\)\n\nProposition 5. Every set \\(X\\) that is an initial segment of \\(ON\\) — i.e. \\(\\forall \\beta \\in X\\;\\forall \\alpha &lt; \\beta\\;(\\alpha \\in X)\\) — is an ordinal.\n\nProof. \\(X\\) is well-ordered by \\(\\in\\) (Theorem). The initial-segment condition says \\(\\alpha \\in \\beta \\in X \\Rightarrow \\alpha \\in X\\), i.e. \\(X\\) is transitive. \\(\\square\\)\n\nCorollary. \\(\\omega\\) is an ordinal.\n\nProof. By the Claim, \\(\\omega\\) is a set of ordinals; and it is an initial segment of \\(ON\\) (if \\(\\beta \\in \\omega\\) and \\(\\alpha &lt; \\beta\\) then \\(\\alpha\\) is a finite ordinal, and \\(\\alpha \\in \\omega\\) because every element of a finite ordinal is a finite ordinal, hence in \\(\\omega\\)). Apply Proposition 5. \\(\\square\\)\n\nCorollary. \\(\\omega\\) is the least limit ordinal.\n\nProof. \\(\\omega \\neq 0\\), and \\(\\omega\\) is not a successor (if \\(\\omega = S(n)\\) then \\(n \\in \\omega\\) and \\(\\omega = S(n) \\in \\omega\\)). So \\(\\omega\\) is a limit. Every smaller ordinal is a finite ordinal, hence \\(0\\) or a successor — not a limit. \\(\\square\\)\nWe can keep going:\n\\[\n\\omega,\\ \\ S(\\omega) = \\omega+1,\\ \\ \\omega+2,\\ \\dots,\\ \\\n\\underbrace{\\omega+\\omega}_{\\omega\\cdot 2},\\ \\dots,\\ \\omega\\cdot\\omega,\\ \\dots,\\\n\\omega^{\\omega},\\ \\dots,\\ \\omega^{\\omega^{\\omega}},\\ \\dots,\\ \\varepsilon_0,\\ \\dots\n\\]\n(Ordinal \\(+\\), \\(\\cdot\\), and exponentiation are defined by transfinite recursion later.) Every ordinal displayed here is still a countable set; the supremum of all countable ordinals is \\(\\omega_1\\), the first uncountable ordinal.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
+  },
+  {
+    "objectID": "notes/ordinals.html#representing-well-orders-as-ordinals",
+    "href": "notes/ordinals.html#representing-well-orders-as-ordinals",
+    "title": "Ordinals",
+    "section": "Representing well-orders as ordinals",
+    "text": "Representing well-orders as ordinals\nThe point of the von Neumann definition: each well-order should have exactly one ordinal representative.\nWe have already shown, for ordinals:\n\nno ordinal is isomorphic to a proper initial segment of itself;\nthe only automorphism of an ordinal is the identity.\n\nBy trichotomy, (1) gives uniqueness: if \\(\\alpha \\cong \\beta\\) then \\(\\alpha =\n\\beta\\). (If \\(\\alpha &lt; \\beta\\) then \\(\\alpha = \\beta_{&lt;\\alpha}\\) is a proper initial segment of \\(\\beta\\), so \\(\\alpha \\cong \\beta\\) would violate (1).)\n\nRepresentation Theorem for WOs. If \\(R\\) well-orders \\(A\\), then there is a unique ordinal \\(\\alpha\\) with \\((A, R) \\cong (\\alpha, \\in)\\). The isomorphism is unique.\n\\(\\alpha\\) is called the order type of \\((A, R)\\), written \\(\\operatorname{type}\n(A, R)\\).\n\nProof. Uniqueness of \\(\\alpha\\) is the remark above; uniqueness of the isomorphism follows from (2). For existence:\nFor \\(a \\in A\\) put \\(A_{&lt;a} = \\{x \\in A : x \\mathbin{R} a\\}\\); it is well-ordered by \\(R\\). Call \\(a\\) good if \\((A_{&lt;a}, R) \\cong (\\xi, \\in)\\) for some ordinal \\(\\xi\\) — by uniqueness this \\(\\xi\\) and the isomorphism \\(h_a\\) are then determined. Let\n\\[\nG = \\{\\, a \\in A : a \\text{ is good} \\,\\}.\n\\]\nBy Replacement, \\(f : G \\to ON\\), \\(f(a) =\\) the unique ordinal \\(\\cong (A_{&lt;a}, R)\\), is a function.\nObservation. For \\(a \\in G\\) and \\(c \\mathbin{R} a\\): \\(c \\in G\\), \\(h_c = h_a\n\\restriction A_{&lt;c}\\), and \\(f(c) = h_a(c)\\). In particular \\(G\\) is an initial segment of \\(A\\), and \\(f\\) is order-preserving: \\(a \\mathbin{R} b \\Rightarrow f(a) =\nh_b(a) \\in f(b)\\), i.e. \\(f(a) &lt; f(b)\\).\n\\(\\operatorname{ran}(f)\\) is an initial segment of \\(ON\\). If \\(\\xi = f(a) =\n\\operatorname{ran}(h_a)\\) and \\(\\eta &lt; \\xi\\), then \\(\\eta = h_a(b)\\) for some \\(b\n\\mathbin{R} a\\), and \\(h_a(b) = f(b)\\), so \\(\\eta \\in \\operatorname{ran}(f)\\).\nBy Proposition 5, \\(\\alpha := \\operatorname{ran}(f)\\) is an ordinal, and \\(f : G\n\\xrightarrow{\\cong} \\alpha\\).\nFinally \\(G = A\\). If not, let \\(a\\) be \\(R\\)-minimal in \\(A \\setminus G\\). Since \\(G\\) is an initial segment of \\(A\\), \\(A_{&lt;a} = G\\), so \\((A_{&lt;a}, R) \\cong (\\alpha, \\in)\\) — making \\(a\\) good, a contradiction. \\(\\square\\)\n\nLooking ahead: transfinite induction\nThe existence proof quietly used a “least counterexample” argument on a well-order. Its systematic form, valid on \\(ON\\) itself:\n\nTransfinite Induction. Let \\(P\\) be a property of ordinals. If\n\n\\(P(0)\\);\n\\(P(\\alpha) \\Rightarrow P\\bigl(S(\\alpha)\\bigr)\\) for all \\(\\alpha\\);\nfor every limit \\(\\lambda\\): \\(\\bigl(\\forall \\beta &lt; \\lambda\\; P(\\beta)\\bigr)\n\\Rightarrow P(\\lambda)\\);\n\nthen \\(P(\\alpha)\\) for all ordinals \\(\\alpha\\).\n\nInformally: a least \\(\\alpha\\) with \\(\\neg P(\\alpha)\\) would have to be \\(0\\), a successor, or a limit, and each case is excluded. Turning this — and the matching recursion principle — into theorems (given that \\(ON\\) is a proper class) is the next topic.",
+    "crumbs": [
+      "6 · Ordinals"
+    ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Foundations of Mathematics",
     "section": "",
-    "text": "A comparative study of the three dominant modern approaches to mathematical foundations: set theory (ZFC), category theory, and type theory (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all."
+    "text": "A comparative study of the three dominant modern approaches to mathematical foundations: set theory (ZFC), category theory, and type theory (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "index.html#lecture-slides",
     "href": "index.html#lecture-slides",
     "title": "Foundations of Mathematics",
     "section": "Lecture slides",
-    "text": "Lecture slides\n\n1 · Some History and Setting the Stage — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.\n2 · The Foundational Crisis — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs. Hilbert’s program."
+    "text": "Lecture slides\n\n1 · Some History and Setting the Stage — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.\n2 · The Foundational Crisis — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs. Hilbert’s program.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "index.html#notes",
     "href": "index.html#notes",
     "title": "Foundations of Mathematics",
     "section": "Notes",
-    "text": "Notes\n\n3 · ZFC as a Foundational Theory — metatheory vs. object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC. Follows Kunen, The Foundations of Mathematics, §0.4 and §I.1–I.6.\n4 · First Consequences of the ZFC Axioms — classes and proper classes, no universal set, the empty set, unordered and ordered pairs, and building the first numbers with Union. Follows Kunen §I.6.\n5 · Relations and Functions — relations and their terminology, domain/range, functions, Cartesian products via Replacement, isomorphism, quotients by an equivalence relation, and the object-theory/metatheory split. Follows Kunen §I.7.1–I.7.2."
+    "text": "Notes\n\n3 · ZFC as a Foundational Theory — metatheory vs. object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC.\n4 · First Consequences of the ZFC Axioms — classes and proper classes, no universal set, the empty set, unordered and ordered pairs, and building the first numbers with Union.\n5 · Relations and Functions — relations and their terminology, domain/range, functions, Cartesian products via Replacement, isomorphism, quotients by an equivalence relation, and the object-theory/metatheory split.\n6 · Ordinals — well-founded relations, well-orders and their rigidity, von Neumann ordinals, the well-ordering of \\(ON\\), Burali-Forti, \\(\\omega\\) as the least limit ordinal, and every well-order as the order type of a unique ordinal.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html",
+    "href": "notes/first-consequences.html",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "",
+    "text": "We take the axioms of ZFC as given and start deriving things — beginning with Axioms 1, 3, 4, 5 (Extensionality, Comprehension, Pairing, Union).",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html#extensionality-and-comprehension",
+    "href": "notes/first-consequences.html#extensionality-and-comprehension",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "Extensionality and Comprehension",
+    "text": "Extensionality and Comprehension\nAxiom 1 (Extensionality). A set is completely determined by its elements:\n\\[\n\\forall z\\,(z \\in x \\leftrightarrow z \\in y) \\;\\rightarrow\\; x = y .\n\\]\nThis does more than it seems. It also fixes what our universe contains. If we allowed an object with no members that is not the empty set — a duck \\(D\\) and a badger \\(B\\), say — then \\(\\forall z\\,(z \\in B \\leftrightarrow z \\in D)\\) would hold vacuously, forcing \\(B = D = \\varnothing\\). So every object in our universe is a set, and hereditarily so: its members, their members, and so on are all sets. The universe of hereditary sets is informally called \\(V\\).\nAxiom 3 (Comprehension / Separation). For each formula \\(\\varphi\\) (with \\(y\\) not free),\n\\[\n\\forall v\\;\\exists y\\;\\forall x\\,\\bigl(x \\in y \\leftrightarrow x \\in v \\wedge\n\\varphi(x)\\bigr).\n\\]\nSubsets are separated out of a set that already exists. This restriction is the whole point, as the next section shows.",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html#how-comprehension-avoids-russells-paradox",
+    "href": "notes/first-consequences.html#how-comprehension-avoids-russells-paradox",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "How Comprehension avoids Russell’s paradox",
+    "text": "How Comprehension avoids Russell’s paradox\nNaive comprehension — “for every property \\(Q\\), the set \\(\\{x : Q(x)\\}\\) exists” — is inconsistent. With \\(Q(x) \\equiv x \\notin x\\) we get Russell’s set \\(R\\) and the contradiction \\(R \\in R \\leftrightarrow R \\notin R\\).\nUnder Axiom 3 we may only form, relative to a set \\(v\\),\n\\[\nR_v \\;=\\; \\{\\,x \\in v : x \\notin x\\,\\}.\n\\]\nRun Russell’s argument on this. If \\(R_v \\in v\\), then \\(R_v \\in R_v\n\\leftrightarrow R_v \\notin R_v\\) — still a contradiction. The escape is that we are no longer forced into it: we simply conclude\n\\[\nR_v \\notin v .\n\\]\nSince \\(v\\) was arbitrary, every set omits some object, and there is no set of all sets:\n\nTheorem (no universal set). \\(\\;\\forall v\\;\\exists R\\;(R \\notin v).\\)\n\nWhether this is a desirable feature is a fair question — a foundation in which “the collection of all sets” is not itself an object can feel like a defect. It is better read as the price of consistency: the same restriction that blocks Russell blocks the universal set.",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html#formal-definitions-versus-their-metatheoretic-meaning",
+    "href": "notes/first-consequences.html#formal-definitions-versus-their-metatheoretic-meaning",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "Formal definitions versus their metatheoretic meaning",
+    "text": "Formal definitions versus their metatheoretic meaning\nA defined symbol is introduced by a purely symbolic clause. For intersection:\n\\[\n\\mathrm{int}(a, b, y) \\;:\\Longleftrightarrow\\;\n\\forall x\\,\\bigl(x \\in y \\leftrightarrow (x \\in a \\wedge x \\in b)\\bigr).\n\\]\nInformally we read \\(y = a \\cap b\\), but that reading lives in the metatheory. Before we are entitled to write the term \\(a \\cap b\\), we must check that it names exactly one set:\n\nLemma. \\(\\;\\forall a, b\\;\\exists! y\\;\\mathrm{int}(a, b, y).\\)\n\nExistence is Comprehension applied to \\(v = a\\) with \\(\\varphi(x) \\equiv x \\in a\n\\wedge x \\in b\\). Uniqueness is Extensionality: if \\(\\mathrm{int}(a,b,y)\\) and \\(\\mathrm{int}(a,b,z)\\), then \\(\\forall x\\,(x \\in y \\leftrightarrow x \\in z)\\), hence \\(y = z\\).\nThis is the standard pattern. We name an operation (or a constant) only after proving that the defining formula is satisfied by exactly one set — just as one proves \\(\\sqrt{2}\\) is the unique \\(y &gt; 0\\) with \\(y^2 = 2\\) before using the notation.",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html#classes-and-the-class-builder-notation",
+    "href": "notes/first-consequences.html#classes-and-the-class-builder-notation",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "Classes and the class-builder notation",
+    "text": "Classes and the class-builder notation\nLet \\(\\varphi(x)\\) be any formula. Informally \\(\\{x : \\varphi(x)\\}\\) is a class — this is just notation.\n\nIf there is a set \\(A\\) with \\(\\forall x\\,(x \\in A \\leftrightarrow\n\\varphi(x))\\), then \\(A\\) is unique by Extensionality; we write \\(A = \\{x :\n\\varphi(x)\\}\\) and say the class exists (is a set).\nOtherwise \\(\\{x : \\varphi(x)\\}\\) is a proper class — a figure of speech, not an object.\n\nTwo examples:\n\\[\n\\varphi(x) \\equiv x \\notin x\n\\qquad\\rightsquigarrow\\qquad\n\\mathrm{ZFC} \\vdash \\neg\\exists y\\,\\forall x\\,(x \\in y \\leftrightarrow x \\notin\nx),\n\\]\nso Russell’s class is proper;\n\\[\n\\varphi(x) \\equiv x = x\n\\qquad\\rightsquigarrow\\qquad\n\\neg\\exists A\\,\\forall x\\,(x \\in A),\n\\]\nso the universal class \\(V = \\{x : x = x\\}\\) is proper. Saying “\\(V\\) does not exist” is just another way of writing \\(\\neg\\exists A\\,\\forall x\\,(x \\in A)\\); there is no more of a puzzle here than in “trolls do not exist.”\nFinally, \\(\\{x \\in z : \\varphi(x)\\}\\) abbreviates \\(\\{x : x \\in z \\wedge\n\\varphi(x)\\}\\), and Comprehension says these always exist.",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
+  },
+  {
+    "objectID": "notes/first-consequences.html#building-sets-from-nothing",
+    "href": "notes/first-consequences.html#building-sets-from-nothing",
+    "title": "First Consequences of the ZFC Axioms",
+    "section": "Building sets from nothing",
+    "text": "Building sets from nothing\n\nThe empty set\n\n\n\\(\\varnothing\\)\n\nthe unique \\(y\\) with \\(\\forall z\\,(z \\notin y)\\).\n\n\n\nExistence: take any set (Axiom 0) and apply Comprehension with an always-false \\(\\varphi\\), e.g. \\(x \\neq x\\). Uniqueness: Extensionality. At this point \\(\\varnothing\\) is the only specific set we have proved to exist.\n\n\nPairs\nPairing gives \\(\\exists z\\,(x \\in z \\wedge y \\in z)\\); the \\(z\\) may have other elements, so trim it with Comprehension to \\(\\{w \\in z : w = x \\vee w = y\\}\\). This licenses:\n\n\\(\\{x, y\\} := \\{w : w = x \\vee w = y\\}\\)\n\\(\\{x\\} := \\{x, x\\}\\)\n\\(\\langle x, y \\rangle = (x, y) := \\bigl\\{\\{x\\},\\, \\{x, y\\}\\bigr\\}\\)\n\nThe one property the ordered pair must have is\n\\[\n\\langle x, y \\rangle = \\langle x', y' \\rangle \\;\\rightarrow\\;\nx = x' \\wedge y = y'\n\\]\n(prove it by splitting into the cases \\(x = y\\) and \\(x \\neq y\\)). Any other definition with this property would serve equally well; the bracket notation \\(\\langle\\,\\cdot\\,,\\cdot\\,\\rangle\\) marks that we mean this one.\nWe can now start counting:\n\\[\n0 = \\varnothing, \\qquad\n1 = \\{0\\} = \\{\\varnothing\\}, \\qquad\n2 = \\{0, 1\\} = \\bigl\\{\\varnothing, \\{\\varnothing\\}\\bigr\\}.\n\\]\nThe axioms so far generate infinitely many different sets — for example, \\(\\varnothing\\), \\(\\{\\varnothing\\}\\), \\(\\{\\{\\varnothing\\}\\}\\), … — but none with more than two elements.\n\n\nUnion: getting bigger sets\n\n\nAxiom 5 — Union\n\n\\(\\forall \\mathcal{F}\\;\\exists A\\;\\forall Y\\;\\forall x\\,\n\\bigl(x \\in Y \\wedge Y \\in \\mathcal{F} \\;\\rightarrow\\; x \\in A\\bigr)\\)\n\n\n\\(\\bigcup \\mathcal{F} := \\{x : \\exists Y \\in \\mathcal{F}\\;(x \\in Y)\\}\\) — the members of members of \\(\\mathcal{F}\\).\nIt exists: take \\(A\\) from the axiom and separate \\(\\{x \\in A : \\exists Y \\in \\mathcal{F}\\,(x \\in Y)\\}\\).\n\\(u \\cup v :=  \\bigcup \\{u, v\\}\\)\n\nThe axiom is stated for arbitrary families so that it covers infinite unions too, not just \\(u \\cup v\\).\nWorked example: the number 3. We have \\(0, 1, 2\\). Then:\n\n\\(\\{0, 1\\}\\) by Pairing;\n\\(\\{2\\} = \\{2, 2\\}\\) by Pairing;\n\\(\\mathcal{F} = \\bigl\\{\\{0,1\\},\\, \\{2\\}\\bigr\\}\\) by Pairing;\n\\(\\bigcup \\mathcal{F} = \\{0, 1, 2\\} =: 3\\).\n\nEquivalently \\(3 = 2 \\cup \\{2\\}\\). In general the successor is\n\\[\nS(x) = x \\cup \\{x\\}, \\qquad\n3 = S(2),\\quad 4 = S(3),\\quad \\dots\n\\]",
+    "crumbs": [
+      "4 · First Consequences of the ZFC Axioms"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html",
     "href": "notes/zfc-as-a-foundation.html",
     "title": "ZFC as a Foundational Theory",
     "section": "",
-    "text": "These notes accompany Lecture 3. They expand the handwritten notes and follow Kunen, The Foundations of Mathematics, §0.4 and §I.1–I.6. Where Lecture 2 ended — Hilbert’s program — is where we begin."
+    "text": "These notes accompany Lecture 3. They expand the handwritten notes and follow Kunen, The Foundations of Mathematics, §0.4 and §I.1–I.6. Where Lecture 2 ended — Hilbert’s program — is where we begin.",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html#from-hilberts-program-to-a-working-foundation",
     "href": "notes/zfc-as-a-foundation.html#from-hilberts-program-to-a-working-foundation",
     "title": "ZFC as a Foundational Theory",
     "section": "From Hilbert’s program to a working foundation",
-    "text": "From Hilbert’s program to a working foundation\nHilbert’s response to the foundational crisis was formalism: not the claim that mathematics is a meaningless game with symbols, but a method. Take a mathematical theory, write its axioms in a formal language, and study its formal proof-structure with modest, uncontroversial means. This method forces a distinction that will organize everything that follows."
+    "text": "From Hilbert’s program to a working foundation\nHilbert’s response to the foundational crisis was formalism: not the claim that mathematics is a meaningless game with symbols, but a method. Take a mathematical theory, write its axioms in a formal language, and study its formal proof-structure with modest, uncontroversial means. This method forces a distinction that will organize everything that follows.",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html#metatheory-and-object-theory",
     "href": "notes/zfc-as-a-foundation.html#metatheory-and-object-theory",
     "title": "ZFC as a Foundational Theory",
     "section": "Metatheory and object theory",
-    "text": "Metatheory and object theory\nFormalism introduces a split between two levels of discourse.\n\nThe two levels\n\n\n\n\n\n\n\n\nObject theory (formal theory)\nMetatheory\n\n\n\n\nExample\na theory of arithmetic, or ZFC itself\nour reasoning about that theory\n\n\nStatus\na combinatorial object: sets of symbols, strings, rules\nordinary mathematical reasoning\n\n\nLanguage\na fixed formal language, e.g. first-order logic\ninformal natural language\n\n\n“Proof”\na finite symbolic derivation\nan intuitively convincing argument\n\n\n\n\nThe object theory is formalized\nTo say the object theory is formalized means two things:\n\nits axioms are expressed in a formal language (for us, first-order logic with ∈);\nits theorems are deduced in a purely symbolic fashion — as Kleene put it, like a list of chess moves written in chess notation. Whether a string is a correct proof is decided by inspecting symbols, not by understanding meaning.\n\nA consequence Hilbert exploited: once proofs are finite strings manipulated by explicit rules, the combinatorics of proof becomes essentially elementary arithmetic. Reasoning about proofs is reasoning about finite syntactic objects.\n\n\nReasoning in the metatheory\nThe metatheory is where we actually work when we prove things about the formal system. That reasoning is:\n\ninformal — carried out in natural language;\nintuitively clear and convincing — it must persuade without itself being formalized;\nfinitistic — close to elementary number theory. We do not treat infinite totalities as completed wholes unless they can be clearly and explicitly specified. In flavour this is the intuitionist / constructivist standpoint: an existence claim should come with a construction.\n\n\n\nA finitistic statement, and a non-statement\nConsider the claim\n\\[\nP \\text{ and } \\mathbb{N}\\setminus P \\text{ are both infinite,}\n\\qquad P = \\{\\text{primes}\\}.\n\\]\nThis is a statement involving completed infinite sets (i.e. it is a statement about the natural numbers as a whole). But it can be rewritten finitistically:\n\nFor every natural number \\(n &gt; 1\\) there is a composite number \\(c\\) with \\(n &lt; c \\le 2n\\), and a prime \\(p\\) with \\(n &lt; p \\le n! + 1\\).\n\nBoth witnesses are bounded (and even can be explicitely defined). This is the kind of fact the metatheory is entitled to assert.\nContrast this with\n\\[\n|\\mathbb{R}| = |\\mathbb{C}|,\n\\]\nwhich is meaningless in the metatheory — it is a statement about the cardinality of uncountable sets, with no finitistic content. It only makes sense inside an object theory such as ZFC."
+    "text": "Metatheory and object theory\nFormalism introduces a split between two levels of discourse.\n\nThe two levels\n\n\n\n\n\n\n\n\nObject theory (formal theory)\nMetatheory\n\n\n\n\nExample\na theory of arithmetic, or ZFC itself\nour reasoning about that theory\n\n\nStatus\na combinatorial object: sets of symbols, strings, rules\nordinary mathematical reasoning\n\n\nLanguage\na fixed formal language, e.g. first-order logic\ninformal natural language\n\n\n“Proof”\na finite symbolic derivation\nan intuitively convincing argument\n\n\n\n\nThe object theory is formalized\nTo say the object theory is formalized means two things:\n\nits axioms are expressed in a formal language (for us, first-order logic with ∈);\nits theorems are deduced in a purely symbolic fashion — as Kleene put it, like a list of chess moves written in chess notation. Whether a string is a correct proof is decided by inspecting symbols, not by understanding meaning.\n\nA consequence Hilbert exploited: once proofs are finite strings manipulated by explicit rules, the combinatorics of proof becomes essentially elementary arithmetic. Reasoning about proofs is reasoning about finite syntactic objects.\n\n\nReasoning in the metatheory\nThe metatheory is where we actually work when we prove things about the formal system. That reasoning is:\n\ninformal — carried out in natural language;\nintuitively clear and convincing — it must persuade without itself being formalized;\nfinitistic — close to elementary number theory. We do not treat infinite totalities as completed wholes unless they can be clearly and explicitly specified. In flavour this is the intuitionist / constructivist standpoint: an existence claim should come with a construction.\n\n\n\nA finitistic statement, and a non-statement\nConsider the claim\n\\[\nP \\text{ and } \\mathbb{N}\\setminus P \\text{ are both infinite,}\n\\qquad P = \\{\\text{primes}\\}.\n\\]\nThis is a statement involving completed infinite sets (i.e. it is a statement about the natural numbers as a whole). But it can be rewritten finitistically:\n\nFor every natural number \\(n &gt; 1\\) there is a composite number \\(c\\) with \\(n &lt; c \\le 2n\\), and a prime \\(p\\) with \\(n &lt; p \\le n! + 1\\).\n\nBoth witnesses are bounded (and even can be explicitely defined). This is the kind of fact the metatheory is entitled to assert.\nContrast this with\n\\[\n|\\mathbb{R}| = |\\mathbb{C}|,\n\\]\nwhich is meaningless in the metatheory — it is a statement about the cardinality of uncountable sets, with no finitistic content. It only makes sense inside an object theory such as ZFC.",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html#the-foundational-loop-formalizing-the-metatheory",
     "href": "notes/zfc-as-a-foundation.html#the-foundational-loop-formalizing-the-metatheory",
     "title": "ZFC as a Foundational Theory",
     "section": "The foundational loop: formalizing the metatheory",
-    "text": "The foundational loop: formalizing the metatheory\n\nFor a foundational theory such as ZFC, the formal (object) theory should be strong enough to formalize its own metatheory. Otherwise the reasoning we use to study ZFC would sit outside the foundation ZFC claims to provide.\n\nThis motivates a thesis about ZFC — a property we would want a foundation to have:\n\nThesis. Every finitistic fact can be formalized and proved within ZFC.\n\nMaking this precise takes care, because most everyday mathematical statements are not literally in the language of ZFC. For instance\n\\[\n\\forall x \\in \\mathbb{R}\\;\\bigl(x^{3}\\cdot x^{5} = x^{8}\\bigr)\n\\]\nuses \\(\\mathbb{R}\\), multiplication, and exponentiation — none of which are primitive symbols of a language whose only non-logical symbol is ∈. Such statements enter ZFC through codings / representations.\n\nExample: an arithmetic fact and its formal shadow\n“\\(2 + 8 = 10\\)” is a fact of the metatheory. Inside ZFC we find:\n\na representation of each natural number as a specific set — write \\(\\ulcorner 2 \\urcorner\\), \\(\\ulcorner 8 \\urcorner\\), \\(\\ulcorner 10 \\urcorner\\);\na defined binary function symbol \\(+\\) for addition of such representations;\n\nand then we can prove\n\\[\n\\mathrm{ZFC} \\;\\vdash\\; \\ulcorner 2 \\urcorner + \\ulcorner 8 \\urcorner\n= \\ulcorner 10 \\urcorner .\n\\]\nThe metatheoretic fact and its formal counterpart are different objects; the thesis says the second always tracks the first."
+    "text": "The foundational loop: formalizing the metatheory\n\nFor a foundational theory such as ZFC, the formal (object) theory should be strong enough to formalize its own metatheory. Otherwise the reasoning we use to study ZFC would sit outside the foundation ZFC claims to provide.\n\nThis motivates a thesis about ZFC — a property we would want a foundation to have:\n\nThesis. Every finitistic fact can be formalized and proved within ZFC.\n\nMaking this precise takes care, because most everyday mathematical statements are not literally in the language of ZFC. For instance\n\\[\n\\forall x \\in \\mathbb{R}\\;\\bigl(x^{3}\\cdot x^{5} = x^{8}\\bigr)\n\\]\nuses \\(\\mathbb{R}\\), multiplication, and exponentiation — none of which are primitive symbols of a language whose only non-logical symbol is ∈. Such statements enter ZFC through codings / representations.\n\nExample: an arithmetic fact and its formal shadow\n“\\(2 + 8 = 10\\)” is a fact of the metatheory. Inside ZFC we find:\n\na representation of each natural number as a specific set — write \\(\\ulcorner 2 \\urcorner\\), \\(\\ulcorner 8 \\urcorner\\), \\(\\ulcorner 10 \\urcorner\\);\na defined binary function symbol \\(+\\) for addition of such representations;\n\nand then we can prove\n\\[\n\\mathrm{ZFC} \\;\\vdash\\; \\ulcorner 2 \\urcorner + \\ulcorner 8 \\urcorner\n= \\ulcorner 10 \\urcorner .\n\\]\nThe metatheoretic fact and its formal counterpart are different objects; the thesis says the second always tracks the first.",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html#zfc-as-a-foundational-theory",
     "href": "notes/zfc-as-a-foundation.html#zfc-as-a-foundational-theory",
     "title": "ZFC as a Foundational Theory",
     "section": "ZFC as a foundational theory",
-    "text": "ZFC as a foundational theory\nThe claim that ZFC founds mathematics rests on two theses:\n\nAll abstract mathematical concepts are set-theoretical.\nAll concrete mathematical objects are specific sets.\n\nIf one does not accept formalism, the “are” can be weakened to “have set-theoretical representations.”\n\nEverything reduces to sets.\n\n\nExample: what a function is\n\\[\n\\text{function} \\;\\cong\\; \\text{graph} \\;\\cong\\;\n\\text{a set of ordered pairs } f \\text{ with }\n\\forall x, y, z\\,\\bigl((x,y)\\in f \\wedge (x,z)\\in f \\rightarrow y = z\\bigr).\n\\]\nThis pushes the question back to ordered pairs, which are themselves described as special kinds of sets — the standard choice being\n\\[\n(x, y) := \\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\},\n\\]\nfor which one verifies \\((x,y) = (x',y') \\rightarrow (x = x' \\wedge y = y')\\).\n\n\nThe special nature of the ZFC axioms\nKunen distinguishes axioms used as statements of faith (obviously true facts, as the Greeks viewed Euclid’s postulates) from definitional axioms (merely delimiting a useful class of structures, as with the group axioms).\nYou can read the ZFC axioms in the first sense: To a Platonist, these might appear as obviously true facts. But we have seen that an all too careless treatment of the notion of set can lead to contradictions. However, one can, independent of the ontological status of the axioms, read ZFC as the theory of everything: one postulates the ZFC axioms once and for all, and every other axiom system — groups, rings, topological spaces — is defined inside it.\n\n\nWhat we will do\n\nThe basic level. State the axioms and interpret them; work out what exactly the representations of \\(3\\) and of \\(\\mathbb{R}\\) are. (Following von Neumann, \\(0 = \\varnothing\\), \\(1 = \\{\\varnothing\\}\\), \\(2 = \\{0,1\\}\\), \\(3 = \\{0,1,2\\}\\), …, \\(\\mathbb{N} = \\omega\\); and \\(\\mathbb{R}\\) via Dedekind cuts.)\nThe advanced level. Draw out the consequences of the axioms for uncountable sets."
+    "text": "ZFC as a foundational theory\nThe claim that ZFC founds mathematics rests on two theses:\n\nAll abstract mathematical concepts are set-theoretical.\nAll concrete mathematical objects are specific sets.\n\nIf one does not accept formalism, the “are” can be weakened to “have set-theoretical representations.”\n\nEverything reduces to sets.\n\n\nExample: what a function is\n\\[\n\\text{function} \\;\\cong\\; \\text{graph} \\;\\cong\\;\n\\text{a set of ordered pairs } f \\text{ with }\n\\forall x, y, z\\,\\bigl((x,y)\\in f \\wedge (x,z)\\in f \\rightarrow y = z\\bigr).\n\\]\nThis pushes the question back to ordered pairs, which are themselves described as special kinds of sets — the standard choice being\n\\[\n(x, y) := \\bigl\\{\\{x\\}, \\{x, y\\}\\bigr\\},\n\\]\nfor which one verifies \\((x,y) = (x',y') \\rightarrow (x = x' \\wedge y = y')\\).\n\n\nThe special nature of the ZFC axioms\nKunen distinguishes axioms used as statements of faith (obviously true facts, as the Greeks viewed Euclid’s postulates) from definitional axioms (merely delimiting a useful class of structures, as with the group axioms).\nYou can read the ZFC axioms in the first sense: To a Platonist, these might appear as obviously true facts. But we have seen that an all too careless treatment of the notion of set can lead to contradictions. However, one can, independent of the ontological status of the axioms, read ZFC as the theory of everything: one postulates the ZFC axioms once and for all, and every other axiom system — groups, rings, topological spaces — is defined inside it.\n\n\nWhat we will do\n\nThe basic level. State the axioms and interpret them; work out what exactly the representations of \\(3\\) and of \\(\\mathbb{R}\\) are. (Following von Neumann, \\(0 = \\varnothing\\), \\(1 = \\{\\varnothing\\}\\), \\(2 = \\{0,1\\}\\), \\(3 = \\{0,1,2\\}\\), …, \\(\\mathbb{N} = \\omega\\); and \\(\\mathbb{R}\\) via Dedekind cuts.)\nThe advanced level. Draw out the consequences of the axioms for uncountable sets.",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "notes/zfc-as-a-foundation.html#the-axioms-of-zfc",
     "href": "notes/zfc-as-a-foundation.html#the-axioms-of-zfc",
     "title": "ZFC as a Foundational Theory",
     "section": "The axioms of ZFC",
-    "text": "The axioms of ZFC\nThe language is first-order logic with a single binary relation symbol ∈ (and equality). There is one sort of variable: everything ranges over sets. In the Union and Replacement axioms below, the capital letters \\(A, Y,\n\\mathcal{F}, B\\) are still just set variables — the capitals only aid reading.\nConvention. Every axiom is understood to be universally quantified over its free variables (\\(\\forall x\\,\\forall y\\,\\dots\\)).\n\n\nAxiom 0 — Set Existence\n\n\\(\\exists x\\,(x = x)\\)\n\nAxiom 1 — Extensionality\n\n\\(\\forall z\\,(z \\in x \\leftrightarrow z \\in y) \\;\\rightarrow\\; x = y\\)\n\n\nA set is determined by its members.\n\nAxiom 2 — Foundation\n\n\\(\\exists y\\,(y \\in x) \\;\\rightarrow\\;\n\\exists y\\,\\bigl(y \\in x \\wedge \\neg\\exists z\\,(z \\in x \\wedge z \\in y)\\bigr)\\)\n\n\nEvery nonempty set has an ∈-minimal element; no infinite descending ∈-chains.\n\nAxiom 3 — Comprehension (Separation) — scheme\n\nFor each formula \\(\\varphi\\) with \\(y\\) not free: \\(\\exists y\\,\\forall x\\,\\bigl(x \\in y \\leftrightarrow x \\in v \\wedge\n\\varphi(x)\\bigr)\\)\n\n\nSubsets are carved out of a set \\(v\\) that already exists — the restriction to \\(x \\in v\\) is what defuses Russell’s paradox (there is no universal set). There is one axiom per formula, so this is infinitely many axioms; that is harmless in the metatheory, since “being a formula” is a finitistically decidable property.\n\nAxiom 4 — Pairing\n\n\\(\\exists z\\,(x \\in z \\wedge y \\in z)\\)\n\nAxiom 5 — Union\n\n\\(\\exists A\\,\\forall Y\\,\\forall x\\,\n\\bigl(x \\in Y \\wedge Y \\in \\mathcal{F} \\;\\rightarrow\\; x \\in A\\bigr)\\)\n\nAxiom 6 — Replacement — scheme\n\nFor each formula \\(\\varphi\\) with \\(B\\) not free: \\(\\forall x \\in A\\;\\exists! y\\,\\varphi(x, y) \\;\\rightarrow\\;\n\\exists B\\,\\forall x \\in A\\;\\exists y \\in B\\;\\varphi(x, y)\\)\n\n\nThe image of a set under a definable class function is a set. Here \\(\\exists! y\\,\\varphi(x,y)\\) abbreviates \\(\\exists y\\,\\bigl(\\varphi(x,y) \\wedge \\forall z\\,(\\varphi(x,z) \\rightarrow\ny = z)\\bigr)\\). Again a scheme, and again finitistically unproblematic.\n\n\n\n\nSome defined symbols\nOn the basis of Axioms 1, 3, 4, 5 we abbreviate:\n\\[\n\\begin{aligned}\nx \\subseteq y \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in x \\rightarrow z \\in y)\\\\[2pt]\nx = \\varnothing \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\notin x)\\\\[2pt]\ny = S(x) \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in y \\leftrightarrow z \\in x \\vee z = x)\n     \\qquad\\bigl(\\,y = x \\cup \\{x\\}\\,\\bigr)\\\\[2pt]\ny = v \\cap w \\;&:\\Longleftrightarrow\\; \\forall x\\,(x \\in y \\leftrightarrow x \\in v \\wedge x \\in w)\\\\[2pt]\n\\mathrm{SING}(x) \\;&:\\Longleftrightarrow\\; \\exists y \\in x\\;\\forall z \\in x\\,(z = y)\n\\end{aligned}\n\\]\nThe remaining axioms are easier to state with these in hand.\n\n\nAxiom 7 — Infinity\n\n\\(\\exists x\\,\\bigl(\\varnothing \\in x \\wedge \\forall y \\in x\\,(S(y) \\in x)\\bigr)\\)\n\n\nThere is a set containing \\(\\varnothing\\) and closed under \\(y \\mapsto y \\cup\n\\{y\\}\\). Here “\\(\\varnothing \\in x\\)” abbreviates \\(\\exists y\\,(y = \\varnothing\n\\wedge y \\in x)\\), and “\\(S(y) \\in x\\)” abbreviates \\(\\exists z\\,(z = S(y) \\wedge\nz \\in x)\\).\n\nAxiom 8 — Power Set\n\n\\(\\exists y\\,\\forall z\\,(z \\subseteq x \\rightarrow z \\in y)\\)\n\nAxiom 9 — Choice (AC)\n\n\\(\\varnothing \\notin F \\wedge \\forall x \\in F\\;\\forall y \\in F\\,\n(x \\neq y \\rightarrow x \\cap y = \\varnothing) \\;\\rightarrow\\;\n\\exists C\\;\\forall x \\in F\\;\\mathrm{SING}(C \\cap x)\\)\n\n\nFor a family \\(F\\) of pairwise disjoint nonempty sets there is a set \\(C\\) meeting each member in exactly one point.\n\n\n\n\n\nNamed subsystems\n\n\n\n\n\n\n\nSystem\nAxioms\n\n\n\n\nZFC\n1–9\n\n\nZF\n1–8 (no Choice)\n\n\nZC\nZFC without Replacement (6)\n\n\nZ\nZF without Replacement (6)\n\n\n\nOther important subsystems:\n\n\\(X^{-}\\) — drop Foundation (2);\n\\(X{-}\\mathrm{P}\\) — drop Power Set (8);\n\\(X{-}\\mathrm{Inf}\\) — drop Infinity (7).\n\nMost of elementary mathematics can be carried out in \\(\\mathrm{ZC}^{-}\\). A minimal working fragment is Basic Set Theory:\n\\[\n\\mathrm{BST} \\;=\\; \\text{Axioms } 1, 2, 3, 4, 5 \\;+\\; (6 \\vee 8).\n\\]"
+    "text": "The axioms of ZFC\nThe language is first-order logic with a single binary relation symbol ∈ (and equality). There is one sort of variable: everything ranges over sets. In the Union and Replacement axioms below, the capital letters \\(A, Y,\n\\mathcal{F}, B\\) are still just set variables — the capitals only aid reading.\nConvention. Every axiom is understood to be universally quantified over its free variables (\\(\\forall x\\,\\forall y\\,\\dots\\)).\n\n\nAxiom 0 — Set Existence\n\n\\(\\exists x\\,(x = x)\\)\n\nAxiom 1 — Extensionality\n\n\\(\\forall z\\,(z \\in x \\leftrightarrow z \\in y) \\;\\rightarrow\\; x = y\\)\n\n\nA set is determined by its members.\n\nAxiom 2 — Foundation\n\n\\(\\exists y\\,(y \\in x) \\;\\rightarrow\\;\n\\exists y\\,\\bigl(y \\in x \\wedge \\neg\\exists z\\,(z \\in x \\wedge z \\in y)\\bigr)\\)\n\n\nEvery nonempty set has an ∈-minimal element; no infinite descending ∈-chains.\n\nAxiom 3 — Comprehension (Separation) — scheme\n\nFor each formula \\(\\varphi\\) with \\(y\\) not free: \\(\\exists y\\,\\forall x\\,\\bigl(x \\in y \\leftrightarrow x \\in v \\wedge\n\\varphi(x)\\bigr)\\)\n\n\nSubsets are carved out of a set \\(v\\) that already exists — the restriction to \\(x \\in v\\) is what defuses Russell’s paradox (there is no universal set). There is one axiom per formula, so this is infinitely many axioms; that is harmless in the metatheory, since “being a formula” is a finitistically decidable property.\n\nAxiom 4 — Pairing\n\n\\(\\exists z\\,(x \\in z \\wedge y \\in z)\\)\n\nAxiom 5 — Union\n\n\\(\\exists A\\,\\forall Y\\,\\forall x\\,\n\\bigl(x \\in Y \\wedge Y \\in \\mathcal{F} \\;\\rightarrow\\; x \\in A\\bigr)\\)\n\nAxiom 6 — Replacement — scheme\n\nFor each formula \\(\\varphi\\) with \\(B\\) not free: \\(\\forall x \\in A\\;\\exists! y\\,\\varphi(x, y) \\;\\rightarrow\\;\n\\exists B\\,\\forall x \\in A\\;\\exists y \\in B\\;\\varphi(x, y)\\)\n\n\nThe image of a set under a definable class function is a set. Here \\(\\exists! y\\,\\varphi(x,y)\\) abbreviates \\(\\exists y\\,\\bigl(\\varphi(x,y) \\wedge \\forall z\\,(\\varphi(x,z) \\rightarrow\ny = z)\\bigr)\\). Again a scheme, and again finitistically unproblematic.\n\n\n\n\nSome defined symbols\nOn the basis of Axioms 1, 3, 4, 5 we abbreviate:\n\\[\n\\begin{aligned}\nx \\subseteq y \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in x \\rightarrow z \\in y)\\\\[2pt]\nx = \\varnothing \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\notin x)\\\\[2pt]\ny = S(x) \\;&:\\Longleftrightarrow\\; \\forall z\\,(z \\in y \\leftrightarrow z \\in x \\vee z = x)\n     \\qquad\\bigl(\\,y = x \\cup \\{x\\}\\,\\bigr)\\\\[2pt]\ny = v \\cap w \\;&:\\Longleftrightarrow\\; \\forall x\\,(x \\in y \\leftrightarrow x \\in v \\wedge x \\in w)\\\\[2pt]\n\\mathrm{SING}(x) \\;&:\\Longleftrightarrow\\; \\exists y \\in x\\;\\forall z \\in x\\,(z = y)\n\\end{aligned}\n\\]\nThe remaining axioms are easier to state with these in hand.\n\n\nAxiom 7 — Infinity\n\n\\(\\exists x\\,\\bigl(\\varnothing \\in x \\wedge \\forall y \\in x\\,(S(y) \\in x)\\bigr)\\)\n\n\nThere is a set containing \\(\\varnothing\\) and closed under \\(y \\mapsto y \\cup\n\\{y\\}\\). Here “\\(\\varnothing \\in x\\)” abbreviates \\(\\exists y\\,(y = \\varnothing\n\\wedge y \\in x)\\), and “\\(S(y) \\in x\\)” abbreviates \\(\\exists z\\,(z = S(y) \\wedge\nz \\in x)\\).\n\nAxiom 8 — Power Set\n\n\\(\\exists y\\,\\forall z\\,(z \\subseteq x \\rightarrow z \\in y)\\)\n\nAxiom 9 — Choice (AC)\n\n\\(\\varnothing \\notin F \\wedge \\forall x \\in F\\;\\forall y \\in F\\,\n(x \\neq y \\rightarrow x \\cap y = \\varnothing) \\;\\rightarrow\\;\n\\exists C\\;\\forall x \\in F\\;\\mathrm{SING}(C \\cap x)\\)\n\n\nFor a family \\(F\\) of pairwise disjoint nonempty sets there is a set \\(C\\) meeting each member in exactly one point.\n\n\n\n\n\nNamed subsystems\n\n\n\n\n\n\n\nSystem\nAxioms\n\n\n\n\nZFC\n1–9\n\n\nZF\n1–8 (no Choice)\n\n\nZC\nZFC without Replacement (6)\n\n\nZ\nZF without Replacement (6)\n\n\n\nOther important subsystems:\n\n\\(X^{-}\\) — drop Foundation (2);\n\\(X{-}\\mathrm{P}\\) — drop Power Set (8);\n\\(X{-}\\mathrm{Inf}\\) — drop Infinity (7).\n\nMost of elementary mathematics can be carried out in \\(\\mathrm{ZC}^{-}\\). A minimal working fragment is Basic Set Theory:\n\\[\n\\mathrm{BST} \\;=\\; \\text{Axioms } 1, 2, 3, 4, 5 \\;+\\; (6 \\vee 8).\n\\]",
+    "crumbs": [
+      "3 · ZFC as a Foundational Theory"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#where-were-going",
     "href": "lectures/lec01.html#where-were-going",
     "title": "Foundations of Mathematics",
     "section": "Where We’re Going",
-    "text": "Where We’re Going\n\nThis course compares three modern foundations of mathematics: set theory, category theory, type theory\nBefore any of that: a 19th-century story about rigor, completeness, and infinity\nToday: Prologue – Bolzano (1817) \\(\\to\\) Dedekind (1872) \\(\\to\\) Cantor (1874)"
+    "text": "Where We’re Going\n\nThis course compares three modern foundations of mathematics: set theory, category theory, type theory\nBefore any of that: a 19th-century story about rigor, completeness, and infinity\nToday: Prologue – Bolzano (1817) \\(\\to\\) Dedekind (1872) \\(\\to\\) Cantor (1874)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#gauss-and-the-fundamental-theorem-of-algebra",
     "href": "lectures/lec01.html#gauss-and-the-fundamental-theorem-of-algebra",
     "title": "Foundations of Mathematics",
     "section": "Gauss and the Fundamental Theorem of Algebra",
-    "text": "Gauss and the Fundamental Theorem of Algebra\n\nTHM: Every non-constant polynomial has a root over the complex numbers.\nGauss’s proofs (from 1799 on) quietly depend on the Intermediate Value Theorem\n\n\\[\nf \\text{ continuous},\\ f(a)&lt;0,\\ f(b)&gt;0 \\ \\implies\\ f(c)=0 \\text{ for some } c\\in(a,b)\n\\]\n\nIVT feels obvious: a curve can’t get from below the axis to above it without crossing. (Gauss and many others at the time thought so.)"
+    "text": "Gauss and the Fundamental Theorem of Algebra\n\nTHM: Every non-constant polynomial has a root over the complex numbers.\nGauss’s proofs (from 1799 on) quietly depend on the Intermediate Value Theorem\n\n\\[\nf \\text{ continuous},\\ f(a)&lt;0,\\ f(b)&gt;0 \\ \\implies\\ f(c)=0 \\text{ for some } c\\in(a,b)\n\\]\n\nIVT feels obvious: a curve can’t get from below the axis to above it without crossing. (Gauss and many others at the time thought so.)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#bolzanos-insight-1817",
     "href": "lectures/lec01.html#bolzanos-insight-1817",
     "title": "Foundations of Mathematics",
     "section": "Bolzano’s Insight (1817)",
-    "text": "Bolzano’s Insight (1817)\n\n\nBernard Bolzano was the first to realize importance of continuity in the proof of Fundamental Theorem of Algebra.\n\nHe attempted a genuine proof of the IVT.\nBut he had no clear concept of the real numbers to work with.\nHis proof was not fully satisfactory — a rigorous treatment of continuity had to wait for Weierstrass (1874).\n\n\n\n\n\n\n\n\nBernard Bolzano\n(1781–1848)"
+    "text": "Bolzano’s Insight (1817)\n\n\nBernard Bolzano was the first to realize importance of continuity in the proof of Fundamental Theorem of Algebra.\n\nHe attempted a genuine proof of the IVT.\nBut he had no clear concept of the real numbers to work with.\nHis proof was not fully satisfactory — a rigorous treatment of continuity had to wait for Weierstrass (1874).\n\n\n\n\n\n\n\n\nBernard Bolzano\n(1781–1848)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#completeness-an-ancient-intuition",
     "href": "lectures/lec01.html#completeness-an-ancient-intuition",
     "title": "Foundations of Mathematics",
     "section": "Completeness: An Ancient Intuition",
-    "text": "Completeness: An Ancient Intuition\nBolzano’s realization:\n\\[\n\\text{completeness of } \\mathbb{R} \\quad\\longleftrightarrow\\quad \\text{absence of gaps}\n\\]\n\nAncient intuition: a line has no gaps\nBut then — what are the “parts” of a line?\n\nTo capture this, Bolzano introduced two principles:\n\nthe least upper bound principle\nthe nested interval property"
+    "text": "Completeness: An Ancient Intuition\nBolzano’s realization:\n\\[\n\\text{completeness of } \\mathbb{R} \\quad\\longleftrightarrow\\quad \\text{absence of gaps}\n\\]\n\nAncient intuition: a line has no gaps\nBut then — what are the “parts” of a line?\n\nTo capture this, Bolzano introduced two principles:\n\nthe least upper bound principle\nthe nested interval property",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#how-to-prove-completeness",
     "href": "lectures/lec01.html#how-to-prove-completeness",
     "title": "Foundations of Mathematics",
     "section": "How to Prove Completeness?",
-    "text": "How to Prove Completeness?\n\nBolzano could state completeness — but not prove it\nProving it requires first knowing what a real number is\nThat formalization of \\(\\mathbb{R}\\) did not arrive until the 1870s\n\ne.g. via Dedekind cuts"
+    "text": "How to Prove Completeness?\n\nBolzano could state completeness — but not prove it\nProving it requires first knowing what a real number is\nThat formalization of \\(\\mathbb{R}\\) did not arrive until the 1870s\n\ne.g. via Dedekind cuts",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#dedekinds-breakthrough-1872",
     "href": "lectures/lec01.html#dedekinds-breakthrough-1872",
     "title": "Foundations of Mathematics",
     "section": "Dedekind’s Breakthrough (1872)",
-    "text": "Dedekind’s Breakthrough (1872)\n\n\nDedekind’s key move: stop presupposing what \\(x \\in \\mathbb{R}\\) is.\n\nA real number is a Dedekind cut \\((L, U)\\).\n\n\n\\((L,U)\\) partitions \\(\\mathbb{Q}\\): every element of \\(L\\) is less than every element of \\(U\\)\nCompleteness is now straightforward — union of left-sides of cuts defines a cut.\n\n\n\n\n\n\n\n\nRichard Dedekind\n(1831–1916)"
+    "text": "Dedekind’s Breakthrough (1872)\n\n\nDedekind’s key move: stop presupposing what \\(x \\in \\mathbb{R}\\) is.\n\nA real number is a Dedekind cut \\((L, U)\\).\n\n\n\\((L,U)\\) partitions \\(\\mathbb{Q}\\): every element of \\(L\\) is less than every element of \\(U\\)\nCompleteness is now straightforward — union of left-sides of cuts defines a cut.\n\n\n\n\n\n\n\n\nRichard Dedekind\n(1831–1916)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#a-deeper-problem",
     "href": "lectures/lec01.html#a-deeper-problem",
     "title": "Foundations of Mathematics",
     "section": "A Deeper Problem",
-    "text": "A Deeper Problem\nDedekind (1872) solved the problem “What is a real number?”\n— but in doing so, he opened a deeper problem: the nature of infinity.\n\nReals are introduced as (pairs of) infinite sets of rationals\nThere seemed to be no way around this"
+    "text": "A Deeper Problem\nDedekind (1872) solved the problem “What is a real number?”\n— but in doing so, he opened a deeper problem: the nature of infinity.\n\nReals are introduced as (pairs of) infinite sets of rationals\nThere seemed to be no way around this",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#a-new-kind-of-object",
     "href": "lectures/lec01.html#a-new-kind-of-object",
     "title": "Foundations of Mathematics",
     "section": "A New Kind of Object",
-    "text": "A New Kind of Object\n\nSets — and infinity — stop being background intuition.\nThey become mathematical objects in their own right\nThis shift is the seed of everything that follows in this course"
+    "text": "A New Kind of Object\n\nSets — and infinity — stop being background intuition.\nThey become mathematical objects in their own right\nThis shift is the seed of everything that follows in this course",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#cantor-1874-two-kinds-of-infinity",
     "href": "lectures/lec01.html#cantor-1874-two-kinds-of-infinity",
     "title": "Foundations of Mathematics",
     "section": "Cantor (1874): Two Kinds of Infinity",
-    "text": "Cantor (1874): Two Kinds of Infinity\n\n\nCantor showed that \\(\\mathbb{N}\\) and \\(\\mathbb{R}\\) represent different types of infinity.\nHis first proof of the uncountability of \\(\\mathbb{R}\\):\n\nTake any sequence \\((x_m)_{m \\in \\mathbb{N}}\\) of distinct real numbers.\nConstruct nested intervals that exclude one \\(x_m\\) at a time.\n\n\n\n\n\n\n\n\nGeorg Cantor\n(1845–1918)"
+    "text": "Cantor (1874): Two Kinds of Infinity\n\n\nCantor showed that \\(\\mathbb{N}\\) and \\(\\mathbb{R}\\) represent different types of infinity.\nHis first proof of the uncountability of \\(\\mathbb{R}\\):\n\nTake any sequence \\((x_m)_{m \\in \\mathbb{N}}\\) of distinct real numbers.\nConstruct nested intervals that exclude one \\(x_m\\) at a time.\n\n\n\n\n\n\n\n\nGeorg Cantor\n(1845–1918)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#cantors-construction",
     "href": "lectures/lec01.html#cantors-construction",
     "title": "Foundations of Mathematics",
     "section": "Cantor’s Construction",
-    "text": "Cantor’s Construction\nBuild nested intervals\n\\[\na_0 &lt; a_1 &lt; a_2 &lt; \\cdots &lt; b_2 &lt; b_1 &lt; b_0\n\\]\nsuch that\n\\[\n\\forall m\\ \\exists i \\quad x_m \\notin [a_i, b_i]\n\\]\n(at each stage, shrink the interval just enough to exclude the next \\(x_m\\))"
+    "text": "Cantor’s Construction\nBuild nested intervals\n\\[\na_0 &lt; a_1 &lt; a_2 &lt; \\cdots &lt; b_2 &lt; b_1 &lt; b_0\n\\]\nsuch that\n\\[\n\\forall m\\ \\exists i \\quad x_m \\notin [a_i, b_i]\n\\]\n(at each stage, shrink the interval just enough to exclude the next \\(x_m\\))",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#cantors-argument",
     "href": "lectures/lec01.html#cantors-argument",
     "title": "Foundations of Mathematics",
     "section": "Cantor’s Argument",
-    "text": "Cantor’s Argument\nBy the nested interval property:\n\\[\n\\bigcap_i [a_i, b_i] \\neq \\emptyset\n\\]\nLet \\(x\\) be a point in this intersection.\n\nBy construction, \\(x \\neq x_i\\) for every \\(i\\).\nSo \\((x_m)\\) could not have enumerated all of \\(\\mathbb{R}\\).\nHence \\(\\mathbb{R}\\) is uncountable.\n\n\nThis only works because \\(\\mathbb{R}\\) is complete — the nested interval property fails over \\(\\mathbb{Q}\\)."
+    "text": "Cantor’s Argument\nBy the nested interval property:\n\\[\n\\bigcap_i [a_i, b_i] \\neq \\emptyset\n\\]\nLet \\(x\\) be a point in this intersection.\n\nBy construction, \\(x \\neq x_i\\) for every \\(i\\).\nSo \\((x_m)\\) could not have enumerated all of \\(\\mathbb{R}\\).\nHence \\(\\mathbb{R}\\) is uncountable.\n\n\nThis only works because \\(\\mathbb{R}\\) is complete — the nested interval property fails over \\(\\mathbb{Q}\\).",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#a-bonus-transcendental-numbers",
     "href": "lectures/lec01.html#a-bonus-transcendental-numbers",
     "title": "Foundations of Mathematics",
     "section": "A Bonus: Transcendental Numbers",
-    "text": "A Bonus: Transcendental Numbers\nThe same construction gives more than uncountability:\n\nThe set of algebraic numbers is countable.\nSo the same nested-interval argument produces a real number not among the algebraic numbers\n\n\\[\n\\implies \\text{transcendental numbers exist}\n\\]\n— without ever exhibiting one!"
+    "text": "A Bonus: Transcendental Numbers\nThe same construction gives more than uncountability:\n\nThe set of algebraic numbers is countable.\nSo the same nested-interval argument produces a real number not among the algebraic numbers\n\n\\[\n\\implies \\text{transcendental numbers exist}\n\\]\n— without ever exhibiting one!",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#not-everyone-was-convinced",
     "href": "lectures/lec01.html#not-everyone-was-convinced",
     "title": "Foundations of Mathematics",
     "section": "Not Everyone Was Convinced",
-    "text": "Not Everyone Was Convinced\nDedekind’s cuts and ideals, Cantor’s infinite sets — both rely on purely existential proofs:\n\nthey show an object exists, without showing how to construct or compute it.\nthis was a genuinely new style of mathematics in the 1870s–80s.\n\nNot everyone welcomed it."
+    "text": "Not Everyone Was Convinced\nDedekind’s cuts and ideals, Cantor’s infinite sets — both rely on purely existential proofs:\n\nthey show an object exists, without showing how to construct or compute it.\nthis was a genuinely new style of mathematics in the 1870s–80s.\n\nNot everyone welcomed it.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#kroneckers-critique",
     "href": "lectures/lec01.html#kroneckers-critique",
     "title": "Foundations of Mathematics",
     "section": "Kronecker’s Critique",
-    "text": "Kronecker’s Critique\n\n\n\n\n\n\n\n\nLeopold Kronecker\n(1823–1891)\n\n\nLeopold Kronecker, one of the leading algebraists of the day, objected on principle.\n\n1870: points out that the accumulation point in the Bolzano–Weierstrass theorem cannot be constructed by elementary operations from the rational numbers.\n1882: publicly attacked Dedekind’s ideals — used to prove unique factorization exists but the proof does not tell you how to compute it.\nCombated Cantor’s transfinite sets as well.\n\n\n“Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk.” — attributed to Kronecker: “God made the integers; all else is the work of man.”"
+    "text": "Kronecker’s Critique\n\n\n\n\n\n\n\n\nLeopold Kronecker\n(1823–1891)\n\n\nLeopold Kronecker, one of the leading algebraists of the day, objected on principle.\n\n1870: points out that the accumulation point in the Bolzano–Weierstrass theorem cannot be constructed by elementary operations from the rational numbers.\n1882: publicly attacked Dedekind’s ideals — used to prove unique factorization exists but the proof does not tell you how to compute it.\nCombated Cantor’s transfinite sets as well.\n\n\n“Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk.” — attributed to Kronecker: “God made the integers; all else is the work of man.”",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#a-debate-ensues",
     "href": "lectures/lec01.html#a-debate-ensues",
     "title": "Foundations of Mathematics",
     "section": "A Debate Ensues",
-    "text": "A Debate Ensues\n\nDedekind replied in 1888 with a fully set-theoretic theory of the natural numbers (“Was sind und was sollen die Zahlen?”, includes his definition of an infinite set).\nThe “early round” of the debate ended in victory for the infinitary side.\n\nHurwitz, Minkowski, Hilbert, Volterra, Peano, Hadamard, Klein all sided with Dedekind and Cantor.\n\nArbitrary functions, infinite sets, and existential proofs become the mainstream of analysis and algebra.\n\nKronecker’s constructivist objection doesn’t disappear — it resurfaces in Brouwer’s intuitionism, decades later."
+    "text": "A Debate Ensues\n\nDedekind replied in 1888 with a fully set-theoretic theory of the natural numbers (“Was sind und was sollen die Zahlen?”, includes his definition of an infinite set).\nThe “early round” of the debate ended in victory for the infinitary side.\n\nHurwitz, Minkowski, Hilbert, Volterra, Peano, Hadamard, Klein all sided with Dedekind and Cantor.\n\nArbitrary functions, infinite sets, and existential proofs become the mainstream of analysis and algebra.\n\nKronecker’s constructivist objection doesn’t disappear — it resurfaces in Brouwer’s intuitionism, decades later.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#freges-logicism",
     "href": "lectures/lec01.html#freges-logicism",
     "title": "Foundations of Mathematics",
     "section": "Frege’s Logicism",
-    "text": "Frege’s Logicism\n\n\nGottlob Frege pursued an even more ambitious foundation: reduce all of arithmetic to pure logic.\n\nBasic mathematical concepts should be definable in purely logical terms\nBasic mathematical truths should be derivable from purely logical laws\nCentral logical law (the comprehension principle): for any well-defined property \\(p\\), there is a set \\[\n\\{x : p(x)\\}\n\\]\nFrege built his Grundgesetze der Arithmetik (1893, 1903) on exactly this idea.\n\n\n\n\n\n\n\n\nGottlob Frege\n(1848–1925)"
+    "text": "Frege’s Logicism\n\n\nGottlob Frege pursued an even more ambitious foundation: reduce all of arithmetic to pure logic.\n\nBasic mathematical concepts should be definable in purely logical terms\nBasic mathematical truths should be derivable from purely logical laws\nCentral logical law (the comprehension principle): for any well-defined property \\(p\\), there is a set \\[\n\\{x : p(x)\\}\n\\]\nFrege built his Grundgesetze der Arithmetik (1893, 1903) on exactly this idea.\n\n\n\n\n\n\n\n\nGottlob Frege\n(1848–1925)",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#freges-logicism-1",
     "href": "lectures/lec01.html#freges-logicism-1",
     "title": "Foundations of Mathematics",
     "section": "Frege’s Logicism",
-    "text": "Frege’s Logicism\nFrege needed the comprehension principle to define the natural numbers in a purely logical way.\n\nFrege (as later Russell and Whitehead) realized that natural numbers are logical attributes that belong to concepts, not to things.\n“There are four horses in the barn” should be thought of as four objects fall under the concept “horse in barn”.\nIf \\(f\\) is a concept, we can then define “at least two objects fall under \\(f\\)” as \\[\n2_m(f) := \\exists x \\exists y \\: [ x \\neq y \\: \\wedge f(x) \\: \\wedge \\: f(y)]\n\\] and can define the number \\(2\\) as \\(2() := 2_m() \\: \\wedge \\ \\neg 3_m()\\).\n\nFor this definition to work, Frege needed the comprehension principle - every concept determines a class containing exactly the objects falling under it."
+    "text": "Frege’s Logicism\nFrege needed the comprehension principle to define the natural numbers in a purely logical way.\n\nFrege (as later Russell and Whitehead) realized that natural numbers are logical attributes that belong to concepts, not to things.\n“There are four horses in the barn” should be thought of as four objects fall under the concept “horse in barn”.\nIf \\(f\\) is a concept, we can then define “at least two objects fall under \\(f\\)” as \\[\n2_m(f) := \\exists x \\exists y \\: [ x \\neq y \\: \\wedge f(x) \\: \\wedge \\: f(y)]\n\\] and can define the number \\(2\\) as \\(2() := 2_m() \\: \\wedge \\ \\neg 3_m()\\).\n\nFor this definition to work, Frege needed the comprehension principle - every concept determines a class containing exactly the objects falling under it.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#russells-paradox-190102",
     "href": "lectures/lec01.html#russells-paradox-190102",
     "title": "Foundations of Mathematics",
     "section": "Russell’s Paradox (1901–02)",
-    "text": "Russell’s Paradox (1901–02)\nAround 1901, Bertrand Russell (and, independently, Zermelo) found that comprehension is inconsistent.\nLet \\[\nR = \\{\\, x : x \\notin x \\,\\}\n\\]\n\nIf \\(R \\in R\\), then by definition \\(R \\notin R\\)\nIf \\(R \\notin R\\), then by definition \\(R \\in R\\)\n\nEither way, contradiction. The very principle underlying Frege’s logic — and “naive” set theory generally — collapses."
+    "text": "Russell’s Paradox (1901–02)\nAround 1901, Bertrand Russell (and, independently, Zermelo) found that comprehension is inconsistent.\nLet \\[\nR = \\{\\, x : x \\notin x \\,\\}\n\\]\n\nIf \\(R \\in R\\), then by definition \\(R \\notin R\\)\nIf \\(R \\notin R\\), then by definition \\(R \\in R\\)\n\nEither way, contradiction. The very principle underlying Frege’s logic — and “naive” set theory generally — collapses.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#letter-to-frege-16-june-1902",
     "href": "lectures/lec01.html#letter-to-frege-16-june-1902",
     "title": "Foundations of Mathematics",
     "section": "Letter to Frege, 16 June 1902",
-    "text": "Letter to Frege, 16 June 1902\n\n\n\n“Let \\(w\\) be the predicate: to be a predicate that cannot be predicated of itself. Can \\(w\\) be predicated of itself? From each answer its opposite follows. […] Likewise there is no class (as a totality) of those classes which, each taken as a totality, do not belong to themselves.”\n— Bertrand Russell, letter to Gottlob Frege\n\n\n\n\n\n\n\n\nBertrand Russell\n(1872–1970)\n\n\nRussell had been reading Frege’s Grundgesetze closely — and found the one crack in its foundation."
+    "text": "Letter to Frege, 16 June 1902\n\n\n\n“Let \\(w\\) be the predicate: to be a predicate that cannot be predicated of itself. Can \\(w\\) be predicated of itself? From each answer its opposite follows. […] Likewise there is no class (as a totality) of those classes which, each taken as a totality, do not belong to themselves.”\n— Bertrand Russell, letter to Gottlob Frege\n\n\n\n\n\n\n\n\nBertrand Russell\n(1872–1970)\n\n\nRussell had been reading Frege’s Grundgesetze closely — and found the one crack in its foundation.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#freges-reply-22-june-1902",
     "href": "lectures/lec01.html#freges-reply-22-june-1902",
     "title": "Foundations of Mathematics",
     "section": "Frege’s Reply, 22 June 1902",
-    "text": "Frege’s Reply, 22 June 1902\n\n“Your discovery of the contradiction caused me the greatest surprise and, I would almost say, consternation, since it has shaken the basis on which I intended to build arithmetic. […] It is all the more serious since, with the loss of my Rule V, not only the foundations of my arithmetic, but also the sole possible foundations of arithmetic, seem to vanish.”\n— Gottlob Frege, letter to Bertrand Russell\n\nFrege added a hasty appendix to Volume II of the Grundgesetze, already at the printer, acknowledging the disaster."
+    "text": "Frege’s Reply, 22 June 1902\n\n“Your discovery of the contradiction caused me the greatest surprise and, I would almost say, consternation, since it has shaken the basis on which I intended to build arithmetic. […] It is all the more serious since, with the loss of my Rule V, not only the foundations of my arithmetic, but also the sole possible foundations of arithmetic, seem to vanish.”\n— Gottlob Frege, letter to Bertrand Russell\n\nFrege added a hasty appendix to Volume II of the Grundgesetze, already at the printer, acknowledging the disaster.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   },
   {
     "objectID": "lectures/lec01.html#what-now",
     "href": "lectures/lec01.html#what-now",
     "title": "Foundations of Mathematics",
     "section": "What now?",
-    "text": "What now?\nOther set theoretic paradoxes had emerged before Russell’s.\n\nBurali-Forti paradox (Cantor, 1896): There cannot be a set of all ordinals.\n\nBut these were tied deeply to Cantor’s transfinite set theory, which many people still viewed as remote and suspect.\nRussell’s antinomy struck right at the heart of the very foundation of all of mathematics: the efforts to define the natural numbers."
+    "text": "What now?\nOther set theoretic paradoxes had emerged before Russell’s.\n\nBurali-Forti paradox (Cantor, 1896): There cannot be a set of all ordinals.\n\nBut these were tied deeply to Cantor’s transfinite set theory, which many people still viewed as remote and suspect.\nRussell’s antinomy struck right at the heart of the very foundation of all of mathematics: the efforts to define the natural numbers.",
+    "crumbs": [
+      "1 · Some History and Setting the Stage"
+    ]
   }
 ]
