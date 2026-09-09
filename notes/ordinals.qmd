@@ -1,0 +1,443 @@
+---
+title: "Ordinals"
+subtitle: "Well-founded relations, well-orders, von Neumann ordinals, Burali-Forti, and the representation theorem"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.box}
+We work in ZFC, but — as noted below — we deliberately avoid using
+**Foundation**, so that "being an ordinal" does real work.
+:::
+
+## Why count past $\mathbb{N}$?
+
+Cantor was led to the transfinite by a concrete problem. Given $A \subseteq
+\mathbb{R}$, its **derivative** is the set of its limit points,
+
+$$
+A' = \{\, x \in A : x \text{ is a limit point of } A \,\}.
+$$
+
+Iterating gives a descending chain $A \supseteq A' \supseteq A'' \supseteq
+\cdots$, and one can take a "limit" $A^{(\infty)} = \bigcap_n A^{(n)}$. But
+$A^{(\infty)}$ may still have isolated points, so the process continues:
+$A^{(\infty)} \supsetneq (A^{(\infty)})' \supsetneq \cdots$. To index the stages
+we need numbers *beyond* the natural numbers:
+
+$$
+0, 1, 2, \dots, \omega, \omega+1, \omega+2, \dots, \omega+\omega, \dots,
+\omega\cdot\omega, \dots
+$$
+
+Making "keep counting, even through limit stages" precise is exactly what the
+**ordinals** accomplish. The concept they rest on is the **well-order**.
+
+## Well-founded relations
+
+Throughout, $R$ is a relation on a set $A$, and for $X \subseteq A$ we write
+$R\restriction X = \{\langle x,y\rangle \in R : x, y \in X\}$.
+
+::: {.axioms}
+$y$ is **$R$-minimal in $X$**:
+:   $y \in X$ and $\neg\exists z\,(z \in X \wedge z \mathbin{R} y)$ — nothing in
+    $X$ is $R$-below $y$.
+
+$R$ is **well-founded on $A$**:
+:   every nonempty $X \subseteq A$ has an $R$-minimal element:
+    $$
+    \forall X\,\bigl(\varnothing \neq X \subseteq A \;\rightarrow\;
+    \exists y \in X\;\forall z \in X\;\neg(z \mathbin{R} y)\bigr).
+    $$
+:::
+
+Two basic facts:
+
+- The **Axiom of Foundation** says exactly that $\in$ is well-founded on every
+  set. We will *not* assume this below.
+- If $A$ is **finite**, then $R$ is well-founded on $A$ iff $R$ has **no cycles**
+  $a_0 \mathbin{R} a_1 \mathbin{R} \cdots \mathbin{R} a_n \mathbin{R} a_0$ on $A$.
+  (For infinite $A$ this fails: the usual $<$ on $\mathbb{Q}$ is acyclic but not
+  well-founded.)
+
+Well-foundedness is the "no infinite descent" condition; it is what makes proof
+by induction and definition by recursion possible.
+
+## Well-orders
+
+::: {.axioms}
+**Definition.** $R$ is a **well-order** (WO) on $A$:
+:   $R$ totally orders $A$ strictly *and* $R$ is well-founded on $A$.
+:::
+
+Equivalently: a strict total order in which **every nonempty subset has a least
+element**. (In a total order an $R$-minimal element of $X$ is automatically the
+$R$-least element of $X$.)
+
+**Examples.**
+
+- $(\mathbb{N}, <)$ is a well-order — this is the least number principle.
+- $\bigl(\{\,1 - 2^{-n} : n \in \mathbb{N}\,\},\,<\bigr)$ is a well-order.
+- $\bigl(\{\,m - 2^{-n} : m, n \geq 1\,\},\,<\bigr)$ is a well-order (a copy of
+  $\mathbb{N}$ followed by another copy, then another, …).
+- $(\mathbb{Q}, <)$, $(\mathbb{R}, <)$, $(\mathbb{Z}, <)$ are **not** WOs.
+
+### Well-orders are rigid
+
+Orders are compared by **embeddings**: $f : (A, <_A) \to (B, <_B)$ with
+$x <_A y \leftrightarrow f(x) <_B f(y)$. An **isomorphism** is a bijective
+embedding; $\mathbb{Z}$ and $\mathbb{R}$ have nontrivial automorphisms ($z \mapsto
+z+1$). Well-orders do not.
+
+::: {.box}
+**Proposition.** Let $(A, <)$ be a well-order and $f : A \to A$ a self-embedding.
+Then $x \leq f(x)$ for all $x \in A$.
+:::
+
+*Proof.* If $\{x \in A : f(x) < x\} \neq \varnothing$, it has a least element
+$z$. Then $f(z) < z$, and applying the embedding $f\bigl(f(z)\bigr) < f(z)$ — so
+$f(z)$ is a smaller element of the set, contradicting minimality of $z$.
+$\square$
+
+::: {.box}
+**Corollary.** The only automorphism of a well-order is the identity.
+:::
+
+*Proof.* If $f$ is an automorphism, both $f$ and $f^{-1}$ are self-embeddings, so
+$x \leq f(x)$ and $x \leq f^{-1}(x)$; the latter gives $f(x) \leq x$. $\square$
+
+For $b \in A$, the **initial segment below $b$** is
+
+$$
+A_{<b} \;:=\; \{\, a \in A : a < b \,\}.
+$$
+
+::: {.box}
+**Corollary.** No well-order is isomorphic to a proper initial segment of
+itself.
+:::
+
+*Proof.* Suppose $f : A \xrightarrow{\ \cong\ } A_{<b}$. Then $f(x) < b$ for
+every $x$, in particular $f(b) < b$ — contradicting the Proposition.
+$\square$
+
+## Ordinal numbers
+
+**Cantor** defined an ordinal as an *isomorphism class of well-orders* (an "order
+type"). **von Neumann** gave a canonical representative of each class: a specific
+set on which $\in$ *is* the ordering. For instance
+
+$$
+3 = \bigl\{\, \varnothing,\ \{\varnothing\},\ \{\varnothing, \{\varnothing\}\}
+\,\bigr\}
+$$
+
+is a $3$-element set well-ordered by $\in$.
+
+::: {.axioms}
+**Definition.** A set $A$ is **transitive**:
+:   $\forall x \in A\;(x \subseteq A)$ — every element is also a subset. (A
+    transitive set cannot "hide" members inside its members.)
+
+**Definition (von Neumann).** A set $z$ is an **ordinal**, $\operatorname{Ord}(z)$:
+:   $z$ is transitive and well-ordered by $\in$.
+:::
+
+::: {.box}
+We do **not** assume Foundation here. If we did, "well-ordered by $\in$" could be
+weakened to "*linearly* ordered by $\in$", since well-foundedness would come for
+free. 
+<!-- The linear-order version uses only **bounded** quantifiers ($\forall y \in
+z$), which matters for absoluteness later; the version above quantifies over
+arbitrary subsets of $z$. -->
+:::
+
+<!-- Note $\in$ need not be a transitive *relation* on an ordinal (e.g. $0 \in \{0\}$
+and $\{0\} \in \{\{0\}\}$ but $0 \notin \{\{0\}\}$); "transitive **set**" and
+"transitive **relation**" are different conditions. -->
+
+::: {.box}
+**Proposition 1.** If $\operatorname{Ord}(\alpha)$ and $x \in \alpha$, then
+$\operatorname{Ord}(x)$. *(Every element of an ordinal is an ordinal.)*
+:::
+
+*Proof.* Since $\alpha$ is transitive, $x \subseteq \alpha$, so $\in$ well-orders
+$x$ (a subset of a well-order is well-ordered). It remains to show $x$ is a
+transitive set. Let $y \in z \in x$. Then $z \in \alpha$ (as $x \subseteq
+\alpha$), so $y \in \alpha$ (as $z \subseteq \alpha$). Now $x, y \in \alpha$ and
+$\in$ is a total order on $\alpha$, so
+
+$$
+y \in x \quad\vee\quad x \in y \quad\vee\quad x = y.
+$$
+
+If $x = y$ then $x \in z \in x$; if $x \in y$ then $x \in y \in z \in x$ — both
+are $\in$-cycles in $\alpha$, impossible since $\in$ is well-founded on $\alpha$.
+Hence $y \in x$. $\square$
+
+This suggests ordering ordinals by
+
+$$
+\alpha < \beta \quad:\Longleftrightarrow\quad \alpha \in \beta,
+$$
+
+and Proposition 1 gives, for every ordinal,
+
+$$
+\alpha \;=\; \{\, \beta : \beta < \alpha \,\}
+$$
+
+— *an ordinal is the set of all smaller ordinals*.
+
+## The well-ordering of the ordinals
+
+::: {.box}
+**Proposition 2.** For ordinals $\alpha, \beta$:
+$\quad\alpha < \beta \;\Longleftrightarrow\; \alpha \subsetneq \beta$.
+:::
+
+*Proof.* ($\Rightarrow$) $\alpha \in \beta$ and $\beta$ transitive give $\alpha
+\subseteq \beta$; properly, since $\alpha \notin \alpha$ (well-foundedness) while
+$\alpha \in \beta$.
+
+($\Leftarrow$) We prove the stronger statement
+
+$$
+\operatorname{trans}(a) \;\wedge\; a \subsetneq \beta
+\quad\Longrightarrow\quad \operatorname{Ord}(a) \;\wedge\; a \in \beta.
+$$
+
+If $a \subsetneq \beta$ then $a$ is linearly ordered by $\in$ (subset of $\beta$);
+being also transitive, $a$ is an ordinal. For $a \in \beta$: since $\beta
+\setminus a \neq \varnothing$, pick $\gamma$ $\in$-minimal in $\beta \setminus a$.
+We claim $\gamma = a$.
+
+- *$\gamma \subseteq a$:* if $g \in \gamma$ then $g \notin \beta \setminus a$ by
+  minimality, and $g \in \beta$ (transitivity of $\beta$), so $g \in a$.
+- *$a \subseteq \gamma$:* let $x \in a$. Then $x \in \beta$, so by trichotomy in
+  $\beta$, $x \in \gamma \vee \gamma \in x \vee x = \gamma$. The last two force
+  $\gamma \in a$ (transitivity of $a$, resp. directly), contradicting $\gamma
+  \notin a$. So $x \in \gamma$.
+
+Hence $a = \gamma \in \beta$. $\square$
+
+Write $ON = \{\, x : \operatorname{Ord}(x) \,\}$ for the collection of all
+ordinals.
+
+::: {.box}
+**Theorem.** $ON$ is well-ordered by $<$ ($=\in$).
+
+Since $ON$ is not a set (next result), this is shorthand for a list of ZFC
+theorems: $\in$ on the ordinals is (1) transitive, (2) irreflexive, (3)
+trichotomous, and (4) well-founded — *every nonempty set of ordinals has an
+$\in$-least member.*
+:::
+
+*Proof.*
+
+1. **Transitive:** $\alpha < \beta < \gamma$ means $\alpha \in \beta \in \gamma$;
+   $\gamma$ transitive gives $\alpha \in \gamma$.
+2. **Irreflexive:** $\alpha \in \alpha$ would be an $\in$-cycle in $\alpha$,
+   contradicting well-foundedness of $\in$ on $\alpha$.
+3. **Trichotomy:** first a lemma.
+
+   > **Lemma.** $\alpha \cap \beta$ is an ordinal.
+   >
+   > It is transitive (an intersection of transitive sets is transitive) and
+   > well-ordered by $\in$ (a subset of $\alpha$).
+
+   Let $\gamma = \alpha \cap \beta$, so $\gamma \subseteq \alpha$ and $\gamma
+   \subseteq \beta$. By Proposition 2, $\gamma \in \alpha$ or $\gamma = \alpha$,
+   and likewise for $\beta$. If $\gamma \in \alpha$ *and* $\gamma \in \beta$ then
+   $\gamma \in \alpha \cap \beta = \gamma$, impossible. So $\gamma = \alpha$ or
+   $\gamma = \beta$; that is $\alpha \subseteq \beta$ or $\beta \subseteq \alpha$,
+   hence (Proposition 2) $\alpha \leq \beta$ or $\beta \leq \alpha$.
+4. **Well-founded:** let $A \neq \varnothing$ be a set of ordinals and $\alpha \in
+   A$. If $\alpha$ is $\in$-least, done. Otherwise $\alpha \cap A = \{\beta \in A
+   : \beta < \alpha\}$ is a nonempty subset of $\alpha$, so it has an $\in$-least
+   element (since $\in$ well-orders $\alpha$) — and that is $\in$-least in $A$.
+   $\square$
+
+::: {.box}
+**Burali-Forti.** $ON$ is a **proper class**: no set contains all the ordinals.
+:::
+
+*Proof.* If every ordinal were in a set $X$, then $ON = \{y \in X :
+\operatorname{Ord}(y)\}$ would be a set. It is transitive (Proposition 1) and
+well-ordered by $\in$ (Theorem), hence an ordinal, hence $ON \in ON$ —
+contradicting irreflexivity. (This needs no Foundation: ordinals are *by
+definition* strictly ordered by $\in$.) $\square$
+
+Working in Cantor's naive set theory, Burali-Forti (1897) put together "the
+well-ordering of all well-orderings" to get a well-ordering strictly longer than
+every well-ordering, including itself.
+
+## The natural numbers, again
+
+Recall $\omega$ was introduced (Axiom of Infinity) as the **smallest inductive
+set** — the smallest set containing $\varnothing$ and closed under the successor
+
+$$
+S(x) = x \cup \{x\}.
+$$
+
+::: {.box}
+**Proposition 3.** If $\operatorname{Ord}(\alpha)$ then $\operatorname{Ord}\bigl(
+S(\alpha)\bigr)$, and for every ordinal $\gamma$,
+$\quad\gamma < S(\alpha) \;\Longleftrightarrow\; \gamma \leq \alpha$.
+:::
+
+*Proof (sketch).* $S(\alpha) = \alpha \cup \{\alpha\}$ is transitive: its members
+are the members of $\alpha$ (each $\subseteq \alpha \subseteq S(\alpha)$) and
+$\alpha$ itself ($\subseteq S(\alpha)$). It is well-ordered by $\in$: it is
+$\alpha$ with one new top element. The equivalence is then immediate from
+$\gamma \in \alpha \cup \{\alpha\}$. $\square$
+
+::: {.axioms}
+$\alpha$ is a **successor**
+:   $\alpha = S(\beta)$ for some ordinal $\beta$.
+
+$\alpha$ is a **limit**
+:   $\alpha \neq 0$ and $\alpha$ is not a successor. Equivalently: $\alpha \neq 0$
+    and $\forall \beta < \alpha\;(S(\beta) < \alpha)$.
+
+$\alpha$ is **finite** (a **natural number**)
+:   every $\beta \leq \alpha$ is either $0$ or a successor.
+:::
+
+::: {.box}
+**Proposition 4.** If $\alpha$ is finite, so is $S(\alpha)$.
+:::
+
+Now consider the class $X = \{\, x : x \text{ is a finite ordinal} \,\}$. It
+contains $0$ and is closed under $S$ (Proposition 4) — it is **inductive**. Since
+$\omega$ is the *smallest* inductive set, $\omega \subseteq X$: every element of
+$\omega$ is a finite ordinal.
+
+**Claim: there is no finite ordinal outside $\omega$.** Suppose $n \in X
+\setminus \omega$. (We cannot apply the least-element principle to $X \setminus
+\omega$ directly — it might be a proper class.) But $S(n) \setminus \omega$ is a
+*set* (a subset of the ordinal $S(n)$), nonempty ($n$ is in it), and consists of
+finite ordinals. So it has an $\in$-least element $k$.
+
+- $k \neq 0$, since $0 \in \omega$.
+- So $k$ is a successor, $k = S(j)$. Then $j \in k$, so by leastness $j \notin
+  S(n) \setminus \omega$; but $j \in S(n)$, so $j \in \omega$. Since $\omega$ is
+  closed under $S$, $k = S(j) \in \omega$ — contradicting $k \notin \omega$.
+
+So $X \setminus \omega = \varnothing$. $\square$
+
+::: {.box}
+**Proposition 5.** Every set $X$ that is an **initial segment of $ON$** — i.e.
+$\forall \beta \in X\;\forall \alpha < \beta\;(\alpha \in X)$ — is an ordinal.
+:::
+
+*Proof.* $X$ is well-ordered by $\in$ (Theorem). The initial-segment condition
+says $\alpha \in \beta \in X \Rightarrow \alpha \in X$, i.e. $X$ is transitive.
+$\square$
+
+::: {.box}
+**Corollary.** $\omega$ is an ordinal.
+:::
+
+*Proof.* By the Claim, $\omega$ is a set of ordinals; and it is an initial
+segment of $ON$ (if $\beta \in \omega$ and $\alpha < \beta$ then $\alpha$ is a
+finite ordinal, and $\alpha \in \omega$ because every element of a finite ordinal
+is a finite ordinal, hence in $\omega$). Apply Proposition 5. $\square$
+
+::: {.box}
+**Corollary.** $\omega$ is the least limit ordinal.
+:::
+
+*Proof.* $\omega \neq 0$, and $\omega$ is not a successor (if $\omega = S(n)$ then
+$n \in \omega$ and $\omega = S(n) \in \omega$). So $\omega$ is a limit. Every
+smaller ordinal is a finite ordinal, hence $0$ or a successor — not a limit.
+$\square$
+
+We can keep going:
+
+$$
+\omega,\ \ S(\omega) = \omega+1,\ \ \omega+2,\ \dots,\ \
+\underbrace{\omega+\omega}_{\omega\cdot 2},\ \dots,\ \omega\cdot\omega,\ \dots,\
+\omega^{\omega},\ \dots,\ \omega^{\omega^{\omega}},\ \dots,\ \varepsilon_0,\ \dots
+$$
+
+(Ordinal $+$, $\cdot$, and exponentiation are defined by transfinite recursion
+later.) Every ordinal displayed here is still a *countable* set; the supremum of
+all countable ordinals is $\omega_1$, the first uncountable ordinal.
+
+## Representing well-orders as ordinals
+
+The point of the von Neumann definition: each well-order should have exactly one
+ordinal representative.
+
+We have already shown, for ordinals:
+
+1. no ordinal is isomorphic to a proper initial segment of itself;
+2. the only automorphism of an ordinal is the identity.
+
+By trichotomy, (1) gives **uniqueness**: if $\alpha \cong \beta$ then $\alpha =
+\beta$. (If $\alpha < \beta$ then $\alpha = \beta_{<\alpha}$ is a proper initial
+segment of $\beta$, so $\alpha \cong \beta$ would violate (1).)
+
+::: {.box}
+**Representation Theorem for WOs.** If $R$ well-orders $A$, then there is
+a **unique** ordinal $\alpha$ with $(A, R) \cong (\alpha, \in)$. The isomorphism
+is unique.
+
+$\alpha$ is called the **order type** of $(A, R)$, written $\operatorname{type}
+(A, R)$.
+:::
+
+*Proof.* Uniqueness of $\alpha$ is the remark above; uniqueness of the
+isomorphism follows from (2). For existence:
+
+For $a \in A$ put $A_{<a} = \{x \in A : x \mathbin{R} a\}$; it is well-ordered by
+$R$. Call $a$ **good** if $(A_{<a}, R) \cong (\xi, \in)$ for some ordinal $\xi$ —
+by uniqueness this $\xi$ and the isomorphism $h_a$ are then determined. Let
+
+$$
+G = \{\, a \in A : a \text{ is good} \,\}.
+$$
+
+By **Replacement**, $f : G \to ON$, $f(a) =$ the unique ordinal $\cong (A_{<a}, R)$, is
+a function.
+
+*Observation.* For $a \in G$ and $c \mathbin{R} a$: $c \in G$, $h_c = h_a
+\restriction A_{<c}$, and $f(c) = h_a(c)$. In particular $G$ is an initial
+segment of $A$, and $f$ is order-preserving: $a \mathbin{R} b \Rightarrow f(a) =
+h_b(a) \in f(b)$, i.e. $f(a) < f(b)$.
+
+*$\operatorname{ran}(f)$ is an initial segment of $ON$.* If $\xi = f(a) =
+\operatorname{ran}(h_a)$ and $\eta < \xi$, then $\eta = h_a(b)$ for some $b
+\mathbin{R} a$, and $h_a(b) = f(b)$, so $\eta \in \operatorname{ran}(f)$.
+
+By Proposition 5, $\alpha := \operatorname{ran}(f)$ is an ordinal, and $f : G
+\xrightarrow{\cong} \alpha$.
+
+Finally $G = A$. If not, let $a$ be $R$-minimal in $A \setminus G$. Since $G$ is
+an initial segment of $A$, $A_{<a} = G$, so $(A_{<a}, R) \cong (\alpha, \in)$ —
+making $a$ good, a contradiction. $\square$
+
+### Looking ahead: transfinite induction
+
+The existence proof quietly used a "least counterexample" argument on a
+well-order. Its systematic form, valid on $ON$ itself:
+
+::: {.box}
+**Transfinite Induction.** Let $P$ be a property of ordinals. If
+
+- $P(0)$;
+- $P(\alpha) \Rightarrow P\bigl(S(\alpha)\bigr)$ for all $\alpha$;
+- for every limit $\lambda$: $\bigl(\forall \beta < \lambda\; P(\beta)\bigr)
+  \Rightarrow P(\lambda)$;
+
+then $P(\alpha)$ for all ordinals $\alpha$.
+:::
+
+Informally: a least $\alpha$ with $\neg P(\alpha)$ would have to be $0$, a
+successor, or a limit, and each case is excluded. Turning this — and the matching
+**recursion** principle — into theorems (given that $ON$ is a proper class) is
+the next topic.
