@@ -1,3 +1,12 @@
+---
+title: "Induction and Recursion"
+subtitle: ""
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
 ::: {.content-hidden}
 {{< include _macros.qmd >}}
 :::

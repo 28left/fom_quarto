@@ -31,6 +31,9 @@ website:
 format:
   html:
     theme: [cosmo, custom.scss]
+    callout-icon: false
+    filters:
+      - callouty-theorem
     toc: true
     toc-depth: 3
     number-sections: false
@@ -43,3 +46,69 @@ format:
     transition: fade
     incremental: false
     footer: "Math 558 · Foundations of Mathematics"
+
+
+callouty-theorem:
+  thm:
+    override-title: false # do not override the title of the callout (title won't show when `appearance` set to `simple` or `minimal`)
+    callout: # parameters of the wrapping callout. see Quarto documentation of callouts for more details
+      type: warning
+      appearance: simple
+    
+  prp:
+    override-title: false
+    callout:
+      type: caution
+      appearance: minimal
+
+  lem:
+    override-title: false
+    callout:
+      type: caution
+      appearance: minimal
+
+  remark:
+    override-title: false
+    callout:
+      type: tip
+      appearance: simple
+  
+  exr:
+    override-title: false
+    callout:
+      type: tip
+      appearance: simple
+
+  proof: # also support wrapping proof-like environments
+    override-title: true # override the title of the callout by the name of the theorem
+    callout:
+      type: note
+      appearance: simple
+      collapse: true
+      icon: true
+
+  solution:
+    override-title: true
+    callout:
+      type: note
+      appearance: default
+      collapse: true
+      icon: true
+
+  cor: 
+     override-title: false 
+     callout: 
+      type: caution
+      appearance: simple
+    
+  def:
+    override-title: false
+    callout: 
+      type: note
+      appearance: simple
+
+  exm:
+    override-title: false
+    callout: 
+      type: tip
+      appearance: simple
