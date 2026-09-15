@@ -23,6 +23,8 @@ website:
         text: "5 · Relations and Functions"
       - href: notes/ordinals.qmd
         text: "6 · Ordinals"
+      - href: notes/recursion.qmd
+        text: "7 · Induction and Recursion"
   page-footer:
     left: "Math 558 · Foundations of Mathematics · Penn State"
 
