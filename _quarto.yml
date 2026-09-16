@@ -25,6 +25,11 @@ website:
         text: "6 · Ordinals"
       - href: notes/recursion.qmd
         text: "7 · Induction and Recursion"
+      - href: notes/AC.qmd
+        text: "8 · Axiom of Choice"
+      - href: notes/cardinals.qmd
+        text: "9 · Cardinals"
+
   page-footer:
     left: "Math 558 · Foundations of Mathematics · Penn State"
 
