@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jan Reimann">
 
-<title>Foundations of Mathematics – Math 558 · Foundations of Mathematics</title>
+<title>The Axiom of Choice – Math 558 · Foundations of Mathematics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +30,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,7 +107,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/AC.html">8 · Axiom of Choice</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,7 +131,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Math 558 · Foundations of Mathematics</a> 
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -142,61 +143,61 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/lec01.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 · Some History and Setting the Stage</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/lec02.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 · The Foundational Crisis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 · Relations and Functions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/ordinals.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 · Ordinals</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/recursion.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 · Induction and Recursion</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/AC.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">8 · Axiom of Choice</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notes/cardinals.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9 · Cardinals</span></a>
   </div>
 </li>
@@ -205,21 +206,41 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-axiom-of-choice" id="toc-the-axiom-of-choice" class="nav-link active" data-scroll-target="#the-axiom-of-choice">The Axiom of Choice</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Foundations of Mathematics</h1>
-<p class="subtitle lead">Math 558 · Penn State</p>
+<h1 class="title">The Axiom of Choice</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -229,22 +250,104 @@ window.Quarto = {
 </header>
 
 
-<p>A comparative study of the three dominant modern approaches to mathematical foundations: <strong>set theory</strong> (ZFC), <strong>category theory</strong>, and <strong>type theory</strong> (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all.</p>
-<section id="lecture-slides" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-slides">Lecture slides</h2>
+<section id="the-axiom-of-choice" class="level1">
+<h1>The Axiom of Choice</h1>
+<p>Can every set be well-ordered? This property is equivalent to the <strong>Axiom of Choice</strong> and therefore has a somewhat controversial ontological status among mathematicians.</p>
+<p>Let <span class="math inline">\(X\)</span> be a set of non-empty sets. A <strong>choice function</strong> for <span class="math inline">\(X\)</span> is a function <span class="math inline">\(f\)</span> that assigns every set <span class="math inline">\(Y \in X\)</span> an element <span class="math inline">\(y \in Y\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom of Choice (<span class="math inline">\(\mathsf{AC}\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every set <span class="math inline">\(X\)</span> of non-empty sets has a choice function.</p>
+</div>
+</div>
+<p>The Axiom of Choice allows for enumerating a (non-empty) set <span class="math inline">\(A\)</span> by using a choice function for all non-empty subsets of <span class="math inline">\(A\)</span>. If the set of elements of <span class="math inline">\(A\)</span> not yet enumerated is non-empty, the choice function applied to this set will give us the next element to be enumerated (thereby well-ordering <span class="math inline">\(A\)</span>). On the other hand, if <span class="math inline">\(A\)</span> is well-ordered, we can obtain a choice function by mapping a non-empty subset of <span class="math inline">\(A\)</span> to its least element under the well-ordering.</p>
+<p>It follows that the Axiom of Choice is equivalent to Zermelo’s Well-Ordering Principle:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Well-Ordering Principle (<span class="math inline">\(\mathsf{WO}\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every set can be well-ordered</p>
+</div>
+</div>
+<p>Besides <span class="math inline">\(\mathsf{WO}\)</span>, <span class="math inline">\(\mathsf{AC}\)</span> has applications in pretty much any branch of mathematics, with many equivalent principles (such as <em>Zorn’s Lemma</em>, that every vector space has a basis, and Tychonoff’s theorem), but also some strange consequences (such as the <a href="https://en.wikipedia.org/wiki/Banach-Tarski_paradox">Banach–Tarski paradox</a>).</p>
+<p>The foundational issue with the Axiom of Choice lies primarily in the fact that it postulates the existence of a function without giving any hint at how such a function might be defined. For some sets (e.g., the rationals) we can explicitly describe a well-ordering (by identifying <span class="math inline">\(\mathbb{Q}\)</span> with a subset of <span class="math inline">\(\mathbb{Z}\times \mathbb{N}\)</span> and then well-ordering that). But <span class="math inline">\(\mathsf{AC}\)</span> also guarantees a well-order of the reals, and if you try to ‘write down’ such a well-order, you will quickly run into difficulties.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-further-reading" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Further reading). </span>For more on the history and the controversy surrounding the Axiom of Choice, see <em>G.H. Moore: Zermelo’s Axiom of Choice, Springer. 1982</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We will need the Axiom of Choice in many places. In the next section, we will use it to develop the theory of cardinal numbers. Some axioms that are considered in descriptive set theory (such as the <strong>Axiom of Determinacy</strong>, <span class="math inline">\(\mathsf{AD}\)</span>) contradict <span class="math inline">\(\mathsf{AC}\)</span>. It is therefore important to keep track of where exactly we use the Axiom of Choice.</p>
+<p>For some applications, it suffices to use weaker forms of <span class="math inline">\(\mathsf{AC}\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom of Countable Choice (<span class="math inline">\(\mathsf{AC}_\omega\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\forall n \in \mathbb{N}\; A_n \ne \emptyset \quad \Rightarrow \quad  \exists f \; \forall n \in \omega \;  f(n) \in A_n
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom of Dependent Choice (<span class="math inline">\(\mathsf{DC}\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(R\)</span> is a binary relation on a set <span class="math inline">\(A\)</span>, <span class="math inline">\(a_0 \in A\)</span>, and <span class="math inline">\(\forall x \in A \exists y \in A \; xRy\)</span>, then <span class="math display">\[
+\exists f : \mathbb{N}\longrightarrow A  \text{ with }  \; f(0) = a_0  \; \wedge  \;\forall n \in \mathbb{N}\; f(n) R f(n+1).
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-ac-implications" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+<span class="math inline">\(\mathsf{AC}\)</span> implies <span class="math inline">\(\mathsf{DC}\)</span> and <span class="math inline">\(\mathsf{DC}\)</span> implies <span class="math inline">\(\mathsf{AC}_\omega\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Both implications are strict, in the sense that there are mathematical universes in which the weaker axiom holds and the stronger fails.</p>
+<p>The axiom <span class="math inline">\(\mathsf{AC}_{\omega}\)</span> is sufficient to prove, for example, the following:</p>
 <ul>
-<li><a href="./lectures/lec01.html">1 · Some History and Setting the Stage</a> — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.</li>
-<li><a href="./lectures/lec02.html">2 · The Foundational Crisis</a> — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs.&nbsp;Hilbert’s program.</li>
+<li>Every infinite set contains a countably infinite subset.</li>
+<li>A countable union of countable sets is countable.</li>
 </ul>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<ul>
-<li><a href="./notes/zfc-as-a-foundation.html">3 · ZFC as a Foundational Theory</a> — metatheory vs.&nbsp;object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC.</li>
-<li><a href="./notes/first-consequences.html">4 · First Consequences of the ZFC Axioms</a> — classes and proper classes, no universal set, the empty set, unordered and ordered pairs, and building the first numbers with Union.</li>
-<li><a href="./notes/relations-and-functions.html">5 · Relations and Functions</a> — relations and their terminology, domain/range, functions, Cartesian products via Replacement, isomorphism, quotients by an equivalence relation, and the object-theory/metatheory split.</li>
-<li><a href="./notes/ordinals.html">6 · Ordinals</a> — well-founded relations, well-orders and their rigidity, von Neumann ordinals, the well-ordering of <span class="math inline">\(ON\)</span>, Burali-Forti, <span class="math inline">\(\omega\)</span> as the least limit ordinal, and every well-order as the order type of a unique ordinal.</li>
-</ul>
+<p><span class="math inline">\(\mathsf{DC}\)</span> and <span class="math inline">\(\mathsf{AC}_\omega\)</span> therefore play an important role in the foundations of analysis and measure theory.</p>
 
 
 </section>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Cardinals – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/cardinals.html">9 · Cardinals</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · The Foundational Crisis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Relations and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Ordinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Induction and Recursion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Axiom of Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">9 · Cardinals</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cardinals" id="toc-cardinals" class="nav-link active" data-scroll-target="#cardinals">Cardinals</a>
+  <ul class="collapse">
+  <li><a href="#cardinality" id="toc-cardinality" class="nav-link" data-scroll-target="#cardinality">Cardinality</a></li>
+  <li><a href="#cardinal-numbers" id="toc-cardinal-numbers" class="nav-link" data-scroll-target="#cardinal-numbers">Cardinal numbers</a></li>
+  <li><a href="#operations-on-cardinals" id="toc-operations-on-cardinals" class="nav-link" data-scroll-target="#operations-on-cardinals">Operations on cardinals</a>
+  <ul class="collapse">
+  <li><a href="#the-canonical-well-ordering-of-ordinal-pairs" id="toc-the-canonical-well-ordering-of-ordinal-pairs" class="nav-link" data-scroll-target="#the-canonical-well-ordering-of-ordinal-pairs">The canonical well-ordering of ordinal pairs</a></li>
+  </ul></li>
+  <li><a href="#the-cardinality-of-mathbbr-and-related-sets" id="toc-the-cardinality-of-mathbbr-and-related-sets" class="nav-link" data-scroll-target="#the-cardinality-of-mathbbr-and-related-sets">The cardinality of <span class="math inline">\(\mathbb{R}\)</span> and related sets</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cardinals</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cardinals" class="level1">
+<h1>Cardinals</h1>
+<section id="cardinality" class="level2">
+<h2 class="anchored" data-anchor-id="cardinality">Cardinality</h2>
+<p>Cardinal numbers capture the notion of the <strong>cardinality</strong> of a set. We measure the cardinality of a set relative to other sets by saying sets <span class="math inline">\(a,b\)</span> have the <strong>same cardinality</strong> if there exists a bijection between them.</p>
+<p>We use the following notation: <span class="math display">\[\begin{align*}
+a \sim b \quad &amp; : \Leftrightarrow \quad \text{ there exists a bijection } a \leftrightarrow b \\
+a \preceq b \quad &amp; : \Leftrightarrow \quad \text{ there exists an injection } a \hookrightarrow b \\
+a \prec b \quad &amp; : \Leftrightarrow \quad a \preceq b \; \wedge \; a \nsim b
+\end{align*}\]</span></p>
+<p>It is straightforward to show <span class="math inline">\(\sim\)</span> is an equivalence relation and that <span class="math inline">\(\preceq\)</span> is transitive. <span class="math inline">\(\preceq\)</span> is obviously also reflexive. Relations that are reflexive and transitive are called <strong>preorders</strong>. If we mod out by <span class="math inline">\(\sim\)</span>, do we get a partial order? In other words, do we have antisymmetry in the form <span class="math display">\[
+a \preceq b \; \wedge \; b \preceq a \quad \overset{?}{\Rightarrow} \quad a \sim b.
+\]</span> This follows pretty easily if we use the Axiom of Choice (in form of the well-ordering principle <span class="math inline">\(\mathsf{WO}\)</span>), but it is one of the few fundamental results in the theory of cardinality one can prove without using Choice.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-CSB" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Cantor-Schröder-Bernstein Theorem)</strong></span> <br>
+Let <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be sets. If there is an injection from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and an injection from <span class="math inline">\(b\)</span> to <span class="math inline">\(a\)</span>, then there exists a bijection between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Warmup)</strong></span> Find a bijection between <span class="math inline">\([0,1)\)</span> and <span class="math inline">\([0,1]\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ::: {.callout-tip collapse="true"}
+## Hint
+
+"Proof by picture"
+![Proof of the Cantor-Schröder-Bernstein Theorem](./images/schroeder-bernstein.png){width=80% fig-align="center"}
+::: -->
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(X_0 = X\setminus g(Y)\)</span>, <span class="math inline">\(Y_0 = Y \setminus f(X)\)</span>. Let <span class="math inline">\(X_1 = g(Y)\setminus g(f(X))\)</span>, <span class="math inline">\(Y_1 = f(X) \setminus f(g(Y))\)</span>. Note that there is a bijection between <span class="math inline">\(X_0 \cup X_1\)</span> and <span class="math inline">\(Y_0 \cup Y_1\)</span> by letting <span class="math display">\[
+\varphi(x) = \begin{cases}
+  f(x) &amp; \text{ if } x \in X_0, \\
+  g^{-1}(x) &amp; \text{ if } x \in X_1.
+\end{cases}
+\]</span> Iterate this process with new <span class="math inline">\(X : = g(f(X))\)</span> and <span class="math inline">\(Y := f(g(Y))\)</span>. This gives rise to sequences of pairwise disjoint sets <span class="math inline">\(X_0, X_1, X_2, \dots\)</span> and <span class="math inline">\(Y_0, Y_1, Y_2, \dots\)</span>, together with a bijection <span class="math display">\[
+\varphi: \bigcup_{i \in \omega}  X_i \leftrightarrow \bigcup_{i \in \omega} Y_i.
+\]</span> We now define <span class="math display">\[
+h(x) = \begin{cases}
+  \varphi(x) &amp; \text{ if } x \in \bigcup_{i \in \omega}  X_i, \\
+  f(x) &amp; \text{ if } x \in X\setminus \bigcup_{i \in \omega}  X_i.
+\end{cases}
+\]</span> It is clear that <span class="math inline">\(h\)</span> is one-to-one. Suppose <span class="math inline">\(y \in Y \setminus \bigcup_{i \in \omega} Y_i\)</span> is not in <span class="math inline">\(f(X\setminus \bigcup_{i \in \omega}  X_i)\)</span>. But then, by definition of <span class="math inline">\(\varphi\)</span>, <span class="math inline">\(y\)</span> is not in <span class="math inline">\(f(Y)\)</span>, which would imply <span class="math inline">\(y \in Y_0\)</span>, contradiction. Hence <span class="math inline">\(h\)</span> is onto.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The next result shows that this order is linear. To prove it, we have to use Choice.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-hartogs" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Hartogs)</strong></span> <br>
+For any sets <span class="math inline">\(a,b\)</span>, <span class="math display">\[
+a \preceq b \; \vee \; b \preceq a.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>By the well-ordering principle <span class="math inline">\(\mathsf{WO}\)</span>, there exist ordinals <span class="math inline">\(\alpha, \beta\)</span> such that <span class="math inline">\(a \sim \alpha\)</span> and <span class="math inline">\(b \sim \beta\)</span>. Since any two ordinals are comparable by <span class="math inline">\(&lt;\)</span>, <span class="math inline">\(\alpha \subseteq \beta\)</span> or <span class="math inline">\(\beta \subseteq \alpha\)</span>, which easily yields the theorem.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Cantor’s famous result shows that for every set there exists one with greater cardinality. In particular, the order <span class="math inline">\(\preceq\)</span> is infinite. Given a set <span class="math inline">\(a\)</span>, we denote its <strong>power set</strong> by <span class="math inline">\(\mathcal{P}(a)\)</span>, <span class="math display">\[
+\mathcal{P}(a) = \{ b \colon b \subseteq a \}.
+\]</span></p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cantor" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Cantor’s Theorem)</strong></span> <br>
+For every set <span class="math inline">\(a\)</span>, <span class="math display">\[
+a \prec \mathcal{P}(a).
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(x \mapsto \{x\}\)</span> is an injection from <span class="math inline">\(a\)</span> to <span class="math inline">\(\mathcal{P}(a)\)</span>, hence <span class="math inline">\(a \preceq \mathcal{P}(a)\)</span>. Now assume <span class="math inline">\(a \sim \mathcal{P}(a)\)</span> via a bijection <span class="math inline">\(f\)</span>. We use a diagonal argument (as for the case <span class="math inline">\(a = \mathbb{N}\)</span>) to derive a contradiction. Let <span class="math inline">\(d: = \{x \in a\colon x \notin f(x) \}\)</span>. As <span class="math inline">\(f\)</span> is onto, there exists <span class="math inline">\(b \in a\)</span> with <span class="math inline">\(f(b) = d\)</span>. But then <span class="math display">\[
+b \in d \; \Leftrightarrow \; b \notin f(b) \; \Leftrightarrow \; b \notin d,
+\]</span> contradiction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cardinal-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="cardinal-numbers">Cardinal numbers</h2>
+<p>As with ordinals, we would like to choose a system of representatives for the equivalence classes under <span class="math inline">\(\sim\)</span>. <a href="#thm-hartogs" class="quarto-xref">Theorem&nbsp;2</a> suggests to use ordinals (which we can compare using the well-ordering of ordinals). We therefore assume the Axiom of Choice (so every set has a well-ordering). One issue that remains is that a set can have well-orderings of different lengths (as we saw in the case of the natural numbers <span class="math inline">\(\mathbb{N}\)</span>). But since the ordinals are well-ordered, we can choose the <em>least</em> one of the same cardinality.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-cardinality" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+The <strong>cardinality</strong> <span class="math inline">\(|a|\)</span> of a set <span class="math inline">\(a\)</span> is defined as <span class="math display">\[
+|a| = \min \{ \alpha \in \mathop{\mathrm{Ord}}\colon \alpha \sim a \}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-cardinality" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>We have to be careful what we are taking a minimum over, since there could be a lot (i.e.&nbsp;“more than a set” many ordinals equinumeral to <span class="math inline">\(a\)</span>.) We can avoid this by first using <span class="math inline">\(\mathsf{AC}\)</span> to find <em>one</em> ordinal <span class="math inline">\(\beta \sim a\)</span>, and then taking the minimum ordinals <span class="math inline">\(\leq \beta\)</span>. As we will see later, the latter will always be a set.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-cardinality-properties" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> &nbsp;</p>
+<ul>
+<li><span class="math inline">\(a \sim b \quad \iff \quad |a| = |b|\)</span></li>
+<li><span class="math inline">\(a \preceq b \quad \iff \quad |a| \leq |b|\)</span></li>
+<li><span class="math inline">\(a \prec b \quad \iff \quad |a| &lt; |b|\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>An ordinal <span class="math inline">\({}\kappa\)</span> is a <strong>cardinal</strong> if it is the cardinality of some set. Equivalently, <span class="math inline">\({}\kappa\)</span> is a cardinal if <span class="math display">\[
+\forall \beta &lt; \kappa \; \beta \prec \kappa.
+\]</span> We usually use Greek letters from the middle of the alphabet, <span class="math inline">\(\kappa, \mu, \nu, \dots\)</span> to denote cardinals.</p>
+<p>Given a cardinal <span class="math inline">\({}\kappa\)</span>, we let <span class="math inline">\(\kappa^+\)</span> be the <strong>cardinal successor</strong> of <span class="math inline">\({}\kappa\)</span>, i.e.&nbsp; <span class="math display">\[
+\kappa^+ = \text{ least cardinal } \nu \text{ with }  \kappa \prec \nu.
+\]</span> By <a href="#thm-cantor" class="quarto-xref">Theorem&nbsp;3</a> (and the Axiom of Choice), we have</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-cardinal-successor" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em>. </span>The fact that <span class="math inline">\(\kappa^+ \preceq |\mathcal{P}(\kappa)|\)</span> also ensures in the definition of <span class="math inline">\(\kappa^+\)</span> we are taking the minimum over a set.</p>
+</div>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+  \kappa \prec \kappa^+ \preceq |\mathcal{P}(\kappa)|,
+\]</span> and as ordinals, <span class="math display">\[
+  \kappa &lt; \kappa^+ \leq |\mathcal{P}(\kappa)|.
+\]</span></p>
+<p>All finite ordinals <span class="math display">\[
+0, 1, 2, 3, \dots
+\]</span> are cardinals. The <strong>first infinite cardinal</strong> is <span class="math inline">\({}\omega\)</span>, the cardinality of all countably infinite sets.</p>
+<p>We can use ordinals to enumerate all infinite cardinals. This gives the <strong>aleph</strong>-sequence.</p>
+<p><span class="math display">\[\begin{align*}
+  \aleph_0 &amp;  \; := \; \omega\\
+  \aleph_{\alpha+1}  &amp; \; := \; \aleph^+_\alpha \\
+  \aleph_\lambda  &amp;\;  := \; \sup \{ \aleph_\beta \colon \beta &lt; \lambda \}
+\end{align*}\]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Show that the supremum of a set of cardinals is a cardinal. (In particular, <span class="math inline">\(\aleph_\lambda\)</span> in the definition above is a cardinal.)</p>
+</div>
+</div>
+</div>
+</div>
+<p>As in the case of ordinals, cardinals of the form <span class="math inline">\(\aleph_{\alpha+1}\)</span> are called <strong>successor cardinals</strong>, whereas alephs whose index is a limit ordinal are called <strong>limit cardinals</strong>.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-every-cardinal-aleph" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+Every cardinal is an aleph, i.e.&nbsp;for every cardinal <span class="math inline">\({}\kappa\)</span> there exists an ordinal <span class="math inline">\(\alpha\)</span> such that <span class="math inline">\(\kappa = \aleph_\alpha\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (Sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em> (Sketch). </span>The mapping <span class="math inline">\(\alpha \mapsto \aleph_\alpha\)</span> is stricly increasing. It follows that <span class="math inline">\(\kappa \leq \aleph_\kappa\)</span> and hence <span class="math inline">\(\kappa &lt; \aleph_{\kappa+1}\)</span>. Choose <span class="math inline">\({}\alpha\)</span> minimal such that <span class="math inline">\(\kappa &lt; \aleph_\alpha\)</span>. A simple case distinction yields that <span class="math inline">\({}\alpha\)</span> must be a successor ordinal, <span class="math inline">\(\alpha = \beta+1\)</span>. It then follows from <span class="math inline">\(\aleph_{\beta+1} = \aleph_\beta^+\)</span> that <span class="math inline">\(\kappa = \aleph_\beta\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>While every cardinal is an ordinal, not every ordinal is a cardinal. For example <span class="math display">\[
+\aleph_0 = \omega = |\omega +1| = | \omega +2|= \ldots = |\omega+ \omega| = | \mathbb{Z}| =  |\mathbb{N} \times \mathbb{N}| = | \mathbb{Q}|.
+\]</span></p>
+<p>The next cardinal is <span class="math display">\[
+  \aleph_1 = \aleph_0^+ = \omega_1 = \{\alpha \in \mathop{\mathrm{Ord}}\colon \alpha \text{ countable}\}.
+\]</span> Between <span class="math inline">\(\aleph_0\)</span> and <span class="math inline">\(\aleph_1\)</span> are uncountably many ordinals, all of which are countable. The ordinal <span class="math inline">\(\omega_1\)</span> will play an important role when we close sets under countably infinite operations (like the Borel sets).</p>
+<p>We know the set of reals is uncountable, so at this time we are able to conclude <span class="math display">\[\begin{equation*}
+|\mathbb{R}|\ge \aleph_1, \quad
+|\mathcal{P}(\mathbb{R})| \ge \aleph_2, \ldots
+\end{equation*}\]</span></p>
+</section>
+<section id="operations-on-cardinals" class="level2">
+<h2 class="anchored" data-anchor-id="operations-on-cardinals">Operations on cardinals</h2>
+<p>What can we say about the cardinality of unions, products, etc.?</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> Show that <span class="math inline">\(|\mathbb{R}\times \mathbb{R}| = |\mathbb{R}|\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>This is an instance of a more general result. We can define arithmetic operation on cardinals by looking at the cardinalities of the corresponding set theoretic operations.</p>
+<p><span class="math display">\[\begin{align*}
+\kappa + \lambda \quad &amp; = \quad  |(\kappa  \times \{0\}) \cup (\lambda  \times \{1\})| &amp; \qquad (\text{disjoint union}) \\
+\kappa \cdot \lambda \quad &amp; =  \quad  |\kappa  \times \lambda | &amp; \qquad (\text{product})\\
+\kappa^{\lambda} \quad &amp; = \quad   |\{f \colon f: \lambda \to \kappa \}| &amp; \qquad (\text{exponentiation})
+\end{align*}\]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Verify that for finite cardinalities, the operations defined above agree with the usual arithmetic operations on natural numbers.</p>
+</div>
+</div>
+</div>
+</div>
+<p>It turns out for infinite cardinals, <span class="math inline">\(+\)</span> and <span class="math inline">\(\cdot\)</span> are trivial. This is mostly due to the fact that there is a nice (canonical) well-ordering of <span class="math inline">\(\mathop{\mathrm{Ord}}\times\mathop{\mathrm{Ord}}\)</span>.</p>
+<section id="the-canonical-well-ordering-of-ordinal-pairs" class="level3">
+<h3 class="anchored" data-anchor-id="the-canonical-well-ordering-of-ordinal-pairs">The canonical well-ordering of ordinal pairs</h3>
+<p>We define a bijection <span class="math inline">\(F: \mathop{\mathrm{Ord}}\times \mathop{\mathrm{Ord}}\leftrightarrow \mathop{\mathrm{Ord}}\)</span>. As a first step, we define the <strong>lexicographic order</strong> <span class="math inline">\(&lt;_{\mathop{\mathrm{lex}}}\)</span> on <span class="math inline">\(\mathop{\mathrm{Ord}}\times \mathop{\mathrm{Ord}}\)</span>: <span class="math display">\[\begin{equation*}
+(\alpha, \beta) &lt;_{\mathop{\mathrm{lex}}} (\gamma, \delta) \quad : \iff \quad \alpha &lt; \gamma \, \vee \, ( \alpha = \gamma \, \wedge \beta &lt; \delta).
+\end{equation*}\]</span></p>
+<p>This is a linear order in which every non-empty subset has a minimal element, but we have to be careful since in this order all pairs of the form <span class="math inline">\((0,\xi)\)</span>, <span class="math inline">\(\xi \in \mathop{\mathrm{Ord}}\)</span>, precede <span class="math inline">\((1,0)\)</span>. And we saw that there is no set of the form <span class="math inline">\(\{(0,\xi) \colon  \xi \in \mathop{\mathrm{Ord}}\}\)</span>. Gödel modified this order by <em>presorting</em> according to the maximum of the pair: <span class="math display">\[\begin{align}
+(\alpha, \beta) &lt;_g (\gamma, \delta) \; : \iff \; &amp; \max(\alpha,\beta) &lt;  \max(\gamma,\delta)  \\
+  &amp; \qquad \vee \; (\max(\alpha,\beta) =  \max(\gamma,\delta)  \: \wedge \: (\alpha, \beta) &lt;_{\mathop{\mathrm{lex}}} (\gamma, \delta)).
+\end{align}\]</span> This yields a linear order in which every element has only a <em>set</em> of predecessors. Moreover, the minimality condition is still satisfied: Let <span class="math inline">\(A \subseteq \mathop{\mathrm{Ord}}\times \mathop{\mathrm{Ord}}\)</span> be non-empty. We find the least element of <span class="math inline">\(A\)</span> by - first finding the least <span class="math inline">\(\gamma_0 \in \{ \max(\alpha,\beta) \colon  (\alpha,\beta)\in A\}\)</span>, - then finding the least <span class="math inline">\(\alpha_0 \in \{\alpha \colon \exists \beta \;( (\alpha,\beta)\in A \wedge  \max(\alpha,\beta) = \gamma_0) \}\)</span>, - and finally finding the least <span class="math inline">\(\beta_0 \in \{\beta \colon (\alpha_0,\beta) \in A \wedge \max(\alpha_0,\beta) = \gamma_0 \}\)</span>.</p>
+<p>It is straightforward to verify that <span class="math inline">\((\alpha_0, \beta_0)\)</span> is the smallest element of <span class="math inline">\(A\)</span> with respect to <span class="math inline">\(&lt;_g\)</span>.</p>
+<p>Enumerating pairs of ordinals along <span class="math inline">\(&lt;_g\)</span> now yields and order isomorphism <span class="math inline">\(F: \mathop{\mathrm{Ord}}\times \mathop{\mathrm{Ord}}\to \mathop{\mathrm{Ord}}\)</span>, <span class="math display">\[  
+(\alpha, \beta) &lt;_g (\gamma, \delta) \; \iff \;  F(\alpha, \beta) &lt; F(\gamma, \delta).
+\]</span> Note that <span class="math inline">\(f(\alpha) := F(\alpha\times \alpha)\)</span> is a strictly increasing map on ordinals, and hence <span class="math inline">\(F(\alpha) \geq \alpha\)</span>. Further note that <span class="math display">\[
+\alpha \times \alpha = \{(\beta,\gamma) \colon (\beta,\gamma) &lt;_g (0,\alpha) \},
+\]</span> hence <strong><span class="math inline">\(\alpha\times\alpha\)</span> is a <span class="math inline">\(&lt;_g\)</span>-initial segment</strong>.</p>
+<p>An important application of the well-ordering of <span class="math inline">\(\mathop{\mathrm{Ord}}\times \mathop{\mathrm{Ord}}\)</span> is the following theorem.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-hessenberg" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Hessenberg’s Theorem)</strong></span> <br>
+Let <span class="math inline">\({\kappa}\)</span> be an infinite cardinal. Then <span class="math display">\[
+  \kappa \cdot \kappa = \kappa.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>Show that for any infinite cardinal <span class="math inline">\({}\kappa\)</span>, the restriction of the mapping <span class="math inline">\(F\)</span> to <span class="math inline">\(\kappa \times \kappa\)</span>, <span class="math inline">\(F\mid_{\kappa\times\kappa}\)</span>, is a bijection between <span class="math inline">\(\kappa \times \kappa\)</span> and <span class="math inline">\({}\kappa\)</span>. In other words, show that <span class="math inline">\(F(\kappa\times\kappa)=\kappa\)</span>.</p>
+<p>It is straightforward to verify this for <span class="math inline">\(\kappa = \aleph_0\)</span>.</p>
+<p>Now assume it does not hold for a larger cardinal. Since every infinite cardinal is of the form <span class="math inline">\(\kappa = \aleph_\alpha\)</span>, choose <span class="math inline">\(\alpha &gt; 0\)</span> minimal such that <span class="math inline">\(F(\aleph_\alpha \times \aleph_\alpha) \neq \aleph_\alpha\)</span>.</p>
+<p>Note that since for any <span class="math inline">\(\beta\)</span>, <span class="math inline">\(F(\beta,\beta) \geq \beta\)</span>, we must have <span class="math inline">\(F(\aleph_\alpha, \aleph_\alpha) &gt; \aleph_\alpha\)</span>.</p>
+<p>Since <span class="math inline">\(F\)</span> is a bijection, there exist ordinals <span class="math inline">\(\beta, \gamma &lt; \aleph_\alpha\)</span> such that <span class="math inline">\(F(\beta, \gamma) = \aleph_\alpha\)</span>. If we put <span class="math inline">\(\delta = \max\{\beta,\gamma\}+1\)</span>, we have <span class="math inline">\(\omega \leq \delta &lt; \aleph_\alpha\)</span> (since <span class="math inline">\(\aleph_\alpha\)</span> has to be a limit ordinal).</p>
+<p>Since <span class="math inline">\((\beta, \gamma) &lt;_g (\delta, \delta)\)</span>, it follows that <span class="math inline">\(F(\delta \times \delta) &gt; \aleph_\alpha\)</span> and thus <span class="math inline">\(F(\delta\times \delta) \supseteq \aleph_\alpha\)</span>. The latter implies <span class="math inline">\(|\delta \times \delta| \geq \aleph_\alpha\)</span>. But <span class="math inline">\(|\delta\times\delta| = |\delta|\cdot |\delta|\)</span> and by minimality of <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(|\delta|\cdot |\delta| = |\delta| &lt; \aleph_\alpha\)</span>, contradiction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-cardinal-arithmetic" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+If <span class="math inline">\(\kappa, \lambda\)</span> are infinite cardinals, then <span class="math display">\[\begin{equation*}
+\kappa  + \lambda = \kappa \cdot \lambda = \max\{\kappa, \lambda\}.
+\end{equation*}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\kappa\)</span> is infinite, we have, by simple monotonicity arguments, <span class="math display">\[\begin{equation*}
+\kappa \le \kappa  + \kappa \le \kappa \cdot \kappa = \kappa, \quad  \text{hence}  \; \kappa  + \kappa = \kappa \cdot \kappa = \kappa.
+\end{equation*}\]</span></p>
+<p>If, say, <span class="math inline">\(0&lt; \kappa \leq \lambda\)</span> with <span class="math inline">\(\lambda\)</span> infinite, the above implies <span class="math display">\[\begin{align}
+\lambda \le \kappa  + \lambda \le \lambda + \lambda = \lambda, &amp; \quad \text{ and thus }  \;\kappa  + \lambda= \lambda = \max\{\kappa,\lambda\},\\
+\lambda \le \kappa  \cdot \lambda \le \lambda \cdot \lambda = \lambda, &amp; \quad  \text{ and thus }  \; \kappa  \cdot \lambda = \lambda = \max\{\kappa,\lambda\}.
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-cardinality-of-mathbbr-and-related-sets" class="level2">
+<h2 class="anchored" data-anchor-id="the-cardinality-of-mathbbr-and-related-sets">The cardinality of <span class="math inline">\(\mathbb{R}\)</span> and related sets</h2>
+<p>While, as we just saw, addition and multiplication are trivial for infinite cardinals, determining the simplest transfinite power, <span class="math inline">\(2^{\aleph_0}\)</span>, already leads to unsolvable problems. <span class="math inline">\(2^{\aleph_0}\)</span> plays an important role since it is the cardinality of the continuum.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-continuum-cardinality" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+<span class="math display">\[|\mathbb{R}| = |\mathcal{P}(\mathbb{N})| = 2^{\aleph_0}.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use, for example:</p>
+<ul>
+<li>Dedekind cuts</li>
+<li>every real number has an infinite binary expansion</li>
+<li>subsets can be identified with their characteristic function</li>
+</ul>
+<p>The <a href="#thm-CSB" class="quarto-xref">Theorem&nbsp;1</a> makes life easier here.</p>
+</div>
+</div>
+</div>
+<p>We can draw some conclusions:</p>
+<ol type="1">
+<li><p>With <span class="math inline">\(|\mathbb{R}| = 2^{ \aleph_0}\)</span> we also get <span class="math inline">\(|\mathbb{R}^n |\)</span> = <span class="math inline">\((2^{ \aleph_0})^n = 2^{\aleph_0},\)</span> by Hessenberg’s Theorem. It even holds that (exercise!) <span class="math display">\[\begin{equation*}
+|\{s \colon \mathbb{N}\to  \mathbb{R}\}|  =  (2^{ \aleph_0})^{\aleph_0} = 2^{ \aleph_0 \cdot \aleph_0} = 2^{ \aleph_0}.
+\end{equation*}\]</span> That is, there are as many countable sequences of real numbers as there are real numbers.</p></li>
+<li><p>Since every continuous real-valued function on <span class="math inline">\(\mathbb{R}\)</span> is determined by its values on <span class="math inline">\(\mathbb{Q}\)</span>, we have <span class="math display">\[
+|\{f:\mathbb{R}\to \mathbb{R}\text{ continuous } \}| = |\{f:\mathbb{Q}\to \mathbb{R}\}| = (2^{ \aleph_0})^{\aleph_0} =  2^{ \aleph_0}.
+\]</span></p></li>
+<li><p>We obtain a higher cardinality by passing to the power set of the real numbers or to the set of all real-valued functions on <span class="math inline">\(\mathbb{R}\)</span>: <span class="math display">\[\begin{equation*}
+|\{f:\mathbb{R}\to \mathbb{R}\}| = |\mathcal{P}(\mathbb{R})| =  2^{2^{ \aleph_0}} &gt; 2^{ \aleph_0}.
+\end{equation*}\]</span></p></li>
+</ol>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Continuum Hypothesis (<span class="math inline">\(\mathsf{CH}\)</span> – cardinal version)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+2^{\aleph_0} = \aleph_1
+\]</span></p>
+</div>
+</div>
+<p><span class="math inline">\(\mathsf{CH}\)</span> asserts that the cardinality of <span class="math inline">\(\mathbb{R}\)</span> is the next biggest cardinal after <span class="math inline">\(\omega = \aleph_0\)</span> (the cardinality of all countably infinite sets).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Math 558 · Foundations of Mathematics · Penn State</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
