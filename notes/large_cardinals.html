@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Cofinality and Inaccessible Cardinals – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/large_cardinals.html">11 · Large Cardinals</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · The Foundational Crisis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Relations and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Ordinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Induction and Recursion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Axiom of Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 · Models of Set Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">11 · Large Cardinals</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cofinality-and-inaccessible-cardinals" id="toc-cofinality-and-inaccessible-cardinals" class="nav-link active" data-scroll-target="#cofinality-and-inaccessible-cardinals">Cofinality and Inaccessible Cardinals</a>
+  <ul class="collapse">
+  <li><a href="#cofinality" id="toc-cofinality" class="nav-link" data-scroll-target="#cofinality">Cofinality</a></li>
+  <li><a href="#regular-and-singular-cardinals" id="toc-regular-and-singular-cardinals" class="nav-link" data-scroll-target="#regular-and-singular-cardinals">Regular and singular cardinals</a>
+  <ul class="collapse">
+  <li><a href="#cofinality-of-the-continuum" id="toc-cofinality-of-the-continuum" class="nav-link" data-scroll-target="#cofinality-of-the-continuum">Cofinality of the continuum</a></li>
+  </ul></li>
+  <li><a href="#inaccessible-cardinals" id="toc-inaccessible-cardinals" class="nav-link" data-scroll-target="#inaccessible-cardinals">Inaccessible cardinals</a>
+  <ul class="collapse">
+  <li><a href="#inaccessibles-and-the-von-neumann-hierarchy" id="toc-inaccessibles-and-the-von-neumann-hierarchy" class="nav-link" data-scroll-target="#inaccessibles-and-the-von-neumann-hierarchy">Inaccessibles and the von Neumann hierarchy</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cofinality and Inaccessible Cardinals</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cofinality-and-inaccessible-cardinals" class="level1">
+<h1>Cofinality and Inaccessible Cardinals</h1>
+<section id="cofinality" class="level2">
+<h2 class="anchored" data-anchor-id="cofinality">Cofinality</h2>
+<p>Recall two basic facts about cardinalities:</p>
+<ul>
+<li>Finite unions of finite sets are finite.</li>
+<li>Countable unions of countable sets are countable (using <span class="math inline">\(\mathsf{AC}\)</span>).</li>
+</ul>
+<p>This means it is “hard” to reach the cardinals <span class="math inline">\(\aleph_0\)</span> and <span class="math inline">\(\aleph_1\)</span> “from below”: you cannot obtain a set of size <span class="math inline">\(\aleph_0\)</span> by putting together a few small pieces, and similarly for <span class="math inline">\(\aleph_1\)</span>. The notion of <strong>cofinality</strong> quantifies “how hard” it is to reach an ordinal from below.</p>
+<p>Throughout this section, <span class="math inline">\({}\alpha\)</span> denotes a limit ordinal (following Kunen, Def. I.13.10, we define cofinality only for limit ordinals).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-cofinal" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+A set <span class="math inline">\(X \subseteq \alpha\)</span> is <strong>cofinal</strong> in <span class="math inline">\({}\alpha\)</span> if <span class="math display">\[
+    \forall \gamma &lt; \alpha \; \exists \xi \in X \;\; \gamma &lt; \xi.
+\]</span> Equivalently, <span class="math display">\[
+    \alpha = \bigcup_{\xi \in X} \xi = \sup X.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-cofinality" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> <br>
+The <strong>cofinality</strong> of <span class="math inline">\({}\alpha\)</span> is <span class="math display">\[
+    \operatorname{cf}(\alpha) = \text{least ordinal } \beta \text{ such that there exists } f: \beta \to \alpha \text{ with } \operatorname{ran}(f) \text{ cofinal in } \alpha.
+\]</span> We call such an <span class="math inline">\(f\)</span> a <strong>cofinal map</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We can always assume that a cofinal map <span class="math inline">\(f: \operatorname{cf}(\alpha) \to \alpha\)</span> is <strong>strictly increasing</strong>: if necessary, we can “thin it out”.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-cofinal-increasing" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+There exists a strictly increasing cofinal map <span class="math inline">\(g: \operatorname{cf}(\alpha) \to \alpha\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(f: \operatorname{cf}(\alpha) \to \alpha\)</span> be cofinal. Define <span class="math inline">\(g\)</span> by recursion: <span class="math display">\[
+    g(\eta) = \max\left\{ f(\eta), \; \sup\{g(\zeta)+1 \colon \zeta &lt; \eta\} \right\}.
+\]</span> We have to check that <span class="math inline">\(g(\eta) &lt; \alpha\)</span>. If <span class="math inline">\(\sup\{g(\zeta)+1 \colon \zeta &lt; \eta\} = \alpha\)</span>, then <span class="math inline">\(g\mid_{\eta}\)</span> would be a cofinal map from <span class="math inline">\(\eta &lt; \operatorname{cf}(\alpha)\)</span> into <span class="math inline">\({}\alpha\)</span> (here we use that <span class="math inline">\({}\alpha\)</span> is a limit), contradicting the minimality of <span class="math inline">\(\operatorname{cf}(\alpha)\)</span>. By construction, <span class="math inline">\(g\)</span> is strictly increasing, and <span class="math inline">\(g(\eta) \geq f(\eta)\)</span> implies that <span class="math inline">\(g\)</span> is cofinal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-cofinality" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> <br>
+</p>
+<ul>
+<li><span class="math inline">\(\operatorname{cf}(\omega) = \omega\)</span></li>
+<li><span class="math inline">\(\operatorname{cf}(\omega+\omega) = \omega\)</span>, via <span class="math inline">\(n \mapsto \omega + n\)</span></li>
+<li><span class="math inline">\(\operatorname{cf}(\omega\cdot\omega) = \omega\)</span>, via <span class="math inline">\(n \mapsto \omega \cdot n\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-cofinality-basic" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+For any limit ordinal <span class="math inline">\({}\alpha\)</span>,</p>
+<ol type="1">
+<li><span class="math inline">\(\operatorname{cf}(\alpha) \leq \alpha\)</span>,</li>
+<li><span class="math inline">\(\operatorname{cf}(\alpha)\)</span> is a cardinal,</li>
+<li><span class="math inline">\(\operatorname{cf}(\operatorname{cf}(\alpha)) = \operatorname{cf}(\alpha)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="1">
+<li><p>The identity map <span class="math inline">\(\alpha \to \alpha\)</span> is cofinal.</p></li>
+<li><p>Let <span class="math inline">\(\beta = \operatorname{cf}(\alpha)\)</span> and suppose <span class="math inline">\(|\beta| &lt; \beta\)</span>. Let <span class="math inline">\(h: |\beta| \to \beta\)</span> be a bijection and <span class="math inline">\(f: \beta \to \alpha\)</span> cofinal. Then <span class="math inline">\(f \circ h: |\beta| \to \alpha\)</span> has the same range as <span class="math inline">\(f\)</span> and hence is cofinal, contradicting the minimality of <span class="math inline">\({}\beta\)</span>.</p></li>
+<li><p>By (1), <span class="math inline">\(\operatorname{cf}(\operatorname{cf}(\alpha)) \leq \operatorname{cf}(\alpha)\)</span>. For the other inequality, let <span class="math inline">\(f: \operatorname{cf}(\alpha) \to \alpha\)</span> be strictly increasing and cofinal (<a href="#lem-cofinal-increasing" class="quarto-xref">Lemma&nbsp;1</a>), and let <span class="math inline">\(g: \delta \to \operatorname{cf}(\alpha)\)</span> be cofinal. Then <span class="math inline">\(f \circ g: \delta \to \alpha\)</span> is cofinal: given <span class="math inline">\(\gamma &lt; \alpha\)</span>, pick <span class="math inline">\(\eta\)</span> with <span class="math inline">\(f(\eta) &gt; \gamma\)</span>, and <span class="math inline">\(\zeta &lt; \delta\)</span> with <span class="math inline">\(g(\zeta) &gt; \eta\)</span>. Then <span class="math inline">\(f(g(\zeta)) &gt; f(\eta) &gt; \gamma\)</span>. Hence <span class="math inline">\(\delta \geq \operatorname{cf}(\alpha)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="regular-and-singular-cardinals" class="level2">
+<h2 class="anchored" data-anchor-id="regular-and-singular-cardinals">Regular and singular cardinals</h2>
+<p>Recall the enumeration of all infinite cardinals by means of the <strong><span class="math inline">\(\aleph\)</span>-sequence</strong>:</p>
+<p><span class="math display">\[\begin{equation*}
+\aleph_0 = \omega, \quad \aleph_{\alpha+1} = \aleph_\alpha^+, \quad  \aleph_\lambda = \sup \{ \aleph_\xi \colon \xi&lt;\lambda\} \; \text{ for limit } \lambda.
+\end{equation*}\]</span></p>
+<p>Here <span class="math inline">\(\kappa^+\)</span> is the least cardinal <span class="math inline">\(&gt; \kappa\)</span>. Some cardinals are limits of short sequences of smaller cardinals – for example, <span class="math display">\[\begin{equation*}
+    \aleph_\omega = \lim_n \aleph_n
+\end{equation*}\]</span> is uncountable, but a limit of a countable sequence of smaller cardinals.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-regular" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> <br>
+Let <span class="math inline">\({}\kappa\)</span> be an infinite cardinal. <span class="math inline">\({}\kappa\)</span> is</p>
+<ul>
+<li><strong>regular</strong> if <span class="math inline">\(\operatorname{cf}(\kappa) = \kappa\)</span>,</li>
+<li><strong>singular</strong> if <span class="math inline">\(\operatorname{cf}(\kappa) &lt; \kappa\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>In other words, a regular cardinal <span class="math inline">\({}\kappa\)</span> cannot be reached by less than <span class="math inline">\({}\kappa\)</span>-many steps: <span class="math display">\[\begin{equation*}
+\operatorname{reg}(\kappa) \iff \forall \alpha &lt; \kappa \;  \forall f \;( f: \alpha \to \kappa \;  \to \; \sup_{\xi &lt; \alpha} f(\xi) &lt; \kappa).
+\end{equation*}\]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-regular" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> <br>
+</p>
+<ul>
+<li><span class="math inline">\(\aleph_0\)</span> is regular.</li>
+<li><span class="math inline">\(\aleph_1\)</span> is regular.</li>
+<li><span class="math inline">\(\aleph_\omega\)</span> is singular, with <span class="math inline">\(\operatorname{cf}(\aleph_\omega) = \omega\)</span>, as witnessed by the cofinal sequence <span class="math inline">\(\aleph_0, \aleph_1, \aleph_2, \ldots \to \aleph_\omega\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>The regularity of <span class="math inline">\(\aleph_1\)</span> is an instance of a general fact.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-successor-regular" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+(<span class="math inline">\(\mathsf{AC}\)</span>) Every infinite successor cardinal is regular.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(\delta = \operatorname{cf}(\aleph_{\alpha+1}) &lt; \aleph_{\alpha+1}\)</span>. Then there exists a cofinal <span class="math inline">\(f: \delta \to \aleph_{\alpha+1}\)</span>, so <span class="math display">\[
+    \aleph_{\alpha+1} = \bigcup_{\gamma &lt; \delta} f(\gamma).
+\]</span> Now <span class="math inline">\(|\delta| &lt; \aleph_{\alpha+1}\)</span>, and <span class="math inline">\(|f(\gamma)| &lt; \aleph_{\alpha+1}\)</span> for all <span class="math inline">\(\gamma &lt; \delta\)</span>. Hence <span class="math inline">\(|\delta| \leq \aleph_\alpha\)</span> and <span class="math inline">\(|f(\gamma)| \leq \aleph_\alpha\)</span> for all <span class="math inline">\(\gamma &lt; \delta\)</span>. This implies <span class="math display">\[
+    |\aleph_{\alpha+1}| = \left|\bigcup_{\gamma&lt;\delta} f(\gamma)\right| \leq \aleph_\alpha \cdot \aleph_\alpha = \aleph_\alpha,
+\]</span> a consequence of Hessenberg’s Theorem (see the notes on Cardinals). This is a contradiction.</p>
+</div>
+</div>
+</div>
+</div>
+<p>On the other hand, <span class="math display">\[\begin{equation*}
+\aleph_\omega,  \aleph_{\omega+\omega}, \aleph_{\aleph_{\omega}}, \aleph_{\aleph_{\aleph_\omega}}, \ldots
+\end{equation*}\]</span> are all singular. This follows from the following result, which reduces the cofinality of <span class="math inline">\(\aleph_\lambda\)</span> to that of its index.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-cofinality-aleph-limit" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+If <span class="math inline">\({}\lambda\)</span> is a limit ordinal, then <span class="math inline">\(\operatorname{cf}(\aleph_\lambda) = \operatorname{cf}(\lambda)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\leq\)</span>) Let <span class="math inline">\(f: \gamma \to \lambda\)</span> be cofinal. Then <span class="math display">\[
+\hat{f}: \gamma \to \aleph_\lambda, \quad \beta \mapsto \aleph_{f(\beta)}
+\]</span> is cofinal in <span class="math inline">\(\aleph_\lambda\)</span>: If <span class="math inline">\(\eta &lt; \aleph_\lambda\)</span>, then <span class="math inline">\(\eta &lt; \aleph_\xi\)</span> for some <span class="math inline">\(\xi &lt; \lambda\)</span>. Pick <span class="math inline">\(\beta\)</span> with <span class="math inline">\(f(\beta) &gt; \xi\)</span>. Then <span class="math inline">\(\aleph_{f(\beta)} &gt; \aleph_\xi &gt; \eta\)</span>.</p>
+<p>(<span class="math inline">\(\geq\)</span>) Let <span class="math inline">\(f: \gamma \to \aleph_\lambda\)</span> be cofinal. We turn <span class="math inline">\(f\)</span> into a cofinal map <span class="math inline">\(g: \gamma \to \lambda\)</span> by letting <span class="math display">\[
+    g(\beta) = \text{the } \alpha \text{ such that } |f(\beta)| = \aleph_\alpha
+\]</span> (and <span class="math inline">\(g(\beta) = 0\)</span> if <span class="math inline">\(f(\beta)\)</span> is finite). Since <span class="math inline">\(f(\beta) &lt; \aleph_\lambda\)</span>, <span class="math inline">\(g(\beta) &lt; \lambda\)</span>. If <span class="math inline">\(\xi &lt; \lambda\)</span>, pick <span class="math inline">\(\beta\)</span> with <span class="math inline">\(f(\beta) &gt; \aleph_\xi\)</span>. Then <span class="math inline">\(|f(\beta)| \geq \aleph_\xi\)</span>, so <span class="math inline">\(g(\beta) \geq \xi\)</span>. Hence <span class="math inline">\(g\)</span> is cofinal in <span class="math inline">\({}\lambda\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>For example, <span class="math inline">\(\operatorname{cf}(\aleph_{\omega+\omega}) = \operatorname{cf}(\omega+\omega) = \omega\)</span>.</p>
+<section id="cofinality-of-the-continuum" class="level3">
+<h3 class="anchored" data-anchor-id="cofinality-of-the-continuum">Cofinality of the continuum</h3>
+<p>Cofinality also puts a restriction on the possible values of <span class="math inline">\(2^\kappa\)</span>. To prove this, we need a fundamental inequality between cardinal sums and products. For a family of cardinals <span class="math inline">\((\kappa_i)_{i\in I}\)</span>, let <span class="math display">\[
+    \sum_{i \in I} \kappa_i = \left|\bigcup_{i \in I} \{i\} \times \kappa_i \right|, \qquad \prod_{i \in I} \kappa_i = \left| \left\{ g \colon g \text{ function}, \; \operatorname{dom}(g) = I, \; \forall i \; g(i) \in \kappa_i \right\}\right|.
+\]</span></p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-koenig" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (König’s Theorem)</strong></span> <br>
+(<span class="math inline">\(\mathsf{AC}\)</span>) Let <span class="math inline">\((\kappa_i)_{i\in I}\)</span> and <span class="math inline">\((\lambda_i)_{i\in I}\)</span> be families of cardinals such that <span class="math inline">\(\kappa_i &lt; \lambda_i\)</span> for all <span class="math inline">\(i \in I\)</span>. Then <span class="math display">\[
+    \sum_{i \in I} \kappa_i &lt; \prod_{i\in I} \lambda_i.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>The map <span class="math inline">\((i,\xi) \mapsto g_{i,\xi}\)</span>, where <span class="math inline">\(g_{i,\xi}(i) = \xi+1\)</span> and <span class="math inline">\(g_{i,\xi}(j) = 0\)</span> for <span class="math inline">\(j \neq i\)</span>, is an injection, so <span class="math inline">\(\sum \kappa_i \leq \prod \lambda_i\)</span>.</p>
+<p>Suppose <span class="math inline">\(f: \bigcup_{i} \{i\}\times \kappa_i \to \prod_i \lambda_i\)</span>. We show that <span class="math inline">\(f\)</span> is not onto. For each <span class="math inline">\(i \in I\)</span>, the set <span class="math display">\[
+    \{ f(i,\xi)(i) \colon \xi &lt; \kappa_i\} \subseteq \lambda_i
+\]</span> has cardinality <span class="math inline">\(\leq \kappa_i &lt; \lambda_i\)</span>, so we can let <span class="math inline">\(y(i)\)</span> be the least element of <span class="math inline">\(\lambda_i\)</span> not in this set. Then <span class="math inline">\(y \in \prod_i \lambda_i\)</span>, but <span class="math inline">\(y \neq f(i,\xi)\)</span> for all <span class="math inline">\(i, \xi\)</span>, since <span class="math inline">\(y\)</span> and <span class="math inline">\(f(i,\xi)\)</span> differ at coordinate <span class="math inline">\(i\)</span>.</p>
+<p>(The Axiom of Choice is needed to ensure that the sets on both sides are well-orderable, so that their cardinalities are defined; for families of arbitrary sets, one uses <span class="math inline">\(\mathsf{AC}\)</span> to choose the witnesses <span class="math inline">\(y(i)\)</span>.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-cofinality-power" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4</strong></span> <br>
+If <span class="math inline">\(\kappa \geq \aleph_0\)</span>, then <span class="math inline">\(\operatorname{cf}(2^\kappa) &gt; \kappa\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(f: \delta \to 2^\kappa\)</span> is cofinal with <span class="math inline">\(\delta \leq \kappa\)</span>, so that <span class="math display">\[
+    2^\kappa = \bigcup_{\gamma &lt; \delta} f(\gamma).
+\]</span> Then <span class="math inline">\(|f(\gamma)| &lt; 2^\kappa\)</span> for all <span class="math inline">\(\gamma &lt; \delta\)</span>, and by König’s Theorem, <span class="math display">\[\begin{align*}
+    2^\kappa = \left|\bigcup_{\gamma&lt;\delta} f(\gamma)\right| &amp; \leq \sum_{\gamma &lt; \delta} |f(\gamma)| \\
+    &amp; &lt; \prod_{\gamma &lt; \delta} 2^\kappa = (2^\kappa)^\delta = 2^{\kappa \cdot \delta} = 2^\kappa,
+\end{align*}\]</span> where the last equality uses <span class="math inline">\(\delta \leq \kappa\)</span>. This is a contradiction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-continuum-not-aleph-omega" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+<span class="math inline">\(2^{\aleph_0} \neq \aleph_\omega\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(\operatorname{cf}(2^{\aleph_0}) &gt; \aleph_0 = \operatorname{cf}(\aleph_\omega)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inaccessible-cardinals" class="level2">
+<h2 class="anchored" data-anchor-id="inaccessible-cardinals">Inaccessible cardinals</h2>
+<p>We have seen that successor cardinals are regular, and that <span class="math inline">\(\aleph_\lambda\)</span> for “small” limits <span class="math inline">\({}\lambda\)</span> are singular. This suggests the question:</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are there regular limit cardinals, i.e.&nbsp;regular cardinals of the form <span class="math inline">\(\aleph_\lambda\)</span> with <span class="math inline">\(\lambda\)</span> limit?</p>
+</div>
+</div>
+<p>If <span class="math inline">\(\aleph_\lambda\)</span> is a regular limit cardinal, then by <a href="#prp-cofinality-aleph-limit" class="quarto-xref">Proposition&nbsp;3</a> and <a href="#prp-cofinality-basic" class="quarto-xref">Proposition&nbsp;1</a>, <span class="math display">\[
+    \aleph_\lambda = \operatorname{cf}(\aleph_\lambda) = \operatorname{cf}(\lambda) \leq \lambda,
+\]</span> and since always <span class="math inline">\(\lambda \leq \aleph_\lambda\)</span>, we must have <span class="math inline">\(\aleph_\lambda = \lambda\)</span>. So a regular limit cardinal must be very large: it is a fixed point of the <span class="math inline">\(\aleph\)</span>-function.</p>
+<p>This is captured by the notion of <strong>inaccessibility</strong>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-inaccessible" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Hausdorff 1908, Tarski, Zermelo 1930)</strong></span> <br>
+An uncountable cardinal <span class="math inline">\(\kappa &gt; \omega\)</span> is</p>
+<ul>
+<li><p><strong>weakly inaccessible</strong> if <span class="math display">\[\begin{align*}
+  \operatorname{reg}(\kappa) \; &amp;  \wedge \;  \exists \lambda (\operatorname{lim}(\lambda) \;  \wedge\;  \kappa = \aleph_\lambda)\\
+                      (&amp; \Leftrightarrow \operatorname{reg}(\kappa) \;  \wedge \;  \forall \alpha &lt; \kappa \; \, \alpha^+ &lt; \kappa)
+\end{align*}\]</span></p></li>
+<li><p><strong>(strongly) inaccessible</strong> if <span class="math display">\[\begin{equation*}
+  \operatorname{reg}(\kappa) \;  \wedge \;  \forall \alpha &lt; \kappa \;\; 2^{\alpha} &lt; \kappa
+\end{equation*}\]</span></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Every strongly inaccessible cardinal is weakly inaccessible, since <span class="math inline">\(\alpha^+ \leq 2^\alpha\)</span>. Under the <strong>Generalized Continuum Hypothesis</strong>,</p>
+<p>  <span class="math inline">\((\mathsf{GCH}) \quad \forall \alpha \;\;  2^{\aleph_\alpha} = \aleph_{\alpha}^+\)</span></p>
+<p>weakly and strongly inaccessible cardinals coincide.</p>
+<p>If <span class="math inline">\(\kappa\)</span> is (weakly) inaccessible, then <span class="math inline">\(\kappa = \aleph_\kappa\)</span>, as shown above.</p>
+<section id="inaccessibles-and-the-von-neumann-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="inaccessibles-and-the-von-neumann-hierarchy">Inaccessibles and the von Neumann hierarchy</h3>
+<p>The cardinality of <span class="math inline">\(V_\alpha\)</span> grows rather fast relative to <span class="math inline">\({}\alpha\)</span>. For example,</p>
+<p><span class="math display">\[
+    |V_{\omega+\alpha}| = \beth_\alpha
+\]</span><br>
+where the <strong>beth function</strong> <span class="math inline">\(\beth_\alpha\)</span> is defined as <span class="math display">\[\begin{gather*}
+    \beth_0 = \aleph_0 \\
+    \beth_{\alpha+1} = 2^{\beth_\alpha} \\
+    \beth_{\lambda} = \sup \{ \beth_\alpha \colon \alpha &lt; \lambda\} \quad \text{ $\lambda$ limit}
+\end{gather*}\]</span></p>
+<p>The existence of <strong>inaccessible cardinals</strong> ensures that the von Neumann hierarchy is “long enough” for <span class="math inline">\({}\alpha\)</span> to eventually “catch up” with the cardinality of <span class="math inline">\(V_\alpha\)</span>.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-cardinality-vkappa" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5</strong></span> <br>
+If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then <span class="math inline">\(|V_\kappa| = \kappa\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(\kappa \subseteq V_\kappa\)</span>, <span class="math inline">\(|V_\kappa| \geq \kappa\)</span>. For the other inequality, it suffices to show that <span class="math inline">\(|V_\alpha| &lt; \kappa\)</span> for all <span class="math inline">\(\alpha &lt; \kappa\)</span>, since then <span class="math inline">\(|V_\kappa| = |\bigcup_{\alpha&lt;\kappa} V_\alpha| \leq \kappa \cdot \kappa = \kappa\)</span>.</p>
+<p>We show <span class="math inline">\(|V_\alpha| &lt; \kappa\)</span> by induction on <span class="math inline">\(\alpha &lt; \kappa\)</span>: if <span class="math inline">\(|V_\alpha| &lt; \kappa\)</span>, then <span class="math inline">\(|V_{\alpha+1}| = 2^{|V_\alpha|} &lt; \kappa\)</span> since <span class="math inline">\({}\kappa\)</span> is strongly inaccessible. If <span class="math inline">\(\lambda &lt; \kappa\)</span> is a limit, then <span class="math inline">\(V_\lambda\)</span> is a union of <span class="math inline">\(|\lambda| &lt; \kappa\)</span> many sets, each of size <span class="math inline">\(&lt; \kappa\)</span>, so by regularity of <span class="math inline">\({}\kappa\)</span>, <span class="math inline">\(|V_\lambda| &lt; \kappa\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>This in turn implies we can bound the cardinality of elements of <span class="math inline">\(V_\kappa\)</span>.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-inaccessible-cardinality" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6</strong></span> <br>
+Suppose <span class="math inline">\({}\kappa\)</span> is strongly inaccessible and <span class="math inline">\(x\subseteq V_\kappa\)</span>. Then</p>
+<p><span class="math display">\[
+    x \in V_\kappa \; \Leftrightarrow \; |x| &lt; \kappa.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) If <span class="math inline">\(x \in V_\kappa\)</span>, then <span class="math inline">\(x \in V_\alpha\)</span> for some <span class="math inline">\(\alpha &lt; \kappa\)</span>, and by transitivity <span class="math inline">\(x \subseteq V_\alpha\)</span>. By the proof of <a href="#prp-cardinality-vkappa" class="quarto-xref">Proposition&nbsp;5</a>, <span class="math inline">\(|x| \leq |V_\alpha| &lt; \kappa\)</span>.</p>
+<p>(<span class="math inline">\(\Leftarrow\)</span>) Since <span class="math inline">\(x \subseteq V_\kappa\)</span>, each <span class="math inline">\(y \in x\)</span> has rank <span class="math inline">\(&lt; \kappa\)</span>. Since <span class="math inline">\(|x| &lt; \kappa\)</span>, by regularity of <span class="math inline">\({}\kappa\)</span>,</p>
+<p><span class="math display">\[
+    \operatorname{rank}(x) = \sup\{\operatorname{rank}(y)+1 \colon y \in x\} &lt; \kappa
+\]</span></p>
+<p>which implies <span class="math inline">\(x \in V_\kappa\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We have already seen that for limit <span class="math inline">\(\alpha &gt; \omega\)</span>, <span class="math inline">\(V_\alpha\)</span> is a model of all <span class="math inline">\(\mathsf{ZFC}\)</span> axioms except <em>Replacement</em>.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-inaccessible-zfc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> <br>
+If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We verify that <span class="math inline">\(V_\kappa\)</span> satisfies the axiom of <em>Replacement</em>. Suppose <span class="math inline">\(x \in V_\kappa\)</span> and <span class="math inline">\(f:x \to V_\kappa\)</span> is a function. Then <span class="math inline">\(f[x] \subseteq V_\kappa\)</span>, and by <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;6</a>, <span class="math inline">\(|f[x]| \leq |x| &lt; \kappa\)</span>. Applying the other direction of <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;6</a> to <span class="math inline">\(f[x]\)</span>, we obtain <span class="math inline">\(f[x] \in V_\kappa\)</span>, as desired.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Suppose an inaccessible cardinal exists, and let <span class="math inline">\({}\kappa\)</span> be the least inaccessible.<br>
+It is not hard to verify that</p>
+<p><span class="math display">\[
+V_\kappa \models \mathsf{ZFC}+ \text{``there does not exist an inaccessible cardinal''}.
+\]</span></p>
+<p>(You verify that being an inaccessible cardinal is absolute for <span class="math inline">\(V_\kappa\)</span>.) Therefore, the existence of an inaccessible cardinal is not provable from <span class="math inline">\(\mathsf{ZFC}\)</span>. This fact also follows from Gödel’s second incompleteness theorem.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Math 558 · Foundations of Mathematics · Penn State</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

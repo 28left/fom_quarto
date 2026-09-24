@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Models of Set Theory – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/models.html">10 · Models of Set Theory</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · The Foundational Crisis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Relations and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Ordinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Induction and Recursion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Axiom of Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">10 · Models of Set Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 · Large Cardinals</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#models-of-set-theory" id="toc-models-of-set-theory" class="nav-link active" data-scroll-target="#models-of-set-theory">Models of Set Theory</a>
+  <ul class="collapse">
+  <li><a href="#mostowski-collapse" id="toc-mostowski-collapse" class="nav-link" data-scroll-target="#mostowski-collapse">Mostowski collapse</a></li>
+  <li><a href="#absoluteness-and-transitive-models" id="toc-absoluteness-and-transitive-models" class="nav-link" data-scroll-target="#absoluteness-and-transitive-models">Absoluteness and transitive models</a></li>
+  <li><a href="#levels-of-the-von-neumann-hierarchy-as-models" id="toc-levels-of-the-von-neumann-hierarchy-as-models" class="nav-link" data-scroll-target="#levels-of-the-von-neumann-hierarchy-as-models">Levels of the von Neumann hierarchy as models</a>
+  <ul class="collapse">
+  <li><a href="#the-hereditarily-finite-sets-v_omega" id="toc-the-hereditarily-finite-sets-v_omega" class="nav-link" data-scroll-target="#the-hereditarily-finite-sets-v_omega">The hereditarily finite sets <span class="math inline">\(V_\omega\)</span></a></li>
+  <li><a href="#beyond-v_omega" id="toc-beyond-v_omega" class="nav-link" data-scroll-target="#beyond-v_omega">Beyond <span class="math inline">\(V_\omega\)</span></a></li>
+  <li><a href="#limit-levels" id="toc-limit-levels" class="nav-link" data-scroll-target="#limit-levels">Limit levels</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Models of Set Theory</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="models-of-set-theory" class="level1">
+<h1>Models of Set Theory</h1>
+<p>You may have noticed that, when introducing the axioms of <span class="math inline">\(\mathsf{ZFC}\)</span>, we never <em>really</em> answered the question “<em>What is a set?</em>” Instead, we developed a formal theory of axioms for a binary relation that somehow describe “<em>how sets work</em>”, that is, how we can obtain sets from given ones using well-known operations like power set and union.</p>
+<p>We have then seen how we can develop a lot of standard mathematical <em>objects</em> (like <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{R}\)</span>) and <em>techniques</em> (like induction and definition by recursion) <strong>inside</strong> this formal system. In fact, most of mathematics can be developed formally inside this system. Almost all proofs you find in any standard math book are proofs that can be formalized in <span class="math inline">\(\mathsf{ZFC}\)</span>. It is very tedious to do this for us humans, but there is little doubt it can be done, and in fact, looking at the recent work on <strong>proof assistants</strong> (like Coq or Lean), many parts of mathematics have been formalized (albeit not directly in <span class="math inline">\(\mathsf{ZFC}\)</span>).</p>
+<p>This expressiveness gives <span class="math inline">\(\mathsf{ZFC}\)</span> its foundational importance, but it is also the cause for much confusion for someone who first studies set theory.</p>
+<p>From a pedagogical point of view, in what follows it is helpful to assume a “<strong>Platonist</strong>” perspective of mathematics, and set theory in particular, namely that <em>sets and the relations between exist independently (and outside) of the <span class="math inline">\(\mathsf{ZFC}\)</span> axioms</em>. The set of real numbers exists, and our development of <span class="math inline">\(\mathbb{R}\)</span> inside <span class="math inline">\(\mathsf{ZFC}\)</span> is just a formal way to describe them. From this perspective, the axioms of <span class="math inline">\(\mathsf{ZF}\)</span> (<span class="math inline">\(\mathsf{AC}\)</span> is a little different) are just obvious truths about sets, just like the <strong>Peano axioms</strong> are obvious truths about natural numbers.</p>
+<p>Among other things, this perspective allows us to treat <span class="math inline">\(\mathsf{ZF}\)</span> just like any other mathematical theory, like <em>group theory</em> or the theory of <em>algebraically closed fields</em>. In particular, we can think about <strong>models of set theory</strong> the way we would think about models of group theory, in the sense of model theory.</p>
+<p>A <strong>model</strong> would simply be a set <span class="math inline">\(M\)</span> together with a binary relation <span class="math inline">\(E\)</span> on <span class="math inline">\(S\)</span> such that</p>
+<p><span class="math display">\[
+    (M,E) \models \mathsf{ZF},
+\]</span></p>
+<p>that is, all axioms hold when interpreted in <span class="math inline">\((M,E)\)</span>. Note that we use “<em>set</em>” in this context not in the formal sense, but in the “meta”-sense (the Platonist world of sets).</p>
+<p>Working in the meta-theory (“<em>that what is mathematically true</em>”), we know by Gödel’s completeness theorem that</p>
+<p>  <em>if <span class="math inline">\(\mathsf{ZF}\)</span> is consistent, then it has a model.</em></p>
+<p>This model should be seen as a <strong>set-theoretic universe</strong>: Its elements can be seen as sets, and the interpretation <span class="math inline">\(E\)</span> of the <span class="math inline">\(\in\)</span>-symbol will tell us how these sets are connected via the element-relation.</p>
+<p>Note that <span class="math inline">\(E\)</span> does not have to be the <em>actual</em> element relation on a set (of sets), but just some binary relation so that the axioms are satisfied.</p>
+<p>In the meta-world, there are, of course, sets other than <span class="math inline">\(M\)</span>, but that does not matter here, since all we are interested in is giving <em>some</em> universe in which our axioms hold. (Timothy Chow has suggested that set theory should rather be called “<em>universe theory</em>. He is right in the sense that what axiomatic set theory does is to define such <em>universes of sets</em>, rather than what a set is.)</p>
+<p>In the meta-theory, we can then follow the usual techniques to show provability or non-provability results.</p>
+<p>If we want to prove that <span class="math inline">\(\mathsf{CH}\)</span> is consistent with <span class="math inline">\(\mathsf{ZF}\)</span> (assuming <span class="math inline">\(\mathsf{ZF}\)</span> is consistent), we need to find a model in which both hold.</p>
+<p>One difficulty in working with models of set theory is that they can look very different depending on whether you look at a model “<strong>from the inside</strong>” or “<strong>from the outside</strong>”.</p>
+<p>To illustrate this, assume <span class="math inline">\(\mathsf{ZF}\)</span> is consistent. Then, by the <strong><a href="https://en.wikipedia.org/wiki/L%C3%B6wenheim%E2%80%93Skolem_theorem">Löwenheim-Skolem theorem</a></strong>, there exists a <strong>countable model</strong> for <span class="math inline">\(\mathsf{ZF}\)</span>. Yet it is a theorem of <span class="math inline">\(\mathsf{ZF}\)</span> that <em>there exists an uncountable set</em>. This is often referred to as <strong><a href="https://en.wikipedia.org/wiki/Skolem's_paradox">Skolem’s paradox</a></strong>, although it is not really an antinomy.</p>
+<p>If we break this down a bit, we see that the apparent paradox is really just a matter of perspective (<em>inside</em> or <em>outside</em>). Assume <span class="math inline">\((M,E)\)</span> is a countable model of <span class="math inline">\(\mathsf{ZF}\)</span>. Then there exists <span class="math inline">\(x \in M\)</span> such that there is no injection from <span class="math inline">\(x\)</span> to the natural numbers. Since <span class="math inline">\(M\)</span> is countable, <span class="math inline">\(x\)</span> can have at most countably many elements. So why is this <em>not</em> a contradiction? We should really read the statement above as</p>
+<p>  <em>there is no injection <strong>in <span class="math inline">\(M\)</span></strong> from <span class="math inline">\(x\)</span> to <span class="math inline">\(M\)</span>’s version of the natural numbers.</em></p>
+<p>In other words, even though <span class="math inline">\(x\)</span> is countable <em>from the outside</em>, <span class="math inline">\(x\)</span> appears uncountable <em>inside <span class="math inline">\(M\)</span></em> since a mapping witnessing its countability does not exist in <span class="math inline">\(M\)</span>.</p>
+<p>This is a first warning sign that models of <span class="math inline">\(\mathsf{ZF}\)</span> can behave in very unexpected ways. For another example, recall the axiom of <em>Foundation</em> asserts that the <span class="math inline">\(\in\)</span>-relation is well-founded. But again, this means only “from the inside”.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-illfounded-zf-model" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+If <span class="math inline">\(\mathsf{ZF}\)</span> is consistent, then there exists a model <span class="math inline">\((M,E)\)</span> of <span class="math inline">\(\mathsf{ZF}\)</span> such that <span class="math inline">\((M,E)\)</span> is ill-founded.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Introduce new constant symbols <span class="math inline">\(c_n\)</span> <span class="math inline">\((n \in \mathbb{N})\)</span> and add the formulas <span class="math inline">\(\varphi_n \equiv c_{n+1} \in c_n\)</span> to the axioms of <span class="math inline">\(\mathsf{ZF}\)</span>. It is not hard to show, using the <a href="https://en.wikipedia.org/wiki/Compactness_theorem">compactness theorem</a>, that <span class="math inline">\(\mathsf{ZF}+ \bigcup_n \varphi_n\)</span> has a model <span class="math inline">\((M^*, E^*)\)</span>, for which the set <span class="math inline">\(\{c_n \colon n \in \mathbb{N}\}\)</span> is ill-founded.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Since, as mentioned above, the model <span class="math inline">\((M^*,E^*)\)</span> satisfies <em>Foundation</em>, the set <span class="math inline">\(\{c_n \colon n \in \mathbb{N}\}\)</span> is actually <em>not in</em> the model (and neither can be any other set with an infinite descending <span class="math inline">\(\in\)</span>-chain).</p>
+<section id="mostowski-collapse" class="level2">
+<h2 class="anchored" data-anchor-id="mostowski-collapse">Mostowski collapse</h2>
+<p>If we restrict ourselves to models on which the <span class="math inline">\(E\)</span>-relation is <em>actually</em> well-founded (i.e.&nbsp;from the outside), then interestingly these models look, in a way, “<em>natural</em>”: They can be assumed to be the <span class="math inline">\(\in\)</span>-relation on a set. Such models are also called <strong>standard</strong>.</p>
+<p>Given a set theoretic structure <span class="math inline">\((M,E)\)</span> (not necessarily a model of <span class="math inline">\(\mathsf{ZF}\)</span>), for each <span class="math inline">\(x \in M\)</span> let <span class="math display">\[\begin{equation*}
+    \operatorname{ext}_E(x) = \{ y \in X \colon y\, E \, x \}
+\end{equation*}\]</span></p>
+<p>If <span class="math inline">\(E\)</span> behaves “set-like”, then it will respect the axiom of <em>Extensionality</em>, i.e.&nbsp;two sets are identical if and only if they have the same elements. Therefore we say that <span class="math inline">\(E\)</span> is <strong>extensional</strong> if <span class="math display">\[\begin{equation*}
+    x,z \in X, \; x\neq z \quad \text{ implies } \quad \operatorname{ext}_E(x) \neq \operatorname{ext}_E(z).
+\end{equation*}\]</span></p>
+<p>Furthermore, as stated above, we want to exclude infinite descending <span class="math inline">\(E\)</span>-chains. Recall we say that <span class="math inline">\(E\)</span> is <strong>well-founded</strong> if</p>
+<blockquote class="blockquote">
+<p>every non-empty set <span class="math inline">\(Y \subseteq X\)</span> has an <span class="math inline">\(E\)</span>-minimal element.</p>
+</blockquote>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-Mostowski-collapse" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Mostowski collapse)</strong></span> <br>
+If <span class="math inline">\(E\)</span> is an extensional and well-founded relation on a set <span class="math inline">\(X\)</span>, then there exists a transitive set <span class="math inline">\(S\)</span> and a bijection <span class="math inline">\(\pi: X \to S\)</span> such that <span class="math display">\[\begin{equation*}
+    x \, E \, y \iff \pi(x) \in \pi(y) \quad \text{ for all $ x,y \in X$}.      
+\end{equation*}\]</span> Moreover, <span class="math inline">\(S\)</span> and <span class="math inline">\({}\pi\)</span> are unique.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We construct <span class="math inline">\({}\pi\)</span> and <span class="math inline">\(S = \operatorname{im}(\pi)\)</span> by recursion on <span class="math inline">\(E\)</span>, which is possible since it is well-founded.</p>
+<p>For each <span class="math inline">\(x \in X\)</span>, let <span class="math display">\[\begin{equation*}
+    \pi(x) = \{\pi(y) \colon y \, E \, x \},
+\end{equation*}\]</span> and set <span class="math inline">\(S = \operatorname{ran}(\pi)\)</span>.</p>
+<p>The injectivity of <span class="math inline">\({}\pi\)</span> follows from the extensionality of <span class="math inline">\({}\pi\)</span> by induction along <span class="math inline">\(E\)</span>:<br>
+Suppose we have shown <span class="math display">\[\begin{equation*}
+\forall z \; (z E x \to \forall y  \in X (\pi(z) = \pi(y) \to z = y)).
+\end{equation*}\]</span> and we have to show that it holds for <span class="math inline">\(x\)</span>. Assume <span class="math inline">\(\pi(x) = \pi(y)\)</span> for some <span class="math inline">\(y \in X\)</span>. Then <span class="math display">\[\begin{align*}
+cEx &amp;\Rightarrow&amp; \pi(c) \in \pi(x) = \pi(y) &amp;\\
+&amp;\Rightarrow&amp; \pi(c) = \pi(z) &amp; \qquad \text{ for some } zEy\\
+&amp;\Rightarrow&amp; c=z &amp; \qquad  (\text{by ind. hyp., since } cEx)\\
+&amp;\Rightarrow&amp; cEy &amp;.
+\end{align*}\]</span> Similarly, we get <span class="math inline">\(cEy \Rightarrow cEx\)</span>, hence <span class="math inline">\(x=y\)</span> as desired due to the extensionality of <span class="math inline">\(E\)</span>. Finally we have <span class="math display">\[\begin{align*}
+\pi(x) \in \pi(y) &amp; \Rightarrow &amp; \pi(x) = \pi(c) &amp; \qquad \text{ for some } cEy \\
+&amp;\Rightarrow&amp; x = c &amp; \qquad \text{ (since ${}\pi$ is injective)}\\
+&amp;\Rightarrow&amp; xEy &amp;
+\end{align*}\]</span> Thus <span class="math inline">\({}\pi\)</span> is an isomorphism.</p>
+<p>To see the uniqueness of <span class="math inline">\({}\pi\)</span> and <span class="math inline">\(S\)</span>, assume <span class="math inline">\(\rho\)</span>, <span class="math inline">\(T\)</span> are such that the statement of the theorem is satisfied. Then <span class="math inline">\(\pi \circ \rho^{-1}\)</span> is an isomorphism between <span class="math inline">\((T, \in)\)</span> and <span class="math inline">\((S,\in)\)</span>. Now apply the following lemma.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-mostowski-unique" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+Suppose <span class="math inline">\(X,Y\)</span> are sets, and <span class="math inline">\({}\theta\)</span> is an isomorphism between <span class="math inline">\((X,\in)\)</span> and <span class="math inline">\((Y,\in)\)</span>. Then <span class="math inline">\(X=Y\)</span> and <span class="math inline">\(\theta(x) = x\)</span> for all <span class="math inline">\(x \in X\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By induction on the well-founded relation <span class="math inline">\(\in\)</span>. Assume that <span class="math inline">\(\theta(z)=z\)</span> for all <span class="math inline">\(z \in x\)</span> and let <span class="math inline">\(y = \theta(x)\)</span>.</p>
+<p>We have <span class="math inline">\(x \subseteq y\)</span> because if <span class="math inline">\(z \in x\)</span>, then <span class="math inline">\(z = \theta(z) \in \theta(x) = y\)</span>.</p>
+<p>We also have <span class="math inline">\(y \subseteq x\)</span>: Let <span class="math inline">\(t \in y\)</span>. Since <span class="math inline">\(y \in Y\)</span>, there is <span class="math inline">\(z \in X\)</span> with <span class="math inline">\(\theta(z) = t\)</span>. Since <span class="math inline">\(\theta(z) \in y\)</span> and <span class="math inline">\(y = \theta(x)\)</span>, we have <span class="math inline">\(z \in x\)</span>, and thus <span class="math inline">\(t = \theta(z) = z \in x\)</span>.</p>
+<p>Hence <span class="math inline">\(x = y\)</span>, and this also implies <span class="math inline">\(\theta(x) = x\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-mostowski-well-order" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+If <span class="math inline">\(E\)</span> is a well-order on a set <span class="math inline">\(X\)</span>, then <span class="math inline">\((X,E)\)</span> is isomorphic to <span class="math inline">\((\alpha, \in)\)</span> for a unique ordinal <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Every linear order is extensional. Hence we can apply the Mostowski Collapse. It is easy to see that the resulting set is an ordinal.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="absoluteness-and-transitive-models" class="level2">
+<h2 class="anchored" data-anchor-id="absoluteness-and-transitive-models">Absoluteness and transitive models</h2>
+<p>Even if we consider well-founded standard models, interpreting set-theoretic statements in them can still lead to very different results, even for very simple formulas.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-absoluteness" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> <br>
+Consider <span class="math inline">\(M = \{0, \{\{0\}\}\}\)</span> and let <span class="math inline">\(\varphi \equiv \{\{0\}\} \subseteq 0\)</span>. Clearly <span class="math inline">\({}\varphi\)</span> is not true from the “outside”. But what if we look at it from “inside” <span class="math inline">\(M\)</span>? <span class="math inline">\(x \subseteq y\)</span> means <span class="math inline">\(\forall z (z \in x \to z \in y)\)</span>. <em>Inside</em> <span class="math inline">\(M\)</span> this means every set <span class="math inline">\(z\)</span> <em>in</em> <span class="math inline">\(M\)</span> that is an element of <span class="math inline">\(x\)</span> is also an element of <span class="math inline">\(y\)</span>. But in <span class="math inline">\(M\)</span>, there is no element <span class="math inline">\(z \in \{\{0\}\}\)</span>, <span class="math inline">\(\{0\}\)</span> is not an element of <span class="math inline">\(M\)</span>. Therefore, <span class="math display">\[
+    (M, \in) \models \{\{0\}\} \subseteq 0.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>In the example above, the set <span class="math inline">\(M\)</span> is not transitive, which allowed it to “hide” its elements. It turns out that if we require our model to be transitive, the truth of simple formulas cannot vary between the “inside” and the “outside” perspective. We call such properties <strong>absolute</strong>.</p>
+<p>Given a formula <span class="math inline">\({}\varphi\)</span> and some class <span class="math inline">\(M\)</span>, we can <strong>relativize</strong> <span class="math inline">\({}\varphi\)</span> with respect to <span class="math inline">\(M\)</span> essentially by restricting all quantifiers in <span class="math inline">\({}\varphi\)</span> to range over <span class="math inline">\(M\)</span>, i.e.&nbsp;<span class="math inline">\(\exists x\)</span> becomes <span class="math inline">\(\exists x \in M\)</span> and <span class="math inline">\(\forall x\)</span> becomes <span class="math inline">\(\forall x \in M\)</span>. Note that classes are defined by formulas, so the resulting formula, which we denote by <span class="math inline">\(\varphi^M\)</span>, is still a formula of set theory.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-absoluteness" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+We say a formula <span class="math inline">\(\varphi(x_0, \ldots, x_n)\)</span> is <strong>absolute</strong> for a class <span class="math inline">\(M\)</span> if for all <span class="math inline">\(a_0, \ldots, a_n \in M\)</span> <span class="math display">\[
+    \varphi^M(a_0, \ldots, a_n) \text{ holds} \iff  \varphi(a_0, \ldots, a_n) \text{ holds}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> If <span class="math inline">\(M\)</span> is transitive, then for all <span class="math inline">\({}\varphi\)</span>, <span class="math display">\[
+    (M, \in) \models \varphi \; \iff \; \varphi^M \text{ holds}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-delta-zero" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> <br>
+A formula <span class="math inline">\({}\varphi\)</span> is <span class="math inline">\(\Delta_0\)</span> if it has no quantifiers or every quantifier of <span class="math inline">\({}\varphi\)</span> is of the form <span class="math inline">\(\exists x \in y\)</span> or <span class="math inline">\(\forall x \in y\)</span> (i.e.&nbsp;every quantifier is <em>bounded</em>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-delta-zero-absolute" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2</strong></span> <br>
+If <span class="math inline">\(M\)</span> is transitive and <span class="math inline">\({}\varphi\)</span> is <span class="math inline">\(\Delta_0\)</span>, then <span class="math inline">\({}\varphi\)</span> is absolute for <span class="math inline">\(M\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Clearly <span class="math inline">\(x=y\)</span> and <span class="math inline">\(x\in y\)</span> are absolute for any <span class="math inline">\(M\)</span>. It is also not hard to see that if <span class="math inline">\({}\varphi\)</span> and <span class="math inline">\({}\psi\)</span> are absolute for <span class="math inline">\(M\)</span>, then so are <span class="math inline">\(\neg \varphi\)</span> and <span class="math inline">\(\varphi \wedge \psi\)</span>. Hence all quantifier free formulas are absolute.</p>
+<p>Finally, if <span class="math inline">\({}\varphi\)</span> is absolute for <span class="math inline">\(M\)</span>, so is <span class="math inline">\(\psi \equiv \exists x \in y \: \varphi\)</span>: If <span class="math inline">\(\psi^M(y,\bar{z})\)</span> holds for <span class="math inline">\(y,\bar{z} \in M\)</span>, then we have <span class="math inline">\([\exists x (x \in y \: \wedge \: \varphi(x,y,\bar{z}))]^M\)</span>, i.e., <span class="math inline">\(\exists x \in M(x \in y \: \wedge \: \varphi^M(x,y,\bar{z}))\)</span>. Since <span class="math inline">\(\varphi^M(x,y,\bar{z})\)</span> if and only if <span class="math inline">\(\varphi(x,y,\bar{z})\)</span>, it follows that <span class="math inline">\(\exists x\in y \varphi(x,y,\bar{z})\)</span>, i.e.&nbsp;<span class="math inline">\({}\psi\)</span>.</p>
+<p>Conversely, if for <span class="math inline">\(y,\bar{z} \in M\)</span>, <span class="math inline">\(\exists x\in y \varphi(x,y,\bar{z})\)</span>, then since <span class="math inline">\(M\)</span> is transitive, <span class="math inline">\(x\)</span> belongs to <span class="math inline">\(M\)</span>, and since <span class="math inline">\(\varphi(x,y,\bar{z})\)</span> if and only <span class="math inline">\(\varphi^M(x,y,\bar{z})\)</span>, we have <span class="math inline">\(\exists x \in M \, (x \in y \: \wedge \: \varphi^M(x,y,\bar{z}) )\)</span> and so <span class="math inline">\(\psi^M(y,\bar{z})\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-absolute-properties" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+Over <span class="math inline">\(\mathsf{ZF}\)</span>, the following properties can be expressed via <span class="math inline">\(\Delta_0\)</span>-formulas and hence are absolute for any transitive class <span class="math inline">\(M\)</span>:</p>
+<ul>
+<li><span class="math inline">\(x = \emptyset\)</span>, <span class="math inline">\(x=y\)</span>, <span class="math inline">\(x \subseteq y\)</span>, <span class="math inline">\(z = x \cap y\)</span>, <span class="math inline">\(z = x \cup y\)</span>, <span class="math inline">\(x = \bigcap y\)</span>, <span class="math inline">\(x = \bigcup y\)</span>, <span class="math inline">\(z = \{x,y\}\)</span>, <span class="math inline">\(z =(x,y)\)</span>, <span class="math inline">\(z= x \times y\)</span></li>
+<li><span class="math inline">\(r\)</span> is a relation, <span class="math inline">\(f\)</span> is a function, <span class="math inline">\(x = \operatorname{dom}(f)\)</span>, <span class="math inline">\(y = \operatorname{ran}(f)\)</span></li>
+<li><span class="math inline">\(&lt;\)</span> is a linear order on <span class="math inline">\(x\)</span>, <span class="math inline">\(x\)</span> is an ordinal, <span class="math inline">\(x\)</span> is a limit ordinal, <span class="math inline">\(x=\omega\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>We leave the proof as an exercise.</p>
+<p>We can extend the previous absoluteness result to a slightly larger family of formulas.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-sigma-pi-delta-one" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> <br>
+A formula <span class="math inline">\({}\varphi\)</span> is</p>
+<ul>
+<li><span class="math inline">\(\Sigma_1\)</span> if it is of the form <span class="math inline">\(\exists x_1 \dots \exists x_m \: \psi\)</span> for a <span class="math inline">\(\Delta_0\)</span>-formula <span class="math inline">\(\psi\)</span>,</li>
+<li><span class="math inline">\(\Pi_1\)</span> if it is of the form <span class="math inline">\(\forall x_1 \dots \forall x_m \: \psi\)</span> for a <span class="math inline">\(\Delta_0\)</span>-formula <span class="math inline">\(\psi\)</span>.</li>
+</ul>
+<p>Given a set of formulas <span class="math inline">\(T\)</span> and formula <span class="math inline">\({}\varphi\)</span>, we say <span class="math inline">\({}\varphi\)</span> is <span class="math inline">\(\Delta_1^{T}\)</span> if there exists a <span class="math inline">\(\Sigma_1\)</span>-formula <span class="math inline">\(\psi_\exists\)</span> and a <span class="math inline">\(\Pi_1\)</span>-formula <span class="math inline">\(\psi_\forall\)</span> such that <span class="math display">\[
+    T \vdash \varphi \leftrightarrow \psi_\exists \quad \text{ and } T \vdash \varphi \leftrightarrow \psi_\forall.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-delta-one-absolute" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+If <span class="math inline">\(M\)</span> is transitive and for all <span class="math inline">\(\sigma \in T\)</span>, <span class="math inline">\(\sigma^M\)</span> holds, then any <span class="math inline">\(\Delta_1^T\)</span>-formula is absolute for <span class="math inline">\(M\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="levels-of-the-von-neumann-hierarchy-as-models" class="level2">
+<h2 class="anchored" data-anchor-id="levels-of-the-von-neumann-hierarchy-as-models">Levels of the von Neumann hierarchy as models</h2>
+<p>The absoluteness property of “simple” formulas can be put to use to identify many “almost” models of <span class="math inline">\(\mathsf{ZF}\)</span> among the levels <span class="math inline">\(V_\alpha\)</span> of the von Neumann hierarchy. Since each <span class="math inline">\(V_\alpha\)</span> is transitive, we can check an axiom in <span class="math inline">\(V_\alpha\)</span> by checking its relativization: all quantifiers range over <span class="math inline">\(V_\alpha\)</span>.</p>
+<p>Recall that the <strong>rank</strong> of a set <span class="math inline">\(x\)</span> is <span class="math display">\[
+    \operatorname{rank}(x) = \min\{\alpha \colon x \in V_{\alpha+1}\}.
+\]</span></p>
+<section id="the-hereditarily-finite-sets-v_omega" class="level3">
+<h3 class="anchored" data-anchor-id="the-hereditarily-finite-sets-v_omega">The hereditarily finite sets <span class="math inline">\(V_\omega\)</span></h3>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-v-alpha-transitive" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 3</strong></span> <br>
+Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By induction on <span class="math inline">\({}\alpha\)</span>. <span class="math inline">\(V_0 = \emptyset\)</span> is trivially transitive. Suppose <span class="math inline">\(V_\alpha\)</span> is transitive. We first note that <span class="math inline">\(V_\alpha \subseteq V_{\alpha+1}\)</span>: <span class="math display">\[
+    z \in V_\alpha \; \overset{V_\alpha \text{ trans.}}{\Longrightarrow} \; z \subseteq V_\alpha \; \Longrightarrow \; z \in \mathcal{P}(V_\alpha) = V_{\alpha+1}.
+\]</span> Now <span class="math display">\[
+    x \in V_{\alpha+1} \; \Rightarrow \; x \in \mathcal{P}(V_\alpha) \; \Rightarrow \; x \subseteq V_\alpha \; \Rightarrow \; x \subseteq V_{\alpha+1}.
+\]</span> Limit stages are fine, since a union of transitive sets is transitive.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-v-omega" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 4</strong></span> <br>
+<span class="math inline">\(x \in V_\omega\)</span> if and only if <span class="math inline">\(x \subseteq V_\omega\)</span> and <span class="math inline">\(x\)</span> is finite.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) Since <span class="math inline">\(V_\omega\)</span> is transitive (<a href="#lem-v-alpha-transitive" class="quarto-xref">Lemma&nbsp;3</a>), <span class="math inline">\(x \in V_\omega\)</span> implies <span class="math inline">\(x \subseteq V_\omega\)</span>. Moreover, <span class="math inline">\(x \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>. By induction on <span class="math inline">\(n\)</span>, each <span class="math inline">\(V_n\)</span> is finite (<span class="math inline">\(|V_{n+1}| = 2^{|V_n|}\)</span>), and since <span class="math inline">\(V_n\)</span> is transitive, <span class="math inline">\(x \subseteq V_n\)</span>, so <span class="math inline">\(x\)</span> is finite.</p>
+<p>(<span class="math inline">\(\Leftarrow\)</span>) Let <span class="math inline">\(x \subseteq V_\omega\)</span> be finite. If <span class="math inline">\(x = \emptyset\)</span>, then <span class="math inline">\(x \in V_1\)</span>. Otherwise, each <span class="math inline">\(y \in x\)</span> has finite rank, so we can let <span class="math display">\[
+    M = \max\{\operatorname{rank}(y) \colon y \in x\} &lt; \omega.
+\]</span> Then <span class="math inline">\(y \in V_{M+1}\)</span> for all <span class="math inline">\(y \in x\)</span>, i.e.&nbsp;<span class="math inline">\(x \subseteq V_{M+1}\)</span>. Hence <span class="math inline">\(x \in V_{M+2} \subseteq V_\omega\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Because of this lemma, the elements of <span class="math inline">\(V_\omega\)</span> are also called the <strong>hereditarily finite</strong> sets.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-v-omega-model" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> <br>
+<span class="math inline">\((V_\omega, \in) \models \mathsf{ZF}- \mathsf{Infinity}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We go through the axioms one by one.</p>
+<p><em>Extensionality:</em> The axiom reads <span class="math display">\[
+    \forall z \, (z \in x \leftrightarrow z \in y) \to x = y,
+\]</span> but in <span class="math inline">\(V_\omega\)</span> we have to read this as “<span class="math inline">\(\forall z \in V_\omega\)</span>”. So let <span class="math inline">\(x,y \in V_\omega\)</span>. If <span class="math inline">\(z \in x \in V_\omega\)</span>, then by transitivity <span class="math inline">\(z \in V_\omega\)</span>. So if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> have the same elements in <span class="math inline">\(V_\omega\)</span>, they have the same elements, and thus <span class="math inline">\(x = y\)</span>. In other words, Extensionality follows directly from transitivity.</p>
+<p>(Without transitivity, Extensionality can fail: in <span class="math inline">\(M = \{\emptyset, \mathbb{R}\}\)</span>, the sets <span class="math inline">\(\emptyset \neq \mathbb{R}\)</span> have the same elements <em>in <span class="math inline">\(M\)</span></em>, namely none. The same happens for <span class="math inline">\(\{\emptyset, \mathbb{C}\}\)</span>.)</p>
+<p><em>Foundation:</em> Every non-empty set has an <span class="math inline">\(\in\)</span>-minimal element. Let <span class="math inline">\(x \in V_\omega\)</span>, <span class="math inline">\(x \neq \emptyset\)</span>. Choose <span class="math inline">\(y \in x\)</span> of minimal rank. If <span class="math inline">\(z \in y\)</span>, then <span class="math inline">\(\operatorname{rank}(z) &lt; \operatorname{rank}(y)\)</span>, so <span class="math inline">\(z \notin x\)</span>. Hence <span class="math inline">\(y\)</span> is <span class="math inline">\(\in\)</span>-minimal in <span class="math inline">\(x\)</span> (and <span class="math inline">\(y \in V_\omega\)</span> by transitivity).</p>
+<p><em>Comprehension:</em> This follows from <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>. Let <span class="math inline">\(a \in V_\omega\)</span> and let <span class="math inline">\({}\varphi\)</span> be a formula (possibly with parameters from <span class="math inline">\(V_\omega\)</span>). Then <span class="math display">\[
+    z = \{ v \in a \colon \varphi^{V_\omega}(v) \}
+\]</span> (<span class="math inline">\(\varphi\)</span> is evaluated in <span class="math inline">\(V_\omega\)</span>) is a subset of <span class="math inline">\(a\)</span>. Since <span class="math inline">\(a \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>, by transitivity <span class="math inline">\(a \subseteq V_n\)</span>, so <span class="math inline">\(z \subseteq V_n\)</span> and hence <span class="math inline">\(z \in \mathcal{P}(V_n) = V_{n+1} \subseteq V_\omega\)</span>.</p>
+<p><em>Pairing:</em> If <span class="math inline">\(x, y \in V_\omega\)</span>, then <span class="math inline">\(\{x,y\}\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence in <span class="math inline">\(V_\omega\)</span> by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>.</p>
+<p><em>Union:</em> Let <span class="math inline">\(a \in V_\omega\)</span>. Then <span class="math inline">\(\bigcup a\)</span> is a finite union of finite sets and hence finite. Moreover, <span class="math display">\[
+    \textstyle \bigcup a = \{z \in V_\omega \colon \exists y \in a \; (z \in y)\},
+\]</span> since <span class="math inline">\(a \in V_\omega\)</span> implies, by transitivity, that every <span class="math inline">\(z \in \bigcup a\)</span> is in <span class="math inline">\(V_\omega\)</span>, i.e.&nbsp;<span class="math inline">\(\bigcup a \subseteq V_\omega\)</span>. By <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>, <span class="math inline">\(\bigcup a \in V_\omega\)</span>.</p>
+<p><em>Power Set:</em> If <span class="math inline">\(x \in V_\omega\)</span>, then <span class="math inline">\(x \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>, so <span class="math inline">\(x \subseteq V_n\)</span> and <span class="math display">\[
+    \mathcal{P}(x) \subseteq \mathcal{P}(V_n) = V_{n+1} \; \Rightarrow \; \mathcal{P}(x) \in \mathcal{P}(\mathcal{P}(V_n)) = V_{n+2} \subseteq V_\omega.
+\]</span> (Alternatively, <span class="math inline">\(\mathcal{P}(x)\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, so apply <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>.)</p>
+<p><em>Replacement:</em> Suppose <span class="math inline">\({}\varphi\)</span> defines (in <span class="math inline">\(V_\omega\)</span>) a function <span class="math inline">\(f_\varphi: a \to V_\omega\)</span>, where <span class="math inline">\(a \in V_\omega\)</span>. Since <span class="math inline">\(a\)</span> is finite, <span class="math inline">\(f_\varphi[a]\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence, by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>, <span class="math inline">\(f_\varphi[a] \in V_\omega\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>On the other hand, <em>Infinity</em> fails in <span class="math inline">\(V_\omega\)</span>, since every element of <span class="math inline">\(V_\omega\)</span> is finite, while any inductive set is infinite.</p>
+</section>
+<section id="beyond-v_omega" class="level3">
+<h3 class="anchored" data-anchor-id="beyond-v_omega">Beyond <span class="math inline">\(V_\omega\)</span></h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Where are <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\mathbb{C}\)</span>, … “located” in the von Neumann hierarchy?</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-rank-ordinals" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4</strong></span> <br>
+For every ordinal <span class="math inline">\({}\alpha\)</span>,</p>
+<ul>
+<li><span class="math inline">\(\operatorname{rank}(\alpha) = \alpha\)</span>,</li>
+<li><span class="math inline">\(\mathop{\mathrm{Ord}}\cap V_\alpha = \alpha\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>We can represent a rational number as a <em>signed pair of mutually prime natural numbers <span class="math inline">\(\geq 1\)</span></em>, that is, as <span class="math display">\[
+    \langle i, \langle m,n \rangle \rangle,
+\]</span> where <span class="math inline">\(i\)</span> codes the sign (with some fixed set representing <span class="math inline">\(0\)</span>). Each such triple is in <span class="math inline">\(V_\omega\)</span>, by the Pairing argument above. Therefore, <span class="math display">\[
+    \mathbb{Q}\subseteq V_\omega \quad \leadsto \quad \mathbb{Q}\in V_{\omega+1}.
+\]</span></p>
+<p>The real numbers <span class="math inline">\(\mathbb{R}\)</span> are the set of all <strong>Dedekind cuts</strong>. A Dedekind cut is a subset of <span class="math inline">\(\mathbb{Q}\)</span>, hence an element of <span class="math inline">\(\mathcal{P}(V_\omega) = V_{\omega+1}\)</span>. So all cuts are elements of <span class="math inline">\(V_{\omega+1}\)</span>, i.e.&nbsp;<span class="math inline">\(\mathbb{R}\subseteq V_{\omega+1}\)</span>, and therefore <span class="math display">\[
+    \mathbb{R}\in V_{\omega+2}.
+\]</span></p>
+<p>Finally, <span class="math inline">\(\mathbb{C}= \mathbb{R}\times \mathbb{R}\)</span>. An ordered pair <span class="math inline">\(\langle x,y \rangle = \{\{x\},\{x,y\}\}\)</span> of elements of <span class="math inline">\(V_{\omega+1}\)</span> is in <span class="math inline">\(V_{\omega+3}\)</span>, so <span class="math display">\[
+    \mathbb{C}\in V_{\omega+4}.
+\]</span></p>
+<p>Continuing like this, it seems that “elementary mathematics” lives in <span class="math inline">\(V_{\omega+\omega}\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which axioms does <span class="math inline">\(V_{\omega+\omega}\)</span> satisfy?</p>
+</div>
+</div>
+<p><em>Replacement fails</em> in <span class="math inline">\(V_{\omega+\omega}\)</span>: The function <span class="math inline">\(f: n \mapsto \omega + n\)</span> is definable in <span class="math inline">\(V_{\omega+\omega}\)</span> and has domain <span class="math inline">\(\omega \in V_{\omega+\omega}\)</span>. But its range <span class="math inline">\(\{\omega + n \colon n &lt; \omega\}\)</span> has rank <span class="math inline">\(\omega+\omega\)</span> (by <a href="#prp-rank-ordinals" class="quarto-xref">Proposition&nbsp;4</a>), so it is not an element of <span class="math inline">\(V_{\omega+\omega}\)</span>.</p>
+<p>The other axioms, however, all hold, as the next theorem shows.</p>
+</section>
+<section id="limit-levels" class="level3">
+<h3 class="anchored" data-anchor-id="limit-levels">Limit levels</h3>
+<p>Let <span class="math inline">\(\mathsf{ZC}\)</span> denote <span class="math inline">\(\mathsf{ZFC}- \mathsf{Replacement}\)</span> (<strong>Zermelo set theory with Choice</strong>).</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-v-alpha-model" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> <br>
+If <span class="math inline">\(\alpha &gt; \omega\)</span> is a limit ordinal, then <span class="math inline">\((V_\alpha, \in) \models \mathsf{ZC}\)</span>, i.e.&nbsp;<span class="math inline">\((V_\alpha, \in) \models \mathsf{ZFC}- \mathsf{Replacement}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We verify a few axioms and leave the rest as an exercise.</p>
+<p><em>Extensionality:</em> The relativized version of this axiom is <span class="math display">\[
+    \forall a,b \in V_\alpha \, ( \forall x\in V_\alpha (x \in a  \leftrightarrow x \in b)  \to a=b)
+\]</span> This simply states that the <span class="math inline">\(\in\)</span>-relation (as a binary relation) is extensional on <span class="math inline">\(V_\alpha\)</span> (as defined above). It is easy to see that for every transitive set, the <span class="math inline">\(\in\)</span>-relation is extensional.</p>
+<p><em>Power Set:</em> We have seen that <span class="math inline">\(\subseteq\)</span> is absolute for transitive classes. Therefore, the relativized version of the Power Set axiom becomes <span class="math display">\[
+\forall a \in V_\alpha\, \exists y \in V_\alpha \forall z \in V_\alpha (z \in y \leftrightarrow z \subseteq a)
+\]</span> This means we only need to have those subsets in the power set that are in <span class="math inline">\(V_\alpha\)</span>. In other words, we need to verify <span class="math display">\[
+\forall a \in V_\alpha\, ( \mathcal{P}(a) \cap V_\alpha \in V_\alpha)
+\]</span> If <span class="math inline">\(a \in V_\alpha\)</span>, then <span class="math inline">\(a \in V_\beta\)</span> for some <span class="math inline">\(\beta &lt; \alpha\)</span>, since <span class="math inline">\({}\alpha\)</span> is limit. Since <span class="math inline">\(V_\beta\)</span> is transitive, <span class="math inline">\(a \subseteq V_\beta\)</span> and thus <span class="math inline">\(\mathcal{P}(a)\subseteq \mathcal{P}(V_\beta) = V_{\beta+1}\)</span>, which in turn yields <span class="math inline">\(\mathcal{P}(a) \in V_{\beta+2}\)</span></p>
+<p>If <span class="math inline">\(b \in \mathcal{P}(a) \cap V_\alpha\)</span>, then <span class="math inline">\(b \in V_{\beta+2}\)</span>. Therefore, <span class="math inline">\(\mathcal{P}(a) \cap V_\alpha \subseteq V_{\beta+2}\)</span>. It follows that <span class="math inline">\(\mathcal{P}(a) \cap V_\alpha \in V_{\beta+3} \subseteq V_\alpha\)</span>, as desired.</p>
+<p><em>Infinity:</em> We have seen that <span class="math inline">\(x = \omega\)</span> is absolute for transitive classes. Hence <span class="math inline">\(V_\alpha\)</span> will satisfy the Axiom of Infinity if <span class="math inline">\(\omega \in V_\alpha\)</span>. But this is true since we assume <span class="math inline">\(\alpha &gt; \omega\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>How about <span class="math inline">\(V_{\omega_1}\)</span>? Perhaps the failure of Replacement in <span class="math inline">\(V_{\omega+\omega}\)</span> is due to <span class="math inline">\(\omega+\omega\)</span> being “too small”. But Replacement fails in <span class="math inline">\(V_{\omega_1}\)</span>, too. Consider the formula <span class="math display">\[
+    \varphi(x,y) \; \iff \; x \subseteq \omega\times\omega \; \wedge \; x \text{ is a well-order} \; \wedge \; y = \operatorname{type}(x).
+\]</span> The set <span class="math display">\[
+    A = \{ x \colon x \subseteq \omega\times\omega, \; x \text{ is a well-order} \}
+\]</span> exists in <span class="math inline">\(V_{\omega_1}\)</span> (it is a subset of <span class="math inline">\(\mathcal{P}(\omega\times\omega) \subseteq V_{\omega+1}\)</span>). All the relevant notions are absolute for <span class="math inline">\(V_{\omega_1}\)</span> (for example, the isomorphism between <span class="math inline">\(x\)</span> and <span class="math inline">\(\operatorname{type}(x)\)</span> is a subset of <span class="math inline">\(\omega \times \operatorname{type}(x)\)</span> and hence in <span class="math inline">\(V_{\omega_1}\)</span>), so <span class="math inline">\({}\varphi\)</span> defines, in <span class="math inline">\(V_{\omega_1}\)</span>, a function <span class="math display">\[
+    f: A \to V_{\omega_1}, \quad \operatorname{ran}(f) = \omega_1,
+\]</span> since every countable ordinal is the order type of some well-order on a subset of <span class="math inline">\({}\omega\)</span>. But <span class="math inline">\(\operatorname{rank}(\omega_1) = \omega_1\)</span>, so <span class="math inline">\(\operatorname{ran}(f)\)</span> does not exist in <span class="math inline">\(V_{\omega_1}\)</span>. Hence Replacement fails.</p>
+<p>What is the problem with Replacement? The axiom says that if <span class="math inline">\({}\varphi\)</span> defines a function, then the image of any set under this function is a set. Relativized to some <span class="math inline">\(M\)</span>, this means we need to find a set <em>in</em> <span class="math inline">\(M\)</span> that contains the image. Here we run into a cardinality problem. The cardinality of <span class="math inline">\(V_\alpha\)</span> can be much bigger than the cardinality of <span class="math inline">\({}\alpha\)</span>. For example, <span class="math inline">\(\mathcal{P}(\omega) \in V_{\omega+\omega}\)</span> but <span class="math inline">\(\omega+\omega\)</span> is countable. We could have a function that maps <span class="math inline">\(\mathcal{P}(\omega)\)</span> to sets of rank cofinal in <span class="math inline">\(\omega+\omega\)</span>, which implies that the image cannot be in <span class="math inline">\(V_{\omega+\omega}\)</span>.</p>
+<p>For <span class="math inline">\(V_\alpha\)</span> to be a model, we would need <span class="math inline">\({}\alpha\)</span> to be “unreachable” by such mappings. This gives rise to the notion of <em>inaccessible</em> cardinals, which we will introduce in the next section.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Math 558 · Foundations of Mathematics · Penn State</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
