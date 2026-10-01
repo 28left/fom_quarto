@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -212,6 +183,12 @@ window.Quarto = {
  <span class="menu-text">11 · Large Cardinals</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12 · Incompleteness</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -241,25 +218,38 @@ window.Quarto = {
 </header>
 
 
-<p>A comparative study of the three dominant modern approaches to mathematical foundations: <strong>set theory</strong> (ZFC), <strong>category theory</strong>, and <strong>type theory</strong> (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations). The course examines each framework on its own terms and then asks what it means to “found” mathematics at all.</p>
-<section id="lecture-slides" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-slides">Lecture slides</h2>
-<ul>
-<li><a href="./lectures/lec01.html">1 · Some History and Setting the Stage</a> — Bolzano, Dedekind, Cantor, Kronecker, Frege, Russell’s paradox.</li>
-<li><a href="./lectures/lec02.html">2 · The Foundational Crisis</a> — paradoxes and consistency, predicativity, the axiom of choice, intuitionism vs.&nbsp;Hilbert’s program.</li>
-</ul>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<ul>
-<li><a href="./notes/zfc-as-a-foundation.html">3 · ZFC as a Foundational Theory</a> — metatheory vs.&nbsp;object theory, the finitistic standpoint, formalizing the metatheory inside ZFC, and the axioms of ZFC.</li>
-<li><a href="./notes/first-consequences.html">4 · First Consequences of the ZFC Axioms</a> — classes and proper classes, no universal set, the empty set, unordered and ordered pairs, and building the first numbers with Union.</li>
-<li><a href="./notes/relations-and-functions.html">5 · Relations and Functions</a> — relations and their terminology, domain/range, functions, Cartesian products via Replacement, isomorphism, quotients by an equivalence relation, and the object-theory/metatheory split.</li>
-<li><a href="./notes/ordinals.html">6 · Ordinals</a> — well-founded relations, well-orders and their rigidity, von Neumann ordinals, the well-ordering of <span class="math inline">\(ON\)</span>, Burali-Forti, <span class="math inline">\(\omega\)</span> as the least limit ordinal, and every well-order as the order type of a unique ordinal.</li>
-</ul>
+<p>These pages colelct lecture notes for the course “Foundations of Mathematics”, Math 558, Fall 2026.</p>
+<!-- A comparative study of the three dominant modern approaches to mathematical
+foundations: **set theory** (ZFC), **category theory**, and **type theory**
+(Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations).
+The course examines each framework on its own terms and then asks what it means
+to "found" mathematics at all.
+
+## Lecture slides
+
+- [1 · Some History and Setting the Stage](lectures/lec01.qmd) — Bolzano,
+  Dedekind, Cantor, Kronecker, Frege, Russell's paradox.
+- [2 · The Foundational Crisis](lectures/lec02.qmd) — paradoxes and consistency,
+  predicativity, the axiom of choice, intuitionism vs. Hilbert's program.
+
+## Notes
+
+- [3 · ZFC as a Foundational Theory](notes/zfc-as-a-foundation.qmd) — metatheory
+  vs. object theory, the finitistic standpoint, formalizing the metatheory
+  inside ZFC, and the axioms of ZFC. 
+- [4 · First Consequences of the ZFC Axioms](notes/first-consequences.qmd) —
+  classes and proper classes, no universal set, the empty set, unordered and
+  ordered pairs, and building the first numbers with Union.
+- [5 · Relations and Functions](notes/relations-and-functions.qmd) — relations
+  and their terminology, domain/range, functions, Cartesian products via
+  Replacement, isomorphism, quotients by an equivalence relation, and the
+  object-theory/metatheory split.
+- [6 · Ordinals](notes/ordinals.qmd) — well-founded relations, well-orders and
+  their rigidity, von Neumann ordinals, the well-ordering of $ON$, Burali-Forti,
+  $\omega$ as the least limit ordinal, and every well-order as the order type of
+  a unique ordinal. -->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

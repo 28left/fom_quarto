@@ -213,6 +213,12 @@ window.Quarto = {
  <span class="menu-text">11 · Large Cardinals</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12 · Incompleteness</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -294,15 +300,15 @@ window.Quarto = {
 <p><span class="math display">\[
 x \mathbin{R} y \quad\text{for}\quad \langle x, y\rangle \in R,
 \qquad\qquad
-x \mathbin{\not\mathrel{R}} y \quad\text{for}\quad \langle x, y\rangle \notin R.
+x \mathbin{\neg R} y \quad\text{for}\quad \langle x, y\rangle \notin R.
 \]</span></p>
-<p>The abbreviations <span class="math inline">\(x \mathbin{R} y\)</span> and <span class="math inline">\(x \mathbin{\not\mathrel{R}} y\)</span> are meaningful even when <span class="math inline">\(R\)</span> is not a relation — we will use this later.</p>
+<p>The abbreviations <span class="math inline">\(x \mathbin{R} y\)</span> and <span class="math inline">\(x \mathbin{\neg R} y\)</span> are meaningful even when <span class="math inline">\(R\)</span> is not a relation — we will use this later.</p>
 <section id="usual-terminology" class="level3">
 <h3 class="anchored" data-anchor-id="usual-terminology">Usual terminology</h3>
 <p>Fix a set <span class="math inline">\(A\)</span>. The following say what it means for <span class="math inline">\(R\)</span> to have a property <em>on <span class="math inline">\(A\)</span></em>; each is just an abbreviation, obtained by plugging <span class="math inline">\(R\)</span> into a formula.</p>
 <ul>
 <li><strong>transitive:</strong> <span class="math inline">\(x \mathbin{R} y \wedge y \mathbin{R} z \rightarrow x \mathbin{R} z\)</span></li>
-<li><strong>reflexive / irreflexive:</strong> <span class="math inline">\(\forall x \in A\;(x \mathbin{R} x)\)</span> / <span class="math inline">\(\forall x \in A\;(x \mathbin{\not\mathrel{R}} x)\)</span></li>
+<li><strong>reflexive / irreflexive:</strong> <span class="math inline">\(\forall x \in A\;(x \mathbin{R} x)\)</span> / <span class="math inline">\(\forall x \in A\;(x \mathbin{\neg R} x)\)</span></li>
 <li><strong>trichotomy:</strong> <span class="math inline">\(\forall x, y \in A\;\bigl(x \mathbin{R} y \vee y \mathbin{R} x \vee x = y\bigr)\)</span></li>
 <li><strong>symmetric:</strong> <span class="math inline">\(x \mathbin{R} y \leftrightarrow y \mathbin{R} x\)</span></li>
 </ul>
