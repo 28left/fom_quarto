@@ -29,10 +29,10 @@ Here $\forall u \in R\,(\dots)$ is shorthand for $\forall u\,(u \in R
 $$
 x \mathbin{R} y \quad\text{for}\quad \langle x, y\rangle \in R,
 \qquad\qquad
-x \mathbin{\not\mathrel{R}} y \quad\text{for}\quad \langle x, y\rangle \notin R.
+x \mathbin{\neg R} y \quad\text{for}\quad \langle x, y\rangle \notin R.
 $$
 
-The abbreviations $x \mathbin{R} y$ and $x \mathbin{\not\mathrel{R}} y$ are
+The abbreviations $x \mathbin{R} y$ and $x \mathbin{\neg R} y$ are
 meaningful even when $R$ is not a relation — we will use this later.
 
 ### Usual terminology
@@ -41,7 +41,7 @@ Fix a set $A$. The following say what it means for $R$ to have a property *on
 $A$*; each is just an abbreviation, obtained by plugging $R$ into a formula.
 
 - **transitive:** $x \mathbin{R} y \wedge y \mathbin{R} z \rightarrow x \mathbin{R} z$
-- **reflexive / irreflexive:** $\forall x \in A\;(x \mathbin{R} x)$  /  $\forall x \in A\;(x \mathbin{\not\mathrel{R}} x)$
+- **reflexive / irreflexive:** $\forall x \in A\;(x \mathbin{R} x)$  /  $\forall x \in A\;(x \mathbin{\neg R} x)$
 - **trichotomy:** $\forall x, y \in A\;\bigl(x \mathbin{R} y \vee y \mathbin{R} x \vee x = y\bigr)$
 - **symmetric:** $x \mathbin{R} y \leftrightarrow y \mathbin{R} x$
 
@@ -64,7 +64,7 @@ We take the *strict* $<$ as basic and read $x \le y$ as $x < y \vee x = y$. For
 example, $<$ on $\mathbb{Q}$ is a strict total order; $\le$ is not (it is not
 irreflexive).
 
-### Domain, range, restriction
+### Domain, range, restriction 
 
 ::: {.axioms}
 

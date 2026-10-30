@@ -29,6 +29,21 @@ website:
         text: "8 · Axiom of Choice"
       - href: notes/cardinals.qmd
         text: "9 · Cardinals"
+      - href: notes/models.qmd
+        text: "10 · Models of Set Theory"
+      - href: notes/large_cardinals.qmd
+        text: "11 · Large Cardinals"
+      - href: notes/incompleteness-consistency-strength.qmd
+        text: "12 · Incompleteness"
+      - href: notes/parts-functors.qmd
+        text: "13 · Parts and Functors"
+      - href: notes/finite-limits.qmd
+        text: "14 · Finite Limits"
+      - href: notes/exponentials.qmd
+        text: "15 · Exponentials"
+      # - href: notes/topos-examples.qmd
+      #   text: "16 · Topos Examples"
+
 
   page-footer:
     left: "Math 558 · Foundations of Mathematics · Penn State"

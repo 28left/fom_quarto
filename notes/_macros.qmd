@@ -72,6 +72,13 @@
 \newcommand{\Norm}[1]{\parallel \! #1 \!\parallel}
 \newcommand{\oCK}{\omega_1^{\CK}}
 \newcommand{\Const}[1]{\underline{#1}}
+\newcommand{\Sets}{\mathcal{S}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\pair}[1]{\langle #1 \rangle}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\ev}{\mathrm{eval}}
+\newcommand{\Hom}[2]{\Sets(#1,#2)}
+
 
 
 \newcommand{\Iff}{\quad \Leftrightarrow \quad}

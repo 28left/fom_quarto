@@ -1,0 +1,501 @@
+---
+title: "Incompleteness and Consistency Strength"
+subtitle: "Gödel's theorems, inaccessible and weakly compact cardinals, and the hierarchy of consistency strength"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+:::
+
+<!-- ::: {.box}
+These notes build on three earlier sets: the *foundational loop* from [ZFC as a Foundational Theory](zfc-as-a-foundation.qmd), absoluteness and transitive models from [Models of Set Theory](models.qmd), and inaccessible cardinals and partition properties from [Large Cardinals](large_cardinals.qmd).
+::: -->
+
+# Incompleteness and Consistency Strength
+
+## The price of the foundational loop
+
+We asked of a foundational theory that it be strong enough to **formalize its own metatheory**. $\ZFC$ meets this demand: formulas, proofs, and the axioms of $\ZFC$ itself are finite syntactic objects, and $\ZFC$ can represent and reason about them, just as it represents "$2 + 8 = 10$" by a formal shadow $\GN{2} + \GN{8} = \GN{10}$.
+
+Gödel's incompleteness theorems show that this strength comes at a price. A theory that can talk about its own proofs cannot prove its own consistency. Rather than a defect, this turns out to be a measuring device: it lets us compare theories by how much consistency they can certify. Large cardinal axioms will serve as the scale.
+
+Our guiding question:
+
+::: {.callout-tip}
+## Question
+
+Can we prove that $\ZFC$ + "there is an inaccessible cardinal" is consistent, assuming that $\ZFC$ is consistent?
+:::
+
+We already know that $\ZFC$ does not prove the existence of an inaccessible cardinal (if $\ZFC$ is consistent). The answer to the question above will be a much stronger *no*.
+
+## Gödel's incompleteness theorems
+
+### Arithmetization
+
+Throughout this section, ${}T$ is a first-order theory satisfying the following conditions.
+
+1. ${}T$ is **recursively axiomatized**: there is an algorithm that decides whether a given formula is an axiom of ${}T$.
+2. ${}T$ **interprets enough arithmetic**: the axioms of Robinson's arithmetic $\Qu$ (a weak, finitely axiomatized fragment of Peano arithmetic $\mathsf{PA}$) are provable in ${}T$, possibly after translating the language of arithmetic into the language of ${}T$.
+
+$\ZFC$ satisfies both conditions. It has infinitely many axioms because of the Comprehension and Replacement schemes, but it is decidable whether a formula is an instance of one of them. Arithmetic is interpreted via ${}\omega$ with ordinal addition and multiplication.
+
+The first step is to turn syntax into arithmetic. Fix an effective coding of symbols, formulas, and finite sequences of formulas by natural numbers. Write $\GN{\phi}$ for the code (**Gödel number**) of ${}\phi$, and also for the numeral representing it in the language of arithmetic. Inside $\ZFC$, one can just as well code syntax by hereditarily finite sets.
+
+Since ${}T$ is recursively axiomatized, the relation
+
+$$
+    \Op{Prf}_T(p, x) \; :\iff \; p \text{ codes a $T$-proof of the formula coded by } x
+$$
+
+is decidable: one only needs to check that every step of the finite sequence coded by $p$ is an axiom or follows from earlier steps by a rule of inference. Decidable relations can be expressed in arithmetic by formulas with only **bounded** quantifiers $\forall y < t$, $\exists y < t$ (more precisely, by formulas that ${}T$ proves equivalent to such formulas on all numerals). We call such formulas $\Delta^0_0$. Note the analogy with the set-theoretic $\Delta_0$ formulas from [Models of Set Theory](models.qmd).
+
+A formula is $\Sigma^0_1$ if it has the form $\exists y\, \theta$ with $\theta$ in $\Delta^0_0$, and $\Pi^0_1$ if it has the form $\forall y\, \theta$ with $\theta$ in $\Delta^0_0$.
+
+::: {#def-provability}
+\
+The **provability predicate** of ${}T$ is the $\Sigma^0_1$ formula
+$$
+    \Op{Prov}_T(x) \;:\equiv\; \exists p \; \Op{Prf}_T(p, x),
+$$
+and the **consistency statement** of ${}T$ is the $\Pi^0_1$ sentence
+$$
+    \Op{Con}(T) \;:\equiv\; \neg\, \Op{Prov}_T(\GN{0 = 1}).
+$$
+:::
+
+::: {.box}
+$\Op{Con}(T)$ is a sentence of arithmetic. It says "*no natural number codes a $T$-proof of $0 = 1$*." It is a statement about $\Nat$ and nothing more, and it can be checked instance by instance: each single number either codes such a proof or it does not.
+:::
+
+Observe the two levels at work. "${}T$ is consistent" is a statement of the metatheory. $\Op{Con}(T)$ is its formal shadow, a sentence that ${}T$ itself can attempt to prove.
+
+The key bridge between true arithmetic facts and provability is the following.
+
+::: {#lem-sigma-one-completeness}
+## $\Sigma^0_1$-completeness
+\
+If ${}\sigma$ is a $\Sigma^0_1$ sentence that is true in $\Nat$, then $\Qu \vdash \sigma$, and hence $T \vdash \sigma$.
+:::
+
+In particular, if $T \vdash \phi$, then the statement $\Op{Prov}_T(\GN{\phi})$ is a true $\Sigma^0_1$ sentence (a proof exists), so $T \vdash \Op{Prov}_T(\GN{\phi})$.
+
+### The diagonal lemma
+
+The second ingredient is a way to construct self-referential sentences.
+
+::: {#lem-diagonal}
+## Diagonal lemma
+\
+For every formula $\psi(x)$ with one free variable, there is a sentence ${}\sigma$ such that
+$$
+    T \vdash \sigma \leftrightarrow \psi(\GN{\sigma}).
+$$
+:::
+
+<!-- ::: {.proof}
+Let $d$ be the computable function that maps the code of a formula $\theta(x)$ to the code of the sentence $\theta(\GN{\theta})$. Computable functions are representable in $\Qu$, so there is a formula $D(x, y)$ such that for every formula $\theta(x)$,
+$$
+    T \vdash \forall y \, \big( D(\GN{\theta}, y) \leftrightarrow y = \GN{\theta(\GN{\theta})} \big).
+$$
+Let $\theta(x) :\equiv \exists y\, (D(x, y) \wedge \psi(y))$, and let $\sigma :\equiv \theta(\GN{\theta})$. Then
+$$
+    T \vdash \sigma \;\leftrightarrow\; \exists y\, (D(\GN{\theta}, y) \wedge \psi(y)) \;\leftrightarrow\; \psi(\GN{\theta(\GN{\theta})}) \;\equiv\; \psi(\GN{\sigma}).
+$$
+::: -->
+
+### The first incompleteness theorem
+
+Apply @lem-diagonal to $\psi(x) :\equiv \neg \Op{Prov}_T(x)$. We obtain a sentence ${}G$, the **Gödel sentence** of ${}T$, such that
+
+$$
+    T \vdash G \leftrightarrow \neg \Op{Prov}_T(\GN{G}).
+$$
+
+Informally, ${}G$ says "*I am not provable in ${}T$*."
+
+::: {#thm-goedel1}
+## Gödel's first incompleteness theorem
+\
+If ${}T$ is consistent, then $T \nvdash G$. If ${}T$ is moreover $\omega$-consistent, then also $T \nvdash \neg G$.
+:::
+
+::: {.proof}
+Suppose $T \vdash G$. By $\Sigma^0_1$-completeness, $T \vdash \Op{Prov}_T(\GN{G})$. But from $G$ and the defining property of ${}G$, also $T \vdash \neg \Op{Prov}_T(\GN{G})$. Hence ${}T$ is inconsistent.
+
+Now suppose $T \vdash \neg G$, so $T \vdash \Op{Prov}_T(\GN{G})$, that is, $T \vdash \exists p\, \Op{Prf}_T(p, \GN{G})$. By the first part, $T \nvdash G$, so no number $n$ codes a proof of ${}G$, and by $\Sigma^0_1$-completeness $T \vdash \neg \Op{Prf}_T(\underline{n}, \GN{G})$ for every $n$. This is exactly what $\omega$-consistency rules out.
+:::
+
+The assumption of $\omega$-consistency can be weakened to plain consistency by a cleverer choice of self-referential sentence (**Rosser's trick**). We will not need this.
+
+::: {#cor-goedel-true}
+\
+If ${}T$ is consistent, then ${}G$ is true in $\Nat$ but not provable in ${}T$.
+:::
+
+::: {.proof}
+${}G$ is equivalent to $\neg \Op{Prov}_T(\GN{G})$, which states exactly what @thm-goedel1 established.
+:::
+
+<!-- ::: {#exr-}
+Show that the Gödel sentence ${}G$ is (provably equivalent to) a $\Pi^0_1$ sentence. Then show that adding ${}G$ to ${}T$ does not help: $T + G$ again satisfies the hypotheses of this section, and so has its own Gödel sentence.
+::: -->
+
+### The second incompleteness theorem
+
+The proof of the first part of @thm-goedel1 was finitistic: it used nothing but elementary reasoning about finite syntactic objects. By the thesis that every finitistic argument can be formalized, ${}T$ should be able to carry it out internally. Making this precise is laborious, and the standard route goes through three properties of $\Op{Prov}_T$, the **Hilbert–Bernays–Löb derivability conditions**. For all sentences ${}\phi, \psi$:
+
+- **(D1)** If $T \vdash \phi$, then $T \vdash \Op{Prov}_T(\GN{\phi})$.
+- **(D2)** $T \vdash \Op{Prov}_T(\GN{\phi \to \psi}) \to \big(\Op{Prov}_T(\GN{\phi}) \to \Op{Prov}_T(\GN{\psi})\big)$.
+- **(D3)** $T \vdash \Op{Prov}_T(\GN{\phi}) \to \Op{Prov}_T(\GN{\Op{Prov}_T(\GN{\phi})})$.
+
+(D1) is @lem-sigma-one-completeness. (D2) formalizes modus ponens. (D3) is (D1) formalized inside ${}T$: it is a formalized version of $\Sigma^0_1$-completeness, and its verification is where the real work lies. We take (D1)–(D3) for granted.
+
+::: {#thm-goedel2}
+## Gödel's second incompleteness theorem
+\
+If ${}T$ is consistent, then $T \nvdash \Op{Con}(T)$.
+:::
+
+::: {.proof}
+We show $T \vdash \Op{Con}(T) \to G$. Then $T \vdash \Op{Con}(T)$ would imply $T \vdash G$, contradicting @thm-goedel1.
+
+Write $P(\phi)$ for $\Op{Prov}_T(\GN{\phi})$. Since $T \vdash G \to \neg P(G)$, (D1) and (D2) give
+$$
+    T \vdash P(G) \to P(\neg P(G)).
+$$
+By (D3), $T \vdash P(G) \to P(P(G))$. Using (D1) and (D2) once more, applied to the tautology $P(G) \to (\neg P(G) \to 0 = 1)$, we can combine the two:
+$$
+    T \vdash P(G) \to P(0 = 1).
+$$
+Contraposing, $T \vdash \neg P(0=1) \to \neg P(G)$, that is, $T \vdash \Op{Con}(T) \to \neg P(G)$. Since $T \vdash \neg P(G) \to G$, we obtain $T \vdash \Op{Con}(T) \to G$.
+:::
+
+This settles Hilbert's program in the negative: finitistic metamathematics can be formalized in $\ZFC$, so if it could establish the consistency of $\ZFC$, then $\ZFC$ would prove $\Op{Con}(\ZFC)$.
+
+### Consistency and models
+
+For set theory, the most useful form of $\Op{Con}(\ZFC)$ is semantic. In [Models of Set Theory](models.qmd) we used Gödel's completeness theorem in the metatheory: if $\ZF$ is consistent, then it has a model. Both the soundness and completeness theorems are themselves theorems of $\ZFC$, when the satisfaction relation $M \models \phi$ for set-sized structures $M$ is defined inside $\ZFC$. This gives:
+
+::: {#prp-con-model}
+\
+$$
+    \ZFC \vdash \; \Op{Con}(\ZFC) \leftrightarrow \exists M\, (M \models \ZFC).
+$$
+:::
+
+Combining this with @thm-goedel2:
+
+::: {#cor-no-model}
+\
+If $\ZFC$ is consistent, then $\ZFC$ does not prove that there exists a set model of $\ZFC$. In particular, $\ZFC$ does not prove the existence of a transitive model of $\ZFC$, or of an ordinal ${}\alpha$ with $V_\alpha \models \ZFC$.
+:::
+
+## Inaccessible cardinals and consistency
+
+Let $\mathsf{IC}$ denote the axiom "*there exists a (strongly) inaccessible cardinal*." Recall from [Large Cardinals](large_cardinals.qmd) that if ${}\kappa$ is inaccessible, then $V_\kappa \models \ZFC$. With @prp-con-model, this yields:
+
+::: {#prp-ic-proves-con}
+\
+$$
+    \ZFC + \mathsf{IC} \;\vdash\; \Op{Con}(\ZFC).
+$$
+:::
+
+::: {.proof}
+Argue in $\ZFC + \mathsf{IC}$. Let ${}\kappa$ be inaccessible. Then $V_\kappa$ is a set and $V_\kappa \models \ZFC$, so $\Op{Con}(\ZFC)$ holds by @prp-con-model.
+:::
+
+::: {#cor-zfc-not-ic}
+\
+If $\ZFC$ is consistent, then $\ZFC \nvdash \mathsf{IC}$.
+:::
+
+::: {.proof}
+If $\ZFC \vdash \mathsf{IC}$, then $\ZFC \vdash \Op{Con}(\ZFC)$ by @prp-ic-proves-con, contradicting @thm-goedel2.
+:::
+
+We had seen a second proof of @cor-zfc-not-ic in [Large Cardinals](large_cardinals.qmd): if ${}\kappa$ is the *least* inaccessible, then $V_\kappa \models \ZFC + \neg\mathsf{IC}$, since being inaccessible is absolute for $V_\kappa$. Formalized, this argument shows
+
+$$
+    \ZFC + \mathsf{IC} \;\vdash\; \Op{Con}(\ZFC + \neg \mathsf{IC}).
+$$
+
+So the absoluteness argument tells us that $\neg\mathsf{IC}$ is consistent relative to $\mathsf{IC}$. The second incompleteness theorem tells us much more: we cannot even show that $\mathsf{IC}$ is consistent relative to $\ZFC$.
+
+::: {#thm-no-relative-consistency}
+\
+If $\ZFC + \mathsf{IC}$ is consistent, then
+$$
+    \ZFC \nvdash \; \Op{Con}(\ZFC) \to \Op{Con}(\ZFC + \mathsf{IC}).
+$$
+:::
+
+::: {.proof}
+Suppose $\ZFC \vdash \Op{Con}(\ZFC) \to \Op{Con}(\ZFC + \mathsf{IC})$. Then the same implication is provable in the stronger theory $\ZFC + \mathsf{IC}$. By @prp-ic-proves-con, $\ZFC + \mathsf{IC} \vdash \Op{Con}(\ZFC)$. Combining the two,
+$$
+    \ZFC + \mathsf{IC} \;\vdash\; \Op{Con}(\ZFC + \mathsf{IC}),
+$$
+and by @thm-goedel2, $\ZFC + \mathsf{IC}$ is inconsistent.
+:::
+
+In other words, the existence of an inaccessible cardinal is not merely unprovable in $\ZFC$. It is a genuinely *stronger* assumption: accepting it commits us to new arithmetic truths, such as $\Op{Con}(\ZFC)$, that $\ZFC$ cannot reach.
+
+### Two kinds of independence
+
+Compare this with the Continuum Hypothesis. By Gödel's constructible universe ${}L$ and Cohen's method of forcing (which we will study later),
+
+$$
+    \Op{Con}(\ZFC) \iff \Op{Con}(\ZFC + \CH) \iff \Op{Con}(\ZFC + \neg\CH),
+$$
+
+and these equivalences are provable in a weak base theory. So both $\CH$ and $\mathsf{IC}$ are independent of $\ZFC$, but in different ways.
+
+- $\CH$ is **equiconsistent independent**: adding $\CH$ or its negation costs nothing in terms of consistency.
+- $\mathsf{IC}$ is **strength-increasing independent**: adding it proves new $\Pi^0_1$ sentences.
+
+## Consistency strength
+
+The phenomenon of the previous section can be organized into an ordering of theories. We fix a weak base theory ${}B$, say $\mathsf{PA}$, or $\ZFC$ when we compare extensions of $\ZFC$, and consider recursively axiomatized theories extending ${}B$.
+
+::: {#def-consistency-strength}
+## Consistency strength
+\
+Let ${}T$ and ${}S$ be theories. Define
+$$
+    T \le_{\Op{Con}} S \;:\iff\; B \vdash \Op{Con}(S) \to \Op{Con}(T).
+$$
+We say ${}T$ and ${}S$ are **equiconsistent**, $T \equiv_{\Op{Con}} S$, if $T \le_{\Op{Con}} S$ and $S \le_{\Op{Con}} T$. We write $T <_{\Op{Con}} S$ if $T \le_{\Op{Con}} S$ and $S \vdash \Op{Con}(T)$.
+:::
+
+The relation $\le_{\Op{Con}}$ is reflexive and transitive. The notation $<_{\Op{Con}}$ is justified by the following generalization of @thm-no-relative-consistency.
+
+::: {#prp-strict}
+\
+Suppose ${}S$ is consistent and $S \vdash \Op{Con}(T)$. Then $S \not\le_{\Op{Con}} T$.
+:::
+
+::: {.proof}
+Suppose $B \vdash \Op{Con}(T) \to \Op{Con}(S)$. Since ${}S$ extends ${}B$ and $S \vdash \Op{Con}(T)$, we get $S \vdash \Op{Con}(S)$, contradicting @thm-goedel2.
+:::
+
+::: {#exm-consistency-strength}
+\
+The following relations hold.
+
+| Relation | Method | |
+|----------|--------|---|
+| $\ZF \equiv_{\Op{Con}} \ZFC \equiv_{\Op{Con}} \ZFC + \GCH$ | the inner model ${}L$ | Gödel 1938 |
+| $\ZFC \equiv_{\Op{Con}} \ZFC + \neg\CH$ | forcing | Cohen 1963 |
+| $\mathsf{PA} <_{\Op{Con}} \ZFC$ | ${}\omega$ is a model of $\mathsf{PA}$ | |
+| $\ZFC <_{\Op{Con}} \ZFC + \mathsf{IC}$ | $V_\kappa \models \ZFC$ | @prp-ic-proves-con |
+| $\ZF + \DC + \text{``every set of reals is Lebesgue measurable''} \equiv_{\Op{Con}} \ZFC + \mathsf{IC}$ | forcing / the inner model ${}L$ | Solovay 1970, Shelah 1984 |
+:::
+
+The last line connects to the measure problem: in $\ZFC$ there are non-measurable sets of reals, but if we drop full Choice and keep only Dependent Choice, "every set of reals is Lebesgue measurable" is consistent, at exactly the cost of an inaccessible cardinal.
+
+### Upper and lower bounds
+
+How does one establish such equiconsistencies? There are two directions.
+
+- **Upper bounds: build a model.** To show $T \le_{\Op{Con}} S$, one assumes a model of ${}S$ and builds from it a model of ${}T$. The models $V_\kappa$ and forcing extensions are of this kind. Solovay's half of the last example starts with an inaccessible and builds, by forcing, a model of $\ZF + \DC$ in which every set of reals is measurable.
+- **Lower bounds: find the large cardinal in an inner model.** To show $S \le_{\Op{Con}} T$, one assumes ${}T$ and shows that some inner model, such as ${}L$, satisfies ${}S$. Shelah's half of the example shows that if all ($\Sigma^1_3$) sets of reals are measurable, then $\omega_1$ is an inaccessible cardinal in ${}L$.
+
+A remarkable empirical fact: all "natural" theories studied so far line up **linearly** under $\le_{\Op{Con}}$, and large cardinal axioms provide a scale against which they can be measured. There is no known explanation for this phenomenon, and one can construct artificial theories (using self-reference) that are incomparable.
+
+## Weakly compact cardinals
+
+To see that the consistency hierarchy continues above inaccessibles, we return to the partition properties from [Large Cardinals](large_cardinals.qmd). Recall that $\kappa \to (\lambda)^2_2$ means that every partition $F : [\kappa]^2 \to \{0, 1\}$ has a homogeneous set of size ${}\lambda$, and that Ramsey's theorem gives $\aleph_0 \to (\aleph_0)^2_2$.
+
+::: {#def-weakly-compact}
+\
+An uncountable cardinal ${}\kappa$ is **weakly compact** if $\kappa \to (\kappa)^2_2$.
+:::
+
+Write $\mathsf{WC}$ for the axiom "*there exists a weakly compact cardinal*."
+
+### Weakly compact cardinals are inaccessible
+
+::: {#prp-wc-regular}
+\
+Every weakly compact cardinal is regular.
+:::
+
+<!-- ::: {.proof}
+Suppose ${}\kappa$ is singular. Then $\kappa = \bigcup_{\xi < \lambda} B_\xi$ for some $\lambda < \kappa$, with the $B_\xi$ pairwise disjoint and $|B_\xi| < \kappa$ for all ${}\xi$. Define $F : [\kappa]^2 \to \{0, 1\}$ by
+$$
+    F(\{\alpha, \beta\}) =
+    \begin{cases}
+        0 & \text{if $\alpha, \beta$ lie in the same block } B_\xi, \\
+        1 & \text{otherwise.}
+    \end{cases}
+$$
+Let $H$ be homogeneous for $F$. If $F$ is constantly $0$ on $[H]^2$, then $H$ lies inside a single block, so $|H| < \kappa$. If $F$ is constantly $1$ on $[H]^2$, then $H$ meets each block in at most one point, so $|H| \leq \lambda < \kappa$. In either case $|H| < \kappa$, so ${}\kappa$ is not weakly compact.
+::: -->
+
+For the strong limit property, we compare well-orders with the **lexicographic order** on $2^\lambda$, the set of functions $f: \lambda \to \{0, 1\}$:
+$$
+    f <_{\lex} g \;:\iff\; f(\xi) < g(\xi), \text{ where $\xi$ is least with } f(\xi) \neq g(\xi).
+$$
+This is a linear order. Its key property is that it contains no long well-ordered sequences.
+
+::: {#lem-sierpinski}
+## Sierpiński
+\
+For every infinite cardinal ${}\lambda$, $(2^\lambda, <_{\lex})$ has no strictly increasing and no strictly decreasing sequence of length $\lambda^+$.
+:::
+
+::: {#exr-}
+Prove @lem-sierpinski.
+
+*Hint:* Suppose $(f_\alpha)_{\alpha < \lambda^+}$ is strictly increasing. First let $\gamma \leq \lambda$ be least such that the restrictions $f_\alpha \Rest{\gamma}$ take $\lambda^+$ many values, and pass to a subsequence to reduce to the case where all restrictions $f_\alpha \Rest{\xi}$, $\xi < \gamma$, take at most ${}\lambda$ values in total. Then let $\xi_\alpha$ be least where $f_\alpha$ and $f_{\alpha+1}$ differ and show that $\alpha \mapsto f_\alpha \Rest{\xi_\alpha}$ is injective.
+:::
+
+::: {#prp-wc-inaccessible}
+\
+Every weakly compact cardinal is inaccessible.
+:::
+
+<!-- ::: {.proof}
+By @prp-wc-regular, ${}\kappa$ is regular, and it is uncountable by definition. Suppose ${}\kappa$ is not a strong limit, so $2^\lambda \geq \kappa$ for some $\lambda < \kappa$. Choose pairwise distinct $f_\alpha \in 2^\lambda$ for $\alpha < \kappa$ and define $F : [\kappa]^2 \to \{0, 1\}$ by
+$$
+    F(\{\alpha, \beta\}) =
+    \begin{cases}
+        0 & \text{if } f_\alpha <_{\lex} f_\beta, \\
+        1 & \text{if } f_\beta <_{\lex} f_\alpha,
+    \end{cases}
+    \qquad \text{for } \alpha < \beta.
+$$
+Let $H$ be homogeneous for $F$ with $|H| = \kappa$. Enumerating $H$ in increasing order, $(f_\alpha)_{\alpha \in H}$ is strictly $<_{\lex}$-increasing (if $F \equiv 0$ on $[H]^2$) or strictly decreasing (if $F \equiv 1$). Since $\kappa \geq \lambda^+$, its first $\lambda^+$ terms contradict @lem-sierpinski.
+::: -->
+
+<!-- This solves the exercise from [Large Cardinals](large_cardinals.qmd), up to @lem-sierpinski, and gives another proof that $\ZFC \nvdash \mathsf{WC}$ (if $\ZFC$ is consistent). -->
+
+<!-- ### Why "compact"? Equivalent characterizations
+
+Weak compactness is remarkably robust: it has several quite different characterizations. To state them, we need a few notions.
+
+A **${}\kappa$-tree** is a tree of height ${}\kappa$ all of whose levels have size $< \kappa$. A cardinal ${}\kappa$ has the **tree property** if every ${}\kappa$-tree has a branch of length ${}\kappa$. König's lemma says exactly that $\aleph_0$ has the tree property.
+
+The infinitary logic $\mathcal{L}_{\kappa, \kappa}$ allows conjunctions and disjunctions of fewer than ${}\kappa$ formulas, and quantification over fewer than ${}\kappa$ variables at once. First-order logic is $\mathcal{L}_{\omega,\omega}$, and its compactness theorem fails for most infinitary logics.
+
+A **$\Pi^1_1$ formula** over a structure $(V_\kappa, \in, A)$ is a formula of the form $\forall X\, \phi$, where the second-order variable $X$ ranges over subsets of $V_\kappa$ and ${}\phi$ is first-order (it may mention $X$ and the predicate $A$).
+
+::: {#def-indescribable}
+\
+A cardinal ${}\kappa$ is **$\Pi^1_1$-indescribable** if for every $A \subseteq V_\kappa$ and every $\Pi^1_1$ sentence ${}\Phi$,
+$$
+    (V_\kappa, \in, A) \models \Phi \quad \Longrightarrow \quad (V_\alpha, \in, A \cap V_\alpha) \models \Phi \;\text{ for some } \alpha < \kappa.
+$$
+:::
+
+In words: no $\Pi^1_1$ property can "describe" ${}\kappa$ by distinguishing it from all smaller levels of the hierarchy. Every such property **reflects** below ${}\kappa$.
+
+::: {#thm-wc-equivalents}
+\
+For an inaccessible cardinal ${}\kappa$, the following are equivalent.
+
+1. ${}\kappa$ is weakly compact.
+2. ${}\kappa$ has the tree property.
+3. The compactness theorem holds for $\mathcal{L}_{\kappa,\kappa}$ for sets of at most ${}\kappa$ sentences: if every subset of size $< \kappa$ has a model, then the whole set has a model.
+4. ${}\kappa$ is $\Pi^1_1$-indescribable.
+:::
+
+We will not prove @thm-wc-equivalents; see Kanamori or Jech. Condition 3 explains the name. The equivalence of 1 and 4 is due to Hanf and Scott. -->
+
+### Weakly compact cardinals are strictly stronger
+
+Weakly compact cardinals are much larger than the first inaccessible.
+
+<!-- ::: {#prp-wc-stationary}
+\
+If ${}\kappa$ is weakly compact, then the set of inaccessible cardinals below ${}\kappa$ is stationary in ${}\kappa$. In particular, it is unbounded in ${}\kappa$, and ${}\kappa$ is the $\kappa$-th inaccessible cardinal.
+:::
+
+::: {.proof}
+By @prp-wc-inaccessible, ${}\kappa$ is inaccessible, so by @thm-wc-equivalents it is $\Pi^1_1$-indescribable. We first express inaccessibility of ${}\kappa$ over $V_\kappa$. The ordinals of $V_\kappa$ are exactly the ordinals $< \kappa$. Let $\Phi$ be the conjunction of the following.
+
+- $\forall X$ ($X$ is a function from an ordinal into the ordinals $\to$ the range of $X$ is bounded). This is $\Pi^1_1$: the quantifier $\forall X$ ranges over subsets of $V_\kappa$, and "the domain of $X$ is an ordinal" means the domain is an *element* of $V_\kappa$.
+- For every ordinal $\beta$ there is an ordinal $\gamma$ and a bijection between $\gamma$ and $\Pow(\beta)$. This is first-order.
+- There is a limit ordinal $> 0$. This is first-order.
+
+For any ordinal ${}\alpha$ with $\alpha > \omega$, a straightforward check shows that $(V_\alpha, \in) \models \Phi$ holds if and only if ${}\alpha$ is inaccessible. In particular $(V_\kappa, \in) \models \Phi$.
+
+Now let $C \subseteq \kappa$ be closed and unbounded. Then $(V_\kappa, \in, C) \models \Phi \wedge \text{``$C$ is unbounded in the ordinals''}$, and the second conjunct is first-order in the predicate $C$. By indescribability, there is $\alpha < \kappa$ with
+$$
+    (V_\alpha, \in, C \cap \alpha) \models \Phi \wedge \text{``$C \cap \alpha$ is unbounded in the ordinals.''}
+$$
+So ${}\alpha$ is inaccessible, and $C \cap \alpha$ is unbounded in ${}\alpha$. Since $C$ is closed, $\alpha \in C$. Hence every club meets the set of inaccessibles below ${}\kappa$.
+
+A stationary subset of a regular cardinal ${}\kappa$ is unbounded, and an unbounded subset of ${}\kappa$ has order type ${}\kappa$.
+::: -->
+
+<!-- ::: {#exr-}
+Let ${}\kappa$ and ${}\lambda$ be inaccessible with $\lambda < \kappa$. Show that
+$$
+    V_\kappa \models \text{``${}\lambda$ is inaccessible.''}
+$$
+*Hint:* Every function $f : \beta \to \lambda$ with $\beta < \lambda$ belongs to $V_\kappa$, and $\Pow(\beta)^{V_\kappa} = \Pow(\beta)$ for $\beta < \kappa$.
+::: -->
+
+::: {#prp-wc-proves-con-ic}
+\
+$$
+    \ZFC + \mathsf{WC} \;\vdash\; \Op{Con}(\ZFC + \mathsf{IC}),
+$$
+and hence, if $\ZFC + \mathsf{WC}$ is consistent, $\ZFC + \mathsf{IC} <_{\Op{Con}} \ZFC + \mathsf{WC}$.
+:::
+
+<!-- ::: {.proof}
+Argue in $\ZFC + \mathsf{WC}$, and let ${}\kappa$ be weakly compact. Then ${}\kappa$ is inaccessible, so $V_\kappa \models \ZFC$. By @prp-wc-stationary there is an inaccessible $\lambda < \kappa$, and by the preceding exercise $V_\kappa \models \text{``${}\lambda$ is inaccessible.''}$ Thus $V_\kappa \models \ZFC + \mathsf{IC}$, and @prp-con-model gives $\Op{Con}(\ZFC + \mathsf{IC})$.
+
+Since every weakly compact cardinal is inaccessible, $\ZFC + \mathsf{WC} \vdash \mathsf{IC}$, which gives $\ZFC + \mathsf{IC} \le_{\Op{Con}} \ZFC + \mathsf{WC}$. Strictness follows from @prp-strict.
+:::
+
+::: {#exr-}
+Using @prp-wc-stationary, show that if ${}\kappa$ is weakly compact, then $V_\kappa \models$ "*there are unboundedly many inaccessible cardinals*." What does this tell you about the consistency strength of $\ZFC +$ "*there are unboundedly many inaccessibles*" compared with $\ZFC + \mathsf{IC}$ and $\ZFC + \mathsf{WC}$?
+::: -->
+
+## The large cardinal hierarchy
+
+We have climbed two rungs of a much longer ladder.
+
+$$
+\begin{align}
+    \ZFC \;<_{\Op{Con}}\; \text{inaccessible} & \;<_{\Op{Con}}\; \text{weakly compact} \\
+    & \;<_{\Op{Con}}\; \text{Ramsey} \;<_{\Op{Con}}\; \text{measurable} \;<_{\Op{Con}}\; \cdots
+\end{align}
+$$
+
+<!-- - By Rowbottom's theorem (see [Large Cardinals](large_cardinals.qmd)), every measurable cardinal is Ramsey, and every Ramsey cardinal is clearly weakly compact. -->
+- The rungs are genuinely separated. For example, if ${}\kappa$ is measurable, then the set of weakly compact cardinals below ${}\kappa$ belongs to every normal ultrafilter on ${}\kappa$, so ${}\kappa$ is the $\kappa$-th weakly compact cardinal.
+- The ladder continues far beyond measurables, through strong, Woodin, and supercompact cardinals, all the way up to axioms that assert the existence of nontrivial elementary embeddings $j : V_\lambda \to V_\lambda$.
+- There is a ceiling. **Kunen's inconsistency theorem** shows, in $\ZFC$, that there is no nontrivial elementary embedding $j : V \to V$. Large cardinal axioms are therefore not arbitrary: the most naive strengthening is outright inconsistent.
+
+### What does it mean to accept a large cardinal?
+
+@thm-no-relative-consistency shows that the consistency of $\ZFC + \mathsf{IC}$ can never be established on the basis of $\ZFC$ alone. So why do set theorists regard large cardinal axioms as legitimate, or even as true? Several kinds of reasons are commonly offered.
+
+- **Reflection and the iterative conception.** The universe $V$ is built in stages $V_\alpha$, and it should be "too large" to be fully described from within. An inaccessible ${}\kappa$ is a stage $V_\kappa$ that already looks like the whole universe as far as $\ZFC$ can tell. Indescribable cardinals strengthen this: no property of a given complexity can distinguish $V_\kappa$ from $V$.
+- **Fruitfulness and convergence.** Large cardinals settle questions about sets of reals that $\ZFC$ leaves open, and very different approaches lead to the same large cardinal hypotheses, as with the measurability example above.
+- **Track record.** Decades of intensive study have not produced a contradiction from the axioms below Kunen's bound.
+
+Whatever one makes of these, the incompleteness theorems give large cardinals a precise arithmetic meaning. Each rung of the ladder proves new $\Pi^0_1$ theorems, namely the consistency of the rungs below it. In this sense, accepting a stronger large cardinal is a commitment about the natural numbers: that certain searches for contradictions will never succeed.
+
+<!-- ::: {.callout-tip}
+## Looking ahead
+
+The equiconsistencies in @exm-consistency-strength rely on two techniques: Gödel's constructible universe ${}L$, which yields lower bounds and the consistency of $\AC$ and $\GCH$, and Cohen's forcing, which yields upper bounds and the consistency of $\neg\CH$. These are our next topics.
+::: -->
+
+## References
+
+- K. Kunen, *The Foundations of Mathematics* and *Set Theory* (2011): incompleteness, models of set theory, and inaccessible cardinals.
+- T. Jech, *Set Theory* (3rd millennium ed.): weakly compact and indescribable cardinals, and Sierpiński's lemma.
+- A. Kanamori, *The Higher Infinite*: the large cardinal hierarchy and its history.
+- R. M. Solovay, "A model of set theory in which every set of reals is Lebesgue measurable," *Annals of Mathematics* 92 (1970).
+- S. Shelah, "Can you take Solovay's inaccessible away?" *Israel Journal of Mathematics* 48 (1984).

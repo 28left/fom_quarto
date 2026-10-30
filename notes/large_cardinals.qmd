@@ -1,0 +1,338 @@
+---
+title: "Cofinality and Inaccessible Cardinals"
+subtitle: ""
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+:::
+
+# Cofinality and Inaccessible Cardinals
+
+## Cofinality
+
+Recall two basic facts about cardinalities:
+
+- Finite unions of finite sets are finite.
+- Countable unions of countable sets are countable (using $\AC$).
+
+This means it is "hard" to reach the cardinals $\aleph_0$ and $\aleph_1$ "from below": you cannot obtain a set of size $\aleph_0$ by putting together a few small pieces, and similarly for $\aleph_1$. The notion of **cofinality** quantifies "how hard" it is to reach an ordinal from below.
+
+Throughout this section, ${}\alpha$ denotes a limit ordinal (following Kunen, Def. I.13.10, we define cofinality only for limit ordinals).
+
+::: {#def-cofinal}
+\
+A set $X \subseteq \alpha$ is **cofinal** in ${}\alpha$ if 
+$$
+    \forall \gamma < \alpha \; \exists \xi \in X \;\; \gamma < \xi.
+$$
+Equivalently, 
+$$
+    \alpha = \bigcup_{\xi \in X} \xi = \sup X.
+$$
+:::
+
+::: {#def-cofinality}
+\
+The **cofinality** of ${}\alpha$ is
+$$
+    \Op{cf}(\alpha) = \text{least ordinal } \beta \text{ such that there exists } f: \beta \to \alpha \text{ with } \Op{ran}(f) \text{ cofinal in } \alpha.
+$$
+We call such an $f$ a **cofinal map**.
+:::
+
+We can always assume that a cofinal map $f: \Op{cf}(\alpha) \to \alpha$ is **strictly increasing**: if necessary, we can "thin it out".
+
+::: {#lem-cofinal-increasing}
+\
+There exists a strictly increasing cofinal map $g: \Op{cf}(\alpha) \to \alpha$.
+:::
+
+::: {.proof collapse="true"}
+Let $f: \Op{cf}(\alpha) \to \alpha$ be cofinal. Define $g$ by recursion:
+$$
+    g(\eta) = \max\left\{ f(\eta), \; \sup\{g(\zeta)+1 \colon \zeta < \eta\} \right\}.
+$$
+We have to check that $g(\eta) < \alpha$. If $\sup\{g(\zeta)+1 \colon \zeta < \eta\} = \alpha$, then $g\Rest{\eta}$ would be a cofinal map from $\eta < \Op{cf}(\alpha)$ into ${}\alpha$ (here we use that ${}\alpha$ is a limit), contradicting the minimality of $\Op{cf}(\alpha)$. By construction, $g$ is strictly increasing, and $g(\eta) \geq f(\eta)$ implies that $g$ is cofinal.
+:::
+
+::: {#exm-cofinality}
+\
+
+- $\Op{cf}(\omega) = \omega$
+- $\Op{cf}(\omega+\omega) = \omega$, via $n \mapsto \omega + n$
+- $\Op{cf}(\omega\cdot\omega) = \omega$, via $n \mapsto \omega \cdot n$
+:::
+
+::: {#prp-cofinality-basic}
+\
+For any limit ordinal ${}\alpha$,
+
+1. $\Op{cf}(\alpha) \leq \alpha$,
+2. $\Op{cf}(\alpha)$ is a cardinal,
+3. $\Op{cf}(\Op{cf}(\alpha)) = \Op{cf}(\alpha)$.
+:::
+
+::: {.proof collapse="true"}
+(1) The identity map $\alpha \to \alpha$ is cofinal.
+
+(2) Let $\beta = \Op{cf}(\alpha)$ and suppose $|\beta| < \beta$. Let $h: |\beta| \to \beta$ be a bijection and $f: \beta \to \alpha$ cofinal. Then $f \circ h: |\beta| \to \alpha$ has the same range as $f$ and hence is cofinal, contradicting the minimality of ${}\beta$.
+
+(3) By (1), $\Op{cf}(\Op{cf}(\alpha)) \leq \Op{cf}(\alpha)$. For the other inequality, let $f: \Op{cf}(\alpha) \to \alpha$ be strictly increasing and cofinal (@lem-cofinal-increasing), and let $g: \delta \to \Op{cf}(\alpha)$ be cofinal. Then $f \circ g: \delta \to \alpha$ is cofinal: given $\gamma < \alpha$, pick $\eta$ with $f(\eta) > \gamma$, and $\zeta < \delta$ with $g(\zeta) > \eta$. Then $f(g(\zeta)) > f(\eta) > \gamma$. Hence $\delta \geq \Op{cf}(\alpha)$.
+:::
+
+
+## Regular and singular cardinals
+
+Recall the enumeration of all infinite cardinals by means of the **$\aleph$-sequence**:
+
+\begin{equation*}
+\aleph_0 = \omega, \quad \aleph_{\alpha+1} = \aleph_\alpha^+, \quad  \aleph_\lambda = \sup \{ \aleph_\xi \colon \xi<\lambda\} \; \text{ for limit } \lambda.
+\end{equation*}
+
+Here $\kappa^+$ is the least cardinal $> \kappa$. Some cardinals are limits of short sequences of smaller cardinals -- for example, 
+\begin{equation*}
+    \aleph_\omega = \lim_n \aleph_n
+\end{equation*}
+is uncountable, but a limit of a countable sequence of smaller cardinals. 
+
+::: {#def-regular}
+\
+Let ${}\kappa$ be an infinite cardinal. ${}\kappa$ is
+
+- **regular** if $\Op{cf}(\kappa) = \kappa$,
+- **singular** if $\Op{cf}(\kappa) < \kappa$.
+:::
+
+In other words, a regular cardinal ${}\kappa$ cannot be reached by less than ${}\kappa$-many steps:
+\begin{equation*}
+\Op{reg}(\kappa) \iff \forall \alpha < \kappa \;  \forall f \;( f: \alpha \to \kappa \;  \to \; \sup_{\xi < \alpha} f(\xi) < \kappa).
+\end{equation*}
+
+::: {#exm-regular}
+\
+
+- $\aleph_0$ is regular.
+- $\aleph_1$ is regular.
+- $\aleph_\omega$ is singular, with $\Op{cf}(\aleph_\omega) = \omega$, as witnessed by the cofinal sequence $\aleph_0, \aleph_1, \aleph_2, \ldots \to \aleph_\omega$.
+:::
+
+The regularity of $\aleph_1$ is an instance of a general fact.
+
+::: {#prp-successor-regular}
+\
+($\AC$) Every infinite successor cardinal is regular.
+:::
+
+::: {.proof}
+Suppose $\delta = \Op{cf}(\aleph_{\alpha+1}) < \aleph_{\alpha+1}$. Then there exists a cofinal $f: \delta \to \aleph_{\alpha+1}$, so 
+$$
+    \aleph_{\alpha+1} = \bigcup_{\gamma < \delta} f(\gamma).
+$$
+Now $|\delta| < \aleph_{\alpha+1}$, and $|f(\gamma)| < \aleph_{\alpha+1}$ for all $\gamma < \delta$. Hence $|\delta| \leq \aleph_\alpha$ and $|f(\gamma)| \leq \aleph_\alpha$ for all $\gamma < \delta$. This implies
+$$
+    |\aleph_{\alpha+1}| = \left|\bigcup_{\gamma<\delta} f(\gamma)\right| \leq \aleph_\alpha \cdot \aleph_\alpha = \aleph_\alpha,
+$$
+a consequence of Hessenberg's Theorem (see the notes on Cardinals). This is a contradiction. 
+:::
+
+On the other hand,
+\begin{equation*}
+\aleph_\omega,  \aleph_{\omega+\omega}, \aleph_{\aleph_{\omega}}, \aleph_{\aleph_{\aleph_\omega}}, \ldots
+\end{equation*}
+are all singular. This follows from the following result, which reduces the cofinality of $\aleph_\lambda$ to that of its index.
+
+::: {#prp-cofinality-aleph-limit}
+\
+If ${}\lambda$ is a limit ordinal, then $\Op{cf}(\aleph_\lambda) = \Op{cf}(\lambda)$.
+:::
+
+::: {.proof}
+($\leq$) Let $f: \gamma \to \lambda$ be cofinal. Then 
+$$
+\hat{f}: \gamma \to \aleph_\lambda, \quad \beta \mapsto \aleph_{f(\beta)}
+$$
+is cofinal in $\aleph_\lambda$: If $\eta < \aleph_\lambda$, then $\eta < \aleph_\xi$ for some $\xi < \lambda$. Pick $\beta$ with $f(\beta) > \xi$. Then $\aleph_{f(\beta)} > \aleph_\xi > \eta$.
+
+($\geq$) Let $f: \gamma \to \aleph_\lambda$ be cofinal. We turn $f$ into a cofinal map $g: \gamma \to \lambda$ by letting
+$$
+    g(\beta) = \text{the } \alpha \text{ such that } |f(\beta)| = \aleph_\alpha 
+$$
+(and $g(\beta) = 0$ if $f(\beta)$ is finite). Since $f(\beta) < \aleph_\lambda$, $g(\beta) < \lambda$. If $\xi < \lambda$, pick $\beta$ with $f(\beta) > \aleph_\xi$. Then $|f(\beta)| \geq \aleph_\xi$, so $g(\beta) \geq \xi$. Hence $g$ is cofinal in ${}\lambda$.
+:::
+
+For example, $\Op{cf}(\aleph_{\omega+\omega}) = \Op{cf}(\omega+\omega) = \omega$.
+
+### Cofinality of the continuum
+
+Cofinality also puts a restriction on the possible values of $2^\kappa$. To prove this, we need a fundamental inequality between cardinal sums and products. For a family of cardinals $(\kappa_i)_{i\in I}$, let 
+$$
+    \sum_{i \in I} \kappa_i = \left|\bigcup_{i \in I} \{i\} \times \kappa_i \right|, \qquad \prod_{i \in I} \kappa_i = \left| \left\{ g \colon g \text{ function}, \; \Op{dom}(g) = I, \; \forall i \; g(i) \in \kappa_i \right\}\right|.
+$$
+
+::: {#thm-koenig}
+## König's Theorem
+\
+($\AC$) Let $(\kappa_i)_{i\in I}$ and $(\lambda_i)_{i\in I}$ be families of cardinals such that $\kappa_i < \lambda_i$ for all $i \in I$. Then
+$$
+    \sum_{i \in I} \kappa_i < \prod_{i\in I} \lambda_i.
+$$
+:::
+
+::: {.proof collapse="true"}
+The map $(i,\xi) \mapsto g_{i,\xi}$, where $g_{i,\xi}(i) = \xi+1$ and $g_{i,\xi}(j) = 0$ for $j \neq i$, is an injection, so $\sum \kappa_i \leq \prod \lambda_i$. 
+
+Suppose $f: \bigcup_{i} \{i\}\times \kappa_i \to \prod_i \lambda_i$. We show that $f$ is not onto. For each $i \in I$, the set 
+$$
+    \{ f(i,\xi)(i) \colon \xi < \kappa_i\} \subseteq \lambda_i
+$$
+has cardinality $\leq \kappa_i < \lambda_i$, so we can let $y(i)$ be the least element of $\lambda_i$ not in this set. Then $y \in \prod_i \lambda_i$, but $y \neq f(i,\xi)$ for all $i, \xi$, since $y$ and $f(i,\xi)$ differ at coordinate $i$. 
+
+(The Axiom of Choice is needed to ensure that the sets on both sides are well-orderable, so that their cardinalities are defined; for families of arbitrary sets, one uses $\AC$ to choose the witnesses $y(i)$.)
+:::
+
+::: {#prp-cofinality-power}
+\
+If $\kappa \geq \aleph_0$, then $\Op{cf}(2^\kappa) > \kappa$.
+:::
+
+::: {.proof}
+Suppose $f: \delta \to 2^\kappa$ is cofinal with $\delta \leq \kappa$, so that 
+$$
+    2^\kappa = \bigcup_{\gamma < \delta} f(\gamma).
+$$ 
+Then $|f(\gamma)| < 2^\kappa$ for all $\gamma < \delta$, and by König's Theorem,
+\begin{align*}
+    2^\kappa = \left|\bigcup_{\gamma<\delta} f(\gamma)\right| & \leq \sum_{\gamma < \delta} |f(\gamma)| \\
+    & < \prod_{\gamma < \delta} 2^\kappa = (2^\kappa)^\delta = 2^{\kappa \cdot \delta} = 2^\kappa,
+\end{align*}
+where the last equality uses $\delta \leq \kappa$. This is a contradiction.
+:::
+
+::: {#cor-continuum-not-aleph-omega}
+\
+$2^{\aleph_0} \neq \aleph_\omega$.
+:::
+
+::: {.proof}
+$\Op{cf}(2^{\aleph_0}) > \aleph_0 = \Op{cf}(\aleph_\omega)$.
+:::
+
+
+## Inaccessible cardinals
+
+We have seen that successor cardinals are regular, and that $\aleph_\lambda$ for "small" limits ${}\lambda$ are singular. This suggests the question: 
+
+::: {.callout-tip}
+## Question
+
+Are there regular limit cardinals, i.e. regular cardinals of the form $\aleph_\lambda$ with $\lambda$ limit?
+:::
+
+If $\aleph_\lambda$ is a regular limit cardinal, then by @prp-cofinality-aleph-limit and @prp-cofinality-basic,
+$$
+    \aleph_\lambda = \Op{cf}(\aleph_\lambda) = \Op{cf}(\lambda) \leq \lambda,
+$$
+and since always $\lambda \leq \aleph_\lambda$, we must have $\aleph_\lambda = \lambda$. So a regular limit cardinal must be very large: it is a fixed point of the $\aleph$-function.
+
+This is captured by the notion of **inaccessibility**.
+
+::: {#def-inaccessible}
+## Hausdorff 1908, Tarski, Zermelo 1930
+\
+An uncountable cardinal $\kappa > \omega$ is 
+
+- **weakly inaccessible** if 
+\begin{align*}
+    \Op{reg}(\kappa) \; &  \wedge \;  \exists \lambda (\Op{lim}(\lambda) \;  \wedge\;  \kappa = \aleph_\lambda)\\
+                        (& \Leftrightarrow \Op{reg}(\kappa) \;  \wedge \;  \forall \alpha < \kappa \; \, \alpha^+ < \kappa)
+\end{align*}
+
+- **(strongly) inaccessible** if 
+\begin{equation*}
+    \Op{reg}(\kappa) \;  \wedge \;  \forall \alpha < \kappa \;\; 2^{\alpha} < \kappa
+\end{equation*}
+:::
+
+Every strongly inaccessible cardinal is weakly inaccessible, since $\alpha^+ \leq 2^\alpha$. Under the **Generalized Continuum Hypothesis**,
+
+&emsp; $(\mathsf{GCH}) \quad \forall \alpha \;\;  2^{\aleph_\alpha} = \aleph_{\alpha}^+$
+
+weakly and strongly inaccessible cardinals coincide.
+
+If $\kappa$ is (weakly) inaccessible, then $\kappa = \aleph_\kappa$, as shown above. 
+
+### Inaccessibles and the von Neumann hierarchy
+
+The cardinality of $V_\alpha$ grows rather fast relative to ${}\alpha$. For example, 
+
+$$
+    |V_{\omega+\alpha}| = \beth_\alpha
+$$    
+where the **beth function** $\beth_\alpha$ is defined as
+\begin{gather*}
+    \beth_0 = \aleph_0 \\
+    \beth_{\alpha+1} = 2^{\beth_\alpha} \\
+    \beth_{\lambda} = \sup \{ \beth_\alpha \colon \alpha < \lambda\} \quad \text{ $\lambda$ limit}
+\end{gather*}
+
+The existence of **inaccessible cardinals** ensures that the von Neumann hierarchy is "long enough" for ${}\alpha$ to eventually "catch up" with the cardinality of $V_\alpha$.
+
+::: {#prp-cardinality-vkappa}
+\
+If ${}\kappa$ is strongly inaccessible, then $|V_\kappa| = \kappa$. 
+:::
+
+::: {.proof}
+Since $\kappa \subseteq V_\kappa$, $|V_\kappa| \geq \kappa$. For the other inequality, it suffices to show that $|V_\alpha| < \kappa$ for all $\alpha < \kappa$, since then $|V_\kappa| = |\bigcup_{\alpha<\kappa} V_\alpha| \leq \kappa \cdot \kappa = \kappa$. 
+
+We show $|V_\alpha| < \kappa$ by induction on $\alpha < \kappa$: if $|V_\alpha| < \kappa$, then $|V_{\alpha+1}| = 2^{|V_\alpha|} < \kappa$ since ${}\kappa$ is strongly inaccessible. If $\lambda < \kappa$ is a limit, then $V_\lambda$ is a union of $|\lambda| < \kappa$ many sets, each of size $< \kappa$, so by regularity of ${}\kappa$, $|V_\lambda| < \kappa$.
+:::
+
+This in turn implies we can bound the cardinality of elements of $V_\kappa$.
+
+::: {#prp-inaccessible-cardinality}
+\
+Suppose ${}\kappa$ is strongly inaccessible and $x\subseteq V_\kappa$. Then
+
+$$
+    x \in V_\kappa \; \Leftrightarrow \; |x| < \kappa.
+$$
+:::
+
+::: {.proof}
+($\Rightarrow$) If $x \in V_\kappa$, then $x \in V_\alpha$ for some $\alpha < \kappa$, and by transitivity $x \subseteq V_\alpha$. By the proof of @prp-cardinality-vkappa, $|x| \leq |V_\alpha| < \kappa$.
+
+($\Leftarrow$) Since $x \subseteq V_\kappa$, each $y \in x$ has rank $< \kappa$. Since $|x| < \kappa$, by regularity of ${}\kappa$, 
+
+$$
+    \Op{rank}(x) = \sup\{\Op{rank}(y)+1 \colon y \in x\} < \kappa
+$$
+
+ which implies $x \in V_\kappa$.
+:::
+
+We have already seen that for limit $\alpha > \omega$, $V_\alpha$ is a model of all $\ZFC$ axioms except *Replacement*.
+
+::: {#thm-inaccessible-zfc}
+\
+If ${}\kappa$ is strongly inaccessible, then $V_\kappa \models \ZFC$.
+:::
+
+::: {.proof}
+We verify that $V_\kappa$ satisfies the axiom of *Replacement*.
+Suppose $x \in V_\kappa$ and $f:x \to V_\kappa$ is a function. Then $f[x] \subseteq V_\kappa$, and by @prp-inaccessible-cardinality, $|f[x]| \leq |x| < \kappa$. Applying the other direction of @prp-inaccessible-cardinality to $f[x]$, we obtain $f[x] \in V_\kappa$, as desired.
+:::
+
+Suppose an inaccessible cardinal exists, and let ${}\kappa$ be the least inaccessible.  
+It is not hard to verify that 
+
+$$
+V_\kappa \models \ZFC + \text{``there does not exist an inaccessible cardinal''}.
+$$
+
+(You verify that being an inaccessible cardinal is absolute for $V_\kappa$.) Therefore, the existence of an inaccessible cardinal is not provable from $\ZFC$. This fact also follows from Gödel's second incompleteness theorem.

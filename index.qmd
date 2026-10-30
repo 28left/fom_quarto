@@ -5,7 +5,10 @@ format: html
 toc: false
 ---
 
-A comparative study of the three dominant modern approaches to mathematical
+
+These pages colelct lecture notes for the course "Foundations of Mathematics", Math 558, Fall 2026.
+
+<!-- A comparative study of the three dominant modern approaches to mathematical
 foundations: **set theory** (ZFC), **category theory**, and **type theory**
 (Martin-Löf dependent type theory, Homotopy Type Theory, Univalent Foundations).
 The course examines each framework on its own terms and then asks what it means
@@ -33,4 +36,4 @@ to "found" mathematics at all.
 - [6 · Ordinals](notes/ordinals.qmd) — well-founded relations, well-orders and
   their rigidity, von Neumann ordinals, the well-ordering of $ON$, Burali-Forti,
   $\omega$ as the least limit ordinal, and every well-order as the order type of
-  a unique ordinal.
+  a unique ordinal. -->

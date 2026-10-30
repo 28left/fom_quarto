@@ -1,0 +1,890 @@
+---
+title: "Parts, Characteristic Functions, and Inverse Images"
+subtitle: "Functors, natural transformations, and representability"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Pos}{\mathsf{Pos}}
+\newcommand{\cC}{\mathsf{C}}
+\newcommand{\cD}{\mathsf{D}}
+\newcommand{\Sub}{\operatorname{Sub}}
+\newcommand{\true}{\mathrm{true}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\mono}{\rightarrowtail}
+\newcommand{\inv}[2]{#1^{-1}(#2)}
+:::
+
+::: {.box}
+**Reading.** Lawvere–Rosebrugh, *Sets for Mathematics* (L–R), §§2.3–2.5;
+Riehl, *Category Theory in Context*, §§1.2–1.4 and §2.1.
+
+**Goal.** We first finish L–R's treatment of parts by introducing the
+*inverse image* of a part along a map. We then restate everything we know
+about elements, parts, and characteristic functions in the language of modern
+category theory: hom-sets, functors, natural transformations, and representable
+functors. The punchline is a single sentence:
+
+> *The axiom of §2.4 says that the functor $\Sub$ is represented by the object
+> $2$, with universal element $\true$.*
+:::
+
+## Where we are {#sec-where}
+
+Throughout, $\cS$ denotes the category of abstract sets and mappings of L–R.
+So far we have the following axioms: $\cS$ is a category (L–R §1.4); it has a
+terminal object $1$ (§1.2) and an initial object $0$ (§1.5); it has binary sums
+(§2.1); $1$ separates mappings (§1.5); and the axiom of §2.4, recalled below.
+
+### Elements and parts
+
+::: {#def-element}
+An **element** of $X$ is a map $x\colon 1\to X$.
+:::
+
+::: {.callout-note icon=false}
+## Axiom: $1$ separates mappings (L–R §1.5)
+
+If $f,g\colon X\to Y$ satisfy $fx=gx$ for every element $x$ of $X$, then $f=g$.
+:::
+
+::: {#def-parts}
+## L–R §§2.2–2.3, Def. 2.24
+\
+Let $X$ be a set.
+
+(a) A **part** of $X$ is a monomorphism $i\colon A\mono X$.
+
+(b) For parts $i\colon A\mono X$ and $j\colon B\mono X$, we say $i$ is
+**included in** $j$, written $i\subseteq_X j$, if there is a map $k\colon A\to B$
+with $jk=i$. (Such a $k$ is unique, since $j$ is monic.)
+
+(c) Parts $i$ and $j$ are **equivalent**, written $i\equiv_X j$, if
+$i\subseteq_X j$ and $j\subseteq_X i$.
+
+(d) An element $x$ of $X$ is a **member** of the part $i\colon A\mono X$,
+written $x\in_X i$, if $x=ia$ for some element $a$ of $A$. (Such an $a$ is
+unique.)
+
+We often drop the subscript $X$.
+:::
+
+Equivalent parts have the same members: if $i=jk$ and $x=ia$, then
+$x=j(ka)$.
+
+::: {#lem-points-mono}
+\
+Every element $x\colon 1\to X$ is a part of $X$.
+:::
+
+::: {.proof}
+If $xa=xb$ for $a,b\colon T\to 1$, then $a=b$ because $1$ is terminal. So $x$ is
+monic.
+:::
+
+::: {.callout-important}
+## Convention: elements, not generalized elements
+
+L–R define membership for *generalized elements* $x\colon T\to X$ with arbitrary
+domain $T$, and their Definition 2.20 of characteristic function quantifies over
+all of these. For abstract sets it makes no difference whether we use all
+generalized elements or only elements $1\to X$, by @prp-points. In these notes
+we work with elements only.
+:::
+
+::: {#prp-points}
+## Elements suffice; L–R pp. 36–37
+\
+Let $i$ and $j$ be parts of $X$. If every element of $X$ that is a member of $i$
+is also a member of $j$, then $i\subseteq_X j$. Consequently, two parts with
+the same members are equivalent.
+:::
+
+L–R justify this informally by the "arbitrariness of mappings" and promise a
+more explicit argument. One such argument uses the axiom of §2.4 together with
+the separator axiom; see @exr-points.
+
+### Characteristic functions
+
+Fix the set $2$ with its element $\true\colon 1\to 2$.
+
+::: {#def-charfn}
+## L–R Def. 2.20
+\
+A map $\varphi\colon X\to 2$ is a **characteristic function** of a part $i$ of
+$X$ if for every element $x$ of $X$,
+$$
+x\in i \iff \varphi x=\true .
+$$
+:::
+
+::: {.callout-note icon=false}
+## Axiom: Membership representation via truth values (L–R §2.4)
+
+1. Every map $\varphi\colon X\to 2$ is the characteristic function of some part
+   of $X$.
+2. Every part $i$ of $X$ has exactly one characteristic function, denoted
+   $\chi_i$.
+:::
+
+@exr-charfn shows that our definition of characteristic function agrees with
+L–R's version for generalized elements.
+
+::: {#prp-equiv-chi}
+## L–R Prop. 2.22
+\
+Parts $i$ and $j$ of $X$ are equivalent if and only if $\chi_i=\chi_j$.
+:::
+
+::: {.proof}
+If $i\equiv j$, then $i$ and $j$ have the same members, so $\chi_i$ is also a
+characteristic function of $j$. By uniqueness, $\chi_i=\chi_j$. Conversely, if
+$\chi_i=\chi_j$, then for every element $x$,
+$x\in i \iff \chi_i x=\true \iff \chi_j x=\true \iff x\in j$.
+By @prp-points, $i\equiv j$.
+:::
+
+::: {#exm-true}
+## L–R Ex. 2.21
+\
+By @lem-points-mono, $\true\colon 1\mono 2$ is a part of $2$. Its characteristic
+function is $1_2$. Indeed, since the only map $1\to 1$ is $1_1$, an element $y$
+of $2$ is a member of $\true$ exactly when $y=\true$, that is, when
+$1_2\,y=\true$.
+:::
+
+::: {#rem-boolean}
+L–R point out right after the axiom that it is special to $\cS$ and to the
+so-called *Boolean toposes*. In a general topos there is still an object of
+truth values, usually written $\Omega$ with an element $\true\colon 1\to\Omega$,
+satisfying (1) and (2); but $\Omega$ need not have just two elements. L–R §6.2
+gives an example with three truth values.
+:::
+
+## Inverse image of a part {#sec-inverse}
+
+In naive set theory, the preimage of $B\subseteq Y$ under $f\colon X\to Y$ is
+$\{x\in X : f(x)\in B\}$. The categorical version is defined by the same
+membership condition. This operation goes under many names: inverse image,
+preimage, substitution, pullback.
+
+::: {#def-inverse-image}
+## L–R §2.5
+\
+Let $f\colon X\to Y$ and let $j$ be a part of $Y$. A part $i$ of $X$ is an
+**inverse image of $j$ along $f$** if for every element $x$ of $X$,
+$$
+x\in i \iff fx\in j .
+$$
+:::
+
+::: {#prp-inv-unique}
+\
+Any two inverse images of $j$ along $f$ are equivalent.
+:::
+
+::: {.proof}
+They have the same members, so this follows from @prp-points.
+:::
+
+We may therefore speak of *the* inverse image and write it $\inv{f}{j}$, as L–R
+do (Ex. 2.39), keeping in mind that it is determined only up to equivalence.
+
+L–R simply assert at the start of §2.5 that inverse images exist. In fact,
+existence is a consequence of the axiom of §2.4, and the proof yields L–R's
+Theorem 2.33 at the same time.
+
+::: {#thm-inv-exists}
+## Existence of inverse images; L–R Thm. 2.33
+\
+Let $f\colon X\to Y$ and let $j$ be a part of $Y$. The part of $X$ whose
+characteristic function is $\chi_j\circ f$ is an inverse image of $j$ along
+$f$. In particular, inverse images always exist, and
+$$
+\chi_{\inv{f}{j}}=\chi_j\circ f .
+$$
+:::
+
+::: {.proof}
+By part (1) of the axiom, $\chi_j\circ f\colon X\to 2$ is the characteristic
+function of some part $i$ of $X$. For every element $x$ of $X$,
+$$
+x\in i \iff \chi_j(fx)=\true \iff fx\in j ,
+$$
+using the definition of characteristic function first for $i$, then for $j$.
+So $i$ is an inverse image of $j$ along $f$, and its characteristic function is
+$\chi_j\circ f$.
+:::
+
+::: {#rem-comprehension}
+## Comparison with ZFC
+
+Part (1) of the axiom is a *comprehension principle*: for every "predicate"
+$\varphi\colon X\to 2$ there is a part of $X$ consisting of the elements where
+$\varphi$ is true, $\{x\in X: \varphi x=\true\}$. Compare the Comprehension
+(Separation) axiom of $\ZFC$. There is an important difference: $\ZFC$
+separates by *arbitrary formulas*, while here we may separate only by
+predicates that are already given as maps $X\to 2$. Richer forms of
+comprehension become available later, once we have exponentials and
+quantifiers.
+:::
+
+::: {#prp-inv-true}
+## L–R Prop. 2.31
+\
+For any $\psi\colon Y\to 2$, the map $\psi$ is a characteristic function of
+$\inv{\psi}{\true}$. Consequently, $\psi=\chi_j$ if and only if
+$j\equiv\inv{\psi}{\true}$.
+:::
+
+::: {.proof}
+By @exm-true, $y\in\true$ iff $y=\true$. Hence $x\in\inv{\psi}{\true}$ iff
+$\psi x\in\true$ iff $\psi x=\true$, which proves the first claim. If
+$j\equiv\inv{\psi}{\true}$, then $j$ has the same members as
+$\inv{\psi}{\true}$, so $\psi$ is a characteristic function of $j$. Conversely,
+if $\psi=\chi_j$, then $j$ and $\inv{\psi}{\true}$ have the same characteristic
+function, so they are equivalent by @prp-equiv-chi.
+:::
+
+::: {#prp-functoriality}
+## Functoriality of inverse image; L–R Ex. 2.30
+\
+Let $f\colon X\to Y$ and $g\colon Y\to Z$, and let $j,j'$ be parts of $Y$ and
+$k$ a part of $Z$.
+
+(a) $\inv{1_Y}{j}\equiv j$.
+
+(b) $\inv{(g\circ f)}{k}\equiv \inv{f}{\inv{g}{k}}$.
+
+(c) If $j\subseteq j'$, then $\inv{f}{j}\subseteq\inv{f}{j'}$. In particular,
+if $j\equiv j'$, then $\inv{f}{j}\equiv\inv{f}{j'}$.
+:::
+
+::: {.proof}
+Each statement is proved by comparing members and applying @prp-points.
+(a) $x\in\inv{1_Y}{j}$ iff $x\in j$.
+(b) For an element $x$ of $X$,
+$$
+x\in\inv{(gf)}{k} \iff g(fx)\in k \iff fx\in\inv{g}{k} \iff x\in\inv{f}{\inv{g}{k}} .
+$$
+(c) If $j=j'k'$ and $x\in\inv{f}{j}$, then $fx\in j$, so $fx\in j'$, so
+$x\in\inv{f}{j'}$.
+:::
+
+Note the reversal of order in (b): pulling back along $g\circ f$ is pulling back
+along $g$ first, then along $f$. L–R call this the *contravariant
+functoriality* of inverse image. The section on [functors](#sec-functors)
+explains the terminology.
+
+::: {#rem-LR-proof}
+L–R prove @thm-inv-exists differently: by @prp-inv-true and
+@prp-functoriality,
+$$
+\inv{(\chi_j f)}{\true}\equiv\inv{f}{\inv{\chi_j}{\true}}\equiv\inv{f}{j},
+$$
+so $\chi_j f$ is the characteristic function of $\inv{f}{j}$. This argument
+only works once we know that $\inv{f}{j}$ exists, which is why we proved
+existence first. The section on [representability](#sec-representable)
+explains what lies behind L–R's argument.
+:::
+
+The next proposition anticipates the notion of *pullback*, which we study in
+L–R §3.5.
+
+::: {#prp-pullback}
+## L–R Ex. 2.29
+\
+Let $j\colon B\mono Y$ be a part of $Y$, let $f\colon X\to Y$, and let
+$i\colon A\mono X$ be $\inv{f}{j}$.
+
+(a) There is a unique $f'\colon A\to B$ with $jf'=fi$; that is, $f$ restricted
+to $i$ lands in $j$.
+
+(b) If $m$ is any part of $X$ such that $fm=jg$ for some $g$, then
+$m\subseteq i$.
+
+Thus $\inv{f}{j}$ is the *largest* part of $X$ on which $f$ lands in $j$.
+:::
+
+Part (b) follows from @prp-points: if $x=mc$ is a member of $m$, then
+$fx=j(gc)\in j$, so $x\in i$. Part (a) is @exr-pullback.
+
+::: {#def-intersection}
+## L–R Def. 2.36
+\
+A part $m$ of $Y$ is an **intersection** of parts $i$ and $j$ of $Y$, written
+$m=i\cap j$, if for every element $y$ of $Y$, $y\in m$ iff ($y\in i$ and
+$y\in j$).
+:::
+
+::: {#prp-intersection}
+## L–R Ex. 2.35, Rem. 2.37
+\
+Let $i\colon A\mono Y$ and $j$ be parts of $Y$, and let $k=\inv{i}{j}$. Then
+$i\circ k$ is an intersection $i\cap j$.
+:::
+
+::: {.proof}
+A composite of monos is monic, so $ik$ is a part. If $y=i(ka)$, then $y\in i$,
+and $y\in j$ because $ka\in\inv{i}{j}$. Conversely, if $y\in i$ and $y\in j$,
+write $y=ia$; then $ia\in j$, so $a\in\inv{i}{j}$, say $a=kb$, and
+$y=ikb\in ik$.
+:::
+
+## Hom-sets and the category of sets {#sec-hom}
+
+### Two kinds of sets
+
+From now on we must keep two levels apart.
+
+- $\cS$ is the category of *abstract sets* that we are axiomatizing. Its
+  objects are the things we study.
+- $\Set$ is the category of sets of our *metatheory* (for instance, sets in the
+  sense of $\ZFC$), with functions between them. These are the sets we use to
+  *talk about* $\cS$.
+
+In this section the collections we attach to an object of $\cS$ (its elements,
+its parts, its characteristic functions) are objects of $\Set$, not of $\cS$.
+
+::: {#def-hom}
+## Hom-sets
+\
+For objects $X$, $Y$ of a category $\cC$, write $\cC(X,Y)$ for the set of
+morphisms $X\to Y$. (A common alternative notation is
+$\operatorname{Hom}_\cC(X,Y)$.)
+:::
+
+::: {#rem-internal}
+Chapter 5 of L–R constructs, for sets $X$ and $Y$, an object $Y^X$ of $\cS$
+whose elements correspond to maps $X\to Y$: an *internal* version of the
+*external* hom-set $\cS(X,Y)$. Do not confuse the two. In particular, we do not
+write $Y^X$ for the hom-set.
+:::
+
+### Restating what we know
+
+::: {#def-sub}
+\
+For a set $X$, let $\Sub(X)$ be the set of equivalence classes of parts of $X$,
+partially ordered by inclusion.^[By @prp-chi-bij, $\Sub(X)$ is in bijection
+with the hom-set $\cS(X,2)$, so it is an honest set of the metatheory.] L–R say
+"part"; the standard term is *subobject*, hence the notation. We usually write
+$j$ for the equivalence class of $j$.
+:::
+
+In this notation:
+
+- The elements of $X$ form the hom-set $\cS(1,X)$.
+- The separator axiom says: if $f,g\in\cS(X,Y)$ agree on every
+  $x\in\cS(1,X)$, then $f=g$.
+- @prp-points says: the function $\Sub(X)\to\Pow(\cS(1,X))$ sending a part to
+  its set of members is injective.
+- The axiom of §2.4 says the following.
+
+::: {#prp-chi-bij}
+\
+For every set $X$, the assignment $j\mapsto\chi_j$ is a well-defined bijection
+$$
+\chi_X\colon \Sub(X)\longrightarrow\cS(X,2).
+$$
+:::
+
+::: {.proof}
+Part (2) of the axiom gives the assignment on parts, and @prp-equiv-chi
+($\Rightarrow$) shows it is well defined on equivalence classes. It is
+injective by @prp-equiv-chi ($\Leftarrow$) and surjective by part (1) of the
+axiom.
+:::
+
+## Functors {#sec-functors}
+
+### Moving things along a map
+
+Given $f\colon X\to Y$ in $\cS$, how do the collections attached to $X$ relate
+to those attached to $Y$?
+
+| Collection | How $f$ moves it | Direction |
+|:---|:---|:---|
+| Elements | $x\mapsto f\circ x$, $\;\cS(1,X)\to\cS(1,Y)$ | forward |
+| Characteristic functions | $\varphi\mapsto\varphi\circ f$, $\;\cS(Y,2)\to\cS(X,2)$ | backward |
+| Parts | $j\mapsto\inv{f}{j}$, $\;\Sub(Y)\to\Sub(X)$ | backward |
+
+Maps *out of* a fixed object (elements) are pushed forward by composing after
+$f$. Maps *into* a fixed object (characteristic functions) are pulled back by
+composing before $f$.
+
+In each case two laws hold. The identity map moves nothing:
+$$
+1_X\circ x=x,\qquad \varphi\circ 1_X=\varphi,\qquad \inv{1_X}{j}\equiv j.
+$$
+Moving along a composite is moving in two steps, with the order preserved or
+reversed:
+$$
+(g\circ f)\circ x=g\circ(f\circ x),\qquad
+\varphi\circ(g\circ f)=(\varphi\circ g)\circ f,\qquad
+\inv{(g\circ f)}{k}\equiv\inv{f}{\inv{g}{k}} .
+$$
+For elements and characteristic functions these are just the identity and
+associativity laws of a category; for parts, it is @prp-functoriality. A rule
+for moving things along maps that obeys these two laws is called a *functor*.
+
+### Functors and variance
+
+::: {#def-functor}
+## Riehl §1.3
+\
+Let $\cC$ and $\cD$ be categories. A **functor** $F\colon\cC\to\cD$ consists of
+
+- an object $Fc$ of $\cD$ for each object $c$ of $\cC$, and
+- a morphism $Ff\colon Fc\to Fc'$ of $\cD$ for each morphism $f\colon c\to c'$
+  of $\cC$,
+
+such that
+$$
+F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Fg\circ Ff
+$$
+for every object $c$ and every composable pair $f$, $g$.
+:::
+
+::: {#exm-categories}
+$\Set$ is a category, as is $\Pos$, the category of partially ordered sets and
+order-preserving maps. Every category has an identity functor.
+:::
+
+Some of the rules in the table reverse the direction of maps. These are handled
+by reversing the arrows of the domain category.
+
+::: {#def-opposite}
+## Riehl §1.2
+\
+The **opposite category** $\cC^\op$ has the same objects as $\cC$, and a
+morphism $f^\op\colon c'\to c$ in $\cC^\op$ for each morphism $f\colon c\to c'$
+in $\cC$. Composition is defined by $f^\op\circ g^\op=(g\circ f)^\op$, and
+identities are $1_c^\op$.
+:::
+
+@exr-op asks you to check that $\cC^\op$ is a category.
+
+::: {#def-variance}
+## Variance
+\
+A **contravariant functor** from $\cC$ to $\cD$ is a functor
+$F\colon\cC^\op\to\cD$. Unwinding the definitions, it sends each
+$f\colon c\to c'$ to a morphism $Ff\colon Fc'\to Fc$ in the opposite direction,
+with
+$$
+F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Ff\circ Fg .
+$$
+A functor $\cC\to\cD$ is called **covariant** when we want to stress the
+contrast. The **variance** of a functor says whether it preserves or reverses
+the direction of morphisms.
+:::
+
+::: {#prp-hom-functors}
+## Hom-functors
+\
+Let $c$ be an object of a category $\cC$ whose hom-sets are sets.
+
+(a) There is a functor $\cC(c,-)\colon\cC\to\Set$ sending $x$ to $\cC(c,x)$
+and $f\colon x\to y$ to
+$$
+f_*\colon\cC(c,x)\to\cC(c,y),\qquad h\mapsto f\circ h .
+$$
+
+(b) There is a functor $\cC(-,c)\colon\cC^\op\to\Set$ sending $x$ to
+$\cC(x,c)$ and $f\colon x\to y$ to
+$$
+f^*\colon\cC(y,c)\to\cC(x,c),\qquad h\mapsto h\circ f .
+$$
+:::
+
+::: {.proof}
+(a) $(1_x)_*h=1_x\circ h=h$ and
+$(g\circ f)_*h=(g\circ f)\circ h=g\circ(f\circ h)=g_*f_*h$.
+(b) $(1_x)^*h=h$ and
+$(g\circ f)^*h=h\circ(g\circ f)=(h\circ g)\circ f=f^*g^*h$.
+:::
+
+So the functor laws for hom-functors *are* the identity and associativity
+axioms of a category. Two special cases are the first two rows of the table:
+
+- $\cS(1,-)\colon\cS\to\Set$, the **elements** functor (covariant);
+- $\cS(-,2)\colon\cS^\op\to\Set$, the **characteristic functions** functor
+  (contravariant).
+
+The third row is also a functor.
+
+::: {#thm-sub-functor}
+\
+There is a functor $\Sub\colon\cS^\op\to\Set$ sending $X$ to $\Sub(X)$ and
+$f\colon X\to Y$ to
+$$
+\inv{f}{-}\colon\Sub(Y)\to\Sub(X),\qquad j\mapsto\inv{f}{j}.
+$$
+:::
+
+::: {.proof}
+The function $\inv{f}{-}$ is well defined on equivalence classes by
+@prp-functoriality (c). The functor laws are @prp-functoriality (a) and (b).
+:::
+
+::: {#rem-equivalence-classes}
+## Why equivalence classes?
+
+At the level of individual monos, inverse image is not a function: its
+defining membership condition determines $\inv{f}{j}$ only up to equivalence.
+The functor laws also hold only up to equivalence: $\inv{(g\circ f)}{k}$ and
+$\inv{f}{\inv{g}{k}}$ are equivalent parts, not literally the same mono.
+Passing to equivalence classes makes $\inv{f}{-}$ a genuine function and turns
+these equivalences into the equalities the definition of a functor requires.
+:::
+
+::: {#rem-sub-pos}
+By @prp-functoriality (c), each $\inv{f}{-}$ preserves inclusion, so $\Sub$ is
+in fact a functor $\cS^\op\to\Pos$.
+:::
+
+::: {#rem-notation}
+## Notation
+
+Riehl writes $f^*$ for precomposition with $f$. Many authors *also* write $f^*$
+for inverse image along $f$. @thm-chi-natural below shows that the two
+operations correspond under $\chi$, so the clash is harmless. In these notes,
+inverse image is written $\inv{f}{-}$.
+:::
+
+### Faithfulness and the separator axiom
+
+::: {#def-faithful}
+\
+A functor $F\colon\cC\to\cD$ is **faithful** if for all objects $c,c'$, the
+function $\cC(c,c')\to\cD(Fc,Fc')$, $f\mapsto Ff$, is injective.
+:::
+
+::: {#prp-faithful}
+\
+The axiom that $1$ separates mappings holds if and only if the elements functor
+$\cS(1,-)\colon\cS\to\Set$ is faithful.
+:::
+
+::: {.proof}
+For $f,g\colon X\to Y$ we have $f_*=g_*$ as functions $\cS(1,X)\to\cS(1,Y)$
+exactly when $fx=gx$ for every element $x$. Faithfulness says that this forces
+$f=g$, which is the separator axiom.
+:::
+
+A category whose terminal object separates mappings is called
+**well-pointed**. In the categories of variable sets we will meet later
+(L–R §6.2), $\cS(1,-)$ is still a functor but is no longer faithful: distinct
+maps can agree on all elements. This is why L–R use generalized elements
+$T\to X$ in their definitions.
+
+::: {#rem-mixed}
+## Mixed variance
+
+Letting both arguments vary gives a functor of two variables,
+$\cC(-,-)\colon\cC^\op\times\cC\to\Set$, contravariant in the first argument
+and covariant in the second. The exponential $Y^X$ of L–R Chapter 5 behaves the
+same way.
+:::
+
+## Natural transformations {#sec-natural}
+
+We now have two contravariant functors $\Sub$ and $\cS(-,2)$, and for each $X$
+a bijection $\chi_X\colon\Sub(X)\to\cS(X,2)$ between their values. The question
+is whether this comparison respects the way both functors move along maps. Is
+"transport, then compare" the same as "compare, then transport"?
+
+::: {#def-nat}
+## Riehl §1.4
+\
+Let $F,G\colon\cC\to\cD$ be functors. A **natural transformation**
+$\alpha\colon F\Rightarrow G$ consists of a morphism $\alpha_c\colon Fc\to Gc$
+in $\cD$ for each object $c$ of $\cC$ (the **components** of $\alpha$), such
+that for every morphism $f\colon c\to c'$ of $\cC$ the following square
+commutes:
+$$
+\begin{CD}
+Fc @>{\alpha_c}>> Gc \\
+@V{Ff}VV @VV{Gf}V \\
+Fc' @>>{\alpha_{c'}}> Gc'
+\end{CD}
+\qquad\text{that is,}\qquad Gf\circ\alpha_c=\alpha_{c'}\circ Ff .
+$$
+A **natural isomorphism** is a natural transformation all of whose components
+are isomorphisms. We write $F\cong G$.
+:::
+
+For contravariant functors $F,G\colon\cC^\op\to\Set$ and a morphism
+$f\colon x\to y$ of $\cC$, the naturality square reads
+$$
+\begin{CD}
+Fy @>{\alpha_y}>> Gy \\
+@V{Ff}VV @VV{Gf}V \\
+Fx @>>{\alpha_x}> Gx
+\end{CD}
+$$
+Naturality only makes sense for two functors of the *same* variance; otherwise
+there is no square to check.
+
+::: {#exm-postcomp}
+\
+Let $u\colon Z\to Z'$ be a morphism of $\cC$. Postcomposition with $u$ gives,
+for each $x$, a function $u_*\colon\cC(x,Z)\to\cC(x,Z')$. These form a natural
+transformation $u_*\colon\cC(-,Z)\Rightarrow\cC(-,Z')$: for $f\colon x\to y$
+the square
+$$
+\begin{CD}
+\cC(y,Z) @>{u_*}>> \cC(y,Z') \\
+@V{f^*}VV @VV{f^*}V \\
+\cC(x,Z) @>>{u_*}> \cC(x,Z')
+\end{CD}
+$$
+commutes because $u\circ(h\circ f)=(u\circ h)\circ f$. Once again, naturality
+is associativity.
+:::
+
+Now the main case.
+
+::: {#thm-chi-natural}
+\
+The bijections $\chi_X$ form a natural isomorphism
+$$
+\chi\colon\Sub\Longrightarrow\cS(-,2).
+$$
+:::
+
+::: {.proof}
+Each component is a bijection by @prp-chi-bij. Naturality means that for every
+$f\colon X\to Y$ the square
+$$
+\begin{CD}
+\Sub(Y) @>{\chi_Y}>> \cS(Y,2) \\
+@V{\inv{f}{-}}VV @VV{f^*}V \\
+\Sub(X) @>>{\chi_X}> \cS(X,2)
+\end{CD}
+$$
+commutes, that is, $\chi_{\inv{f}{j}}=\chi_j\circ f$ for every part $j$ of $Y$.
+This is @thm-inv-exists.
+:::
+
+In words: *parts of $X$ are the same thing as maps $X\to 2$, compatibly with
+every map $f$.* The axiom of §2.4 supplies the bijections, and L–R's
+Theorem 2.33 says that they are compatible with inverse images.
+
+::: {#rem-natural}
+## What "natural" means
+
+Informally, a natural comparison is one that is defined uniformly in $X$,
+without choosing anything specific to $X$. Bijections that depend on choices,
+such as a chosen listing of the elements of $X$, are typically not natural.
+:::
+
+## Representability and the universal element {#sec-representable}
+
+@thm-chi-natural says that the functor $\Sub$ is isomorphic to a hom-functor.
+This situation has a name.
+
+::: {#def-representable}
+## Riehl §2.1
+\
+A functor $F\colon\cC^\op\to\Set$ is **representable** if there is an object
+$c$ of $\cC$ and a natural isomorphism $\cC(-,c)\cong F$. We then say that $c$
+**represents** $F$.
+:::
+
+So $\Sub$ is represented by $2$. The next lemma shows that a natural
+transformation out of a hom-functor can be built from a single element.
+
+::: {#lem-theta}
+\
+Let $F\colon\cC^\op\to\Set$ be a functor, $c$ an object of $\cC$, and
+$u\in Fc$. Then the functions
+$$
+\theta_x\colon\cC(x,c)\to Fx,\qquad \varphi\mapsto(F\varphi)(u),
+$$
+form a natural transformation $\theta\colon\cC(-,c)\Rightarrow F$.
+:::
+
+::: {.proof}
+For $f\colon x'\to x$ and $\varphi\colon x\to c$, functoriality of $F$ gives
+$$
+\theta_{x'}(f^*\varphi)=F(\varphi\circ f)(u)=(Ff\circ F\varphi)(u)=Ff\big(\theta_x(\varphi)\big),
+$$
+which is the naturality condition.
+:::
+
+::: {#def-universal}
+\
+An element $u\in Fc$ is a **universal element** of $F$ if the natural
+transformation $\theta$ of @lem-theta is a natural isomorphism. Equivalently:
+for every object $x$ and every $a\in Fx$ there is exactly one
+$\varphi\colon x\to c$ with $(F\varphi)(u)=a$.
+:::
+
+::: {#thm-universal}
+\
+The part $\true\colon 1\mono 2$ is a universal element of $\Sub$. Explicitly,
+for every set $X$ and every part $j$ of $X$, there is exactly one
+$\varphi\colon X\to 2$ with $j\equiv\inv{\varphi}{\true}$, and the resulting
+isomorphism $\theta$ is the inverse of $\chi$.
+:::
+
+::: {.proof}
+Here $\theta_X(\varphi)=\inv{\varphi}{\true}$. By @prp-inv-true, this is the
+part whose characteristic function is $\varphi$, so
+$\chi_X(\theta_X(\varphi))=\varphi$. Also by @prp-inv-true,
+$\theta_X(\chi_X(j))=\inv{\chi_j}{\true}\equiv j$. So $\theta_X=\chi_X^{-1}$ is
+a bijection for every $X$.
+:::
+
+Note that the naturality of $\theta$ came for free, from functoriality of
+$\Sub$ alone (@lem-theta). The content of the axiom of §2.4 is that this
+particular $\theta$, built from $\true$, has bijective components. This is the
+idea behind L–R's proof of Theorem 2.33.
+
+::: {#rem-yoneda}
+## Preview: the Yoneda lemma
+
+In the situation of @lem-theta, the identity $1_c\in\cC(c,c)$ is sent to
+$\theta_c(1_c)=(F1_c)(u)=u$. The Yoneda lemma (Riehl §2.2) says that this is
+the general pattern: *every* natural transformation
+$\alpha\colon\cC(-,c)\Rightarrow F$ equals the $\theta$ built from the element
+$u=\alpha_c(1_c)$. In our case, $\chi^{-1}$ is determined by
+$\chi_2^{-1}(1_2)=\true$ (@exm-true). So the entire correspondence between
+parts and characteristic functions is encoded in one piece of data: the part
+$\true$ of $2$.
+:::
+
+::: {#cor-unique-2}
+\
+The truth-value object is unique up to unique isomorphism: if
+$v\colon 1\mono V$ is also a universal element of $\Sub$, there is exactly one
+isomorphism $\psi\colon 2\to V$ with $\psi\circ\true=v$.
+:::
+
+The proof is @exr-unique. It is a special case of a general fact: an object
+representing a functor is unique up to unique isomorphism.
+
+::: {#rem-classifier}
+In topos theory, the axiom "there is an object $\Omega$ with a universal
+element $\true\colon 1\mono\Omega$ of $\Sub$" is called the existence of a
+**subobject classifier**. Its usual formulation uses pullbacks, which we
+introduce in L–R §3.5; @prp-pullback is a preview.
+:::
+
+## Dictionary {#sec-dictionary}
+
+| L–R | Categorical formulation |
+|:---|:---|
+| Elements $x\colon 1\to X$ | $x\in\cS(1,X)$; elements functor $\cS(1,-)\colon\cS\to\Set$ |
+| $1$ separates mappings (§1.5) | $\cS(1,-)$ is faithful ($\cS$ is well-pointed) |
+| Parts up to equivalence | $\Sub(X)$, the poset of subobjects |
+| Elements suffice (pp. 36–37) | $\Sub(X)\to\Pow(\cS(1,X))$ is injective |
+| Characteristic functions $X\to 2$ | $\cS(-,2)\colon\cS^\op\to\Set$ |
+| Axiom of §2.4, with Prop. 2.22 | $\chi_X\colon\Sub(X)\to\cS(X,2)$ is a bijection |
+| Inverse image $\inv{f}{j}$ | $\Sub(f)$ |
+| Contravariant functoriality (Ex. 2.30) | $\Sub\colon\cS^\op\to\Set$ is a functor |
+| Theorem 2.33: $\chi_{\inv{f}{j}}=\chi_j\circ f$ | naturality of $\chi\colon\Sub\Rightarrow\cS(-,2)$ |
+| Prop. 2.31: $j\equiv\inv{\chi_j}{\true}$ | $\true$ is a universal element; $2$ represents $\Sub$ |
+
+## Exercises {#sec-exercises}
+
+::: {#exr-op}
+\
+Verify that $\cC^\op$ satisfies the axioms of a category.
+:::
+
+::: {#exr-points}
+\
+Prove @prp-points, using L–R's Definition 2.20, which quantifies over
+generalized elements $T\to X$, and the axiom that $1$ separates mappings.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Let $i\colon A\mono X$. Compare $\chi_j\circ i$ with $\true_A=\true\circ !_A$
+on elements of $A$, then apply Definition 2.20 to the generalized element $i$.
+:::
+
+::: {#exr-charfn}
+\
+Using @prp-points, show that $\varphi\colon X\to 2$ is a characteristic
+function of a part $i$ in our sense (testing elements only) if and only if it
+is one in the sense of L–R's Definition 2.20 (testing all generalized
+elements).
+:::
+
+::: {#exr-pullback}
+\
+Prove @prp-pullback (a).
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Use the separator axiom to show $\chi_j\circ f\circ i=\true_A$, then use
+@exr-charfn.
+:::
+
+::: {#exr-intersections}
+\
+For $f\colon X\to Y$, show that $\inv{f}{1_Y}\equiv 1_X$ and that
+$\inv{f}{j_1\cap j_2}\equiv\inv{f}{j_1}\cap\inv{f}{j_2}$ (L–R Ex. 2.39).
+:::
+
+::: {#exr-nat-inverse}
+\
+Show that the inverses of the components of a natural isomorphism form a
+natural transformation.
+:::
+
+::: {#exr-iso}
+\
+Show that every functor sends isomorphisms to isomorphisms. Conclude that if
+$X\cong Y$ in $\cS$, then $\Sub(X)\cong\Sub(Y)$ in $\Set$.
+:::
+
+::: {#exr-unique}
+\
+Prove @cor-unique-2.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Let $\varphi\colon V\to 2$ satisfy $v\equiv\inv{\varphi}{\true}$, and
+$\psi\colon 2\to V$ satisfy $\true\equiv\inv{\psi}{v}$. Use
+@prp-functoriality and the uniqueness in @thm-universal to show
+$\varphi\psi=1_2$, and similarly $\psi\varphi=1_V$.
+:::
+
+::: {#exr-variance}
+\
+By @lem-points-mono, $x\mapsto x$ sends $\cS(1,X)$ to parts of $X$. Explain
+why it makes no sense to ask whether this is a natural transformation
+$\cS(1,-)\Rightarrow\Sub$.
+:::
+
+::: {#exr-four-maps}
+\
+Granting that $2$ has exactly two elements, $\true$ and $\mathrm{false}$, there
+are exactly four maps $u\colon 2\to 2$. By @exm-postcomp, each gives a natural
+transformation $u_*\colon\cS(-,2)\Rightarrow\cS(-,2)$. Using $\chi$, describe
+what each one does to parts. (The Yoneda lemma will show that these are *all*
+the natural transformations $\cS(-,2)\Rightarrow\cS(-,2)$.)
+:::
+
+::: {#exr-products}
+\
+Show that the elements functor preserves products in the following sense: if
+$X\xleftarrow{p}P\xrightarrow{q}Y$ is a product diagram in $\cS$ (L–R §3.3),
+then $x\mapsto(px,qx)$ is a bijection $\cS(1,P)\to\cS(1,X)\times\cS(1,Y)$.
+:::

@@ -1,0 +1,492 @@
+---
+title: "A Gallery of Toposes"
+subtitle: "Which properties of $\\mathcal{S}$ survive? Slices, $G$-sets, presheaves, sheaves, and toposes from logic"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+$$
+\newcommand{\Sets}{\mathcal{S}}
+\newcommand{\FinSet}{\mathbf{FinSet}}
+\newcommand{\Psh}[1]{\Sets^{#1^{op}}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\Sub}{\operatorname{Sub}}
+\newcommand{\NatT}{\operatorname{Nat}}
+\newcommand{\yon}{\mathbf{y}}
+\newcommand{\true}{\mathrm{true}}
+\newcommand{\Eff}{\mathbf{Eff}}
+$$
+:::
+
+::: {.box}
+Last time we arrived at the definition of an **elementary topos**: a category with finite limits,
+exponentials, and a subobject classifier $\true : 1 \to \Omega$. The category $\Sets$ of abstract sets
+is one example. Today we look at many others. The guiding question is:
+
+> Which of the *extra* properties of $\Sets$ survive in a given topos?
+
+The answer shows that the topos axioms capture a very general notion of "set" — sets that vary,
+move, carry symmetry, or are only locally defined — and that the classical features of $\Sets$
+are genuinely additional axioms.
+:::
+
+::: {.callout-tip collapse="true"}
+## Lecture plan (60 min)
+
+| Time | Section |
+|---|---|
+| 0–5 | The four (five) extra properties of $\Sets$; two theorems that link them |
+| 5–12 | The easy ones: $\FinSet$, the trivial topos, $\Sets/X$ |
+| 12–18 | $G$-sets: Boolean without choice |
+| 18–35 | Presheaf toposes; the recipe for $\Omega$; the Sierpiński topos in detail |
+| 35–45 | Sheaves on a space: truth values are open sets |
+| 45–53 | Toposes from logic: forcing and realizability (survey) |
+| 53–57 | Non-examples |
+| 57–60 | Summary table |
+
+If time runs short, compress the logic section to two minutes and skip the non-examples
+(posets and vector spaces were covered last time). **Do not cut the Sierpiński computation**:
+the one skill to take away is computing $\Omega$ and watching excluded middle fail.
+:::
+
+## What is special about $\Sets$ [≈ 5 min]
+
+Recall the properties of $\Sets$ that go beyond the topos axioms. For a topos $\mathcal{E}$:
+
+::: {.axioms}
+
+Well-pointed
+:   $0 \not\cong 1$, and $1$ separates maps: if $f \neq g : A \to B$, there is $a : 1 \to A$ with $fa \neq ga$.
+
+Boolean
+:   Every part has a complement; equivalently $[\true, \mathrm{false}] : 1 + 1 \to \Omega$ is an isomorphism.
+
+Two-valued
+:   $\Omega$ has exactly two elements $1 \to \Omega$ (equivalently, $1$ has exactly two parts, $0$ and $1$).
+
+Natural numbers object
+:   An object $\N$ with $0 : 1 \to \N$, $s : \N \to \N$ such that for every $x_0 : 1 \to X$, $f : X \to X$ there is a unique $h : \N \to X$ with $h0 = x_0$ and $hs = fh$.
+
+Choice
+:   Every epimorphism has a section.
+:::
+
+"Two-valued" was not on our list last time. It is weaker than Boolean, and the examples
+below show that the two notions really differ.
+
+In any topos, the parts of an object $X$ form a lattice $\Sub(X)$ (intersections are pullbacks,
+unions are images of sums). Each part $A$ has a **pseudo-complement** $\neg A$, the largest part
+disjoint from $A$, and $\Sub(X)$ is a **Heyting algebra**. Booleanness says $A \vee \neg A = X$
+for all parts $A$, i.e. the internal logic satisfies excluded middle.
+
+Two classical theorems connect the properties. We state them without proof (see Goldblatt,
+*Topoi*, or Mac Lane–Moerdijk).
+
+::: {#thm-classicality}
+## Two roads to classical logic
+\
+Let $\mathcal{E}$ be a topos.
+
+1. If $\mathcal{E}$ is well-pointed, then $\mathcal{E}$ is Boolean (and two-valued).
+2. (Diaconescu) If every epimorphism in $\mathcal{E}$ splits, then $\mathcal{E}$ is Boolean.
+:::
+
+::: {.box}
+**Booleanness is the hinge.** A topos that fails excluded middle fails *both* well-pointedness
+and choice. In $\Sets$, the classicality of logic is not a separate assumption; it is forced by
+choice alone, and also by well-pointedness alone.
+:::
+
+Part 2 is the categorical form of a fact you may know from set theory: over a constructive
+base theory, $\AC$ implies the law of excluded middle.
+
+## The easy ones [≈ 7 min]
+
+### Finite sets
+
+$\FinSet$, the full subcategory of finite sets, is a topos: finite limits of finite sets are
+finite, $Y^B$ is finite, and $\Omega = 2$. It is well-pointed, Boolean, and satisfies choice
+(without any appeal to $\AC$: a surjection between finite sets has a section by induction).
+
+But it has **no natural numbers object** (@exr-finset). The axiom of infinity is not part of
+being a topos.
+
+### The trivial topos
+
+The category $\mathbf{1}$ with one object and one arrow is a topos: its single object is
+terminal, initial, $\Omega$, and every exponential. Here $0 \cong 1$. Every statement is
+"true" — which is why nondegeneracy $0 \not\cong 1$ appears in the definition of
+well-pointedness.
+
+### Slices: sets over $X$
+
+We met $\Sets/X$ last time: an object is a map $\alpha : A \to X$, i.e. an $X$-indexed family
+of sets $A_x = \alpha^{-1}(x)$, and everything is computed **fiberwise**:
+$$
+(A \times_X B)_x = A_x \times B_x, \qquad (Y^B)_x = Y_x^{B_x}, \qquad \Omega = (X \times 2 \to X), \quad \Omega_x = 2 .
+$$
+
+- **Terminal object:** $1_X : X \to X$, one point in every fiber.
+- **Elements** $1 \to A$ are *sections* of $\alpha$: a choice of one point in every fiber.
+- **Not well-pointed** (for $|X| \ge 2$): if one fiber of $A$ is empty, $A$ has no elements at all, yet
+  if another fiber has two points, $A$ has a non-identity automorphism (swap them).
+- **Not two-valued:** truth values $1 \to \Omega$ are maps $X \to 2$; there are $2^{|X|}$ of them.
+- **Boolean, with choice, and with a natural numbers object** $X \times \N \to X$: all fiberwise.
+
+So: Boolean, but not well-pointed. "True" is now *true at some indices and false at others*.
+
+::: {#thm-fundamental}
+## Fundamental theorem of topos theory
+\
+If $\mathcal{E}$ is a topos and $X$ an object of $\mathcal{E}$, then $\mathcal{E}/X$ is a topos.
+:::
+
+::: {.callout-tip collapse="true"}
+## Looking ahead: dependent types
+
+An object of $\mathcal{E}/X$ is a "type depending on $x : X$." Pulling back along $f : X' \to X$
+is substitution, and it has a left adjoint $\Sigma_f$ and a right adjoint $\Pi_f$, which are exactly
+the dependent sum and dependent product of Martin-Löf type theory. This is the
+interpretation of type theory in locally cartesian closed categories that we return to in Week 14.
+:::
+
+## $G$-sets: Boolean without choice [≈ 6 min]
+
+Let $G$ be a group. An object of $\Sets^G$ is a set with a $G$-action, a map is an equivariant
+map. Limits are computed on underlying sets with the induced action; the exponential $Y^X$ is
+the set of *all* maps with $(g\cdot f)(x) = g\, f(g^{-1}x)$ (last time).
+
+- **Subobject classifier.** A part is a $G$-invariant subset. Since $G$ is a group, the
+  complement of an invariant subset is invariant. So $\Omega = 2$ with the trivial action, and
+  $\Sets^G$ is **Boolean** and **two-valued**.
+- **Not well-pointed.** Elements $1 \to X$ are **fixed points**. If $G \neq 1$, the action of $G$ on
+  itself by translation has no fixed points but many automorphisms.
+- **Choice fails.** The unique map $G \to 1$ is surjective, hence an epimorphism. A section
+  $1 \to G$ would be a fixed point. There is none.
+
+So Diaconescu's theorem has no converse: **Boolean does not imply choice.**
+
+::: {.callout-tip}
+## Connection to Week 5
+
+The first independence proofs for $\AC$ (Fraenkel, Mostowski) used **permutation models**:
+a universe of sets built over atoms, keeping only the sets that are fixed by "enough"
+permutations of the atoms. These models can be presented as toposes of $G$-sets for a
+group $G$ of permutations of the atoms (with a topology on $G$, and only actions with open
+stabilizers). What we just saw — no fixed point, hence no section — is the simplest
+instance of why choice fails there.
+:::
+
+## Presheaf toposes [≈ 17 min]
+
+$\Sets/X$ and $\Sets^G$ are both special cases of one construction.
+
+::: {.callout-note icon=false}
+## Definition: presheaves
+
+Let $C$ be a small category. A **presheaf** on $C$ is a functor $P : C^{op} \to \Sets$; for
+$x \in P(c)$ and $f : d \to c$ we write $x \cdot f := P(f)(x) \in P(d)$ ("restriction of $x$ along $f$").
+Maps of presheaves are natural transformations. The category of presheaves is written $\Psh{C}$.
+
+For each object $c$, the **representable** presheaf is $\yon c := C(-, c)$.
+:::
+
+Limits of presheaves are computed **pointwise**: $(P \times Q)(c) = P(c) \times Q(c)$, and so on.
+A map of presheaves is mono iff each component is injective, and epi iff each component is
+surjective. So a **part** of $P$ is a family of subsets $A(c) \subseteq P(c)$ closed under restriction.
+
+### Guessing $\Omega$: let the axioms tell you
+
+How could we find $\Omega$? Suppose it exists. We need one fact about representables.
+
+::: {#lem-yoneda-preview}
+## Maps out of a representable
+\
+For every presheaf $P$ and object $c$, the map $\NatT(\yon c, P) \to P(c)$, $\alpha \mapsto \alpha_c(1_c)$,
+is a bijection.
+:::
+
+::: {.proof collapse="true"}
+Given $\alpha$ and $f : d \to c$, naturality of $\alpha$ applied to $f$ and the element $1_c \in \yon c(c)$ gives
+$$
+\alpha_d(f) = \alpha_d(1_c \circ f) = \alpha_c(1_c)\cdot f .
+$$
+So $\alpha$ is determined by $x := \alpha_c(1_c)$. Conversely, for any $x \in P(c)$, the formula
+$\alpha_d(f) := x \cdot f$ defines a natural transformation (check naturality using that $P$ is a functor).
+This is the bootstrap trick from last time — everything is determined by where the identity
+goes — and it is a special case of the **Yoneda lemma**, which we will meet properly soon.
+:::
+
+Now combine the lemma with the subobject classifier axiom:
+$$
+\Omega(c) \;\cong\; \NatT(\yon c, \Omega) \;\cong\; \Sub(\yon c).
+$$
+So **$\Omega(c)$ must be the set of parts of $\yon c$.** A part of $\yon c$ is a set $S$ of arrows
+with codomain $c$ that is closed under precomposition: if $f \in S$ then $f \circ g \in S$. Such a set is
+called a **sieve on $c$**. Exactly the same reasoning determines the exponential:
+$(Y^X)(c) \cong \NatT(\yon c, Y^X) \cong \NatT(\yon c \times X, Y)$.
+
+::: {#thm-presheaf-topos}
+## Presheaf toposes
+\
+For every small category $C$, $\Psh{C}$ is a topos, with
+
+- $\Omega(c) = \{ S : S \text{ a sieve on } c\}$, and for $f : d \to c$, $S \cdot f = \{ g : f \circ g \in S\}$;
+- $\true_c = $ the maximal sieve (all arrows into $c$);
+- for a part $A \subseteq X$, the characteristic map
+  $$
+  \chi_c(x) = \{\, f : d \to c \;:\; x \cdot f \in A(d) \,\};
+  $$
+- $(Y^X)(c) = \NatT(\yon c \times X, Y)$;
+- natural numbers object: the constant presheaf with value $\N$.
+:::
+
+The characteristic map has a nice reading: $\chi(x)$ records **all the ways in which $x$ eventually
+ends up in $A$.** In $\Sets$ there is only one "way" ($1_c$), so $\chi(x)$ is just yes or no.
+
+::: {.callout-note icon=false}
+## Fact: when is a presheaf topos Boolean?
+
+$\Psh{C}$ is Boolean if and only if $C$ is a **groupoid** (every arrow invertible).
+:::
+
+### The recipe in action
+
+| index category $C$ | presheaves $\Psh{C}$ | $\Omega$ |
+|---|---|---|
+| one object, only the identity | $\Sets$ | $2$ |
+| a set $X$, only identities | families $(A_x)_{x\in X}$, i.e. $\Sets/X$ | $2$ in each fiber |
+| a group $G$, one object | $G$-sets | $2$, trivial action |
+| a monoid $M$, one object | (right) $M$-sets | right ideals of $M$ |
+| the monoid $(\N,+)$ | sets with an endomap | $\N\cup\{\infty\}$, $n \mapsto n-1$, $0 \mapsto 0$ |
+| $V \rightrightarrows E$ (arrows $s, t$) | directed graphs | 2 vertices, 5 edges |
+| the simplex category $\Delta$ | simplicial sets | (the Week 14 model of HoTT) |
+
+A few checks:
+
+- For a monoid $M$ (one object, arrows $= M$, composition $=$ multiplication), a sieve is a subset
+  $S \subseteq M$ with $S \cdot M \subseteq S$: a **right ideal**. (For left actions, as last time, one gets left
+  ideals.) For a group, the only right ideals are $\varnothing$ and $G$, recovering $\Omega = 2$.
+- For $(\N, +)$ the ideals are $\varnothing$ and $k + \N$ for $k \in \N$. Write $\infty$ for $\varnothing$ and $k$ for
+  $k + \N$. Acting by $1$ sends $k + \N$ to $\{n : 1 + n \in k + \N\} = (k-1)+\N$ (or $\N$ if $k = 0$).
+  This is the $\Omega$ for sets with an endomap: $\chi(x)$ is the **time it takes $x$ to enter $A$**.
+- For graphs, a presheaf $X$ has a set of vertices $X(V)$, a set of edges $X(E)$, and source and target
+  maps $X(E) \to X(V)$. Arrows into $V$: only $1_V$, so there are two sieves on $V$. Arrows into $E$:
+  $1_E, s, t$, giving five sieves: $\{1_E, s, t\}, \{s,t\}, \{s\}, \{t\}, \varnothing$. Read: the edge is in the subgraph; it is not,
+  but both endpoints are; only the source is; only the target is; neither endpoint is.
+
+### The Sierpiński topos, by hand
+
+The smallest non-Boolean example deserves a complete computation. Let $C$ be the category
+with two objects $0, 1$ and a single non-identity arrow $u : 1 \to 0$. A presheaf on $C$ is just a map
+$$
+X_0 \xrightarrow{\ \xi\ } X_1 ,
+$$
+and a morphism is a commuting square. Think of $X_0$ as "what exists **now**," $X_1$ as "what
+exists **later**," and $\xi$ as "how things develop." A **part** of $X$ is a pair $A_0 \subseteq X_0$,
+$A_1 \subseteq X_1$ with $\xi(A_0) \subseteq A_1$: once in $A$, always in $A$.
+
+**Truth values.** Arrows into $1$: only $1_1$, so $\Omega_1 = \{\top, \bot\}$. Arrows into $0$: $1_0$ and $u$,
+and the sieves are $\{1_0, u\}$, $\{u\}$, $\varnothing$. So
+$$
+\Omega_0 = \{\top, \tfrac12, \bot\} \xrightarrow{\quad} \Omega_1 = \{\top, \bot\}, \qquad \top \mapsto \top,\ \ \tfrac12 \mapsto \top,\ \ \bot \mapsto \bot .
+$$
+For a part $A \subseteq X$ and $a \in X_0$,
+$$
+\chi_0(a) =
+\begin{cases}
+\top & a \in A_0 \quad (\text{true now}),\\
+\tfrac12 & a \notin A_0 \text{ but } \xi(a) \in A_1 \quad (\text{not yet, but later}),\\
+\bot & \xi(a) \notin A_1 \quad (\text{never}).
+\end{cases}
+$$
+You can verify directly that this classifies parts (@exr-sierpinski).
+
+**Excluded middle fails.** Take $X = 1 = (1 \to 1)$ and the part $A = (\varnothing, 1)$: the proposition
+"it is not true now, but it will be." The pseudo-complement $\neg A$ must be disjoint from $A$, so
+$(\neg A)_1 = \varnothing$, hence $(\neg A)_0 = \varnothing$ as well. Therefore
+$$
+\neg A = 0, \qquad A \vee \neg A = A \neq 1, \qquad \neg\neg A = 1 \neq A .
+$$
+$A$ is **not false** (it is not refuted), and yet **not true**. Its characteristic map is the
+truth value $(\tfrac12, \top) : 1 \to \Omega$.
+
+The rest of the profile:
+
+- **Three global truth values** $(\top,\top), (\tfrac12, \top), (\bot, \bot)$: not two-valued.
+- **Not well-pointed.** An element $1 \to X$ is just an $a \in X_0$. The object $\varnothing \to 2$ has no
+  elements, but two different automorphisms.
+- **Choice fails**, by Diaconescu — or directly (@exr-sierpinski).
+
+::: {.callout-tip collapse="true"}
+## Kripke models
+
+This is exactly the semantics of intuitionistic logic by **Kripke models** with two worlds.
+Functors $P \to \Sets$ on a poset $P$ (i.e. presheaves on $P^{op}$) are Kripke models over $P$: a statement is "true at stage $p$" if it
+holds at $p$ and at all later stages, and $\neg\varphi$ is true at $p$ if $\varphi$ fails at every later stage.
+Presheaves on $(\N,\le)^{op}$ are "sets through discrete time."
+:::
+
+## Sheaves on a space [≈ 10 min]
+
+Let $X$ be a topological space and $\O(X)$ its poset of open sets, viewed as a category
+($V \to U$ iff $V \subseteq U$). A presheaf on $\O(X)$ assigns to each open $U$ a set $F(U)$ ("sections
+over $U$") with restriction maps $s \mapsto s|_V$ for $V \subseteq U$. Example: $F(U) = C(U, \R)$.
+
+::: {.callout-note icon=false}
+## Definition: sheaf
+
+A presheaf $F$ on $\O(X)$ is a **sheaf** if whenever $U = \bigcup_i U_i$ and $s_i \in F(U_i)$ agree on overlaps
+($s_i|_{U_i\cap U_j} = s_j|_{U_i \cap U_j}$), there is a **unique** $s \in F(U)$ with $s|_{U_i} = s_i$ for all $i$.
+:::
+
+Continuous functions form a sheaf ("continuity is local"); bounded functions do not. The
+category $\Sh(X)$ of sheaves is a topos, with
+$$
+\Omega(U) = \{ V : V \subseteq U \text{ open}\}, \qquad V|_W = V \cap W, \qquad \true_U = U,
+$$
+and for a subsheaf $A \subseteq F$ and $s \in F(U)$,
+$$
+\chi_U(s) = \bigcup\{ W \subseteq U \text{ open} : s|_W \in A(W) \} :
+$$
+**the truth value of "$s \in A$" is the largest open set on which it holds.**
+
+Global truth values are the open sets of $X$, and the logic of truth values is the Heyting
+algebra $\O(X)$:
+$$
+U \wedge V = U \cap V, \qquad U \vee V = U \cup V, \qquad \neg U = \operatorname{int}(X \setminus U).
+$$
+In $\R$, with $U = (0, \infty)$: $\neg U = (-\infty, 0)$, so $U \vee \neg U = \R \setminus\{0\} \neq \R$.
+
+### The real numbers in $\Sh(\R)$
+
+$\Sh(X)$ has a real numbers object (constructed by Dedekind cuts internally), and it turns out
+to be the sheaf of continuous real-valued functions, $U \mapsto C(U, \R)$. So an "internal real
+number" over $\R$ is a continuous function, e.g. the identity $x : \R \to \R$. Compute truth values:
+$$
+[\![x < 0]\!] = (-\infty, 0), \qquad [\![x = 0]\!] = \operatorname{int}\{0\} = \varnothing, \qquad [\![x > 0]\!] = (0, \infty).
+$$
+Hence
+$$
+[\![\,x < 0 \;\vee\; x = 0 \;\vee\; x > 0\,]\!] = \R \setminus \{0\} \neq \R .
+$$
+**Trichotomy fails for the internal reals.** This is not a pathology but a feature: it
+is the internal reflection of the fact that a continuous function cannot be split, continuously,
+into "negative," "zero," and "positive" cases. Constructive analysis is the mathematics that
+is valid in all such toposes.
+
+::: {.box}
+**Grothendieck toposes.** Replacing $\O(X)$ by a category with a suitable notion of "covering"
+(a *site*) gives the **Grothendieck toposes**, the setting of modern algebraic geometry.
+$\Sets$, $\Sets/X$, $G$-sets, all presheaf toposes and all $\Sh(X)$ are Grothendieck toposes.
+In fact the Sierpiński topos is $\Sh$ of the Sierpiński space (@exr-sierpinski-space), and $\Sets/X$ is
+$\Sh$ of the discrete space $X$.
+:::
+
+## Toposes from logic [≈ 8 min]
+
+The last two examples are only surveyed: their constructions take more than a lecture each.
+
+### Forcing as sheaves
+
+Cohen's proof that $\CH$ is independent of $\ZFC$ (Week 5) can be redone in topos theory
+(Tierney; Mac Lane–Moerdijk, Ch. VI). Take the poset $P$ of Cohen's forcing conditions and
+form the topos $\Sh_{\neg\neg}(P)$ of sheaves for the "dense" covering relation. This **Cohen topos**
+is Boolean, has a natural numbers object, and internally there is an object strictly between
+$\N$ and $\Omega^{\N}$ in size: $\CH$ fails. Similarly, Boolean-valued models $V^{\mathbb{B}}$ correspond to
+sheaves on a complete Boolean algebra $\mathbb{B}$. Forcing is "sets varying over conditions."
+
+### Realizability: the effective topos
+
+Hyland's **effective topos** $\Eff$ is built from Kleene's realizability: a statement is true when
+some program (an index of a computable function) "realizes" it. In $\Eff$:
+
+- the natural numbers object is the ordinary $\N$, but **every function $\N \to \N$ is computable**
+  (internally, "Church's thesis" holds);
+- it is two-valued but **not Boolean**: excluded middle would require deciding the halting problem;
+- it is **not** a Grothendieck topos: it does not arise from sheaves on any site.
+
+Realizability is the ancestor of the "proofs as programs" reading of logic we meet in
+Week 10: a proof of $\forall n\, \exists m\, \varphi(n,m)$ in $\Eff$ comes with an algorithm computing $m$ from $n$.
+
+## Non-examples [≈ 4 min]
+
+Topos theory gives quick tests for showing a category is *not* a topos. In a topos, every
+map that is both mono and epi is an isomorphism, the initial object is strict, and $- \times B$
+preserves colimits (it is a left adjoint).
+
+- $\mathbf{Pos}$: cartesian closed, but the identity map from the 2-element discrete poset to the
+  2-element chain is mono and epi without being an iso.
+- $\mathbf{Top}$: not even cartesian closed. Not every $- \times B$ preserves quotients
+  (e.g. $B = \Q$).
+- $\mathbf{Grp}$: no subobject classifier. If $\true : 1 \to \Omega$ existed, every subgroup would be the
+  pullback of $\true$ along a homomorphism, i.e. a kernel, hence normal. But $S_3$ has non-normal subgroups.
+- $\Sets^{op}$: has finite limits and colimits, but its initial object (the set $1$) is not strict.
+
+## Summary [≈ 3 min]
+
+| | well-pointed | Boolean | two-valued | NNO | choice |
+|---|:-:|:-:|:-:|:-:|:-:|
+| $\Sets$ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| $\FinSet$ | ✓ | ✓ | ✓ | ✗ | ✓ |
+| $\Sets/X$, $\lvert X\rvert \ge 2$ | ✗ | ✓ | ✗ | ✓ | ✓ |
+| $G$-sets, $G \neq 1$ | ✗ | ✓ | ✓ | ✓ | ✗ |
+| sets with an endomap | ✗ | ✗ | ✓ | ✓ | ✗ |
+| directed graphs | ✗ | ✗ | ✗ | ✓ | ✗ |
+| Sierpiński topos | ✗ | ✗ | ✗ | ✓ | ✗ |
+| $\Sh(\R)$ | ✗ | ✗ | ✗ | ✓ | ✗ |
+| $\Eff$ | ✗ | ✗ | ✓ | ✓ | ✗ |
+
+::: {.box}
+**Reading the table.**
+
+- Every ✗ in the "Boolean" column forces ✗ under "well-pointed" and "choice" (@thm-classicality).
+- "Two-valued" and "Boolean" are independent of each other: compare $\Sets/X$ with the endomaps.
+- Only $\Sets$ has a ✓ in every column. Lawvere's ETCS says precisely: **a well-pointed topos with a
+  natural numbers object and choice.** Each of these axioms does real work.
+:::
+
+## Homework
+
+::: {#exr-finset}
+Show that $\FinSet$ has no natural numbers object. (*Hint:* if $(N, 0, s)$ were one with $|N| = n$,
+use the cyclic set $\Z/(n+1)$ with $f(k) = k+1$ and the pigeonhole principle on $0, s0, \dots, s^n 0$.)
+:::
+
+::: {#exr-sierpinski}
+The Sierpiński topos.
+
+(a) Verify directly that $\Omega = (\Omega_0 \to \Omega_1)$ with $\true = (\top, \top)$ classifies parts: the formula for $\chi_0$
+gives a morphism of presheaves, the pullback of $\true$ along it is $A$, and it is the only such morphism.
+
+(b) Let $E = (2 \xrightarrow{\,1\,} 2)$ and $B = (2 \to 1)$. Show that $(1_2, !) : E \to B$ is an epimorphism with no section.
+
+(c) Compute $\neg\neg A$ for every part $A$ of the object $(2 \to 1)$, where both points of $X_0$ map to the single point of $X_1$. Which parts satisfy $\neg\neg A = A$?
+:::
+
+::: {#exr-sierpinski-space}
+The **Sierpiński space** has points $\{a, b\}$ and open sets $\varnothing, \{b\}, \{a, b\}$.
+Show that a sheaf on it amounts to a map $F(\{a,b\}) \to F(\{b\})$, so that its sheaf topos is the
+Sierpiński topos. Compare with the two-point *discrete* space: which properties in the summary
+table change?
+:::
+
+::: {#exr-}
+Directed graphs. Using @thm-presheaf-topos, draw $\Omega$ for graphs: its two vertices, its five
+edges, and their sources and targets. How many elements $1 \to \Omega$ are there (the terminal graph
+is one vertex with one loop)? Find a subgraph without a complement.
+:::
+
+::: {#exr-}
+In $\Sh(\R)$, compute $\neg\neg U$ for an open set $U \subseteq \R$. Find $U$ with $\neg\neg U \neq U$.
+:::
+
+::: {#exr-}
+*(Optional.)* Let $M$ be a monoid. Show that the topos of right $M$-sets is Boolean iff $M$ is a group.
+(*Hint:* if $m$ has no right inverse, consider the part $mM$ of the representable $M$, and show that
+$1$ lies neither in $mM$ nor in $\neg(mM)$.)
+:::

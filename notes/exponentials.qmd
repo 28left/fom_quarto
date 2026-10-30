@@ -1,0 +1,529 @@
+---
+title: "Mapping Sets and Exponentials"
+subtitle: "The last topos axiom — exponentiation as a natural bijection, functoriality, the exponential laws, and the definition of an elementary topos"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+:::
+
+::: {.box}
+Reading: Lawvere–Rosebrugh, *Sets for Mathematics*, Chapter 5 (pp. 96–110).
+So far we have required of the category $\Sets$ of abstract sets and mappings:
+a terminal object, finite limits (products, equalizers, pullbacks), and a truth-value
+object $2$ that classifies parts. One axiom is missing before we can say what a
+**topos** is: the existence of *mapping sets* $Y^B$. Today we add it, and we will see
+that the tools from last time — functors and natural transformations — are exactly
+the language in which this axiom is most naturally stated.
+:::
+
+<!-- ::: {.callout-tip collapse="true"}
+## Lecture plan (60 min)
+
+| Time | Section |
+|---|---|
+| 0–5 | Where we are |
+| 5–13 | The two-level pattern, illustrated by products |
+| 13–25 | The exponentiation axiom; names and evaluation; the moving cloud |
+| 25–37 | Functoriality and naturality; the adjunction $-\times B \dashv (-)^B$ |
+| 37–42 | Power objects: $2^B$ |
+| 42–52 | The representability lemma and the exponential laws (incl. distributivity) |
+| 52–60 | Elementary toposes; examples and non-examples; homework |
+
+If time runs short, the moving-cloud example and the internalized composition map
+can be compressed; the representability lemma and the topos definition should not be.
+::: -->
+
+## Where we are
+
+The axioms on $\Sets$ so far (L–R, Ch. 1–3):
+
+::: {.axioms}
+
+$\Sets$ is a category
+:   Associative composition, identities.
+
+Terminal set $1$; initial set $0$; $1$ separates mappings
+:   Elements of $A$ are maps $1 \to A$, and maps are determined by their values on elements.
+
+Binary sums
+:   $A + B$ with injections, universal among pairs $A \to Y$, $B \to Y$.
+
+Finite inverse limits
+:   Products and equalizers (hence pullbacks and all finite limits).
+
+Membership via truth values
+:   Every part of $A$ has a unique characteristic map $A \to 2$, and every $A \to 2$ is one.
+:::
+
+Every one of these axioms has the same shape: an object is introduced together with a
+**bijection between two kinds of maps**. For products, maps *into* $Y_0 \times Y_1$
+correspond to pairs of maps; for sums, maps *out of* $A + B$ correspond to pairs of
+maps; for $2$, maps into $2$ correspond to parts. Chapter 5 makes this shape explicit and
+then uses it for one more construction.
+
+## The two-level pattern, illustrated by products
+
+L–R write the defining property of the product as a "fraction"
+$$
+\frac{\;X \longrightarrow Y_0 \times Y_1\;}{\;X \longrightarrow Y_0, \quad X \longrightarrow Y_1\;}
+$$
+meaning: there is a **natural** process turning a map of the upper kind into one of the
+lower kind, a natural process in the other direction, and the two are mutually inverse.
+
+**Level 1 (crude):** "there is such an invertible process, for all $X, Y_0, Y_1$."
+
+**Level 2 (refined):** the process is carried out by *a functorial construction plus
+composition with one specific map*. And the specific map is obtained by **bootstrapping**:
+feed the crude process an identity map.
+
+- **Downward.** Take $X = Y_0 \times Y_1$ and put $1_{Y_0\times Y_1}$ above the bar. Below the bar
+  we get two specific maps — the projections $p_0, p_1$. The general downward process is then
+  composition with them: $f \mapsto (p_0 f, \, p_1 f)$.
+- **Upward.** Take $Y_0 = Y_1 = X$ and put $(1_X, 1_X)$ below the bar. Above the bar we get a
+  specific map, the **diagonal** $\delta_X = \langle 1_X, 1_X\rangle : X \to X \times X$.
+  Using the functoriality of $\times$ on maps,
+  $$
+  (f_0 \times f_1)\langle x_0, x_1\rangle = \langle f_0 x_0, f_1 x_1 \rangle,
+  \qquad (g_0 \times g_1)(f_0 \times f_1) = (g_0 f_0) \times (g_1 f_1),
+  $$
+  the general upward process is
+  $$
+  \langle f_0, f_1 \rangle = (f_0 \times f_1)\,\delta_X .
+  $$
+  (Check it by composing both sides with $p_0$ and $p_1$.)
+
+::: {.box}
+**The pattern.** Universal property $=$ natural bijection of hom-sets. Applying the bijection to
+an identity produces a *universal map* (here $p_0, p_1$ and $\delta_X$), and the general
+bijection is "apply the functor, then compose with the universal map."
+:::
+
+We now run exactly this program for a new construction.
+
+## Exponentiation 
+
+### The crude idea
+
+For sets $B$, $Y$ we want a set $Y^B$ with
+$$
+\frac{\;X \longrightarrow Y^B\;}{\;X \times B \longrightarrow Y\;}
+$$
+natural in $X$ (and $Y$). Bootstrap immediately with $X = 1$: since $1 \times B \cong B$,
+$$
+\frac{\;1 \longrightarrow Y^B\;}{\;B \longrightarrow Y\;}
+$$
+so **the elements of $Y^B$ must correspond exactly to the maps $B \to Y$**. This determines
+what $Y^B$ "is," just as the case $X = 1$ of the product property told us that the elements of
+$Y_0 \times Y_1$ are pairs of elements.
+
+### Families of maps, and naming schemes
+
+A map $f : X \times B \to Y$ (a "function of two variables") is the same as a family of
+maps $B \to Y$ parametrized by $X$: for each element $x : 1 \to X$ put
+$$
+f_x : B \xrightarrow{\ \langle x \circ !_B,\, 1_B\rangle\ } X \times B \xrightarrow{\ f\ } Y,
+\qquad f_x(b) = f(x, b).
+$$
+Think of $X$ as a set of **names** and of $f$ as a **naming scheme**: $x$ names $f_x$. A
+naming scheme may or may not have the two properties
+
+1. every map $B \to Y$ has at least one name ($x \mapsto f_x$ is onto), and
+2. every nameable map has only one name ($x \mapsto f_x$ is one-to-one).
+
+A scheme with both properties is a **universal** naming scheme. We then write $Y^B$ for the
+set of names, $\ev : Y^B \times B \to Y$ for the scheme ("evaluation"), and $\GN{f}$ for the
+unique name of $f : B \to Y$:
+$$
+\ev(\GN{f}, b) = f(b).
+$$
+
+### The axiom
+
+A universal scheme compares uniquely to *every* scheme, and that is what we take as the axiom.
+
+::: {.callout-note icon=false}
+## Axiom: Exponentiation
+
+For any sets $B, Y$ there is a set $Y^B$ and a map $\ev : Y^B \times B \to Y$ such that for every
+$X$ and every $f : X \times B \to Y$ there is a **unique** $\GN{f} : X \to Y^B$ with
+$$
+\ev \circ (\GN{f} \times 1_B) = f .
+$$
+$$
+\begin{array}{ccc}
+Y^B \times B & \xrightarrow{\ \ev\ } & Y \\[2pt]
+{\scriptstyle \GN{f} \times 1_B}\Big\uparrow & \nearrow_{\scriptstyle f} & \\[2pt]
+X \times B & &
+\end{array}
+$$
+:::
+
+We call $\GN{f}$ the **transpose** (or name, or *curried form*) of $f$. Explicitly,
+$\GN{f}(x) = \GN{f_x}$: the parametrized name of $f$ assigns to $x$ the name of $f_x$.
+
+Note the bootstrap again: **$\ev$ is the map corresponding to $1_{Y^B}$**, i.e. the unique $f$
+with $\GN{f} = 1_{Y^B}$. It plays the role the projections played for products.
+
+::: {.callout-tip collapse="true"}
+## Comparison with $\ZFC$
+
+In $\ZFC$ the set of functions ${}^B Y$ is *constructed*: it is carved out of
+$\Pow(B \times Y)$ by Separation, so its existence is a consequence of Power Set. Here the
+direction is reversed: $Y^B$ is primitive, characterized only by how maps into it behave,
+and the power set will appear below as the special case $2^B$. Note also that the hom-set
+$\Sets(B, Y)$ is a collection in the *metatheory*; the axiom says that it is **internalized**
+by an object of $\Sets$, whose elements $1 \to Y^B$ correspond to it.
+:::
+
+### Example: three descriptions of a motion
+
+Let $B$ be the particles of a cloud, $E$ the points of space, $T$ the instants of a time
+interval. A motion of the cloud can be given in three equivalent ways:
+$$
+T \longrightarrow E^B, \qquad T \times B \longrightarrow E, \qquad B \longrightarrow E^T .
+$$
+The first assigns to each instant a **placement** of the cloud; the middle one assigns to each
+instant and particle a position; the last assigns to each particle its **path**. The passage
+between the outer two uses the axiom twice and the twist $B \times T \cong T \times B$ once.
+
+Maps *into* a mapping set can always be "transformed down," but maps *out of* a mapping set
+(**operators, functionals**) cannot. That is why the choice of description matters:
+
+- center of mass is a functional $E^B \to E$, so to get the trajectory of the center of mass we
+  need the motion in the form $T \to E^B$ and compose: $T \to E^B \to E$;
+- velocity is an operator $E^T \to V^T$, so to get the velocity field we need $B \to E^T$, compose
+  to get $B \to V^T$, and transpose twice to get $T \to V^B$ (the velocity field at each instant).
+
+## Functoriality and naturality 
+
+### Exponentials are functorial in both variables
+
+::: {#prp-covariant}
+## Covariance in the base (L–R 5.2)
+\
+Given $\varphi : Y_1 \to Y_2$, there is a unique $\varphi^B : Y_1^B \to Y_2^B$ with
+$$
+\varphi^B \GN{g} = \GN{\varphi g} \quad \text{for all } g : B \to Y_1 .
+$$
+:::
+
+::: {.proof collapse="true"}
+To make a map into $Y_2^B$, it suffices to make a map $Y_1^B \times B \to Y_2$; take
+$\varphi \circ \ev_1$ and set $\varphi^B := \GN{\varphi\, \ev_1}$, so
+$\ev_2(\varphi^B \times 1_B) = \varphi\,\ev_1$. Then
+$$
+\ev_2(\varphi^B\GN{g} \times 1_B)
+= \ev_2(\varphi^B \times 1_B)(\GN{g} \times 1_B)
+= \varphi\, \ev_1(\GN{g} \times 1_B) = \varphi g
+= \ev_2(\GN{\varphi g} \times 1_B),
+$$
+and the uniqueness clause of the axiom gives $\varphi^B\GN{g} = \GN{\varphi g}$.
+The argument works verbatim for **generalized elements** $g : X \times B \to Y_1$.
+:::
+
+::: {#prp-contravariant}
+## Contravariance in the exponent (L–R 5.4, 5.5)
+\
+Given $\beta : B_2 \to B_1$, there is a unique $Y^\beta : Y^{B_1} \to Y^{B_2}$ with
+$$
+Y^\beta \GN{g} = \GN{g \beta}, \qquad\text{namely}\qquad Y^\beta = \GN{\ev_1 \circ (1 \times \beta)} .
+$$
+Moreover $Y^{\beta\alpha} = Y^\alpha Y^\beta$ and $Y^{1_B} = 1$.
+:::
+
+::: {.proof collapse="true"}
+The construction of $Y^\beta$ is as in @prp-covariant. For the composition law, evaluate both
+sides on a name: $Y^\alpha Y^\beta \GN{g} = Y^\alpha\GN{g\beta} = \GN{(g\beta)\alpha}$ and
+$Y^{\beta\alpha}\GN{g} = \GN{g(\beta\alpha)}$. These agree by associativity of composition —
+the proposition is "a higher expression of associativity."
+:::
+
+When $\beta$ is a monomorphism, $Y^\beta$ is **restriction** of maps to a part of the domain.
+
+In the language of last time (cf. L–R Ex. 5.17):
+
+- $(-)^B : \Sets \to \Sets$, $Y \mapsto Y^B$, $\varphi \mapsto \varphi^B$ is a (covariant) functor,
+- $Y^{(-)} : \Sets^{op} \to \Sets$, $B \mapsto Y^B$, $\beta \mapsto Y^\beta$ is a contravariant functor,
+- $- \times B : \Sets \to \Sets$, $X \mapsto X \times B$, $\xi \mapsto \xi \times 1_B$ is a functor.
+
+### The transpose is a natural bijection
+
+Fix $B$. For each $X$ and $Y$ the axiom gives a bijection
+$$
+\theta_{X,Y} : \Hom{X \times B}{Y} \;\xrightarrow{\ \cong\ }\; \Hom{X}{Y^B}, \qquad f \mapsto \GN{f}.
+$$
+
+::: {#prp-natural}
+## Naturality of transposition
+\
+For $\xi : X' \to X$ and $\varphi : Y \to Y'$,
+$$
+\GN{f \circ (\xi \times 1_B)} = \GN{f} \circ \xi,
+\qquad
+\GN{\varphi \circ f} = \varphi^B \circ \GN{f}.
+$$
+That is, $\theta$ is a natural isomorphism between the functors
+$\Hom{-\times B}{-}$ and $\Hom{-}{(-)^B}$ from $\Sets^{op}\times\Sets$ to sets.
+:::
+
+::: {.proof collapse="true"}
+The second identity is @prp-covariant for generalized elements. For the first,
+$\ev(\GN{f}\xi \times 1_B) = \ev(\GN{f} \times 1_B)(\xi \times 1_B) = f(\xi \times 1_B)$,
+so $\GN{f}\xi$ satisfies the defining equation of $\GN{f(\xi\times 1_B)}$; apply uniqueness.
+:::
+
+So the crude "bar" notation of L–R means precisely: **a natural isomorphism of hom-functors.**
+Two consequences are worth stating now.
+
+**1. Representability.** For fixed $B, Y$, the contravariant functor $X \mapsto \Hom{X \times B}{Y}$ is
+isomorphic to $\Hom{-}{Y^B}$; one says $Y^B$ **represents** it. The axiom can be read as:
+"this functor is representable." (We will see in a few weeks that this pins $Y^B$ down up to
+unique isomorphism — the Yoneda lemma.)
+
+**2. Adjunction.** Naturality in both variables says that $-\times B$ is **left adjoint** to
+$(-)^B$, written $- \times B \dashv (-)^B$. This is the formal definition we will meet next week; for
+now, compare the two universal maps with the product case:
+
+| | product $\;Y_0 \times Y_1$ | exponential $\;Y^B$ |
+|---|---|---|
+| bijection | $\dfrac{X \to Y_0 \times Y_1}{X \to Y_0,\; X \to Y_1}$ | $\dfrac{X \to Y^B}{X \times B \to Y}$ |
+| universal map from $1$ above the bar | projections $p_0, p_1$ | $\ev : Y^B \times B \to Y$ |
+| universal map from $1$ below the bar | diagonal $\delta_X$ | $\eta_X = \GN{1_{X\times B}} : X \to (X\times B)^B$ |
+| downward process | $f \mapsto (p_0 f, p_1 f)$ | $g \mapsto \ev \circ (g \times 1_B)$ |
+| upward process | $\langle f_0, f_1\rangle = (f_0\times f_1)\,\delta_X$ | $\GN{f} = f^B \circ \eta_X$ |
+
+The last entry is the second naturality identity applied to $\varphi = f$ and the identity:
+$\GN{f} = \GN{f \circ 1_{X\times B}} = f^B\GN{1_{X \times B}}$. In elements, $\eta_X(x) = \GN{b \mapsto \langle x, b\rangle}$.
+($\eta$ and $\ev$ are the **unit** and **counit** of the adjunction.)
+
+::: {.callout-tip collapse="true"}
+## Optional: composition is itself a map (L–R 5.6)
+
+Transposing $Y_2^{Y_1} \times Y_1^B \times B \xrightarrow{1 \times \ev} Y_2^{Y_1} \times Y_1 \xrightarrow{\ev} Y_2$ gives
+$$
+c : Y_2^{Y_1} \times Y_1^B \to Y_2^B, \qquad c(\GN{\varphi}, \GN{g}) = \GN{\varphi g}.
+$$
+Transposing once more gives $Y_2^{Y_1} \to (Y_2^B)^{(Y_1^B)}$, $\GN{\varphi}\mapsto \GN{\varphi^B}$: the functor
+$(-)^B$ is itself represented by an internal map. The operation that defines a category is
+**internalized**.
+:::
+
+## Power objects
+
+Combine the truth-value axiom with the exponential axiom:
+$$
+\frac{\;1 \longrightarrow 2^B\;}{\;B \longrightarrow 2\;}
+\qquad\text{and}\qquad
+\frac{\;B \longrightarrow 2\;}{\;\text{part of } B\;}.
+$$
+So the elements of $2^B$ are **names of parts** of $B$ — $2^B$ is the power set, now as a special
+case of mapping sets. The evaluation map is **membership**: if $\varphi$ is the characteristic map
+of the part $i$, then
+$$
+[\, b \in i \,] := \ev(\GN{\varphi}, b) = \varphi(b) \in 2 .
+$$
+Contravariant functoriality has a familiar meaning:
+
+::: {#exr-}
+## L–R 5.7
+For $\beta : B_2 \to B_1$, the map $2^\beta : 2^{B_1} \to 2^{B_2}$ represents taking **inverse images**
+along $\beta$ of parts of $B_1$. (Use: the inverse image of a part is a pullback, and the
+characteristic map of a pullback is a composite.)
+:::
+
+::: {.callout-tip collapse="true"}
+## Teaser: Cantor's theorem without elements
+
+Compare Cantor's theorem in the [cardinals notes](cardinals.qmd). Lawvere's fixed point theorem, which we will see later, shows: if
+$g : B \times B \to Y$ is such that every map $B \to Y$ is of the form $g(b_0, -)$, then every
+$\tau: Y \to Y$ has a fixed point. Since $\neg : 2 \to 2$ has no fixed point, no $B \to 2^B$ can be
+onto names. The diagonal argument is the bootstrap with $\delta_B$.
+:::
+
+## The exponential laws 
+
+To justify the notation $Y^B$ we want $|Y^B| = |Y|^{|B|}$ for finite sets, and more generally the
+rules of exponent arithmetic as isomorphisms. L–R check each one by constructing explicit
+inverse maps and testing on elements. With naturality we can do all of them with one lemma.
+
+::: {#lem-representability}
+## Representability lemma
+\
+If there are bijections $\theta_T : \Hom{T}{A} \cong \Hom{T}{A'}$ natural in $T$, then
+$a := \theta_A(1_A) : A \to A'$ is an isomorphism (and $\theta_T = a \circ -$).
+The same holds with $\Hom{A}{T} \cong \Hom{A'}{T}$ natural in $T$.
+:::
+
+::: {.proof collapse="true"}
+For $h : T \to A$, naturality applied to $h$ gives $\theta_T(h) = \theta_T(1_A \circ h) = \theta_A(1_A) \circ h = a h$.
+Let $a' := \theta_{A'}^{-1}(1_{A'}) : A' \to A$. Then $a a' = \theta_{A'}(a') = 1_{A'}$, and
+$\theta_A(a' a) = a a' a = a = \theta_A(1_A)$, so $a'a = 1_A$ since $\theta_A$ is injective.
+This is the bootstrap once more: everything is determined by where the identity goes.
+:::
+
+So to prove $A \cong A'$ it suffices to give a natural bijection between maps from an
+arbitrary $T$ into $A$ and into $A'$ — i.e., to compare **generalized elements**.
+
+::: {#prp-exp-laws}
+## Exponential laws (L–R 5.8–5.10)
+\
+$$
+\begin{aligned}
+Y^1 &\cong Y, & 1^B &\cong 1, & (Y_0 \times Y_1)^B &\cong Y_0^B \times Y_1^B,\\
+Y^{X \times B} &\cong (Y^B)^X, & Y^0 &\cong 1, & Y^{A+B} &\cong Y^A \times Y^B .
+\end{aligned}
+$$
+:::
+
+::: {.proof}
+Each is a chain of natural bijections, followed by @lem-representability. For example:
+$$
+\begin{aligned}
+\Hom{T}{(Y^B)^X} &\cong \Hom{T \times X}{Y^B} \cong \Hom{(T \times X) \times B}{Y} \\
+&\cong \Hom{T \times (X \times B)}{Y} \cong \Hom{T}{Y^{X\times B}},
+\end{aligned}
+$$
+using the associativity isomorphism of products (natural in $T$) in the middle. Similarly
+$$
+\Hom{T}{(Y_0\times Y_1)^B} \cong \Hom{T\times B}{Y_0 \times Y_1}
+\cong \Hom{T \times B}{Y_0} \times \Hom{T\times B}{Y_1}
+\cong \Hom{T}{Y_0^B \times Y_1^B}.
+$$
+$Y^1 \cong Y$ and $1^B \cong 1$ are the same kind of one-line computation.
+
+The laws involving $0$ and $+$ need one more ingredient, which is interesting in its own right.
+:::
+
+::: {#thm-distributive}
+## Exponentials force distributivity
+\
+In any category with finite products, finite sums, and exponentials,
+$$
+T \times 0 \cong 0, \qquad (A + B) \times T \cong A \times T + B \times T .
+$$
+:::
+
+::: {.proof}
+Now we use the *contravariant* version of the lemma, natural in the codomain $Y$:
+$$
+\begin{aligned}
+\Hom{(A+B) \times T}{Y} &\cong \Hom{A+B}{Y^T} \cong \Hom{A}{Y^T} \times \Hom{B}{Y^T} \\
+&\cong \Hom{A \times T}{Y} \times \Hom{B\times T}{Y} \cong \Hom{A \times T + B \times T}{Y}.
+\end{aligned}
+$$
+Likewise $\Hom{0 \times T}{Y} \cong \Hom{0}{Y^T}$ is a singleton for every $Y$, so $0 \times T$ is initial.
+:::
+
+Distributivity does not mention exponentials, yet it follows from them (L–R return to this in
+§7.2): **a left adjoint preserves sums**, and $-\times T$ is a left adjoint. With it,
+$$
+\Hom{T}{Y^{A+B}} \cong \Hom{T\times(A+B)}{Y} \cong \Hom{T\times A}{Y} \times \Hom{T\times B}{Y}
+\cong \Hom{T}{Y^A \times Y^B},
+$$
+and $\Hom{T}{Y^0} \cong \Hom{T \times 0}{Y} \cong \Hom{0}{Y} \cong \Hom{T}{1}$. This finishes @prp-exp-laws.
+
+**Counting.** Writing a finite $B$ as $1 + 1 + \cdots + 1$ ($n$ summands), the laws give
+$Y^B \cong Y \times \cdots \times Y$, so $|Y^B| = |Y|^n$. In particular $|2^B| = 2^{|B|}$.
+
+::: {.callout-important}
+## Methodological point
+L–R verify these isomorphisms by checking on elements $1 \to Y^B$. That is legitimate in $\Sets$
+because $1$ separates mappings — but this axiom fails in most toposes. The argument with
+generalized elements $T \to Y^B$ uses only the exponential axiom and therefore works in
+**every** cartesian closed category.
+:::
+
+## Elementary toposes
+
+We can now collect the axioms into a definition that no longer mentions $\Sets$.
+
+::: {.callout-note icon=false}
+## Definition: elementary topos
+
+A category $\mathcal{E}$ is an **elementary topos** if
+
+1. $\mathcal{E}$ has **finite limits** (a terminal object and pullbacks suffice);
+2. $\mathcal{E}$ has **exponentials**: for all $B, Y$ an object $Y^B$ with $\ev : Y^B \times B \to Y$ as in the axiom
+   (a category with 1 and 2 is called **cartesian closed**);
+3. $\mathcal{E}$ has a **subobject classifier**: an object $\Omega$ and a map $\mathrm{true} : 1 \to \Omega$ such that
+   for every mono $m : A' \rightarrowtail A$ there is a unique $\chi_m : A \to \Omega$ making
+   $$
+   \begin{array}{ccc}
+   A' & \longrightarrow & 1\\
+   {\scriptstyle m}\big\downarrow & & \big\downarrow{\scriptstyle \mathrm{true}}\\
+   A & \xrightarrow[\ \chi_m\ ]{} & \Omega
+   \end{array}
+   $$
+   a pullback.
+:::
+
+In $\Sets$, $\Omega = 2$ and condition 3 is L–R's axiom of membership via truth values,
+formulated with pullbacks. Conditions 2 and 3 together give **power objects**
+$\Omega^B$, whose elements name parts of $B$.
+
+Remarkably, what we did *not* list follows: every elementary topos also has finite **colimits**
+(initial object, sums, coequalizers). This is a nontrivial theorem (due to Paré); the
+distributivity argument above gives a small taste of how much the exponentials carry.
+
+### What is special about $\Sets$
+
+$\Sets$ is a topos that satisfies further axioms:
+
+- **$1$ separates mappings** (and $0 \not\cong 1$): $\Sets$ is *well-pointed*;
+- **$\Omega = 2 = 1 + 1$**: the topos is *Boolean* (internal logic is classical);
+- a **natural numbers object** (the categorical axiom of infinity);
+- the **axiom of choice**: every epimorphism has a section.
+
+These, added to the topos axioms, make up Lawvere's **Elementary Theory of the Category of Sets
+(ETCS)**, which L–R summarize in Chapter 6. Comparing with $\ZFC$: Power Set and Separation are
+replaced by $\Omega^B$ and the subobject classifier, Infinity by the natural numbers object,
+Choice by split epis — and there is no counterpart of Replacement. We take up this comparison
+in Week 14.
+
+### Examples and non-examples
+
+- **$\Sets/X$** (L–R Ex. 5.12): an object is an $X$-indexed family $(A_x)_{x\in X}$; exponentials are
+  computed fiberwise, $(Y^B)_x = Y_x^{B_x}$. A topos — "sets varying over a discrete parameter."
+- **$G$-sets** for a group $G$ (Ex. 5.13): $Y^X$ is the set of *all* maps $X \to Y$ with
+  $(g\cdot f)(x) = g\, f(g^{-1}x)$; the inverse is essential. A topos, with $\Omega = 2$ (trivial action).
+- **$M$-sets** for a monoid $M$: the exponential is subtler, and $\Omega$ is the set of left ideals of
+  $M$ — e.g. for $M = (\N, +)$, "sets evolving in discrete time," $\Omega$ is infinite. A topos that is
+  **not Boolean**: here condition 3 holds but $\Omega \neq 1+1$.
+- **Posets** (Ex. 5.14): cartesian closed ($Y^X$ = monotone maps, ordered pointwise), but **not a topos**:
+  the identity map from a two-element discrete poset to a two-element chain is mono and epi
+  but not iso, which cannot happen in a topos.
+- **Finite-dimensional vector spaces** with $\times = \oplus$ (Ex. 5.11): **not** cartesian closed.
+  If $L(B,Y)$ were an exponential, then $\dim \mathrm{Hom}(X \oplus B, Y) = (x + b)y$ would equal
+  $\dim \mathrm{Hom}(X, L(B,Y)) = xby$ for all dimensions. (The correct partner of $L(B, Y)$ is
+  $\otimes$, not $\oplus$.)
+
+## Exercises
+
+::: {#exr-}
+L–R 5.3 and 5.16: functoriality of $(-)^B$, and the inverse maps for $Y^{X\times B} \cong (Y^B)^X$, checked directly.
+:::
+
+::: {#exr-}
+L–R 5.17 (a)–(d): verify that $\Delta$, $-\times B$, $(-)^B$, and $- \times -$ are functors. Then show that the
+diagonals $\delta_X$ form a natural transformation from the identity functor to $(-\times-)\circ\Delta$, and that the $\eta_X$ form one from the identity to $(-\times B)^B$.
+:::
+
+::: {#exr-}
+L–R 5.12 ($\Sets/X$) and 5.14 (posets): verify the universal property of the proposed exponentials.
+:::
+
+::: {#exr-}
+L–R 5.13 for a group $G$. *Bonus:* for a monoid $M$, show that $Y^X := \{$equivariant $f : M \times X \to Y\}$ with
+$(m\cdot f)(n, x) = f(nm, x)$ is an exponential in $M$-sets.
+:::
+
+::: {#exr-}
+Using only arguments in the style of @lem-representability, show that in any cartesian closed category
+$A \times (B + C) \cong A \times B + A \times C$ whenever the sums exist, and that any object
+admitting a map to $0$ is itself initial.
+:::

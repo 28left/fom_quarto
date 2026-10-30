@@ -1,0 +1,370 @@
+---
+title: "Finite Limits and Colimits"
+subtitle: "The first block of topos axioms (Lawvere–Rosebrugh, Ch. 3)"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+:::
+
+<!--
+Instructor timing (≈ 50 min)
+  0. Where we are going ................................  3 min
+  1. Splittings and isomorphisms ........................  6 min
+  2. Products (+ uniqueness up to iso) .................. 10 min
+  3. Equalizers .........................................  7 min
+  4. Pullbacks ..........................................  8 min
+  5. Finite limits in general ...........................  7 min
+  6. Colimits by duality ................................  7 min
+  7. Summary ............................................  2 min
+Sections marked (skip if short on time) can be left to the notes.
+-->
+
+<!-- ~3 min -->
+# Where we are going
+
+Here is the definition we are aiming for.
+
+::: {.callout-note icon=false}
+## Elementary topos (preview)
+
+A category $\mathcal{E}$ is an **elementary topos** if
+
+1. $\mathcal{E}$ has all **finite limits**;
+2. $\mathcal{E}$ has all **finite colimits**;
+3. $\mathcal{E}$ has **exponentials** $B^A$ (it is *cartesian closed*);
+4. $\mathcal{E}$ has a **subobject classifier** $1 \xrightarrow{\top} \Omega$.
+:::
+
+Today is about (1) and (2). Next time we do (3) and (4). The category $\Sets$ of abstract sets will then be a topos with some extra properties: $1$ separates maps, there is a natural numbers object, and choice holds.
+
+We have already met several pieces of (1) and (2) in Chapters 1–2: the terminal set $1$, the initial set $0$, binary sums $A_0 + A_1$, and inverse images of parts. The point of today is that these are all instances of *two* general constructions, limits and colimits, and that a handful of special cases suffice to build all the others.
+
+A remark on method. In $\Sets$ we may test equations between maps on elements $1 \to X$, since $1$ separates. In a general topos this fails. So we will phrase everything with **generalized elements** $x : T \to X$ for arbitrary $T$. Every argument below then works in *any* category with the relevant structure.
+
+<!-- ~6 min -->
+# Splittings and isomorphisms
+
+::: {#def-retraction}
+## Retraction, section
+For maps $X \xrightarrow{i} Y \xrightarrow{r} X$ with $ri = 1_X$, we call $r$ a **retraction** (left inverse) of $i$, and $i$ a **section** (right inverse) of $r$.
+:::
+
+::: {#prp-split-mono}
+If $i$ has a retraction, then $i$ is a monomorphism. Dually, if $r$ has a section, then $r$ is an epimorphism.
+:::
+
+::: {.proof}
+If $ix_1 = ix_2$, then $x_1 = (ri)x_1 = r(ix_1) = r(ix_2) = (ri)x_2 = x_2$. This is "dividing by $i$ on the left". The dual statement has the dual proof.
+:::
+
+A mono with a retraction is called **split**. The converse of @prp-split-mono is special to sets:
+
+- In $\Sets$, every mono $X \rightarrowtail Y$ with $X \neq 0$ splits. Pick $x_0 : 1 \to X$ and let $X'$ be the complement of $X$ in $Y$, so $Y = X + X'$. Define $r$ by cases: $r$ is $1_X$ on $X$ and constantly $x_0$ on $X'$.
+- In continuous settings this fails. The inclusion of the circle $S^1 \hookrightarrow \R^2$ has no continuous retraction. It *does* have one into $\R^2\setminus\{0\}$, namely $y \mapsto y/|y|$.
+
+The proof for $\Sets$ used **complements**. In a general topos, parts need not have complements. Toposes in which they always do are called *Boolean*. This is our first glimpse of how intuitionistic logic enters.
+
+::: {#def-iso}
+$f : X \to Y$ is an **isomorphism** if there is $g : Y \to X$ with $gf = 1_X$ and $fg = 1_Y$.
+:::
+
+::: {#prp-left-right}
+If $rf = 1_X$ and $fs = 1_Y$, then $r = s$. In particular, two-sided inverses are unique; we write $f^{-1}$.
+:::
+
+::: {.proof}
+$r = r1_Y = r(fs) = (rf)s = 1_Xs = s$.
+:::
+
+In $\Sets$, isomorphisms are exactly the bijections. Given bijective $f$, define $g(y) = $ the unique $x$ with $fx = y$. Then $gf$ and $fg$ agree with the identities on elements, and $1$ separates. No choice is needed, because $g$ is *uniquely* determined.
+
+<!-- ~10 min -->
+# Products
+
+::: {#def-product}
+## Product
+A **product** of objects $A, B$ in a category $\Cat$ is an object $P$ with maps $A \xleftarrow{\pi_A} P \xrightarrow{\pi_B} B$ such that for every $X$ and every pair $f : X \to A$, $g : X \to B$ there is a **unique** $h : X \to P$ with $\pi_A h = f$ and $\pi_B h = g$.
+
+$$
+\begin{array}{ccc}
+ & & A \\
+ & \overset{f}{\nearrow} & \big\uparrow{\scriptstyle \pi_A} \\
+X & \xrightarrow{\;\;h\;=\;\pair{f,g}\;\;} & A \times B \\
+ & \underset{g}{\searrow} & \big\downarrow{\scriptstyle \pi_B} \\
+ & & B
+\end{array}
+$$
+:::
+
+We write $P = A\times B$ and $h = \pair{f,g}$. Equivalently, composition with $\pi_A, \pi_B$ is a bijection
+$$
+\Cat(X, A\times B) \;\cong\; \Cat(X,A) \times \Cat(X,B).
+$$
+So a map *into* a product is the same thing as a pair of maps. That is the operational content of a product, and it is what we use in practice.
+
+::: {.callout-note icon=false}
+## Axiom: Binary products
+Any two sets $A, B$ have a product $A \times B$.
+:::
+
+**Computing with generalized elements.** For $x : T \to X$,
+$$
+\pair{f,g}\,x = \pair{fx,\, gx}.
+$$
+Both sides are maps $T \to A\times B$ with projections $fx$ and $gx$. By the uniqueness clause they are equal. This is how "ordered pairs" are recovered without ever defining them.
+
+**Examples.**
+
+- In $\Sets$: the cartesian product with the usual projections.
+- In a poset viewed as a category: $a \times b$ is the greatest lower bound $a \wedge b$.
+- In $\mathbf{Grp}$, $\mathbf{Top}$, $\mathbf{Vect}$: the direct product with the product structure.
+- In $\Sets$ with $2 = \{0,1\}$: a pair $\varphi, \psi : X \to 2$ of characteristic maps is a single map $\pair{\varphi,\psi} : X \to 2\times 2$. Composing with the truth table $\& : 2 \times 2 \to 2$ gives the characteristic map of the intersection of the two parts. *Logical operations are maps out of products of truth-value objects.* This returns with $\Omega \times \Omega \to \Omega$ in a general topos.
+
+**Graphs and diagonals.** The **graph** of $f : A \to B$ is $\gamma_f = \pair{1_A, f} : A \to A \times B$. Since $\pi_A \gamma_f = 1_A$, the graph is a split mono, hence a part of $A \times B$. A generalized element $\pair{x,y}$ is a member of it iff $y = fx$. The special case $\delta_A = \pair{1_A, 1_A} : A \to A\times A$ is the **diagonal**.
+
+### Uniqueness up to unique isomorphism
+
+::: {#prp-product-unique}
+If $(P, \pi_A, \pi_B)$ and $(P', \pi'_A, \pi'_B)$ are both products of $A$ and $B$, there is a unique isomorphism $h : P \to P'$ with $\pi'_A h = \pi_A$ and $\pi'_B h = \pi_B$.
+:::
+
+::: {.proof}
+The universal property of $P'$ gives $h : P \to P'$ commuting with the projections. That of $P$ gives $k : P' \to P$. Now $kh : P \to P$ satisfies $\pi_A (kh) = \pi_A$ and $\pi_B(kh) = \pi_B$. But $1_P$ satisfies the same equations, so uniqueness forces $kh = 1_P$. Symmetrically, $hk = 1_{P'}$.
+:::
+
+This argument uses nothing but "existence + uniqueness of induced maps". It therefore applies verbatim to *every* universal construction below: equalizers, pullbacks, limits, and dually sums, coequalizers, pushouts. We will not repeat it. It is why we may say "*the* product" and why "equations" like $1 \times A = A$ or $A \times B = B \times A$ mean *specified isomorphisms*.
+
+This is a point worth pausing on. In $\ZFC$, $A \times B$ is one particular set of Kuratowski pairs. Here, *any* object with the universal property is a product, and nothing we can say distinguishes between them.
+
+<!-- ~7 min -->
+# Equalizers
+
+::: {#def-equalizer}
+## Equalizer
+Given $A \underset{g}{\overset{f}{\rightrightarrows}} B$, an **equalizer** of $f$ and $g$ is a map $e : E \to A$ such that
+
+1. $fe = ge$;
+2. for every $x : T \to A$ with $fx = gx$ there is a **unique** $\bar x : T \to E$ with $e\bar x = x$.
+
+$$
+E \xrightarrow{\;e\;} A \underset{g}{\overset{f}{\rightrightarrows}} B
+$$
+:::
+
+::: {#prp-equalizer-mono}
+Every equalizer is a monomorphism. Hence it is a part of $A$, and for any $x : T \to A$,
+$$
+x \in e \Iff fx = gx.
+$$
+:::
+
+::: {.proof}
+Suppose $e y_1 = e y_2 =: x$. Then $fx = gx$, and both $y_1$ and $y_2$ are factorizations of $x$ through $e$. By uniqueness, $y_1 = y_2$. The membership statement is a restatement of clause 2.
+:::
+
+So the equalizer is the categorical form of **comprehension by an equation**: $\{a \in A : f(a) = g(a)\}$.
+
+**Examples.**
+
+- The unit circle is the equalizer of $\R^2 \rightrightarrows \R$ given by $(x,y) \mapsto x^2+y^2$ and the constant map $1$. This is Descartes' idea: figures are cut out by equations.
+- In $\mathbf{Grp}$, the kernel of $\phi : G \to H$ is the equalizer of $\phi$ and the trivial homomorphism.
+- The equalizer of the two projections $\pi_0, \pi_1 : B \times B \rightrightarrows B$ is the diagonal $\delta_B$.
+
+The last example lets us build *all* equalizers from products and inverse images: the equalizer of $f, g$ is the inverse image of the diagonal $\delta_B$ along $\pair{f,g} : A \to B\times B$ (L-R Exercise 3.32). Elementwise, $\pair{fx, gx} \in \delta_B$ iff $fx = gx$.
+
+<!-- ~8 min -->
+# Pullbacks
+
+::: {#def-pullback}
+## Pullback
+Given $A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1$, a **pullback** (or **fibered product**) is an object $P$ with maps $\pi_0, \pi_1$ making the square commute,
+$$
+\begin{CD}
+P @>{\pi_1}>> A_1\\
+@V{\pi_0}VV @VV{f_1}V\\
+A_0 @>{f_0}>> B
+\end{CD}
+$$
+such that for all $a_0 : T \to A_0$, $a_1 : T\to A_1$ with $f_0 a_0 = f_1 a_1$ there is a **unique** $a : T \to P$ with $\pi_0 a = a_0$ and $\pi_1 a = a_1$. We write $P = A_0 \times_B A_1$.
+:::
+
+In $\Sets$: $A_0 \times_B A_1 = \{(a_0,a_1) \in A_0\times A_1 : f_0 a_0 = f_1 a_1\}$. This description already suggests how to construct pullbacks.
+
+::: {#prp-pullback-from-prod-eq}
+If a category has binary products and equalizers, it has pullbacks.
+:::
+
+::: {.proof}
+Form $A_0 \times A_1$ with projections $p_0, p_1$, and let $e : P \rightarrowtail A_0 \times A_1$ be the equalizer of $f_0 p_0$ and $f_1 p_1$. Set $\pi_k = p_k e$. A pair $a_0, a_1$ with $f_0 a_0 = f_1 a_1$ is a map $\pair{a_0,a_1} : T \to A_0\times A_1$ equalizing $f_0p_0$ and $f_1p_1$. So it factors uniquely through $e$.
+:::
+
+Pullbacks are remarkably versatile. Many earlier constructions are special cases:
+
+| Data $A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1$ | Pullback |
+|---|---|
+| $B = 1$ (so $f_0, f_1$ are forced) | the product $A_0 \times A_1$ |
+| $f_1 = j$ a mono (a part of $B$) | the inverse image $f_0^{-1}(j)$, a part of $A_0$ |
+| $f_0, f_1$ both monos | the intersection of the two parts |
+| $f_1 = b : 1 \to B$ an element | the fiber of $f_0$ over $b$ |
+| $f_0 = f_1 = f : A \to B$ | the kernel pair of $f$, i.e. $\{(a,a') : fa = fa'\}$ |
+
+The second row needs one small fact. It will be used constantly once we have the subobject classifier.
+
+::: {#lem-pullback-mono}
+Monos are stable under pullback: in the square of @def-pullback, if $f_1$ is mono, then so is $\pi_0$.
+:::
+
+::: {.proof}
+Let $\pi_0 y = \pi_0 y'$. Then $f_1 \pi_1 y = f_0 \pi_0 y = f_0 \pi_0 y' = f_1 \pi_1 y'$, so $\pi_1 y = \pi_1 y'$ since $f_1$ is mono. Now $y$ and $y'$ have the same two projections. By uniqueness in the pullback property, $y = y'$.
+:::
+
+Combining the first row with the construction of equalizers from products and inverse images gives the converse of @prp-pullback-from-prod-eq:
+
+::: {#prp-prod-eq-from-pullback}
+If a category has a terminal object and pullbacks, it has binary products and equalizers.
+:::
+
+<!-- ~7 min -->
+# Finite limits in general
+
+All of the above are instances of one notion. The input is a **diagram**: a family of objects with some maps between them. Following L-R, a diagram *shape* is a directed graph $J \underset{c}{\overset{d}{\rightrightarrows}} I$ (vertices $I$, edges $J$, domain map $d$, codomain map $c$). A diagram of that shape in $\Cat$ consists of objects $A_i$ ($i \in I$) and maps $f_j : A_{d(j)} \to A_{c(j)}$ ($j \in J$). The shape is **finite** if $I$ and $J$ are finite.
+
+::: {#def-limit}
+## Limit
+A **cone** over the diagram with vertex $L$ is a family $\pi_i : L \to A_i$ with $f_j \pi_{d(j)} = \pi_{c(j)}$ for all $j$. A **limit** is a cone that is universal: every cone $(a_i : T \to A_i)_i$ factors as $a_i = \pi_i a$ through a **unique** $a : T \to L$.
+:::
+
+In words: a map $T \to L$ is the same thing as a *compatible family* of maps $T \to A_i$. In $\Sets$, $L$ is the set of compatible families of elements $(a_i)_{i\in I}$ with $f_j(a_{d(j)}) = a_{c(j)}$.
+
+| Shape | Limit |
+|---|---|
+| empty graph | terminal object $1$ |
+| two vertices, no edges | binary product |
+| $\bullet \rightrightarrows \bullet$ | equalizer |
+| $\bullet \to \bullet \leftarrow \bullet$ | pullback |
+
+::: {.callout-note icon=false}
+## Axiom: Finite limits
+$\Sets$ has limits of all finite diagrams.
+:::
+
+It is enough to check a few cases.
+
+::: {#thm-limits-from-prod-eq}
+If a category has finite products (including the empty product, i.e. a terminal object) and equalizers, then it has all finite limits.
+:::
+
+::: {.proof}
+*(Sketch; this is @prp-pullback-from-prod-eq writ large.)* Form the two products $\prod_{i\in I} A_i$ and $\prod_{j\in J} A_{c(j)}$ and two maps between them, specified by their components. Writing $p_i$ for the projections of the first product and $q_j$ for those of the second, define
+$$
+\textstyle\prod_{i} A_i \underset{v}{\overset{u}{\rightrightarrows}} \prod_{j} A_{c(j)},
+\qquad
+q_j\, u = p_{c(j)}, \qquad q_j\, v = f_j\, p_{d(j)} .
+$$
+A family $(a_i)_i$, i.e. a map $\pair{a_i}_i : T \to \prod_i A_i$, is equalized by $u$ and $v$ iff $a_{c(j)} = f_j a_{d(j)}$ for every edge $j$, i.e. iff it is a cone. So if $e : L \rightarrowtail \prod_i A_i$ is the equalizer of $u$ and $v$, then $\pi_i = p_i e$ is the limit cone.
+:::
+
+::: {#cor-limits-from-pb}
+A category with a terminal object and pullbacks has all finite limits.
+:::
+
+So for the topos axioms we can take "finite limits" to mean "$1$ and pullbacks", or "$1$, binary products, and equalizers". These are the forms we will actually check in examples.
+
+**Foundational aside.** Compare this with $\ZFC$. There, $\{a \in A : f(a) = g(a)\}$ comes from Separation, and $A \times B$ is built from Pairing, Union, Power Set, and Separation. Here, these constructions are *axiomatized directly by what they do*, and no internal membership structure of the objects is ever invoked.
+
+<!-- ~7 min -->
+# Colimits by duality
+
+Every category $\Cat$ has an **opposite** $\Cat^\op$: same objects, all arrows reversed. A **colimit** in $\Cat$ is a limit in $\Cat^\op$. So every definition and theorem above dualizes for free: reverse the arrows, swap "mono" and "epi".
+
+| Shape | Limit | Colimit |
+|---|---|---|
+| empty | terminal $1$ | initial $0$ |
+| two vertices | product $A\times B$ | sum $A + B$ (Ch. 2) |
+| $\bullet \rightrightarrows \bullet$ | equalizer | **coequalizer** |
+| $\bullet\to\bullet\leftarrow\bullet$ / $\bullet\leftarrow\bullet\to\bullet$ | pullback | **pushout** |
+
+::: {#def-coequalizer}
+## Coequalizer
+Given $A \underset{g}{\overset{f}{\rightrightarrows}} B$, a **coequalizer** is $q : B \to Q$ with $qf = qg$ such that every $h : B \to Z$ with $hf = hg$ factors as $h = \bar h q$ for a **unique** $\bar h : Q \to Z$.
+$$
+A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
+$$
+:::
+
+Dually to @prp-equalizer-mono, every coequalizer is an epimorphism.
+
+**In $\Sets$.** $Q = B/{\sim}$, where $\sim$ is the *equivalence relation generated by* $f(a) \sim g(a)$ for $a \in A$, and $q$ is the quotient map. A map out of $Q$ is a map out of $B$ that respects the identifications. Equalizers are *comprehension* (cutting out by an equation); coequalizers are *quotients* (gluing by identifications).
+
+**Pushouts** are the dual of pullbacks. In $\Sets$, the pushout of $B_0 \xleftarrow{f_0} A \xrightarrow{f_1} B_1$ is $(B_0 + B_1)/{\sim}$ with $f_0(a) \sim f_1(a)$, i.e. $B_0$ and $B_1$ glued along $A$. In $\mathbf{Top}$, gluing two closed disks along their boundary circle gives the sphere $S^2$.
+
+By duality, from @thm-limits-from-prod-eq and @cor-limits-from-pb:
+
+::: {#thm-colimits}
+A category has all finite colimits iff it has an initial object, binary sums, and coequalizers, iff it has an initial object and pushouts.
+:::
+
+::: {.callout-note icon=false}
+## Axiom: Finite colimits
+$\Sets$ has colimits of all finite diagrams.
+:::
+
+::: {#rem-colimits-redundant}
+## Finite colimits come for free in a topos
+In Lawvere and Tierney's original axiomatization, finite colimits were an explicit axiom. It was later shown that they *follow* from finite limits together with power objects (i.e. exponentials plus a subobject classifier). This is due to Mikkelsen, with a slick proof by Paré (1974) via the monadicity of the power-object functor. So axiom (2) in our preview is redundant. We keep it on the list because it is convenient, and because Lawvere–Rosebrugh assume the initial set and binary sums as axioms for $\Sets$ long before power objects are available.
+:::
+
+The duality between limits and colimits is a feature of the *definitions*, not a symmetry of $\Sets$. For instance, $0$ is a **strict** initial object: any map $X \to 0$ is an isomorphism. The dual statement (every map $1 \to X$ is an isomorphism) is plainly false. So $\Sets^\op$ is a perfectly good category with finite limits and colimits, but it is not "like $\Sets$". Strictness of $0$, together with disjointness of sums, holds in every topos. Other asymmetries, such as "every epi splits" (the Axiom of Choice), are special to $\Sets$ and will be among the extra axioms that single it out.
+
+<!-- ~2 min -->
+# Summary
+
+::: {.box}
+**Finite limits** = terminal object + pullbacks (equivalently: finite products + equalizers). They give us products, graphs, diagonals, equalizers (comprehension by equations), inverse images, intersections, fibers, and kernel pairs.
+
+**Finite colimits** = initial object + pushouts (equivalently: finite sums + coequalizers). They give us sums and quotients. In a topos they follow from the other axioms.
+
+**Method.** Every construction is specified by a universal property (existence + uniqueness of an induced map). This determines it up to unique isomorphism and is tested on generalized elements $T \to X$.
+
+**Next time:** exponentials $B^A$ (maps *as* an object) and the subobject classifier $\Omega$ (parts *as* maps). Together with today's axioms, these give the full definition of an elementary topos.
+:::
+
+# Exercises
+
+::: {#exr-}
+Show from the universal property that $B \times A \cong A \times B$ and $1 \times A \cong A$. Which equation needs the uniqueness clause? (L-R 3.21, 3.22)
+:::
+
+::: {#exr-}
+Show that the equalizer of $f, g : A \rightrightarrows B$ is the inverse image of the diagonal $\delta_B$ along $\pair{f,g}$. (L-R 3.32)
+:::
+
+::: {#exr-}
+## Pasting lemma
+In a commutative diagram
+$$
+\begin{CD}
+X @>>> Y @>>> Z\\
+@VVV @VVV @VVV\\
+U @>>> V @>>> W
+\end{CD}
+$$
+suppose the right square is a pullback. Show that the left square is a pullback iff the outer rectangle is.
+:::
+
+::: {#exr-}
+Show that the kernel pair $K \rightrightarrows A$ of $f : A \to B$ (the pullback of $f$ along itself) is, in $\Sets$, the equivalence relation $\{(a,a') : fa = fa'\}$. Then show that the coequalizer of the kernel pair is $A \to f(A)$, the image of $f$. (L-R 3.44)
+:::
+
+::: {#exr-}
+Let $X$ be a set. Show that the slice category $\Sets/X$ (objects: maps $E \to X$; arrows: commuting triangles) has all finite limits. What is the terminal object? What is the product of $E \to X$ and $F \to X$? (L-R 3.48)
+:::
+
+::: {#exr-}
+Show that $\mathbf{Grp}$ has all finite limits. Does it have finite colimits? What is the sum of $\Z$ and $\Z$? (L-R 3.47)
+:::
