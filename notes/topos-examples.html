@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>A Gallery of Toposes – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Math 558 · Foundations of Mathematics
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · The Foundational Crisis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Relations and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Ordinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Induction and Recursion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Axiom of Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 · Models of Set Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 · Large Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12 · Incompleteness</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13 · Parts and Functors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14 · Finite Limits</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15 · Exponentials</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-special-about-mathcals-5-min" id="toc-what-is-special-about-mathcals-5-min" class="nav-link active" data-scroll-target="#what-is-special-about-mathcals-5-min">What is special about <span class="math inline">\(\mathcal{S}\)</span> [≈ 5 min]</a></li>
+  <li><a href="#the-easy-ones-7-min" id="toc-the-easy-ones-7-min" class="nav-link" data-scroll-target="#the-easy-ones-7-min">The easy ones [≈ 7 min]</a>
+  <ul class="collapse">
+  <li><a href="#finite-sets" id="toc-finite-sets" class="nav-link" data-scroll-target="#finite-sets">Finite sets</a></li>
+  <li><a href="#the-trivial-topos" id="toc-the-trivial-topos" class="nav-link" data-scroll-target="#the-trivial-topos">The trivial topos</a></li>
+  <li><a href="#slices-sets-over-x" id="toc-slices-sets-over-x" class="nav-link" data-scroll-target="#slices-sets-over-x">Slices: sets over <span class="math inline">\(X\)</span></a></li>
+  </ul></li>
+  <li><a href="#g-sets-boolean-without-choice-6-min" id="toc-g-sets-boolean-without-choice-6-min" class="nav-link" data-scroll-target="#g-sets-boolean-without-choice-6-min"><span class="math inline">\(G\)</span>-sets: Boolean without choice [≈ 6 min]</a></li>
+  <li><a href="#presheaf-toposes-17-min" id="toc-presheaf-toposes-17-min" class="nav-link" data-scroll-target="#presheaf-toposes-17-min">Presheaf toposes [≈ 17 min]</a>
+  <ul class="collapse">
+  <li><a href="#guessing-omega-let-the-axioms-tell-you" id="toc-guessing-omega-let-the-axioms-tell-you" class="nav-link" data-scroll-target="#guessing-omega-let-the-axioms-tell-you">Guessing <span class="math inline">\(\Omega\)</span>: let the axioms tell you</a></li>
+  <li><a href="#the-recipe-in-action" id="toc-the-recipe-in-action" class="nav-link" data-scroll-target="#the-recipe-in-action">The recipe in action</a></li>
+  <li><a href="#the-sierpiński-topos-by-hand" id="toc-the-sierpiński-topos-by-hand" class="nav-link" data-scroll-target="#the-sierpiński-topos-by-hand">The Sierpiński topos, by hand</a></li>
+  </ul></li>
+  <li><a href="#sheaves-on-a-space-10-min" id="toc-sheaves-on-a-space-10-min" class="nav-link" data-scroll-target="#sheaves-on-a-space-10-min">Sheaves on a space [≈ 10 min]</a>
+  <ul class="collapse">
+  <li><a href="#the-real-numbers-in-shmathbbr" id="toc-the-real-numbers-in-shmathbbr" class="nav-link" data-scroll-target="#the-real-numbers-in-shmathbbr">The real numbers in <span class="math inline">\(\Sh(\mathbb{R})\)</span></a></li>
+  </ul></li>
+  <li><a href="#toposes-from-logic-8-min" id="toc-toposes-from-logic-8-min" class="nav-link" data-scroll-target="#toposes-from-logic-8-min">Toposes from logic [≈ 8 min]</a>
+  <ul class="collapse">
+  <li><a href="#forcing-as-sheaves" id="toc-forcing-as-sheaves" class="nav-link" data-scroll-target="#forcing-as-sheaves">Forcing as sheaves</a></li>
+  <li><a href="#realizability-the-effective-topos" id="toc-realizability-the-effective-topos" class="nav-link" data-scroll-target="#realizability-the-effective-topos">Realizability: the effective topos</a></li>
+  </ul></li>
+  <li><a href="#non-examples-4-min" id="toc-non-examples-4-min" class="nav-link" data-scroll-target="#non-examples-4-min">Non-examples [≈ 4 min]</a></li>
+  <li><a href="#summary-3-min" id="toc-summary-3-min" class="nav-link" data-scroll-target="#summary-3-min">Summary [≈ 3 min]</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Gallery of Toposes</h1>
+<p class="subtitle lead">Which properties of <span class="math inline">\(\mathcal{S}\)</span> survive? Slices, <span class="math inline">\(G\)</span>-sets, presheaves, sheaves, and toposes from logic</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="box">
+<p>Last time we arrived at the definition of an <strong>elementary topos</strong>: a category with finite limits, exponentials, and a subobject classifier <span class="math inline">\(\true : 1 \to \Omega\)</span>. The category <span class="math inline">\(\mathcal{S}\)</span> of abstract sets is one example. Today we look at many others. The guiding question is:</p>
+<blockquote class="blockquote">
+<p>Which of the <em>extra</em> properties of <span class="math inline">\(\mathcal{S}\)</span> survive in a given topos?</p>
+</blockquote>
+<p>The answer shows that the topos axioms capture a very general notion of “set” — sets that vary, move, carry symmetry, or are only locally defined — and that the classical features of <span class="math inline">\(\mathcal{S}\)</span> are genuinely additional axioms.</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lecture plan (60 min)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0–5</td>
+<td>The four (five) extra properties of <span class="math inline">\(\mathcal{S}\)</span>; two theorems that link them</td>
+</tr>
+<tr class="even">
+<td>5–12</td>
+<td>The easy ones: <span class="math inline">\(\FinSet\)</span>, the trivial topos, <span class="math inline">\(\mathcal{S}/X\)</span></td>
+</tr>
+<tr class="odd">
+<td>12–18</td>
+<td><span class="math inline">\(G\)</span>-sets: Boolean without choice</td>
+</tr>
+<tr class="even">
+<td>18–35</td>
+<td>Presheaf toposes; the recipe for <span class="math inline">\(\Omega\)</span>; the Sierpiński topos in detail</td>
+</tr>
+<tr class="odd">
+<td>35–45</td>
+<td>Sheaves on a space: truth values are open sets</td>
+</tr>
+<tr class="even">
+<td>45–53</td>
+<td>Toposes from logic: forcing and realizability (survey)</td>
+</tr>
+<tr class="odd">
+<td>53–57</td>
+<td>Non-examples</td>
+</tr>
+<tr class="even">
+<td>57–60</td>
+<td>Summary table</td>
+</tr>
+</tbody>
+</table>
+<p>If time runs short, compress the logic section to two minutes and skip the non-examples (posets and vector spaces were covered last time). <strong>Do not cut the Sierpiński computation</strong>: the one skill to take away is computing <span class="math inline">\(\Omega\)</span> and watching excluded middle fail.</p>
+</div>
+</div>
+</div>
+<section id="what-is-special-about-mathcals-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-special-about-mathcals-5-min">What is special about <span class="math inline">\(\mathcal{S}\)</span> [≈ 5 min]</h2>
+<p>Recall the properties of <span class="math inline">\(\mathcal{S}\)</span> that go beyond the topos axioms. For a topos <span class="math inline">\(\mathcal{E}\)</span>:</p>
+<div class="axioms">
+<dl>
+<dt>Well-pointed</dt>
+<dd>
+<span class="math inline">\(0 \not\cong 1\)</span>, and <span class="math inline">\(1\)</span> separates maps: if <span class="math inline">\(f \neq g : A \to B\)</span>, there is <span class="math inline">\(a : 1 \to A\)</span> with <span class="math inline">\(fa \neq ga\)</span>.
+</dd>
+<dt>Boolean</dt>
+<dd>
+Every part has a complement; equivalently <span class="math inline">\([\true, \mathrm{false}] : 1 + 1 \to \Omega\)</span> is an isomorphism.
+</dd>
+<dt>Two-valued</dt>
+<dd>
+<span class="math inline">\(\Omega\)</span> has exactly two elements <span class="math inline">\(1 \to \Omega\)</span> (equivalently, <span class="math inline">\(1\)</span> has exactly two parts, <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>).
+</dd>
+<dt>Natural numbers object</dt>
+<dd>
+An object <span class="math inline">\(\mathbb{N}\)</span> with <span class="math inline">\(0 : 1 \to \mathbb{N}\)</span>, <span class="math inline">\(s : \mathbb{N}\to \mathbb{N}\)</span> such that for every <span class="math inline">\(x_0 : 1 \to X\)</span>, <span class="math inline">\(f : X \to X\)</span> there is a unique <span class="math inline">\(h : \mathbb{N}\to X\)</span> with <span class="math inline">\(h0 = x_0\)</span> and <span class="math inline">\(hs = fh\)</span>.
+</dd>
+<dt>Choice</dt>
+<dd>
+Every epimorphism has a section.
+</dd>
+</dl>
+</div>
+<p>“Two-valued” was not on our list last time. It is weaker than Boolean, and the examples below show that the two notions really differ.</p>
+<p>In any topos, the parts of an object <span class="math inline">\(X\)</span> form a lattice <span class="math inline">\(\Sub(X)\)</span> (intersections are pullbacks, unions are images of sums). Each part <span class="math inline">\(A\)</span> has a <strong>pseudo-complement</strong> <span class="math inline">\(\neg A\)</span>, the largest part disjoint from <span class="math inline">\(A\)</span>, and <span class="math inline">\(\Sub(X)\)</span> is a <strong>Heyting algebra</strong>. Booleanness says <span class="math inline">\(A \vee \neg A = X\)</span> for all parts <span class="math inline">\(A\)</span>, i.e.&nbsp;the internal logic satisfies excluded middle.</p>
+<p>Two classical theorems connect the properties. We state them without proof (see Goldblatt, <em>Topoi</em>, or Mac Lane–Moerdijk).</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-classicality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Two roads to classical logic)</strong></span> <br>
+Let <span class="math inline">\(\mathcal{E}\)</span> be a topos.</p>
+<ol type="1">
+<li>If <span class="math inline">\(\mathcal{E}\)</span> is well-pointed, then <span class="math inline">\(\mathcal{E}\)</span> is Boolean (and two-valued).</li>
+<li>(Diaconescu) If every epimorphism in <span class="math inline">\(\mathcal{E}\)</span> splits, then <span class="math inline">\(\mathcal{E}\)</span> is Boolean.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="box">
+<p><strong>Booleanness is the hinge.</strong> A topos that fails excluded middle fails <em>both</em> well-pointedness and choice. In <span class="math inline">\(\mathcal{S}\)</span>, the classicality of logic is not a separate assumption; it is forced by choice alone, and also by well-pointedness alone.</p>
+</div>
+<p>Part 2 is the categorical form of a fact you may know from set theory: over a constructive base theory, <span class="math inline">\(\mathsf{AC}\)</span> implies the law of excluded middle.</p>
+</section>
+<section id="the-easy-ones-7-min" class="level2">
+<h2 class="anchored" data-anchor-id="the-easy-ones-7-min">The easy ones [≈ 7 min]</h2>
+<section id="finite-sets" class="level3">
+<h3 class="anchored" data-anchor-id="finite-sets">Finite sets</h3>
+<p><span class="math inline">\(\FinSet\)</span>, the full subcategory of finite sets, is a topos: finite limits of finite sets are finite, <span class="math inline">\(Y^B\)</span> is finite, and <span class="math inline">\(\Omega = 2\)</span>. It is well-pointed, Boolean, and satisfies choice (without any appeal to <span class="math inline">\(\mathsf{AC}\)</span>: a surjection between finite sets has a section by induction).</p>
+<p>But it has <strong>no natural numbers object</strong> (<a href="#exr-finset" class="quarto-xref">Exercise&nbsp;1</a>). The axiom of infinity is not part of being a topos.</p>
+</section>
+<section id="the-trivial-topos" class="level3">
+<h3 class="anchored" data-anchor-id="the-trivial-topos">The trivial topos</h3>
+<p>The category <span class="math inline">\(\mathbf{1}\)</span> with one object and one arrow is a topos: its single object is terminal, initial, <span class="math inline">\(\Omega\)</span>, and every exponential. Here <span class="math inline">\(0 \cong 1\)</span>. Every statement is “true” — which is why nondegeneracy <span class="math inline">\(0 \not\cong 1\)</span> appears in the definition of well-pointedness.</p>
+</section>
+<section id="slices-sets-over-x" class="level3">
+<h3 class="anchored" data-anchor-id="slices-sets-over-x">Slices: sets over <span class="math inline">\(X\)</span></h3>
+<p>We met <span class="math inline">\(\mathcal{S}/X\)</span> last time: an object is a map <span class="math inline">\(\alpha : A \to X\)</span>, i.e.&nbsp;an <span class="math inline">\(X\)</span>-indexed family of sets <span class="math inline">\(A_x = \alpha^{-1}(x)\)</span>, and everything is computed <strong>fiberwise</strong>: <span class="math display">\[
+(A \times_X B)_x = A_x \times B_x, \qquad (Y^B)_x = Y_x^{B_x}, \qquad \Omega = (X \times 2 \to X), \quad \Omega_x = 2 .
+\]</span></p>
+<ul>
+<li><strong>Terminal object:</strong> <span class="math inline">\(1_X : X \to X\)</span>, one point in every fiber.</li>
+<li><strong>Elements</strong> <span class="math inline">\(1 \to A\)</span> are <em>sections</em> of <span class="math inline">\(\alpha\)</span>: a choice of one point in every fiber.</li>
+<li><strong>Not well-pointed</strong> (for <span class="math inline">\(|X| \ge 2\)</span>): if one fiber of <span class="math inline">\(A\)</span> is empty, <span class="math inline">\(A\)</span> has no elements at all, yet if another fiber has two points, <span class="math inline">\(A\)</span> has a non-identity automorphism (swap them).</li>
+<li><strong>Not two-valued:</strong> truth values <span class="math inline">\(1 \to \Omega\)</span> are maps <span class="math inline">\(X \to 2\)</span>; there are <span class="math inline">\(2^{|X|}\)</span> of them.</li>
+<li><strong>Boolean, with choice, and with a natural numbers object</strong> <span class="math inline">\(X \times \mathbb{N}\to X\)</span>: all fiberwise.</li>
+</ul>
+<p>So: Boolean, but not well-pointed. “True” is now <em>true at some indices and false at others</em>.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-fundamental" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Fundamental theorem of topos theory)</strong></span> <br>
+If <span class="math inline">\(\mathcal{E}\)</span> is a topos and <span class="math inline">\(X\)</span> an object of <span class="math inline">\(\mathcal{E}\)</span>, then <span class="math inline">\(\mathcal{E}/X\)</span> is a topos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Looking ahead: dependent types
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>An object of <span class="math inline">\(\mathcal{E}/X\)</span> is a “type depending on <span class="math inline">\(x : X\)</span>.” Pulling back along <span class="math inline">\(f : X' \to X\)</span> is substitution, and it has a left adjoint <span class="math inline">\(\Sigma_f\)</span> and a right adjoint <span class="math inline">\(\Pi_f\)</span>, which are exactly the dependent sum and dependent product of Martin-Löf type theory. This is the interpretation of type theory in locally cartesian closed categories that we return to in Week 14.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="g-sets-boolean-without-choice-6-min" class="level2">
+<h2 class="anchored" data-anchor-id="g-sets-boolean-without-choice-6-min"><span class="math inline">\(G\)</span>-sets: Boolean without choice [≈ 6 min]</h2>
+<p>Let <span class="math inline">\(G\)</span> be a group. An object of <span class="math inline">\(\mathcal{S}^G\)</span> is a set with a <span class="math inline">\(G\)</span>-action, a map is an equivariant map. Limits are computed on underlying sets with the induced action; the exponential <span class="math inline">\(Y^X\)</span> is the set of <em>all</em> maps with <span class="math inline">\((g\cdot f)(x) = g\, f(g^{-1}x)\)</span> (last time).</p>
+<ul>
+<li><strong>Subobject classifier.</strong> A part is a <span class="math inline">\(G\)</span>-invariant subset. Since <span class="math inline">\(G\)</span> is a group, the complement of an invariant subset is invariant. So <span class="math inline">\(\Omega = 2\)</span> with the trivial action, and <span class="math inline">\(\mathcal{S}^G\)</span> is <strong>Boolean</strong> and <strong>two-valued</strong>.</li>
+<li><strong>Not well-pointed.</strong> Elements <span class="math inline">\(1 \to X\)</span> are <strong>fixed points</strong>. If <span class="math inline">\(G \neq 1\)</span>, the action of <span class="math inline">\(G\)</span> on itself by translation has no fixed points but many automorphisms.</li>
+<li><strong>Choice fails.</strong> The unique map <span class="math inline">\(G \to 1\)</span> is surjective, hence an epimorphism. A section <span class="math inline">\(1 \to G\)</span> would be a fixed point. There is none.</li>
+</ul>
+<p>So Diaconescu’s theorem has no converse: <strong>Boolean does not imply choice.</strong></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Connection to Week 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The first independence proofs for <span class="math inline">\(\mathsf{AC}\)</span> (Fraenkel, Mostowski) used <strong>permutation models</strong>: a universe of sets built over atoms, keeping only the sets that are fixed by “enough” permutations of the atoms. These models can be presented as toposes of <span class="math inline">\(G\)</span>-sets for a group <span class="math inline">\(G\)</span> of permutations of the atoms (with a topology on <span class="math inline">\(G\)</span>, and only actions with open stabilizers). What we just saw — no fixed point, hence no section — is the simplest instance of why choice fails there.</p>
+</div>
+</div>
+</section>
+<section id="presheaf-toposes-17-min" class="level2">
+<h2 class="anchored" data-anchor-id="presheaf-toposes-17-min">Presheaf toposes [≈ 17 min]</h2>
+<p><span class="math inline">\(\mathcal{S}/X\)</span> and <span class="math inline">\(\mathcal{S}^G\)</span> are both special cases of one construction.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: presheaves
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(C\)</span> be a small category. A <strong>presheaf</strong> on <span class="math inline">\(C\)</span> is a functor <span class="math inline">\(P : C^{op} \to \mathcal{S}\)</span>; for <span class="math inline">\(x \in P(c)\)</span> and <span class="math inline">\(f : d \to c\)</span> we write <span class="math inline">\(x \cdot f := P(f)(x) \in P(d)\)</span> (“restriction of <span class="math inline">\(x\)</span> along <span class="math inline">\(f\)</span>”). Maps of presheaves are natural transformations. The category of presheaves is written <span class="math inline">\(\Psh{C}\)</span>.</p>
+<p>For each object <span class="math inline">\(c\)</span>, the <strong>representable</strong> presheaf is <span class="math inline">\(\yon c := C(-, c)\)</span>.</p>
+</div>
+</div>
+<p>Limits of presheaves are computed <strong>pointwise</strong>: <span class="math inline">\((P \times Q)(c) = P(c) \times Q(c)\)</span>, and so on. A map of presheaves is mono iff each component is injective, and epi iff each component is surjective. So a <strong>part</strong> of <span class="math inline">\(P\)</span> is a family of subsets <span class="math inline">\(A(c) \subseteq P(c)\)</span> closed under restriction.</p>
+<section id="guessing-omega-let-the-axioms-tell-you" class="level3">
+<h3 class="anchored" data-anchor-id="guessing-omega-let-the-axioms-tell-you">Guessing <span class="math inline">\(\Omega\)</span>: let the axioms tell you</h3>
+<p>How could we find <span class="math inline">\(\Omega\)</span>? Suppose it exists. We need one fact about representables.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-yoneda-preview" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Maps out of a representable)</strong></span> <br>
+For every presheaf <span class="math inline">\(P\)</span> and object <span class="math inline">\(c\)</span>, the map <span class="math inline">\(\NatT(\yon c, P) \to P(c)\)</span>, <span class="math inline">\(\alpha \mapsto \alpha_c(1_c)\)</span>, is a bijection.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof" data-collapse="true">
+<p><span class="proof-title"><em>Proof</em>. </span>Given <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(f : d \to c\)</span>, naturality of <span class="math inline">\(\alpha\)</span> applied to <span class="math inline">\(f\)</span> and the element <span class="math inline">\(1_c \in \yon c(c)\)</span> gives <span class="math display">\[
+\alpha_d(f) = \alpha_d(1_c \circ f) = \alpha_c(1_c)\cdot f .
+\]</span> So <span class="math inline">\(\alpha\)</span> is determined by <span class="math inline">\(x := \alpha_c(1_c)\)</span>. Conversely, for any <span class="math inline">\(x \in P(c)\)</span>, the formula <span class="math inline">\(\alpha_d(f) := x \cdot f\)</span> defines a natural transformation (check naturality using that <span class="math inline">\(P\)</span> is a functor). This is the bootstrap trick from last time — everything is determined by where the identity goes — and it is a special case of the <strong>Yoneda lemma</strong>, which we will meet properly soon.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Now combine the lemma with the subobject classifier axiom: <span class="math display">\[
+\Omega(c) \;\cong\; \NatT(\yon c, \Omega) \;\cong\; \Sub(\yon c).
+\]</span> So <strong><span class="math inline">\(\Omega(c)\)</span> must be the set of parts of <span class="math inline">\(\yon c\)</span>.</strong> A part of <span class="math inline">\(\yon c\)</span> is a set <span class="math inline">\(S\)</span> of arrows with codomain <span class="math inline">\(c\)</span> that is closed under precomposition: if <span class="math inline">\(f \in S\)</span> then <span class="math inline">\(f \circ g \in S\)</span>. Such a set is called a <strong>sieve on <span class="math inline">\(c\)</span></strong>. Exactly the same reasoning determines the exponential: <span class="math inline">\((Y^X)(c) \cong \NatT(\yon c, Y^X) \cong \NatT(\yon c \times X, Y)\)</span>.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-presheaf-topos" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Presheaf toposes)</strong></span> <br>
+For every small category <span class="math inline">\(C\)</span>, <span class="math inline">\(\Psh{C}\)</span> is a topos, with</p>
+<ul>
+<li><span class="math inline">\(\Omega(c) = \{ S : S \text{ a sieve on } c\}\)</span>, and for <span class="math inline">\(f : d \to c\)</span>, <span class="math inline">\(S \cdot f = \{ g : f \circ g \in S\}\)</span>;</li>
+<li>$_c = $ the maximal sieve (all arrows into <span class="math inline">\(c\)</span>);</li>
+<li>for a part <span class="math inline">\(A \subseteq X\)</span>, the characteristic map <span class="math display">\[
+\chi_c(x) = \{\, f : d \to c \;:\; x \cdot f \in A(d) \,\};
+\]</span></li>
+<li><span class="math inline">\((Y^X)(c) = \NatT(\yon c \times X, Y)\)</span>;</li>
+<li>natural numbers object: the constant presheaf with value <span class="math inline">\(\mathbb{N}\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>The characteristic map has a nice reading: <span class="math inline">\(\chi(x)\)</span> records <strong>all the ways in which <span class="math inline">\(x\)</span> eventually ends up in <span class="math inline">\(A\)</span>.</strong> In <span class="math inline">\(\mathcal{S}\)</span> there is only one “way” (<span class="math inline">\(1_c\)</span>), so <span class="math inline">\(\chi(x)\)</span> is just yes or no.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Fact: when is a presheaf topos Boolean?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Psh{C}\)</span> is Boolean if and only if <span class="math inline">\(C\)</span> is a <strong>groupoid</strong> (every arrow invertible).</p>
+</div>
+</div>
+</section>
+<section id="the-recipe-in-action" class="level3">
+<h3 class="anchored" data-anchor-id="the-recipe-in-action">The recipe in action</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>index category <span class="math inline">\(C\)</span></th>
+<th>presheaves <span class="math inline">\(\Psh{C}\)</span></th>
+<th><span class="math inline">\(\Omega\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>one object, only the identity</td>
+<td><span class="math inline">\(\mathcal{S}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td>a set <span class="math inline">\(X\)</span>, only identities</td>
+<td>families <span class="math inline">\((A_x)_{x\in X}\)</span>, i.e.&nbsp;<span class="math inline">\(\mathcal{S}/X\)</span></td>
+<td><span class="math inline">\(2\)</span> in each fiber</td>
+</tr>
+<tr class="odd">
+<td>a group <span class="math inline">\(G\)</span>, one object</td>
+<td><span class="math inline">\(G\)</span>-sets</td>
+<td><span class="math inline">\(2\)</span>, trivial action</td>
+</tr>
+<tr class="even">
+<td>a monoid <span class="math inline">\(M\)</span>, one object</td>
+<td>(right) <span class="math inline">\(M\)</span>-sets</td>
+<td>right ideals of <span class="math inline">\(M\)</span></td>
+</tr>
+<tr class="odd">
+<td>the monoid <span class="math inline">\((\mathbb{N},+)\)</span></td>
+<td>sets with an endomap</td>
+<td><span class="math inline">\(\mathbb{N}\cup\{\infty\}\)</span>, <span class="math inline">\(n \mapsto n-1\)</span>, <span class="math inline">\(0 \mapsto 0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V \rightrightarrows E\)</span> (arrows <span class="math inline">\(s, t\)</span>)</td>
+<td>directed graphs</td>
+<td>2 vertices, 5 edges</td>
+</tr>
+<tr class="odd">
+<td>the simplex category <span class="math inline">\(\Delta\)</span></td>
+<td>simplicial sets</td>
+<td>(the Week 14 model of HoTT)</td>
+</tr>
+</tbody>
+</table>
+<p>A few checks:</p>
+<ul>
+<li>For a monoid <span class="math inline">\(M\)</span> (one object, arrows <span class="math inline">\(= M\)</span>, composition <span class="math inline">\(=\)</span> multiplication), a sieve is a subset <span class="math inline">\(S \subseteq M\)</span> with <span class="math inline">\(S \cdot M \subseteq S\)</span>: a <strong>right ideal</strong>. (For left actions, as last time, one gets left ideals.) For a group, the only right ideals are <span class="math inline">\(\varnothing\)</span> and <span class="math inline">\(G\)</span>, recovering <span class="math inline">\(\Omega = 2\)</span>.</li>
+<li>For <span class="math inline">\((\mathbb{N}, +)\)</span> the ideals are <span class="math inline">\(\varnothing\)</span> and <span class="math inline">\(k + \mathbb{N}\)</span> for <span class="math inline">\(k \in \mathbb{N}\)</span>. Write <span class="math inline">\(\infty\)</span> for <span class="math inline">\(\varnothing\)</span> and <span class="math inline">\(k\)</span> for <span class="math inline">\(k + \mathbb{N}\)</span>. Acting by <span class="math inline">\(1\)</span> sends <span class="math inline">\(k + \mathbb{N}\)</span> to <span class="math inline">\(\{n : 1 + n \in k + \mathbb{N}\} = (k-1)+\mathbb{N}\)</span> (or <span class="math inline">\(\mathbb{N}\)</span> if <span class="math inline">\(k = 0\)</span>). This is the <span class="math inline">\(\Omega\)</span> for sets with an endomap: <span class="math inline">\(\chi(x)\)</span> is the <strong>time it takes <span class="math inline">\(x\)</span> to enter <span class="math inline">\(A\)</span></strong>.</li>
+<li>For graphs, a presheaf <span class="math inline">\(X\)</span> has a set of vertices <span class="math inline">\(X(V)\)</span>, a set of edges <span class="math inline">\(X(E)\)</span>, and source and target maps <span class="math inline">\(X(E) \to X(V)\)</span>. Arrows into <span class="math inline">\(V\)</span>: only <span class="math inline">\(1_V\)</span>, so there are two sieves on <span class="math inline">\(V\)</span>. Arrows into <span class="math inline">\(E\)</span>: <span class="math inline">\(1_E, s, t\)</span>, giving five sieves: <span class="math inline">\(\{1_E, s, t\}, \{s,t\}, \{s\}, \{t\}, \varnothing\)</span>. Read: the edge is in the subgraph; it is not, but both endpoints are; only the source is; only the target is; neither endpoint is.</li>
+</ul>
+</section>
+<section id="the-sierpiński-topos-by-hand" class="level3">
+<h3 class="anchored" data-anchor-id="the-sierpiński-topos-by-hand">The Sierpiński topos, by hand</h3>
+<p>The smallest non-Boolean example deserves a complete computation. Let <span class="math inline">\(C\)</span> be the category with two objects <span class="math inline">\(0, 1\)</span> and a single non-identity arrow <span class="math inline">\(u : 1 \to 0\)</span>. A presheaf on <span class="math inline">\(C\)</span> is just a map <span class="math display">\[
+X_0 \xrightarrow{\ \xi\ } X_1 ,
+\]</span> and a morphism is a commuting square. Think of <span class="math inline">\(X_0\)</span> as “what exists <strong>now</strong>,” <span class="math inline">\(X_1\)</span> as “what exists <strong>later</strong>,” and <span class="math inline">\(\xi\)</span> as “how things develop.” A <strong>part</strong> of <span class="math inline">\(X\)</span> is a pair <span class="math inline">\(A_0 \subseteq X_0\)</span>, <span class="math inline">\(A_1 \subseteq X_1\)</span> with <span class="math inline">\(\xi(A_0) \subseteq A_1\)</span>: once in <span class="math inline">\(A\)</span>, always in <span class="math inline">\(A\)</span>.</p>
+<p><strong>Truth values.</strong> Arrows into <span class="math inline">\(1\)</span>: only <span class="math inline">\(1_1\)</span>, so <span class="math inline">\(\Omega_1 = \{\top, \bot\}\)</span>. Arrows into <span class="math inline">\(0\)</span>: <span class="math inline">\(1_0\)</span> and <span class="math inline">\(u\)</span>, and the sieves are <span class="math inline">\(\{1_0, u\}\)</span>, <span class="math inline">\(\{u\}\)</span>, <span class="math inline">\(\varnothing\)</span>. So <span class="math display">\[
+\Omega_0 = \{\top, \tfrac12, \bot\} \xrightarrow{\quad} \Omega_1 = \{\top, \bot\}, \qquad \top \mapsto \top,\ \ \tfrac12 \mapsto \top,\ \ \bot \mapsto \bot .
+\]</span> For a part <span class="math inline">\(A \subseteq X\)</span> and <span class="math inline">\(a \in X_0\)</span>, <span class="math display">\[
+\chi_0(a) =
+\begin{cases}
+\top &amp; a \in A_0 \quad (\text{true now}),\\
+\tfrac12 &amp; a \notin A_0 \text{ but } \xi(a) \in A_1 \quad (\text{not yet, but later}),\\
+\bot &amp; \xi(a) \notin A_1 \quad (\text{never}).
+\end{cases}
+\]</span> You can verify directly that this classifies parts (<a href="#exr-sierpinski" class="quarto-xref">Exercise&nbsp;2</a>).</p>
+<p><strong>Excluded middle fails.</strong> Take <span class="math inline">\(X = 1 = (1 \to 1)\)</span> and the part <span class="math inline">\(A = (\varnothing, 1)\)</span>: the proposition “it is not true now, but it will be.” The pseudo-complement <span class="math inline">\(\neg A\)</span> must be disjoint from <span class="math inline">\(A\)</span>, so <span class="math inline">\((\neg A)_1 = \varnothing\)</span>, hence <span class="math inline">\((\neg A)_0 = \varnothing\)</span> as well. Therefore <span class="math display">\[
+\neg A = 0, \qquad A \vee \neg A = A \neq 1, \qquad \neg\neg A = 1 \neq A .
+\]</span> <span class="math inline">\(A\)</span> is <strong>not false</strong> (it is not refuted), and yet <strong>not true</strong>. Its characteristic map is the truth value <span class="math inline">\((\tfrac12, \top) : 1 \to \Omega\)</span>.</p>
+<p>The rest of the profile:</p>
+<ul>
+<li><strong>Three global truth values</strong> <span class="math inline">\((\top,\top), (\tfrac12, \top), (\bot, \bot)\)</span>: not two-valued.</li>
+<li><strong>Not well-pointed.</strong> An element <span class="math inline">\(1 \to X\)</span> is just an <span class="math inline">\(a \in X_0\)</span>. The object <span class="math inline">\(\varnothing \to 2\)</span> has no elements, but two different automorphisms.</li>
+<li><strong>Choice fails</strong>, by Diaconescu — or directly (<a href="#exr-sierpinski" class="quarto-xref">Exercise&nbsp;2</a>).</li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Kripke models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is exactly the semantics of intuitionistic logic by <strong>Kripke models</strong> with two worlds. Functors <span class="math inline">\(P \to \mathcal{S}\)</span> on a poset <span class="math inline">\(P\)</span> (i.e.&nbsp;presheaves on <span class="math inline">\(P^{op}\)</span>) are Kripke models over <span class="math inline">\(P\)</span>: a statement is “true at stage <span class="math inline">\(p\)</span>” if it holds at <span class="math inline">\(p\)</span> and at all later stages, and <span class="math inline">\(\neg\varphi\)</span> is true at <span class="math inline">\(p\)</span> if <span class="math inline">\(\varphi\)</span> fails at every later stage. Presheaves on <span class="math inline">\((\mathbb{N},\le)^{op}\)</span> are “sets through discrete time.”</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sheaves-on-a-space-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="sheaves-on-a-space-10-min">Sheaves on a space [≈ 10 min]</h2>
+<p>Let <span class="math inline">\(X\)</span> be a topological space and <span class="math inline">\(\mathcal{O}(X)\)</span> its poset of open sets, viewed as a category (<span class="math inline">\(V \to U\)</span> iff <span class="math inline">\(V \subseteq U\)</span>). A presheaf on <span class="math inline">\(\mathcal{O}(X)\)</span> assigns to each open <span class="math inline">\(U\)</span> a set <span class="math inline">\(F(U)\)</span> (“sections over <span class="math inline">\(U\)</span>”) with restriction maps <span class="math inline">\(s \mapsto s|_V\)</span> for <span class="math inline">\(V \subseteq U\)</span>. Example: <span class="math inline">\(F(U) = C(U, \mathbb{R})\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: sheaf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A presheaf <span class="math inline">\(F\)</span> on <span class="math inline">\(\mathcal{O}(X)\)</span> is a <strong>sheaf</strong> if whenever <span class="math inline">\(U = \bigcup_i U_i\)</span> and <span class="math inline">\(s_i \in F(U_i)\)</span> agree on overlaps (<span class="math inline">\(s_i|_{U_i\cap U_j} = s_j|_{U_i \cap U_j}\)</span>), there is a <strong>unique</strong> <span class="math inline">\(s \in F(U)\)</span> with <span class="math inline">\(s|_{U_i} = s_i\)</span> for all <span class="math inline">\(i\)</span>.</p>
+</div>
+</div>
+<p>Continuous functions form a sheaf (“continuity is local”); bounded functions do not. The category <span class="math inline">\(\Sh(X)\)</span> of sheaves is a topos, with <span class="math display">\[
+\Omega(U) = \{ V : V \subseteq U \text{ open}\}, \qquad V|_W = V \cap W, \qquad \true_U = U,
+\]</span> and for a subsheaf <span class="math inline">\(A \subseteq F\)</span> and <span class="math inline">\(s \in F(U)\)</span>, <span class="math display">\[
+\chi_U(s) = \bigcup\{ W \subseteq U \text{ open} : s|_W \in A(W) \} :
+\]</span> <strong>the truth value of “<span class="math inline">\(s \in A\)</span>” is the largest open set on which it holds.</strong></p>
+<p>Global truth values are the open sets of <span class="math inline">\(X\)</span>, and the logic of truth values is the Heyting algebra <span class="math inline">\(\mathcal{O}(X)\)</span>: <span class="math display">\[
+U \wedge V = U \cap V, \qquad U \vee V = U \cup V, \qquad \neg U = \operatorname{int}(X \setminus U).
+\]</span> In <span class="math inline">\(\mathbb{R}\)</span>, with <span class="math inline">\(U = (0, \infty)\)</span>: <span class="math inline">\(\neg U = (-\infty, 0)\)</span>, so <span class="math inline">\(U \vee \neg U = \mathbb{R}\setminus\{0\} \neq \mathbb{R}\)</span>.</p>
+<section id="the-real-numbers-in-shmathbbr" class="level3">
+<h3 class="anchored" data-anchor-id="the-real-numbers-in-shmathbbr">The real numbers in <span class="math inline">\(\Sh(\mathbb{R})\)</span></h3>
+<p><span class="math inline">\(\Sh(X)\)</span> has a real numbers object (constructed by Dedekind cuts internally), and it turns out to be the sheaf of continuous real-valued functions, <span class="math inline">\(U \mapsto C(U, \mathbb{R})\)</span>. So an “internal real number” over <span class="math inline">\(\mathbb{R}\)</span> is a continuous function, e.g.&nbsp;the identity <span class="math inline">\(x : \mathbb{R}\to \mathbb{R}\)</span>. Compute truth values: <span class="math display">\[
+[\![x &lt; 0]\!] = (-\infty, 0), \qquad [\![x = 0]\!] = \operatorname{int}\{0\} = \varnothing, \qquad [\![x &gt; 0]\!] = (0, \infty).
+\]</span> Hence <span class="math display">\[
+[\![\,x &lt; 0 \;\vee\; x = 0 \;\vee\; x &gt; 0\,]\!] = \mathbb{R}\setminus \{0\} \neq \mathbb{R}.
+\]</span> <strong>Trichotomy fails for the internal reals.</strong> This is not a pathology but a feature: it is the internal reflection of the fact that a continuous function cannot be split, continuously, into “negative,” “zero,” and “positive” cases. Constructive analysis is the mathematics that is valid in all such toposes.</p>
+<div class="box">
+<p><strong>Grothendieck toposes.</strong> Replacing <span class="math inline">\(\mathcal{O}(X)\)</span> by a category with a suitable notion of “covering” (a <em>site</em>) gives the <strong>Grothendieck toposes</strong>, the setting of modern algebraic geometry. <span class="math inline">\(\mathcal{S}\)</span>, <span class="math inline">\(\mathcal{S}/X\)</span>, <span class="math inline">\(G\)</span>-sets, all presheaf toposes and all <span class="math inline">\(\Sh(X)\)</span> are Grothendieck toposes. In fact the Sierpiński topos is <span class="math inline">\(\Sh\)</span> of the Sierpiński space (<a href="#exr-sierpinski-space" class="quarto-xref">Exercise&nbsp;3</a>), and <span class="math inline">\(\mathcal{S}/X\)</span> is <span class="math inline">\(\Sh\)</span> of the discrete space <span class="math inline">\(X\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="toposes-from-logic-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="toposes-from-logic-8-min">Toposes from logic [≈ 8 min]</h2>
+<p>The last two examples are only surveyed: their constructions take more than a lecture each.</p>
+<section id="forcing-as-sheaves" class="level3">
+<h3 class="anchored" data-anchor-id="forcing-as-sheaves">Forcing as sheaves</h3>
+<p>Cohen’s proof that <span class="math inline">\(\mathsf{CH}\)</span> is independent of <span class="math inline">\(\mathsf{ZFC}\)</span> (Week 5) can be redone in topos theory (Tierney; Mac Lane–Moerdijk, Ch. VI). Take the poset <span class="math inline">\(P\)</span> of Cohen’s forcing conditions and form the topos <span class="math inline">\(\Sh_{\neg\neg}(P)\)</span> of sheaves for the “dense” covering relation. This <strong>Cohen topos</strong> is Boolean, has a natural numbers object, and internally there is an object strictly between <span class="math inline">\(\mathbb{N}\)</span> and <span class="math inline">\(\Omega^{\mathbb{N}}\)</span> in size: <span class="math inline">\(\mathsf{CH}\)</span> fails. Similarly, Boolean-valued models <span class="math inline">\(V^{\mathbb{B}}\)</span> correspond to sheaves on a complete Boolean algebra <span class="math inline">\(\mathbb{B}\)</span>. Forcing is “sets varying over conditions.”</p>
+</section>
+<section id="realizability-the-effective-topos" class="level3">
+<h3 class="anchored" data-anchor-id="realizability-the-effective-topos">Realizability: the effective topos</h3>
+<p>Hyland’s <strong>effective topos</strong> <span class="math inline">\(\Eff\)</span> is built from Kleene’s realizability: a statement is true when some program (an index of a computable function) “realizes” it. In <span class="math inline">\(\Eff\)</span>:</p>
+<ul>
+<li>the natural numbers object is the ordinary <span class="math inline">\(\mathbb{N}\)</span>, but <strong>every function <span class="math inline">\(\mathbb{N}\to \mathbb{N}\)</span> is computable</strong> (internally, “Church’s thesis” holds);</li>
+<li>it is two-valued but <strong>not Boolean</strong>: excluded middle would require deciding the halting problem;</li>
+<li>it is <strong>not</strong> a Grothendieck topos: it does not arise from sheaves on any site.</li>
+</ul>
+<p>Realizability is the ancestor of the “proofs as programs” reading of logic we meet in Week 10: a proof of <span class="math inline">\(\forall n\, \exists m\, \varphi(n,m)\)</span> in <span class="math inline">\(\Eff\)</span> comes with an algorithm computing <span class="math inline">\(m\)</span> from <span class="math inline">\(n\)</span>.</p>
+</section>
+</section>
+<section id="non-examples-4-min" class="level2">
+<h2 class="anchored" data-anchor-id="non-examples-4-min">Non-examples [≈ 4 min]</h2>
+<p>Topos theory gives quick tests for showing a category is <em>not</em> a topos. In a topos, every map that is both mono and epi is an isomorphism, the initial object is strict, and <span class="math inline">\(- \times B\)</span> preserves colimits (it is a left adjoint).</p>
+<ul>
+<li><span class="math inline">\(\mathbf{Pos}\)</span>: cartesian closed, but the identity map from the 2-element discrete poset to the 2-element chain is mono and epi without being an iso.</li>
+<li><span class="math inline">\(\mathbf{Top}\)</span>: not even cartesian closed. Not every <span class="math inline">\(- \times B\)</span> preserves quotients (e.g.&nbsp;<span class="math inline">\(B = \mathbb{Q}\)</span>).</li>
+<li><span class="math inline">\(\mathbf{Grp}\)</span>: no subobject classifier. If <span class="math inline">\(\true : 1 \to \Omega\)</span> existed, every subgroup would be the pullback of <span class="math inline">\(\true\)</span> along a homomorphism, i.e.&nbsp;a kernel, hence normal. But <span class="math inline">\(S_3\)</span> has non-normal subgroups.</li>
+<li><span class="math inline">\(\mathcal{S}^{op}\)</span>: has finite limits and colimits, but its initial object (the set <span class="math inline">\(1\)</span>) is not strict.</li>
+</ul>
+</section>
+<section id="summary-3-min" class="level2">
+<h2 class="anchored" data-anchor-id="summary-3-min">Summary [≈ 3 min]</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">well-pointed</th>
+<th style="text-align: center;">Boolean</th>
+<th style="text-align: center;">two-valued</th>
+<th style="text-align: center;">NNO</th>
+<th style="text-align: center;">choice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathcal{S}\)</span></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\FinSet\)</span></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathcal{S}/X\)</span>, <span class="math inline">\(\lvert X\rvert \ge 2\)</span></td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(G\)</span>-sets, <span class="math inline">\(G \neq 1\)</span></td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="odd">
+<td>sets with an endomap</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="even">
+<td>directed graphs</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="odd">
+<td>Sierpiński topos</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Sh(\mathbb{R})\)</span></td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Eff\)</span></td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+</tr>
+</tbody>
+</table>
+<div class="box">
+<p><strong>Reading the table.</strong></p>
+<ul>
+<li>Every ✗ in the “Boolean” column forces ✗ under “well-pointed” and “choice” (<a href="#thm-classicality" class="quarto-xref">Theorem&nbsp;1</a>).</li>
+<li>“Two-valued” and “Boolean” are independent of each other: compare <span class="math inline">\(\mathcal{S}/X\)</span> with the endomaps.</li>
+<li>Only <span class="math inline">\(\mathcal{S}\)</span> has a ✓ in every column. Lawvere’s ETCS says precisely: <strong>a well-pointed topos with a natural numbers object and choice.</strong> Each of these axioms does real work.</li>
+</ul>
+</div>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-finset" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Show that <span class="math inline">\(\FinSet\)</span> has no natural numbers object. (<em>Hint:</em> if <span class="math inline">\((N, 0, s)\)</span> were one with <span class="math inline">\(|N| = n\)</span>, use the cyclic set <span class="math inline">\(\mathbb{Z}/(n+1)\)</span> with <span class="math inline">\(f(k) = k+1\)</span> and the pigeonhole principle on <span class="math inline">\(0, s0, \dots, s^n 0\)</span>.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-sierpinski" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> The Sierpiński topos.</p>
+<ol type="a">
+<li><p>Verify directly that <span class="math inline">\(\Omega = (\Omega_0 \to \Omega_1)\)</span> with <span class="math inline">\(\true = (\top, \top)\)</span> classifies parts: the formula for <span class="math inline">\(\chi_0\)</span> gives a morphism of presheaves, the pullback of <span class="math inline">\(\true\)</span> along it is <span class="math inline">\(A\)</span>, and it is the only such morphism.</p></li>
+<li><p>Let <span class="math inline">\(E = (2 \xrightarrow{\,1\,} 2)\)</span> and <span class="math inline">\(B = (2 \to 1)\)</span>. Show that <span class="math inline">\((1_2, !) : E \to B\)</span> is an epimorphism with no section.</p></li>
+<li><p>Compute <span class="math inline">\(\neg\neg A\)</span> for every part <span class="math inline">\(A\)</span> of the object <span class="math inline">\((2 \to 1)\)</span>, where both points of <span class="math inline">\(X_0\)</span> map to the single point of <span class="math inline">\(X_1\)</span>. Which parts satisfy <span class="math inline">\(\neg\neg A = A\)</span>?</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-sierpinski-space" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3</strong></span> The <strong>Sierpiński space</strong> has points <span class="math inline">\(\{a, b\}\)</span> and open sets <span class="math inline">\(\varnothing, \{b\}, \{a, b\}\)</span>. Show that a sheaf on it amounts to a map <span class="math inline">\(F(\{a,b\}) \to F(\{b\})\)</span>, so that its sheaf topos is the Sierpiński topos. Compare with the two-point <em>discrete</em> space: which properties in the summary table change?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Directed graphs. Using <a href="#thm-presheaf-topos" class="quarto-xref">Theorem&nbsp;3</a>, draw <span class="math inline">\(\Omega\)</span> for graphs: its two vertices, its five edges, and their sources and targets. How many elements <span class="math inline">\(1 \to \Omega\)</span> are there (the terminal graph is one vertex with one loop)? Find a subgraph without a complement.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> In <span class="math inline">\(\Sh(\mathbb{R})\)</span>, compute <span class="math inline">\(\neg\neg U\)</span> for an open set <span class="math inline">\(U \subseteq \mathbb{R}\)</span>. Find <span class="math inline">\(U\)</span> with <span class="math inline">\(\neg\neg U \neq U\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> <em>(Optional.)</em> Let <span class="math inline">\(M\)</span> be a monoid. Show that the topos of right <span class="math inline">\(M\)</span>-sets is Boolean iff <span class="math inline">\(M\)</span> is a group. (<em>Hint:</em> if <span class="math inline">\(m\)</span> has no right inverse, consider the part <span class="math inline">\(mM\)</span> of the representable <span class="math inline">\(M\)</span>, and show that <span class="math inline">\(1\)</span> lies neither in <span class="math inline">\(mM\)</span> nor in <span class="math inline">\(\neg(mM)\)</span>.)</p>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Math 558 · Foundations of Mathematics · Penn State</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

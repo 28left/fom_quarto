@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Finite Limits and Colimits – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/finite-limits.html">14 · Finite Limits</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · The Foundational Crisis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Relations and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Ordinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 · Induction and Recursion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 · Axiom of Choice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 · Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 · Models of Set Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11 · Large Cardinals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12 · Incompleteness</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13 · Parts and Functors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">14 · Finite Limits</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15 · Exponentials</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#where-we-are-going" id="toc-where-we-are-going" class="nav-link active" data-scroll-target="#where-we-are-going">Where we are going</a></li>
+  <li><a href="#splittings-and-isomorphisms" id="toc-splittings-and-isomorphisms" class="nav-link" data-scroll-target="#splittings-and-isomorphisms">Splittings and isomorphisms</a></li>
+  <li><a href="#products" id="toc-products" class="nav-link" data-scroll-target="#products">Products</a>
+  <ul class="collapse">
+  <li><a href="#uniqueness-up-to-unique-isomorphism" id="toc-uniqueness-up-to-unique-isomorphism" class="nav-link" data-scroll-target="#uniqueness-up-to-unique-isomorphism">Uniqueness up to unique isomorphism</a></li>
+  </ul></li>
+  <li><a href="#equalizers" id="toc-equalizers" class="nav-link" data-scroll-target="#equalizers">Equalizers</a></li>
+  <li><a href="#pullbacks" id="toc-pullbacks" class="nav-link" data-scroll-target="#pullbacks">Pullbacks</a></li>
+  <li><a href="#finite-limits-in-general" id="toc-finite-limits-in-general" class="nav-link" data-scroll-target="#finite-limits-in-general">Finite limits in general</a></li>
+  <li><a href="#colimits-by-duality" id="toc-colimits-by-duality" class="nav-link" data-scroll-target="#colimits-by-duality">Colimits by duality</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Finite Limits and Colimits</h1>
+<p class="subtitle lead">The first block of topos axioms (Lawvere–Rosebrugh, Ch. 3)</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+Instructor timing (≈ 50 min)
+  0. Where we are going ................................  3 min
+  1. Splittings and isomorphisms ........................  6 min
+  2. Products (+ uniqueness up to iso) .................. 10 min
+  3. Equalizers .........................................  7 min
+  4. Pullbacks ..........................................  8 min
+  5. Finite limits in general ...........................  7 min
+  6. Colimits by duality ................................  7 min
+  7. Summary ............................................  2 min
+Sections marked (skip if short on time) can be left to the notes.
+-->
+<!-- ~3 min -->
+<section id="where-we-are-going" class="level1">
+<h1>Where we are going</h1>
+<p>Here is the definition we are aiming for.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Elementary topos (preview)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A category <span class="math inline">\(\mathcal{E}\)</span> is an <strong>elementary topos</strong> if</p>
+<ol type="1">
+<li><span class="math inline">\(\mathcal{E}\)</span> has all <strong>finite limits</strong>;</li>
+<li><span class="math inline">\(\mathcal{E}\)</span> has all <strong>finite colimits</strong>;</li>
+<li><span class="math inline">\(\mathcal{E}\)</span> has <strong>exponentials</strong> <span class="math inline">\(B^A\)</span> (it is <em>cartesian closed</em>);</li>
+<li><span class="math inline">\(\mathcal{E}\)</span> has a <strong>subobject classifier</strong> <span class="math inline">\(1 \xrightarrow{\top} \Omega\)</span>.</li>
+</ol>
+</div>
+</div>
+<p>Today is about (1) and (2). Next time we do (3) and (4). The category <span class="math inline">\(\mathcal{S}\)</span> of abstract sets will then be a topos with some extra properties: <span class="math inline">\(1\)</span> separates maps, there is a natural numbers object, and choice holds.</p>
+<p>We have already met several pieces of (1) and (2) in Chapters 1–2: the terminal set <span class="math inline">\(1\)</span>, the initial set <span class="math inline">\(0\)</span>, binary sums <span class="math inline">\(A_0 + A_1\)</span>, and inverse images of parts. The point of today is that these are all instances of <em>two</em> general constructions, limits and colimits, and that a handful of special cases suffice to build all the others.</p>
+<p>A remark on method. In <span class="math inline">\(\mathcal{S}\)</span> we may test equations between maps on elements <span class="math inline">\(1 \to X\)</span>, since <span class="math inline">\(1\)</span> separates. In a general topos this fails. So we will phrase everything with <strong>generalized elements</strong> <span class="math inline">\(x : T \to X\)</span> for arbitrary <span class="math inline">\(T\)</span>. Every argument below then works in <em>any</em> category with the relevant structure.</p>
+<!-- ~6 min -->
+</section>
+<section id="splittings-and-isomorphisms" class="level1">
+<h1>Splittings and isomorphisms</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-retraction" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Retraction, section)</strong></span> For maps <span class="math inline">\(X \xrightarrow{i} Y \xrightarrow{r} X\)</span> with <span class="math inline">\(ri = 1_X\)</span>, we call <span class="math inline">\(r\)</span> a <strong>retraction</strong> (left inverse) of <span class="math inline">\(i\)</span>, and <span class="math inline">\(i\)</span> a <strong>section</strong> (right inverse) of <span class="math inline">\(r\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-split-mono" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> If <span class="math inline">\(i\)</span> has a retraction, then <span class="math inline">\(i\)</span> is a monomorphism. Dually, if <span class="math inline">\(r\)</span> has a section, then <span class="math inline">\(r\)</span> is an epimorphism.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(ix_1 = ix_2\)</span>, then <span class="math inline">\(x_1 = (ri)x_1 = r(ix_1) = r(ix_2) = (ri)x_2 = x_2\)</span>. This is “dividing by <span class="math inline">\(i\)</span> on the left”. The dual statement has the dual proof.</p>
+</div>
+</div>
+</div>
+</div>
+<p>A mono with a retraction is called <strong>split</strong>. The converse of <a href="#prp-split-mono" class="quarto-xref">Proposition&nbsp;1</a> is special to sets:</p>
+<ul>
+<li>In <span class="math inline">\(\mathcal{S}\)</span>, every mono <span class="math inline">\(X \rightarrowtail Y\)</span> with <span class="math inline">\(X \neq 0\)</span> splits. Pick <span class="math inline">\(x_0 : 1 \to X\)</span> and let <span class="math inline">\(X'\)</span> be the complement of <span class="math inline">\(X\)</span> in <span class="math inline">\(Y\)</span>, so <span class="math inline">\(Y = X + X'\)</span>. Define <span class="math inline">\(r\)</span> by cases: <span class="math inline">\(r\)</span> is <span class="math inline">\(1_X\)</span> on <span class="math inline">\(X\)</span> and constantly <span class="math inline">\(x_0\)</span> on <span class="math inline">\(X'\)</span>.</li>
+<li>In continuous settings this fails. The inclusion of the circle <span class="math inline">\(S^1 \hookrightarrow \mathbb{R}^2\)</span> has no continuous retraction. It <em>does</em> have one into <span class="math inline">\(\mathbb{R}^2\setminus\{0\}\)</span>, namely <span class="math inline">\(y \mapsto y/|y|\)</span>.</li>
+</ul>
+<p>The proof for <span class="math inline">\(\mathcal{S}\)</span> used <strong>complements</strong>. In a general topos, parts need not have complements. Toposes in which they always do are called <em>Boolean</em>. This is our first glimpse of how intuitionistic logic enters.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-iso" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> <span class="math inline">\(f : X \to Y\)</span> is an <strong>isomorphism</strong> if there is <span class="math inline">\(g : Y \to X\)</span> with <span class="math inline">\(gf = 1_X\)</span> and <span class="math inline">\(fg = 1_Y\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-left-right" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> If <span class="math inline">\(rf = 1_X\)</span> and <span class="math inline">\(fs = 1_Y\)</span>, then <span class="math inline">\(r = s\)</span>. In particular, two-sided inverses are unique; we write <span class="math inline">\(f^{-1}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(r = r1_Y = r(fs) = (rf)s = 1_Xs = s\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In <span class="math inline">\(\mathcal{S}\)</span>, isomorphisms are exactly the bijections. Given bijective <span class="math inline">\(f\)</span>, define $g(y) = $ the unique <span class="math inline">\(x\)</span> with <span class="math inline">\(fx = y\)</span>. Then <span class="math inline">\(gf\)</span> and <span class="math inline">\(fg\)</span> agree with the identities on elements, and <span class="math inline">\(1\)</span> separates. No choice is needed, because <span class="math inline">\(g\)</span> is <em>uniquely</em> determined.</p>
+<!-- ~10 min -->
+</section>
+<section id="products" class="level1">
+<h1>Products</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-product" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Product)</strong></span> A <strong>product</strong> of objects <span class="math inline">\(A, B\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(A \xleftarrow{\pi_A} P \xrightarrow{\pi_B} B\)</span> such that for every <span class="math inline">\(X\)</span> and every pair <span class="math inline">\(f : X \to A\)</span>, <span class="math inline">\(g : X \to B\)</span> there is a <strong>unique</strong> <span class="math inline">\(h : X \to P\)</span> with <span class="math inline">\(\pi_A h = f\)</span> and <span class="math inline">\(\pi_B h = g\)</span>.</p>
+<p><span class="math display">\[
+\begin{array}{ccc}
+&amp; &amp; A \\
+&amp; \overset{f}{\nearrow} &amp; \big\uparrow{\scriptstyle \pi_A} \\
+X &amp; \xrightarrow{\;\;h\;=\;\langle f,g \rangle\;\;} &amp; A \times B \\
+&amp; \underset{g}{\searrow} &amp; \big\downarrow{\scriptstyle \pi_B} \\
+&amp; &amp; B
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>We write <span class="math inline">\(P = A\times B\)</span> and <span class="math inline">\(h = \langle f,g \rangle\)</span>. Equivalently, composition with <span class="math inline">\(\pi_A, \pi_B\)</span> is a bijection <span class="math display">\[
+\mathcal{C}(X, A\times B) \;\cong\; \mathcal{C}(X,A) \times \mathcal{C}(X,B).
+\]</span> So a map <em>into</em> a product is the same thing as a pair of maps. That is the operational content of a product, and it is what we use in practice.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Binary products
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Any two sets <span class="math inline">\(A, B\)</span> have a product <span class="math inline">\(A \times B\)</span>.</p>
+</div>
+</div>
+<p><strong>Computing with generalized elements.</strong> For <span class="math inline">\(x : T \to X\)</span>, <span class="math display">\[
+\langle f,g \rangle\,x = \langle fx,\, gx \rangle.
+\]</span> Both sides are maps <span class="math inline">\(T \to A\times B\)</span> with projections <span class="math inline">\(fx\)</span> and <span class="math inline">\(gx\)</span>. By the uniqueness clause they are equal. This is how “ordered pairs” are recovered without ever defining them.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li>In <span class="math inline">\(\mathcal{S}\)</span>: the cartesian product with the usual projections.</li>
+<li>In a poset viewed as a category: <span class="math inline">\(a \times b\)</span> is the greatest lower bound <span class="math inline">\(a \wedge b\)</span>.</li>
+<li>In <span class="math inline">\(\mathbf{Grp}\)</span>, <span class="math inline">\(\mathbf{Top}\)</span>, <span class="math inline">\(\mathbf{Vect}\)</span>: the direct product with the product structure.</li>
+<li>In <span class="math inline">\(\mathcal{S}\)</span> with <span class="math inline">\(2 = \{0,1\}\)</span>: a pair <span class="math inline">\(\varphi, \psi : X \to 2\)</span> of characteristic maps is a single map <span class="math inline">\(\langle \varphi,\psi \rangle : X \to 2\times 2\)</span>. Composing with the truth table <span class="math inline">\(\&amp; : 2 \times 2 \to 2\)</span> gives the characteristic map of the intersection of the two parts. <em>Logical operations are maps out of products of truth-value objects.</em> This returns with <span class="math inline">\(\Omega \times \Omega \to \Omega\)</span> in a general topos.</li>
+</ul>
+<p><strong>Graphs and diagonals.</strong> The <strong>graph</strong> of <span class="math inline">\(f : A \to B\)</span> is <span class="math inline">\(\gamma_f = \langle 1_A, f \rangle : A \to A \times B\)</span>. Since <span class="math inline">\(\pi_A \gamma_f = 1_A\)</span>, the graph is a split mono, hence a part of <span class="math inline">\(A \times B\)</span>. A generalized element <span class="math inline">\(\langle x,y \rangle\)</span> is a member of it iff <span class="math inline">\(y = fx\)</span>. The special case <span class="math inline">\(\delta_A = \langle 1_A, 1_A \rangle : A \to A\times A\)</span> is the <strong>diagonal</strong>.</p>
+<section id="uniqueness-up-to-unique-isomorphism" class="level3">
+<h3 class="anchored" data-anchor-id="uniqueness-up-to-unique-isomorphism">Uniqueness up to unique isomorphism</h3>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-product-unique" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> If <span class="math inline">\((P, \pi_A, \pi_B)\)</span> and <span class="math inline">\((P', \pi'_A, \pi'_B)\)</span> are both products of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, there is a unique isomorphism <span class="math inline">\(h : P \to P'\)</span> with <span class="math inline">\(\pi'_A h = \pi_A\)</span> and <span class="math inline">\(\pi'_B h = \pi_B\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The universal property of <span class="math inline">\(P'\)</span> gives <span class="math inline">\(h : P \to P'\)</span> commuting with the projections. That of <span class="math inline">\(P\)</span> gives <span class="math inline">\(k : P' \to P\)</span>. Now <span class="math inline">\(kh : P \to P\)</span> satisfies <span class="math inline">\(\pi_A (kh) = \pi_A\)</span> and <span class="math inline">\(\pi_B(kh) = \pi_B\)</span>. But <span class="math inline">\(1_P\)</span> satisfies the same equations, so uniqueness forces <span class="math inline">\(kh = 1_P\)</span>. Symmetrically, <span class="math inline">\(hk = 1_{P'}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>This argument uses nothing but “existence + uniqueness of induced maps”. It therefore applies verbatim to <em>every</em> universal construction below: equalizers, pullbacks, limits, and dually sums, coequalizers, pushouts. We will not repeat it. It is why we may say “<em>the</em> product” and why “equations” like <span class="math inline">\(1 \times A = A\)</span> or <span class="math inline">\(A \times B = B \times A\)</span> mean <em>specified isomorphisms</em>.</p>
+<p>This is a point worth pausing on. In <span class="math inline">\(\mathsf{ZFC}\)</span>, <span class="math inline">\(A \times B\)</span> is one particular set of Kuratowski pairs. Here, <em>any</em> object with the universal property is a product, and nothing we can say distinguishes between them.</p>
+<!-- ~7 min -->
+</section>
+</section>
+<section id="equalizers" class="level1">
+<h1>Equalizers</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-equalizer" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Equalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, an <strong>equalizer</strong> of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is a map <span class="math inline">\(e : E \to A\)</span> such that</p>
+<ol type="1">
+<li><span class="math inline">\(fe = ge\)</span>;</li>
+<li>for every <span class="math inline">\(x : T \to A\)</span> with <span class="math inline">\(fx = gx\)</span> there is a <strong>unique</strong> <span class="math inline">\(\bar x : T \to E\)</span> with <span class="math inline">\(e\bar x = x\)</span>.</li>
+</ol>
+<p><span class="math display">\[
+E \xrightarrow{\;e\;} A \underset{g}{\overset{f}{\rightrightarrows}} B
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-equalizer-mono" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4</strong></span> Every equalizer is a monomorphism. Hence it is a part of <span class="math inline">\(A\)</span>, and for any <span class="math inline">\(x : T \to A\)</span>, <span class="math display">\[
+x \in e \quad \Leftrightarrow \quad fx = gx.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(e y_1 = e y_2 =: x\)</span>. Then <span class="math inline">\(fx = gx\)</span>, and both <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span> are factorizations of <span class="math inline">\(x\)</span> through <span class="math inline">\(e\)</span>. By uniqueness, <span class="math inline">\(y_1 = y_2\)</span>. The membership statement is a restatement of clause 2.</p>
+</div>
+</div>
+</div>
+</div>
+<p>So the equalizer is the categorical form of <strong>comprehension by an equation</strong>: <span class="math inline">\(\{a \in A : f(a) = g(a)\}\)</span>.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li>The unit circle is the equalizer of <span class="math inline">\(\mathbb{R}^2 \rightrightarrows \mathbb{R}\)</span> given by <span class="math inline">\((x,y) \mapsto x^2+y^2\)</span> and the constant map <span class="math inline">\(1\)</span>. This is Descartes’ idea: figures are cut out by equations.</li>
+<li>In <span class="math inline">\(\mathbf{Grp}\)</span>, the kernel of <span class="math inline">\(\varphi: G \to H\)</span> is the equalizer of <span class="math inline">\(\varphi\)</span> and the trivial homomorphism.</li>
+<li>The equalizer of the two projections <span class="math inline">\(\pi_0, \pi_1 : B \times B \rightrightarrows B\)</span> is the diagonal <span class="math inline">\(\delta_B\)</span>.</li>
+</ul>
+<p>The last example lets us build <em>all</em> equalizers from products and inverse images: the equalizer of <span class="math inline">\(f, g\)</span> is the inverse image of the diagonal <span class="math inline">\(\delta_B\)</span> along <span class="math inline">\(\langle f,g \rangle : A \to B\times B\)</span> (L-R Exercise 3.32). Elementwise, <span class="math inline">\(\langle fx, gx \rangle \in \delta_B\)</span> iff <span class="math inline">\(fx = gx\)</span>.</p>
+<!-- ~8 min -->
+</section>
+<section id="pullbacks" class="level1">
+<h1>Pullbacks</h1>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-pullback" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Pullback)</strong></span> Given <span class="math inline">\(A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1\)</span>, a <strong>pullback</strong> (or <strong>fibered product</strong>) is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(\pi_0, \pi_1\)</span> making the square commute, <span class="math display">\[
+\begin{CD}
+P @&gt;{\pi_1}&gt;&gt; A_1\\
+@V{\pi_0}VV @VV{f_1}V\\
+A_0 @&gt;{f_0}&gt;&gt; B
+\end{CD}
+\]</span> such that for all <span class="math inline">\(a_0 : T \to A_0\)</span>, <span class="math inline">\(a_1 : T\to A_1\)</span> with <span class="math inline">\(f_0 a_0 = f_1 a_1\)</span> there is a <strong>unique</strong> <span class="math inline">\(a : T \to P\)</span> with <span class="math inline">\(\pi_0 a = a_0\)</span> and <span class="math inline">\(\pi_1 a = a_1\)</span>. We write <span class="math inline">\(P = A_0 \times_B A_1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In <span class="math inline">\(\mathcal{S}\)</span>: <span class="math inline">\(A_0 \times_B A_1 = \{(a_0,a_1) \in A_0\times A_1 : f_0 a_0 = f_1 a_1\}\)</span>. This description already suggests how to construct pullbacks.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-pullback-from-prod-eq" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5</strong></span> If a category has binary products and equalizers, it has pullbacks.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Form <span class="math inline">\(A_0 \times A_1\)</span> with projections <span class="math inline">\(p_0, p_1\)</span>, and let <span class="math inline">\(e : P \rightarrowtail A_0 \times A_1\)</span> be the equalizer of <span class="math inline">\(f_0 p_0\)</span> and <span class="math inline">\(f_1 p_1\)</span>. Set <span class="math inline">\(\pi_k = p_k e\)</span>. A pair <span class="math inline">\(a_0, a_1\)</span> with <span class="math inline">\(f_0 a_0 = f_1 a_1\)</span> is a map <span class="math inline">\(\langle a_0,a_1 \rangle : T \to A_0\times A_1\)</span> equalizing <span class="math inline">\(f_0p_0\)</span> and <span class="math inline">\(f_1p_1\)</span>. So it factors uniquely through <span class="math inline">\(e\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Pullbacks are remarkably versatile. Many earlier constructions are special cases:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data <span class="math inline">\(A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1\)</span></th>
+<th>Pullback</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(B = 1\)</span> (so <span class="math inline">\(f_0, f_1\)</span> are forced)</td>
+<td>the product <span class="math inline">\(A_0 \times A_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f_1 = j\)</span> a mono (a part of <span class="math inline">\(B\)</span>)</td>
+<td>the inverse image <span class="math inline">\(f_0^{-1}(j)\)</span>, a part of <span class="math inline">\(A_0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_0, f_1\)</span> both monos</td>
+<td>the intersection of the two parts</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f_1 = b : 1 \to B\)</span> an element</td>
+<td>the fiber of <span class="math inline">\(f_0\)</span> over <span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_0 = f_1 = f : A \to B\)</span></td>
+<td>the kernel pair of <span class="math inline">\(f\)</span>, i.e.&nbsp;<span class="math inline">\(\{(a,a') : fa = fa'\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The second row needs one small fact. It will be used constantly once we have the subobject classifier.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-pullback-mono" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> Monos are stable under pullback: in the square of <a href="#def-pullback" class="quarto-xref">Definition&nbsp;5</a>, if <span class="math inline">\(f_1\)</span> is mono, then so is <span class="math inline">\(\pi_0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\pi_0 y = \pi_0 y'\)</span>. Then <span class="math inline">\(f_1 \pi_1 y = f_0 \pi_0 y = f_0 \pi_0 y' = f_1 \pi_1 y'\)</span>, so <span class="math inline">\(\pi_1 y = \pi_1 y'\)</span> since <span class="math inline">\(f_1\)</span> is mono. Now <span class="math inline">\(y\)</span> and <span class="math inline">\(y'\)</span> have the same two projections. By uniqueness in the pullback property, <span class="math inline">\(y = y'\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Combining the first row with the construction of equalizers from products and inverse images gives the converse of <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;5</a>:</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-prod-eq-from-pullback" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6</strong></span> If a category has a terminal object and pullbacks, it has binary products and equalizers.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ~7 min -->
+</section>
+<section id="finite-limits-in-general" class="level1">
+<h1>Finite limits in general</h1>
+<p>All of the above are instances of one notion. The input is a <strong>diagram</strong>: a family of objects with some maps between them. Following L-R, a diagram <em>shape</em> is a directed graph <span class="math inline">\(J \underset{c}{\overset{d}{\rightrightarrows}} I\)</span> (vertices <span class="math inline">\(I\)</span>, edges <span class="math inline">\(J\)</span>, domain map <span class="math inline">\(d\)</span>, codomain map <span class="math inline">\(c\)</span>). A diagram of that shape in <span class="math inline">\(\mathcal{C}\)</span> consists of objects <span class="math inline">\(A_i\)</span> (<span class="math inline">\(i \in I\)</span>) and maps <span class="math inline">\(f_j : A_{d(j)} \to A_{c(j)}\)</span> (<span class="math inline">\(j \in J\)</span>). The shape is <strong>finite</strong> if <span class="math inline">\(I\)</span> and <span class="math inline">\(J\)</span> are finite.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-limit" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Limit)</strong></span> A <strong>cone</strong> over the diagram with vertex <span class="math inline">\(L\)</span> is a family <span class="math inline">\(\pi_i : L \to A_i\)</span> with <span class="math inline">\(f_j \pi_{d(j)} = \pi_{c(j)}\)</span> for all <span class="math inline">\(j\)</span>. A <strong>limit</strong> is a cone that is universal: every cone <span class="math inline">\((a_i : T \to A_i)_i\)</span> factors as <span class="math inline">\(a_i = \pi_i a\)</span> through a <strong>unique</strong> <span class="math inline">\(a : T \to L\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In words: a map <span class="math inline">\(T \to L\)</span> is the same thing as a <em>compatible family</em> of maps <span class="math inline">\(T \to A_i\)</span>. In <span class="math inline">\(\mathcal{S}\)</span>, <span class="math inline">\(L\)</span> is the set of compatible families of elements <span class="math inline">\((a_i)_{i\in I}\)</span> with <span class="math inline">\(f_j(a_{d(j)}) = a_{c(j)}\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Shape</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>empty graph</td>
+<td>terminal object <span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td>two vertices, no edges</td>
+<td>binary product</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bullet \rightrightarrows \bullet\)</span></td>
+<td>equalizer</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bullet \to \bullet \leftarrow \bullet\)</span></td>
+<td>pullback</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Finite limits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mathcal{S}\)</span> has limits of all finite diagrams.</p>
+</div>
+</div>
+<p>It is enough to check a few cases.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-limits-from-prod-eq" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1</strong></span> If a category has finite products (including the empty product, i.e.&nbsp;a terminal object) and equalizers, then it has all finite limits.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><em>(Sketch; this is <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;5</a> writ large.)</em> Form the two products <span class="math inline">\(\prod_{i\in I} A_i\)</span> and <span class="math inline">\(\prod_{j\in J} A_{c(j)}\)</span> and two maps between them, specified by their components. Writing <span class="math inline">\(p_i\)</span> for the projections of the first product and <span class="math inline">\(q_j\)</span> for those of the second, define <span class="math display">\[
+\textstyle\prod_{i} A_i \underset{v}{\overset{u}{\rightrightarrows}} \prod_{j} A_{c(j)},
+\qquad
+q_j\, u = p_{c(j)}, \qquad q_j\, v = f_j\, p_{d(j)} .
+\]</span> A family <span class="math inline">\((a_i)_i\)</span>, i.e.&nbsp;a map <span class="math inline">\(\langle a_i \rangle_i : T \to \prod_i A_i\)</span>, is equalized by <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> iff <span class="math inline">\(a_{c(j)} = f_j a_{d(j)}\)</span> for every edge <span class="math inline">\(j\)</span>, i.e.&nbsp;iff it is a cone. So if <span class="math inline">\(e : L \rightarrowtail \prod_i A_i\)</span> is the equalizer of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, then <span class="math inline">\(\pi_i = p_i e\)</span> is the limit cone.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-limits-from-pb" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> A category with a terminal object and pullbacks has all finite limits.</p>
+</div>
+</div>
+</div>
+</div>
+<p>So for the topos axioms we can take “finite limits” to mean “<span class="math inline">\(1\)</span> and pullbacks”, or “<span class="math inline">\(1\)</span>, binary products, and equalizers”. These are the forms we will actually check in examples.</p>
+<p><strong>Foundational aside.</strong> Compare this with <span class="math inline">\(\mathsf{ZFC}\)</span>. There, <span class="math inline">\(\{a \in A : f(a) = g(a)\}\)</span> comes from Separation, and <span class="math inline">\(A \times B\)</span> is built from Pairing, Union, Power Set, and Separation. Here, these constructions are <em>axiomatized directly by what they do</em>, and no internal membership structure of the objects is ever invoked.</p>
+<!-- ~7 min -->
+</section>
+<section id="colimits-by-duality" class="level1">
+<h1>Colimits by duality</h1>
+<p>Every category <span class="math inline">\(\mathcal{C}\)</span> has an <strong>opposite</strong> <span class="math inline">\(\mathcal{C}^\mathrm{op}\)</span>: same objects, all arrows reversed. A <strong>colimit</strong> in <span class="math inline">\(\mathcal{C}\)</span> is a limit in <span class="math inline">\(\mathcal{C}^\mathrm{op}\)</span>. So every definition and theorem above dualizes for free: reverse the arrows, swap “mono” and “epi”.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shape</th>
+<th>Limit</th>
+<th>Colimit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>empty</td>
+<td>terminal <span class="math inline">\(1\)</span></td>
+<td>initial <span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>two vertices</td>
+<td>product <span class="math inline">\(A\times B\)</span></td>
+<td>sum <span class="math inline">\(A + B\)</span> (Ch. 2)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bullet \rightrightarrows \bullet\)</span></td>
+<td>equalizer</td>
+<td><strong>coequalizer</strong></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bullet\to\bullet\leftarrow\bullet\)</span> / <span class="math inline">\(\bullet\leftarrow\bullet\to\bullet\)</span></td>
+<td>pullback</td>
+<td><strong>pushout</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-coequalizer" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Coequalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, a <strong>coequalizer</strong> is <span class="math inline">\(q : B \to Q\)</span> with <span class="math inline">\(qf = qg\)</span> such that every <span class="math inline">\(h : B \to Z\)</span> with <span class="math inline">\(hf = hg\)</span> factors as <span class="math inline">\(h = \bar h q\)</span> for a <strong>unique</strong> <span class="math inline">\(\bar h : Q \to Z\)</span>. <span class="math display">\[
+A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Dually to <a href="#prp-equalizer-mono" class="quarto-xref">Proposition&nbsp;4</a>, every coequalizer is an epimorphism.</p>
+<p><strong>In <span class="math inline">\(\mathcal{S}\)</span>.</strong> <span class="math inline">\(Q = B/{\sim}\)</span>, where <span class="math inline">\(\sim\)</span> is the <em>equivalence relation generated by</em> <span class="math inline">\(f(a) \sim g(a)\)</span> for <span class="math inline">\(a \in A\)</span>, and <span class="math inline">\(q\)</span> is the quotient map. A map out of <span class="math inline">\(Q\)</span> is a map out of <span class="math inline">\(B\)</span> that respects the identifications. Equalizers are <em>comprehension</em> (cutting out by an equation); coequalizers are <em>quotients</em> (gluing by identifications).</p>
+<p><strong>Pushouts</strong> are the dual of pullbacks. In <span class="math inline">\(\mathcal{S}\)</span>, the pushout of <span class="math inline">\(B_0 \xleftarrow{f_0} A \xrightarrow{f_1} B_1\)</span> is <span class="math inline">\((B_0 + B_1)/{\sim}\)</span> with <span class="math inline">\(f_0(a) \sim f_1(a)\)</span>, i.e.&nbsp;<span class="math inline">\(B_0\)</span> and <span class="math inline">\(B_1\)</span> glued along <span class="math inline">\(A\)</span>. In <span class="math inline">\(\mathbf{Top}\)</span>, gluing two closed disks along their boundary circle gives the sphere <span class="math inline">\(S^2\)</span>.</p>
+<p>By duality, from <a href="#thm-limits-from-prod-eq" class="quarto-xref">Theorem&nbsp;1</a> and <a href="#cor-limits-from-pb" class="quarto-xref">Corollary&nbsp;1</a>:</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-colimits" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2</strong></span> A category has all finite colimits iff it has an initial object, binary sums, and coequalizers, iff it has an initial object and pushouts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Finite colimits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\mathcal{S}\)</span> has colimits of all finite diagrams.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-colimits-redundant" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Finite colimits come for free in a topos). </span>In Lawvere and Tierney’s original axiomatization, finite colimits were an explicit axiom. It was later shown that they <em>follow</em> from finite limits together with power objects (i.e.&nbsp;exponentials plus a subobject classifier). This is due to Mikkelsen, with a slick proof by Paré (1974) via the monadicity of the power-object functor. So axiom (2) in our preview is redundant. We keep it on the list because it is convenient, and because Lawvere–Rosebrugh assume the initial set and binary sums as axioms for <span class="math inline">\(\mathcal{S}\)</span> long before power objects are available.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The duality between limits and colimits is a feature of the <em>definitions</em>, not a symmetry of <span class="math inline">\(\mathcal{S}\)</span>. For instance, <span class="math inline">\(0\)</span> is a <strong>strict</strong> initial object: any map <span class="math inline">\(X \to 0\)</span> is an isomorphism. The dual statement (every map <span class="math inline">\(1 \to X\)</span> is an isomorphism) is plainly false. So <span class="math inline">\(\mathcal{S}^\mathrm{op}\)</span> is a perfectly good category with finite limits and colimits, but it is not “like <span class="math inline">\(\mathcal{S}\)</span>”. Strictness of <span class="math inline">\(0\)</span>, together with disjointness of sums, holds in every topos. Other asymmetries, such as “every epi splits” (the Axiom of Choice), are special to <span class="math inline">\(\mathcal{S}\)</span> and will be among the extra axioms that single it out.</p>
+<!-- ~2 min -->
+</section>
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<div class="box">
+<p><strong>Finite limits</strong> = terminal object + pullbacks (equivalently: finite products + equalizers). They give us products, graphs, diagonals, equalizers (comprehension by equations), inverse images, intersections, fibers, and kernel pairs.</p>
+<p><strong>Finite colimits</strong> = initial object + pushouts (equivalently: finite sums + coequalizers). They give us sums and quotients. In a topos they follow from the other axioms.</p>
+<p><strong>Method.</strong> Every construction is specified by a universal property (existence + uniqueness of an induced map). This determines it up to unique isomorphism and is tested on generalized elements <span class="math inline">\(T \to X\)</span>.</p>
+<p><strong>Next time:</strong> exponentials <span class="math inline">\(B^A\)</span> (maps <em>as</em> an object) and the subobject classifier <span class="math inline">\(\Omega\)</span> (parts <em>as</em> maps). Together with today’s axioms, these give the full definition of an elementary topos.</p>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1</strong></span> Show from the universal property that <span class="math inline">\(B \times A \cong A \times B\)</span> and <span class="math inline">\(1 \times A \cong A\)</span>. Which equation needs the uniqueness clause? (L-R 3.21, 3.22)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2</strong></span> Show that the equalizer of <span class="math inline">\(f, g : A \rightrightarrows B\)</span> is the inverse image of the diagonal <span class="math inline">\(\delta_B\)</span> along <span class="math inline">\(\langle f,g \rangle\)</span>. (L-R 3.32)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Pasting lemma)</strong></span> In a commutative diagram <span class="math display">\[
+\begin{CD}
+X @&gt;&gt;&gt; Y @&gt;&gt;&gt; Z\\
+@VVV @VVV @VVV\\
+U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
+\end{CD}
+\]</span> suppose the right square is a pullback. Show that the left square is a pullback iff the outer rectangle is.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4</strong></span> Show that the kernel pair <span class="math inline">\(K \rightrightarrows A\)</span> of <span class="math inline">\(f : A \to B\)</span> (the pullback of <span class="math inline">\(f\)</span> along itself) is, in <span class="math inline">\(\mathcal{S}\)</span>, the equivalence relation <span class="math inline">\(\{(a,a') : fa = fa'\}\)</span>. Then show that the coequalizer of the kernel pair is <span class="math inline">\(A \to f(A)\)</span>, the image of <span class="math inline">\(f\)</span>. (L-R 3.44)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5</strong></span> Let <span class="math inline">\(X\)</span> be a set. Show that the slice category <span class="math inline">\(\mathcal{S}/X\)</span> (objects: maps <span class="math inline">\(E \to X\)</span>; arrows: commuting triangles) has all finite limits. What is the terminal object? What is the product of <span class="math inline">\(E \to X\)</span> and <span class="math inline">\(F \to X\)</span>? (L-R 3.48)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6</strong></span> Show that <span class="math inline">\(\mathbf{Grp}\)</span> has all finite limits. Does it have finite colimits? What is the sum of <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{Z}\)</span>? (L-R 3.47)</p>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Math 558 · Foundations of Mathematics · Penn State</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
