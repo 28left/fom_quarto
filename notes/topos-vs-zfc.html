@@ -270,7 +270,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topoi and Intuitionistic Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -299,7 +299,7 @@ window.Quarto = {
   <li><a href="#from-a-category-back-to-material-sets" id="toc-from-a-category-back-to-material-sets" class="nav-link" data-scroll-target="#from-a-category-back-to-material-sets">From a category back to material sets</a></li>
   <li><a href="#what-etcs-cannot-prove" id="toc-what-etcs-cannot-prove" class="nav-link" data-scroll-target="#what-etcs-cannot-prove">What ETCS cannot prove</a></li>
   <li><a href="#replacement-structurally" id="toc-replacement-structurally" class="nav-link" data-scroll-target="#replacement-structurally">Replacement, structurally</a></li>
-  <li><a href="#elementary-toposes-in-general" id="toc-elementary-toposes-in-general" class="nav-link" data-scroll-target="#elementary-toposes-in-general">Elementary toposes in general</a></li>
+  <li><a href="#elementary-topoi-in-general" id="toc-elementary-topoi-in-general" class="nav-link" data-scroll-target="#elementary-topoi-in-general">Elementary topoi in general</a></li>
   </ul></li>
   <li><a href="#size-and-the-antinomies" id="toc-size-and-the-antinomies" class="nav-link" data-scroll-target="#size-and-the-antinomies">Size and the antinomies</a>
   <ul class="collapse">
@@ -368,7 +368,7 @@ window.Quarto = {
 
 <section id="topos-theory-and-zfc" class="level1">
 <h1>Topos Theory and ZFC</h1>
-<p>Over the last weeks we developed category theory up to elementary toposes and met Lawvere’s <em>Elementary Theory of the Category of Sets</em> (<span class="math inline">\(\mathsf{ETCS}\)</span>) as an alternative to <span class="math inline">\(\mathsf{ZFC}\)</span>. This lecture closes Part II by comparing the two on three fronts:</p>
+<p>Over the last weeks we developed category theory up to elementary topoi and met Lawvere’s <em>Elementary Theory of the Category of Sets</em> (<span class="math inline">\(\mathsf{ETCS}\)</span>) as an alternative to <span class="math inline">\(\mathsf{ZFC}\)</span>. This lecture closes Part II by comparing the two on three fronts:</p>
 <ol type="1">
 <li><strong>Logical strength.</strong> What can <span class="math inline">\(\mathsf{ETCS}\)</span> prove, and how does that compare with <span class="math inline">\(\mathsf{ZFC}\)</span>?</li>
 <li><strong>Size.</strong> Category theory constantly talks about “the category of <em>all</em> groups” or “the category of <em>all</em> sets”. How do the set-theoretic antinomies resurface, and how are they handled?</li>
@@ -644,9 +644,9 @@ E_0 \cong N, \qquad E_{n+1} \cong \Omega^{E_n}.
 </div>
 </div>
 </section>
-<section id="elementary-toposes-in-general" class="level3">
-<h3 class="anchored" data-anchor-id="elementary-toposes-in-general">Elementary toposes in general</h3>
-<p>What about toposes that are not models of <span class="math inline">\(\mathsf{ETCS}\)</span>? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is <strong>intuitionistic higher-order arithmetic</strong>, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of <span class="math inline">\(\neg\neg\)</span>-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.</p>
+<section id="elementary-topoi-in-general" class="level3">
+<h3 class="anchored" data-anchor-id="elementary-topoi-in-general">Elementary topoi in general</h3>
+<p>What about topoi that are not models of <span class="math inline">\(\mathsf{ETCS}\)</span>? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is <strong>intuitionistic higher-order arithmetic</strong>, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of <span class="math inline">\(\neg\neg\)</span>-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.</p>
 <p>So neither well-pointedness, nor Booleanness, nor Choice adds logical strength; the strength of a topos with NNO comes from the <strong>impredicative power objects</strong> <span class="math inline">\(\Omega^X\)</span> together with the infinite object <span class="math inline">\(N\)</span>.</p>
 <table class="caption-top table">
 <caption>Categorical theories and their material counterparts</caption>
@@ -701,7 +701,7 @@ E_0 \cong N, \qquad E_{n+1} \cong \Omega^{E_n}.
 <li><span class="math inline">\(\mathbf{Set}\)</span>, <span class="math inline">\(\mathbf{Grp}\)</span>, <span class="math inline">\(\mathbf{Top}\)</span> have a proper class of objects (every set carries the trivial group structure, etc.);</li>
 <li>the category <span class="math inline">\(\mathcal{C}\)</span> of categories, and functor categories <span class="math inline">\([\mathcal{C}, \mathcal{D}]\)</span> with <span class="math inline">\(\mathcal{C}\)</span> large, such as <span class="math inline">\([\mathbf{Set}, \mathbf{Set}]\)</span> or the presheaf category <span class="math inline">\([\mathbf{Set}^{op},\mathbf{Set}]\)</span> into which <span class="math inline">\(\mathbf{Set}\)</span> Yoneda-embeds;</li>
 <li>localizations: inverting a class of morphisms in a locally small category can produce hom-collections that are proper classes;</li>
-<li>the 2-category of all (Grothendieck) toposes and geometric morphisms.</li>
+<li>the 2-category of all (Grothendieck) topoi and geometric morphisms.</li>
 </ul>
 <p>In <span class="math inline">\(\mathsf{ZFC}\)</span>, the standard convention is: a category is <strong>small</strong> if its objects and arrows form sets, <strong>locally small</strong> if each <span class="math inline">\(\mathcal{S}((,A),B)\)</span> is a set, and <strong>large</strong> if objects or arrows form a proper class. But classes in <span class="math inline">\(\mathsf{ZFC}\)</span> are merely formulas. We can talk about <span class="math inline">\(\mathbf{Set}\)</span> as a class, but we cannot quantify over classes, form classes of classes, or form <span class="math inline">\([\mathbf{Set}, \mathbf{Set}]\)</span>, whose objects are themselves class functions.</p>
 <p>Size conditions are not mere bookkeeping. They appear in the <strong>solution set condition</strong> of Freyd’s adjoint functor theorem, and they can make a difference to whether a construction exists at all:</p>
@@ -863,10 +863,10 @@ In a nondegenerate topos (<span class="math inline">\(0 \not\cong 1\)</span>), t
 <section id="size-in-topos-theory" class="level3">
 <h3 class="anchored" data-anchor-id="size-in-topos-theory">Size in topos theory</h3>
 <p>Topos theory adds some specific twists.</p>
-<p><strong>Grothendieck vs.&nbsp;elementary toposes.</strong> A Grothendieck topos is a category equivalent to sheaves <span class="math inline">\(\mathrm{Sh}(\mathcal{C}, J)\)</span> on a <em>small</em> site. Giraud’s characterization (cocomplete, exact in a suitable sense, with a <em>small</em> set of generators) is inherently size-relative. One motivation for Lawvere and Tierney’s elementary definition (1969–70) was to obtain a first-order, size-free notion.</p>
+<p><strong>Grothendieck vs.&nbsp;elementary topoi.</strong> A Grothendieck topos is a category equivalent to sheaves <span class="math inline">\(\mathrm{Sh}(\mathcal{C}, J)\)</span> on a <em>small</em> site. Giraud’s characterization (cocomplete, exact in a suitable sense, with a <em>small</em> set of generators) is inherently size-relative. One motivation for Lawvere and Tierney’s elementary definition (1969–70) was to obtain a first-order, size-free notion.</p>
 <p><strong>Relativization to a base.</strong> In the elementary theory, “small” becomes relative: a Grothendieck topos is really a topos <span class="math inline">\(\mathcal{E}\)</span> together with a bounded geometric morphism <span class="math inline">\(\mathcal{E} \to \mathcal{S}\)</span> to a base topos <span class="math inline">\(\mathcal{S}\)</span>, and “small” means “internal to <span class="math inline">\(\mathcal{S}\)</span>” or “indexed by an object of <span class="math inline">\(\mathcal{S}\)</span>”. Bénabou argued (1985) that this is how <em>all</em> naive category theory should be done — with fibrations over a base, rather than with an absolute ambient universe of sets.</p>
 <p><strong>Plurality of <span class="math inline">\(\mathbf{Set}\)</span>.</strong> <span class="math inline">\(\mathsf{ETCS}\)</span>, being a consistent first-order theory, has many non-equivalent models (some satisfy <span class="math inline">\(\mathsf{CH}\)</span>, some do not). Topos theory makes this plurality visible: Cohen’s forcing can be presented as passing to a sheaf topos, and Tierney (1972) gave a topos-theoretic proof of the independence of <span class="math inline">\(\mathsf{CH}\)</span> along these lines. From this perspective “the” category of sets is just one topos among many.</p>
-<p><strong>Impredicativity.</strong> The power object <span class="math inline">\(\Omega^X\)</span> “contains” all subobjects of <span class="math inline">\(X\)</span>, including those defined by quantifying over <span class="math inline">\(\Omega^X\)</span> itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré’s “vicious circle”) that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of toposes (pretoposes with <span class="math inline">\(\Pi\)</span>- and <span class="math inline">\(W\)</span>-types, Joyal’s arithmetic universes) correspond to Martin-Löf type theory, which we study next.</p>
+<p><strong>Impredicativity.</strong> The power object <span class="math inline">\(\Omega^X\)</span> “contains” all subobjects of <span class="math inline">\(X\)</span>, including those defined by quantifying over <span class="math inline">\(\Omega^X\)</span> itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré’s “vicious circle”) that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of topoi (pretopoi with <span class="math inline">\(\Pi\)</span>- and <span class="math inline">\(W\)</span>-types, Joyal’s arithmetic universes) correspond to Martin-Löf type theory, which we study next.</p>
 </section>
 </section>
 <section id="grothendieck-universes" class="level2">
@@ -1771,8 +1771,8 @@ Warning
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/topos-logic.html" class="pagination-link" aria-label="Toposes and Intuitionistic Logic">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Toposes and Intuitionistic Logic</span></span>
+      <a href="../notes/topos-logic.html" class="pagination-link" aria-label="Topoi and Intuitionistic Logic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Topoi and Intuitionistic Logic</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

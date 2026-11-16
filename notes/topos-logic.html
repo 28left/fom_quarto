@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jan Reimann">
 
-<title>Toposes and Intuitionistic Logic – Math 558 · Foundations of Mathematics</title>
+<title>Topoi and Intuitionistic Logic – Math 558 · Foundations of Mathematics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -118,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Topoi and Intuitionistic Logic</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -271,7 +271,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Topoi and Intuitionistic Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -313,9 +313,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Topoi and Intuitionistic Logic</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Toposes and Intuitionistic Logic</span></h1>
+<h1 class="title"><span class="chapter-title">Topoi and Intuitionistic Logic</span></h1>
 <p class="subtitle lead">Truth values, Heyting algebras, and the internal language of a topos</p>
 </div>
 
@@ -347,7 +347,7 @@ window.Quarto = {
 
 
 <div class="box">
-<p>In <span class="math inline">\(\mathcal{S}\)</span>, parts of <span class="math inline">\(X\)</span> correspond to maps <span class="math inline">\(X \to 2\)</span>, and the propositional connectives are maps <span class="math inline">\(2 \times 2 \to 2\)</span> — the truth tables (L–R, Prop. 3.18). In a topos, <span class="math inline">\(2\)</span> is replaced by <span class="math inline">\(\Omega\)</span>, and the parts of an object no longer form a Boolean algebra but a <strong>Heyting algebra</strong>. These notes show that this is not an accident of a few examples: <strong>the logic of every topos is intuitionistic</strong>, and intuitionistic logic is exactly the logic that is valid in all toposes.</p>
+<p>In <span class="math inline">\(\mathcal{S}\)</span>, parts of <span class="math inline">\(X\)</span> correspond to maps <span class="math inline">\(X \to 2\)</span>, and the propositional connectives are maps <span class="math inline">\(2 \times 2 \to 2\)</span> — the truth tables (L–R, Prop. 3.18). In a topos, <span class="math inline">\(2\)</span> is replaced by <span class="math inline">\(\Omega\)</span>, and the parts of an object no longer form a Boolean algebra but a <strong>Heyting algebra</strong>. These notes show that this is not an accident of a few examples: <strong>the logic of every topos is intuitionistic</strong>, and intuitionistic logic is exactly the logic that is valid in all topoi.</p>
 </div>
 <section id="from-truth-tables-to-omega" class="level2">
 <h2 class="anchored" data-anchor-id="from-truth-tables-to-omega">From truth tables to <span class="math inline">\(\Omega\)</span></h2>
@@ -528,14 +528,14 @@ Let <span class="math inline">\(\mathcal{E}\)</span> be a topos.</p>
 </div>
 <div class="callout-body-container">
 <div id="thm-ihol" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 20.3 (Toposes model intuitionistic higher-order logic)</strong></span> <br>
-Every statement provable in intuitionistic higher-order logic holds in every topos. Conversely, a statement holding in all toposes is intuitionistically provable: every theory has a “free” topos built from its syntax (Lambek–Scott).</p>
+<p><span class="theorem-title"><strong>Theorem 20.3 (Topoi model intuitionistic higher-order logic)</strong></span> <br>
+Every statement provable in intuitionistic higher-order logic holds in every topos. Conversely, a statement holding in all topoi is intuitionistically provable: every theory has a “free” topos built from its syntax (Lambek–Scott).</p>
 </div>
 </div>
 </div>
 </div>
 <div class="box">
-<p><strong>Slogan.</strong> Toposes are to intuitionistic higher-order logic what Boolean-valued models are to classical logic. A mathematical argument that avoids excluded middle and choice is valid in <em>every</em> topos — for sheaves, <span class="math inline">\(G\)</span>-sets, the effective topos, … all at once.</p>
+<p><strong>Slogan.</strong> Topoi are to intuitionistic higher-order logic what Boolean-valued models are to classical logic. A mathematical argument that avoids excluded middle and choice is valid in <em>every</em> topos — for sheaves, <span class="math inline">\(G\)</span>-sets, the effective topos, … all at once.</p>
 </div>
 <section id="local-truth-kripkejoyal-semantics" class="level3">
 <h3 class="anchored" data-anchor-id="local-truth-kripkejoyal-semantics">Local truth: Kripke–Joyal semantics</h3>
@@ -610,7 +610,7 @@ Every statement provable in intuitionistic higher-order logic holds in every top
 </div>
 <div class="callout-body-container">
 <div id="thm-classical" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 20.4 (Classical toposes)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 20.4 (Classical topoi)</strong></span> <br>
 For a topos <span class="math inline">\(\mathcal{E}\)</span> the following are equivalent:</p>
 <ol type="1">
 <li><span class="math inline">\(\mathcal{E}\)</span> is Boolean: every <span class="math inline">\(\operatorname{Sub}(X)\)</span> is a Boolean algebra;</li>
@@ -647,7 +647,7 @@ For a topos <span class="math inline">\(\mathcal{E}\)</span> the following are e
 <tr class="even">
 <td>“canonical” model</td>
 <td><span class="math inline">\(2\)</span>, <span class="math inline">\(\mathcal{S}\)</span></td>
-<td><span class="math inline">\(\mathcal{O}(X)\)</span>, toposes</td>
+<td><span class="math inline">\(\mathcal{O}(X)\)</span>, topoi</td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\exists\)</span> means</td>
@@ -657,7 +657,7 @@ For a topos <span class="math inline">\(\mathcal{E}\)</span> the following are e
 <tr class="even">
 <td>completeness</td>
 <td>Boolean algebras, <span class="math inline">\(2\)</span></td>
-<td>Heyting algebras, <span class="math inline">\(\mathcal{O}(\mathbb{R})\)</span>, all toposes</td>
+<td>Heyting algebras, <span class="math inline">\(\mathcal{O}(\mathbb{R})\)</span>, all topoi</td>
 </tr>
 </tbody>
 </table>
