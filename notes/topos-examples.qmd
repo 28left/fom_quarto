@@ -1,6 +1,6 @@
 ---
-title: "A Gallery of Toposes"
-subtitle: "Which properties of $\\mathcal{S}$ survive? Slices, $G$-sets, presheaves, sheaves, and toposes from logic"
+title: "A Gallery of Topoi"
+subtitle: "Which properties of $\\mathcal{S}$ survive? Slices, $G$-sets, presheaves, sheaves, and topoi from logic"
 author: "Jan Reimann"
 institute: "Penn State — Math 558"
 date: ""
@@ -9,7 +9,7 @@ format: html
 
 ::: {.content-hidden}
 {{< include _macros.qmd >}}
-$$
+<!-- $$
 \newcommand{\Sets}{\mathcal{S}}
 \newcommand{\FinSet}{\mathbf{FinSet}}
 \newcommand{\Psh}[1]{\Sets^{#1^{op}}}
@@ -19,13 +19,13 @@ $$
 \newcommand{\yon}{\mathbf{y}}
 \newcommand{\true}{\mathrm{true}}
 \newcommand{\Eff}{\mathbf{Eff}}
-$$
+$$ -->
 :::
 
 ::: {.box}
-Last time we arrived at the definition of an **elementary topos**: a category with finite limits,
+In the notes on exponentials we arrived at the definition of an **elementary topos**: a category with finite limits,
 exponentials, and a subobject classifier $\true : 1 \to \Omega$. The category $\Sets$ of abstract sets
-is one example. Today we look at many others. The guiding question is:
+is one example. These notes survey many others. The guiding question is:
 
 > Which of the *extra* properties of $\Sets$ survive in a given topos?
 
@@ -34,26 +34,7 @@ move, carry symmetry, or are only locally defined — and that the classical fea
 are genuinely additional axioms.
 :::
 
-::: {.callout-tip collapse="true"}
-## Lecture plan (60 min)
-
-| Time | Section |
-|---|---|
-| 0–5 | The four (five) extra properties of $\Sets$; two theorems that link them |
-| 5–12 | The easy ones: $\FinSet$, the trivial topos, $\Sets/X$ |
-| 12–18 | $G$-sets: Boolean without choice |
-| 18–35 | Presheaf toposes; the recipe for $\Omega$; the Sierpiński topos in detail |
-| 35–45 | Sheaves on a space: truth values are open sets |
-| 45–53 | Toposes from logic: forcing and realizability (survey) |
-| 53–57 | Non-examples |
-| 57–60 | Summary table |
-
-If time runs short, compress the logic section to two minutes and skip the non-examples
-(posets and vector spaces were covered last time). **Do not cut the Sierpiński computation**:
-the one skill to take away is computing $\Omega$ and watching excluded middle fail.
-:::
-
-## What is special about $\Sets$ [≈ 5 min]
+## What is special about $\Sets$
 
 Recall the properties of $\Sets$ that go beyond the topos axioms. For a topos $\mathcal{E}$:
 
@@ -75,7 +56,7 @@ Choice
 :   Every epimorphism has a section.
 :::
 
-"Two-valued" was not on our list last time. It is weaker than Boolean, and the examples
+"Two-valued" was not on our earlier list. It is weaker than Boolean, and the examples
 below show that the two notions really differ.
 
 In any topos, the parts of an object $X$ form a lattice $\Sub(X)$ (intersections are pullbacks,
@@ -104,7 +85,7 @@ choice alone, and also by well-pointedness alone.
 Part 2 is the categorical form of a fact you may know from set theory: over a constructive
 base theory, $\AC$ implies the law of excluded middle.
 
-## The easy ones [≈ 7 min]
+## The easy ones
 
 ### Finite sets
 
@@ -124,7 +105,7 @@ well-pointedness.
 
 ### Slices: sets over $X$
 
-We met $\Sets/X$ last time: an object is a map $\alpha : A \to X$, i.e. an $X$-indexed family
+We met $\Sets/X$ in the notes on exponentials: an object is a map $\alpha : A \to X$, i.e. an $X$-indexed family
 of sets $A_x = \alpha^{-1}(x)$, and everything is computed **fiberwise**:
 $$
 (A \times_X B)_x = A_x \times B_x, \qquad (Y^B)_x = Y_x^{B_x}, \qquad \Omega = (X \times 2 \to X), \quad \Omega_x = 2 .
@@ -154,11 +135,11 @@ the dependent sum and dependent product of Martin-Löf type theory. This is the
 interpretation of type theory in locally cartesian closed categories that we return to in Week 14.
 :::
 
-## $G$-sets: Boolean without choice [≈ 6 min]
+## $G$-sets: Boolean without choice
 
 Let $G$ be a group. An object of $\Sets^G$ is a set with a $G$-action, a map is an equivariant
 map. Limits are computed on underlying sets with the induced action; the exponential $Y^X$ is
-the set of *all* maps with $(g\cdot f)(x) = g\, f(g^{-1}x)$ (last time).
+the set of *all* maps with $(g\cdot f)(x) = g\, f(g^{-1}x)$ (see the notes on exponentials).
 
 - **Subobject classifier.** A part is a $G$-invariant subset. Since $G$ is a group, the
   complement of an invariant subset is invariant. So $\Omega = 2$ with the trivial action, and
@@ -175,13 +156,13 @@ So Diaconescu's theorem has no converse: **Boolean does not imply choice.**
 
 The first independence proofs for $\AC$ (Fraenkel, Mostowski) used **permutation models**:
 a universe of sets built over atoms, keeping only the sets that are fixed by "enough"
-permutations of the atoms. These models can be presented as toposes of $G$-sets for a
+permutations of the atoms. These models can be presented as topoi of $G$-sets for a
 group $G$ of permutations of the atoms (with a topology on $G$, and only actions with open
 stabilizers). What we just saw — no fixed point, hence no section — is the simplest
 instance of why choice fails there.
 :::
 
-## Presheaf toposes [≈ 17 min]
+## Presheaf topoi
 
 $\Sets/X$ and $\Sets^G$ are both special cases of one construction.
 
@@ -217,7 +198,7 @@ $$
 $$
 So $\alpha$ is determined by $x := \alpha_c(1_c)$. Conversely, for any $x \in P(c)$, the formula
 $\alpha_d(f) := x \cdot f$ defines a natural transformation (check naturality using that $P$ is a functor).
-This is the bootstrap trick from last time — everything is determined by where the identity
+This is the bootstrap trick from the notes on exponentials — everything is determined by where the identity
 goes — and it is a special case of the **Yoneda lemma**, which we will meet properly soon.
 :::
 
@@ -231,7 +212,7 @@ called a **sieve on $c$**. Exactly the same reasoning determines the exponential
 $(Y^X)(c) \cong \NatT(\yon c, Y^X) \cong \NatT(\yon c \times X, Y)$.
 
 ::: {#thm-presheaf-topos}
-## Presheaf toposes
+## Presheaf topoi
 \
 For every small category $C$, $\Psh{C}$ is a topos, with
 
@@ -269,8 +250,8 @@ $\Psh{C}$ is Boolean if and only if $C$ is a **groupoid** (every arrow invertibl
 A few checks:
 
 - For a monoid $M$ (one object, arrows $= M$, composition $=$ multiplication), a sieve is a subset
-  $S \subseteq M$ with $S \cdot M \subseteq S$: a **right ideal**. (For left actions, as last time, one gets left
-  ideals.) For a group, the only right ideals are $\varnothing$ and $G$, recovering $\Omega = 2$.
+  $S \subseteq M$ with $S \cdot M \subseteq S$: a **right ideal**. (For left actions, as in the notes on exponentials,
+  one gets left ideals.) For a group, the only right ideals are $\varnothing$ and $G$, recovering $\Omega = 2$.
 - For $(\N, +)$ the ideals are $\varnothing$ and $k + \N$ for $k \in \N$. Write $\infty$ for $\varnothing$ and $k$ for
   $k + \N$. Acting by $1$ sends $k + \N$ to $\{n : 1 + n \in k + \N\} = (k-1)+\N$ (or $\N$ if $k = 0$).
   This is the $\Omega$ for sets with an endomap: $\chi(x)$ is the **time it takes $x$ to enter $A$**.
@@ -331,7 +312,7 @@ holds at $p$ and at all later stages, and $\neg\varphi$ is true at $p$ if $\varp
 Presheaves on $(\N,\le)^{op}$ are "sets through discrete time."
 :::
 
-## Sheaves on a space [≈ 10 min]
+## Sheaves on a space
 
 Let $X$ be a topological space and $\O(X)$ its poset of open sets, viewed as a category
 ($V \to U$ iff $V \subseteq U$). A presheaf on $\O(X)$ assigns to each open $U$ a set $F(U)$ ("sections
@@ -377,19 +358,19 @@ $$
 **Trichotomy fails for the internal reals.** This is not a pathology but a feature: it
 is the internal reflection of the fact that a continuous function cannot be split, continuously,
 into "negative," "zero," and "positive" cases. Constructive analysis is the mathematics that
-is valid in all such toposes.
+is valid in all such topoi.
 
 ::: {.box}
-**Grothendieck toposes.** Replacing $\O(X)$ by a category with a suitable notion of "covering"
-(a *site*) gives the **Grothendieck toposes**, the setting of modern algebraic geometry.
-$\Sets$, $\Sets/X$, $G$-sets, all presheaf toposes and all $\Sh(X)$ are Grothendieck toposes.
+**Grothendieck topoi.** Replacing $\O(X)$ by a category with a suitable notion of "covering"
+(a *site*) gives the **Grothendieck topoi**, the setting of modern algebraic geometry.
+$\Sets$, $\Sets/X$, $G$-sets, all presheaf topoi and all $\Sh(X)$ are Grothendieck topoi.
 In fact the Sierpiński topos is $\Sh$ of the Sierpiński space (@exr-sierpinski-space), and $\Sets/X$ is
 $\Sh$ of the discrete space $X$.
 :::
 
-## Toposes from logic [≈ 8 min]
+## Topoi from logic
 
-The last two examples are only surveyed: their constructions take more than a lecture each.
+The last two examples are only surveyed: each of their constructions would take a set of notes of its own.
 
 ### Forcing as sheaves
 
@@ -413,7 +394,7 @@ some program (an index of a computable function) "realizes" it. In $\Eff$:
 Realizability is the ancestor of the "proofs as programs" reading of logic we meet in
 Week 10: a proof of $\forall n\, \exists m\, \varphi(n,m)$ in $\Eff$ comes with an algorithm computing $m$ from $n$.
 
-## Non-examples [≈ 4 min]
+## Non-examples
 
 Topos theory gives quick tests for showing a category is *not* a topos. In a topos, every
 map that is both mono and epi is an isomorphism, the initial object is strict, and $- \times B$
@@ -427,7 +408,7 @@ preserves colimits (it is a left adjoint).
   pullback of $\true$ along a homomorphism, i.e. a kernel, hence normal. But $S_3$ has non-normal subgroups.
 - $\Sets^{op}$: has finite limits and colimits, but its initial object (the set $1$) is not strict.
 
-## Summary [≈ 3 min]
+## Summary
 
 | | well-pointed | Boolean | two-valued | NNO | choice |
 |---|:-:|:-:|:-:|:-:|:-:|

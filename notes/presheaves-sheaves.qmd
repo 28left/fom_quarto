@@ -1,0 +1,341 @@
+---
+title: "Presheaves and Sheaves: A First Look"
+subtitle: "Using the open sets of a space as a guide"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+$$
+\newcommand{\Sets}{\mathcal{S}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\Sub}{\operatorname{Sub}}
+\newcommand{\true}{\mathrm{true}}
+$$
+:::
+
+::: {.box}
+**The idea in two sentences.** A *presheaf* is data defined on the open sets of a space that can be
+**restricted** to smaller open sets. A *sheaf* is a presheaf whose data are **determined by, and can
+be glued from, local pieces**.
+
+This handout makes these two sentences precise, tests them on examples, and then explains how
+sheaves form a topos whose truth values are open sets.
+:::
+
+## Step 1: the poset of open sets as a category
+
+Fix a topological space $X$ and let $\O(X)$ be the set of its open subsets. Make $\O(X)$ into a
+category:
+
+- the **objects** are the open sets $U \subseteq X$;
+- there is **exactly one arrow** $V \to U$ if $V \subseteq U$, and none otherwise.
+
+Identities exist because $U \subseteq U$, and composites exist because $\subseteq$ is transitive.
+Associativity and the identity laws hold automatically, since there is at most one arrow between
+any two objects. (Every poset is a category in this way.)
+
+## Step 2: presheaves — data that can be restricted
+
+### The model example
+
+For each open set $U \subseteq X$ let
+$$
+F(U) = C(U, \R),
+$$
+the set of continuous real-valued functions on $U$. If $V \subseteq U$, any $f$ on $U$ can be
+**restricted** to $f|_V$ on $V$. So we get maps
+$$
+F(U) \to F(V), \qquad f \mapsto f|_V \qquad (V \subseteq U),
+$$
+and restriction behaves as expected:
+$$
+f|_U = f, \qquad (f|_V)|_W = f|_W \quad \text{for } W \subseteq V \subseteq U.
+$$
+That is the whole definition, abstracted.
+
+::: {.callout-note icon=false}
+## Definition: presheaf
+
+A **presheaf** $F$ on $X$ assigns
+
+- to each open set $U$ a set $F(U)$, whose elements are called **sections over $U$**, and
+- to each pair $V \subseteq U$ a **restriction map** $F(U) \to F(V)$, $s \mapsto s|_V$,
+
+such that $s|_U = s$ and $(s|_V)|_W = s|_W$ whenever $W \subseteq V \subseteq U$.
+The elements of $F(X)$ are called **global sections**.
+:::
+
+In categorical language: **a presheaf is a functor $F : \O(X)^{op} \to \Sets$.** The two rules
+are exactly preservation of identities and of composition.
+
+::: {.callout-tip}
+## Why "op"?
+
+The arrow $V \to U$ goes from small to big, but restriction goes from big to small. Intuitively,
+a bigger open set imposes more constraints, so there are fewer sections over it; you can always
+pass from a section over a big set to one over a small set, but not back.
+:::
+
+### More examples
+
+In each case the restriction maps are the obvious ones.
+
+1. **Other function spaces:** all functions $U \to \R$; the $C^1$ functions; the *bounded*
+   continuous functions.
+2. **The constant presheaf:** $F(U) = S$ for a fixed set $S$, with every restriction map the
+   identity.
+3. **Open sets:** $\Omega(U) = \{ W : W \subseteq U \text{ open} \}$, with restriction
+   $W|_V = W \cap V$.
+4. **Sections of a map:** for a continuous $p : E \to X$, let
+   $F(U) = \{ s : U \to E \text{ continuous} \mid p \circ s = \mathrm{id}_U \}$.
+5. **Square roots** (a special case of 4): take $X = \C \setminus \{0\}$, and let $F(U)$ be the set of
+   continuous $g : U \to \C$ with $g(z)^2 = z$ for all $z \in U$.
+
+### Morphisms of presheaves
+
+::: {.callout-note icon=false}
+## Definition: morphism of presheaves
+
+A **morphism** $\varphi : F \to G$ is a family of functions $\varphi_U : F(U) \to G(U)$, one for each
+open $U$, that commutes with restriction:
+$$
+\varphi_U(s)|_V = \varphi_V(s|_V) \qquad (s \in F(U),\ V \subseteq U).
+$$
+:::
+
+This is exactly a **natural transformation** between the functors $F$ and $G$.
+
+*Example.* Differentiation $C^1(U) \to C^0(U)$, $f \mapsto f'$, is a morphism of presheaves:
+differentiating and then restricting is the same as restricting and then differentiating.
+
+## Step 3: the gluing question — from presheaves to sheaves
+
+Suppose an open set is covered by smaller ones, $U = \bigcup_i U_i$, and we are given sections
+$s_i \in F(U_i)$ that **agree on overlaps**:
+$$
+s_i|_{U_i \cap U_j} = s_j|_{U_i \cap U_j} \qquad \text{for all } i, j.
+$$
+Such a family is called **compatible**. Is there exactly one $s \in F(U)$ with $s|_{U_i} = s_i$ for all $i$?
+
+::: {.callout-note icon=false}
+## Definition: sheaf
+
+A presheaf $F$ is a **sheaf** if for every open cover $U = \bigcup_i U_i$ and every compatible family
+$s_i \in F(U_i)$ there is a **unique** $s \in F(U)$ with $s|_{U_i} = s_i$ for all $i$.
+
+- *Existence* of $s$ is the **gluing** condition.
+- *Uniqueness* of $s$ is the **locality** condition: a section is determined by its local pieces.
+:::
+
+A small but useful consequence: the empty set is covered by the empty family, which is
+vacuously compatible. So a sheaf always has **exactly one section over $\varnothing$**.
+
+### Testing the examples
+
+The best way to absorb the definition is to test it.
+
+- **Continuous functions form a sheaf.** Functions that agree on overlaps define a unique
+  function on the union, and continuity is a *local* property, so the glued function is
+  continuous. The same argument works for all functions, for $C^1$ functions, and for open
+  sets ($\Omega$).
+
+- **Bounded functions do not.** Cover $\R$ by $U_n = (n-1, n+1)$, $n \in \Z$, and let $s_n$ be the
+  identity function on $U_n$. Each $s_n$ is bounded and they agree on overlaps, but the glued
+  function $x \mapsto x$ is unbounded. *Boundedness is a global property*, so gluing fails.
+
+- **The constant presheaf does not.** Take $U = (0,1) \cup (2,3)$ and choose $a \neq b$ in $S$ on the
+  two pieces. They agree on the (empty) overlap, but no single element of $F(U) = S$ restricts to
+  both. It also has the wrong value $F(\varnothing) = S$. The repaired version is the sheaf of
+  **locally constant** functions $U \to S$.
+
+- **Square roots form a sheaf — with no global section.** Gluing holds, as for continuous
+  functions. On any slit plane, e.g. $\C \setminus (-\infty, 0]$, there are exactly two continuous
+  square roots. But on all of $X = \C \setminus\{0\}$ there is **none**: $F(X) = \varnothing$.
+
+### Why there is no global square root
+
+Follow a continuous square root once around the origin. As $z = e^{i\theta}$ runs through
+$\theta \in [0, 2\pi]$, a continuous choice of square root must be $g = e^{i\theta/2}$, which
+travels only *half way* around: it starts at $1$ and ends at $-1$.
+
+```{=html}
+<figure style="text-align:center; margin: 1.5em 0;">
+<svg viewBox="0 0 640 250" width="100%" style="max-width:640px" xmlns="http://www.w3.org/2000/svg"
+     font-family="serif" font-size="15" fill="none" stroke="currentColor">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" stroke="none"/>
+    </marker>
+  </defs>
+  <!-- z-plane -->
+  <g stroke-opacity="0.45">
+    <line x1="50" y1="125" x2="270" y2="125"/>
+    <line x1="160" y1="20" x2="160" y2="230"/>
+  </g>
+  <circle cx="160" cy="125" r="3" fill="currentColor"/>
+  <path d="M 245 125 A 85 85 0 0 0 75 125 A 85 85 0 0 0 243.7 139.8" stroke-width="2" marker-end="url(#arr)"/>
+  <circle cx="245" cy="125" r="4" fill="currentColor" stroke="none"/>
+  <text x="252" y="143" fill="currentColor" stroke="none">1</text>
+  <text x="60" y="35" fill="currentColor" stroke="none" font-style="italic">z-plane</text>
+  <text x="80" y="245" fill="currentColor" stroke="none">z = e<tspan dy="-6" font-size="11">iθ</tspan><tspan dy="6">, θ from 0 to 2π</tspan></text>
+  <!-- map arrow -->
+  <path d="M 290 125 L 345 125" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="300" y="112" fill="currentColor" stroke="none" font-style="italic">g</text>
+  <!-- w-plane -->
+  <g stroke-opacity="0.45">
+    <line x1="370" y1="125" x2="590" y2="125"/>
+    <line x1="480" y1="20" x2="480" y2="230"/>
+  </g>
+  <path d="M 565 125 A 85 85 0 0 0 396.3 110.2" stroke-width="2" marker-end="url(#arr)"/>
+  <circle cx="565" cy="125" r="4" fill="currentColor" stroke="none"/>
+  <circle cx="395" cy="125" r="4" fill="currentColor" stroke="none"/>
+  <text x="560" y="145" fill="currentColor" stroke="none">1</text>
+  <text x="378" y="145" fill="currentColor" stroke="none">−1</text>
+  <text x="380" y="35" fill="currentColor" stroke="none" font-style="italic">w-plane</text>
+  <text x="400" y="245" fill="currentColor" stroke="none">w = e<tspan dy="-6" font-size="11">iθ/2</tspan><tspan dy="6"> ends at −1</tspan></text>
+</svg>
+<figcaption>A continuous square root, followed once around the origin, comes back with the opposite sign.</figcaption>
+</figure>
+```
+
+In sheaf terms: cover $X$ by the two slit planes
+$$
+U_1 = \C \setminus (-\infty, 0], \qquad U_2 = \C \setminus [0, \infty).
+$$
+Their intersection is the upper half plane together with the lower half plane. If two square
+roots $g_1$ on $U_1$ and $g_2$ on $U_2$ agree on the upper half plane, then $g_2 = -g_1$ on the lower
+half plane (this is the picture above). So **no choice of local square roots is compatible**, and
+there is nothing to glue. The sheaf axiom is not violated; there simply is no compatible family.
+
+::: {.box}
+**Connection to toposes.** A map $1 \to F$ from the terminal sheaf $1(U) = \{*\}$ is the same as a
+global section (@exr-global). So the square-root sheaf is an object that is *locally nonempty
+everywhere* but has *no elements at all*. This is the same phenomenon that made $\Sets/X$ fail to
+be well-pointed — now with a topological reason behind it.
+:::
+
+## Step 4: discrete spaces and the slice $\Sets/X$
+
+If $X$ is **discrete**, every subset is open, and every $U$ is covered by its singletons, which are
+pairwise disjoint. A compatible family on this cover is *any* choice of sections $s_x \in F(\{x\})$,
+since all overlaps are empty. So the sheaf condition says
+$$
+F(U) \;\cong\; \prod_{x \in U} F(\{x\}),
+$$
+and a sheaf is nothing but the family of sets $\big(F(\{x\})\big)_{x \in X}$. That is precisely an
+object of $\Sets/X$, with fibers $A_x = F(\{x\})$:
+$$
+\Sh(X_{\text{discrete}}) \;\simeq\; \Sets/X .
+$$
+For a general space, a sheaf is still a family of sets indexed by the points (its **stalks**), but
+now the family **varies continuously**. In fact every sheaf is the sheaf of sections of a
+suitable map $p : E \to X$ (a local homeomorphism), just as in the square-root example.
+**Sheaves are slices with topology.**
+
+## Step 5: parts and truth values
+
+::: {.callout-note icon=false}
+## Definition: subsheaf
+
+A **subsheaf** $A \subseteq F$ is a choice of subsets $A(U) \subseteq F(U)$ that is closed under
+restriction ($s \in A(U) \Rightarrow s|_V \in A(V)$) and is itself a sheaf.
+:::
+
+*Example.* Inside $F = C(-, \R)$ take $A(U) = \{ f \in C(U, \R) : f > 0 \text{ on } U \}$.
+
+Now take a section $s \in F(U)$ and ask: *is $s$ in $A$?* In $\Sets$ the answer is yes or no. Here
+the honest answer is **"on part of $U$."** Among the open sets $W \subseteq U$, some satisfy
+$s|_W \in A(W)$. By gluing, $s$ restricted to their union is in $A$ as well, so there is a
+**largest** such open set. That open set *is* the truth value:
+$$
+[\![\, s \in A \,]\!] \;=\; \bigcup \{ W \subseteq U \text{ open} : s|_W \in A(W) \}.
+$$
+For $s = x$ on $\R$ and $A$ the positive functions, $[\![\, x \in A \,]\!] = (0, \infty)$.
+
+So the truth-value object of the topos $\Sh(X)$ is exactly example 3 from Step 2:
+$$
+\Omega(U) = \{ W \subseteq U \text{ open} \}, \qquad \true_U = U,
+$$
+and the characteristic map of $A \subseteq F$ sends $s \in F(U)$ to $[\![\, s \in A \,]\!]$.
+
+### Where excluded middle goes
+
+Truth values are combined like open sets:
+$$
+[\![\varphi \wedge \psi]\!] = [\![\varphi]\!] \cap [\![\psi]\!], \qquad
+[\![\varphi \vee \psi]\!] = [\![\varphi]\!] \cup [\![\psi]\!], \qquad
+[\![\neg \varphi]\!] = \operatorname{int}\big(X \setminus [\![\varphi]\!]\big).
+$$
+Negation must give an *open* set, the largest one disjoint from $[\![\varphi]\!]$, hence the interior.
+Therefore
+$$
+[\![\, x > 0 \;\vee\; \neg(x > 0) \,]\!] = (0, \infty) \cup \operatorname{int}\big((-\infty, 0]\big)
+= \R \setminus \{0\} \;\neq\; \R .
+$$
+Excluded middle fails exactly at the boundary point $0$, where neither "$x > 0$" nor its negation
+holds on any neighborhood.
+
+::: {.callout-tip collapse="true"}
+## Presheaves versus sheaves: sieves
+
+For mere *presheaves* on $\O(X)$, the natural truth value of "$s \in A$" is the whole collection
+$$
+\{ W \subseteq U \text{ open} : s|_W \in A(W) \}.
+$$
+This collection is closed under shrinking — a **sieve** on $U$ — and it need *not* be determined
+by its union. For example, the sieve generated by $(-\infty, 0)$ and $(0, \infty)$ (all opens
+contained in one of them) differs from the sieve of all open subsets of $\R \setminus \{0\}$,
+although both have union $\R \setminus \{0\}$. The sheaf condition is exactly what collapses a
+sieve to its union, which is why sheaves have the simpler $\Omega$.
+:::
+
+## Step 6: the general picture
+
+Nothing in the definition of a presheaf used that $\O(X)$ comes from a space. Replace it by any
+small category $C$ and you get **presheaves $C^{op} \to \Sets$**: data indexed by the objects of $C$,
+restrictable along the arrows of $C$. The examples from lecture are all of this kind:
+
+| index category $C$ | presheaves on $C$ |
+|---|---|
+| $\O(X)$ | presheaves on the space $X$ |
+| a monoid $M$ (one object) | $M$-sets |
+| a group $G$ (one object) | $G$-sets |
+| $V \rightrightarrows E$ | directed graphs |
+| one arrow $1 \to 0$ | the Sierpiński topos |
+
+The *sheaf* condition needs extra structure: a specification of which families of arrows
+"cover" an object. A category with such a specification is a **site**, and the categories of
+sheaves on sites are the **Grothendieck toposes**.
+
+## Exercises
+
+::: {#exr-global}
+Let $1$ be the presheaf with $1(U) = \{*\}$ for all $U$. Show that morphisms $1 \to F$ correspond
+bijectively to global sections $F(X)$. (*Hint:* $X$ is the largest element of $\O(X)$.)
+:::
+
+::: {#exr-}
+Show that $\Omega(U) = \{ W \subseteq U \text{ open}\}$, with $W|_V = W \cap V$, is a sheaf.
+Then show that the subsheaves of $1$ correspond exactly to the open sets of $X$.
+:::
+
+::: {#exr-}
+Let $F = C(-, \R)$ and $A(U) = \{ f : f \geq 0 \text{ on } U\}$. Show that $A$ is a subsheaf, and
+compute $[\![\, x \in A \,]\!]$ for $x$ the identity function on $\R$. Why is the answer not $[0, \infty)$?
+:::
+
+::: {#exr-}
+Show that the presheaf of locally constant functions $U \to S$ is a sheaf. Describe its sections
+over $U = (0,1) \cup (2,3)$, and over a connected open set.
+:::
+
+::: {#exr-}
+The **Sierpiński space** has points $\{a, b\}$ and open sets $\varnothing$, $\{b\}$, $\{a, b\}$. Show that a
+sheaf on it amounts to a single map $F(\{a, b\}) \to F(\{b\})$, and that $\Omega$ is the map
+$\{\varnothing, \{b\}, \{a,b\}\} \to \{\varnothing, \{b\}\}$, $W \mapsto W \cap \{b\}$. Compare with the
+Sierpiński topos from lecture.
+:::

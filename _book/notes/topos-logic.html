@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Toposes and Intuitionistic Logic – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/topos-vs-zfc.html" rel="next">
+<link href="../notes/presheaves-sheaves.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#from-truth-tables-to-omega" id="toc-from-truth-tables-to-omega" class="nav-link active" data-scroll-target="#from-truth-tables-to-omega">From truth tables to <span class="math inline">\(\Omega\)</span></a></li>
+  <li><a href="#intuitionistic-logic-and-heyting-algebras" id="toc-intuitionistic-logic-and-heyting-algebras" class="nav-link" data-scroll-target="#intuitionistic-logic-and-heyting-algebras">Intuitionistic logic and Heyting algebras</a>
+  <ul class="collapse">
+  <li><a href="#intuitionistic-logic" id="toc-intuitionistic-logic" class="nav-link" data-scroll-target="#intuitionistic-logic">Intuitionistic logic</a></li>
+  <li><a href="#heyting-algebras" id="toc-heyting-algebras" class="nav-link" data-scroll-target="#heyting-algebras">Heyting algebras</a></li>
+  </ul></li>
+  <li><a href="#the-logic-of-parts-in-a-topos" id="toc-the-logic-of-parts-in-a-topos" class="nav-link" data-scroll-target="#the-logic-of-parts-in-a-topos">The logic of parts in a topos</a></li>
+  <li><a href="#the-internal-language" id="toc-the-internal-language" class="nav-link" data-scroll-target="#the-internal-language">The internal language</a>
+  <ul class="collapse">
+  <li><a href="#local-truth-kripkejoyal-semantics" id="toc-local-truth-kripkejoyal-semantics" class="nav-link" data-scroll-target="#local-truth-kripkejoyal-semantics">Local truth: Kripke–Joyal semantics</a></li>
+  </ul></li>
+  <li><a href="#where-classical-logic-lives" id="toc-where-classical-logic-lives" class="nav-link" data-scroll-target="#where-classical-logic-lives">Where classical logic lives</a>
+  <ul class="collapse">
+  <li><a href="#outlook-week-10" id="toc-outlook-week-10" class="nav-link" data-scroll-target="#outlook-week-10">Outlook: Week 10</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-logic.html"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Toposes and Intuitionistic Logic</span></h1>
+<p class="subtitle lead">Truth values, Heyting algebras, and the internal language of a topos</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="box">
+<p>In <span class="math inline">\(\mathcal{S}\)</span>, parts of <span class="math inline">\(X\)</span> correspond to maps <span class="math inline">\(X \to 2\)</span>, and the propositional connectives are maps <span class="math inline">\(2 \times 2 \to 2\)</span> — the truth tables (L–R, Prop. 3.18). In a topos, <span class="math inline">\(2\)</span> is replaced by <span class="math inline">\(\Omega\)</span>, and the parts of an object no longer form a Boolean algebra but a <strong>Heyting algebra</strong>. These notes show that this is not an accident of a few examples: <strong>the logic of every topos is intuitionistic</strong>, and intuitionistic logic is exactly the logic that is valid in all toposes.</p>
+</div>
+<section id="from-truth-tables-to-omega" class="level2">
+<h2 class="anchored" data-anchor-id="from-truth-tables-to-omega">From truth tables to <span class="math inline">\(\Omega\)</span></h2>
+<p>Recall from L–R, Chapter 3: a part <span class="math inline">\(A \subseteq X\)</span> has a characteristic map <span class="math inline">\(\chi_A : X \to 2\)</span>, and a truth table such as <span class="math inline">\(\&amp; : 2 \times 2 \to 2\)</span> acts on parts by composition: <span class="math display">\[
+X \xrightarrow{\ \langle \chi_A, \chi_B \rangle\ } 2 \times 2 \xrightarrow{\ \&amp;\ } 2
+\qquad \text{classifies} \qquad A \cap B .
+\]</span> In a topos <span class="math inline">\(\mathcal{E}\)</span>, the same picture holds with <span class="math inline">\(\Omega\)</span> in place of <span class="math inline">\(2\)</span>: <span class="math display">\[
+\operatorname{Sub}(X) \;\cong\; \mathcal{E}(X, \Omega),
+\]</span> and operations on parts that are natural in <span class="math inline">\(X\)</span> are induced by maps <span class="math inline">\(\Omega \times \Omega \to \Omega\)</span>. We have already seen, in the Sierpiński topos and in <span class="math inline">\(\mathrm{Sh}(\mathbb{R})\)</span>, that these operations do not satisfy excluded middle. The question is: <strong>what laws do they satisfy?</strong></p>
+</section>
+<section id="intuitionistic-logic-and-heyting-algebras" class="level2">
+<h2 class="anchored" data-anchor-id="intuitionistic-logic-and-heyting-algebras">Intuitionistic logic and Heyting algebras</h2>
+<section id="intuitionistic-logic" class="level3">
+<h3 class="anchored" data-anchor-id="intuitionistic-logic">Intuitionistic logic</h3>
+<p><strong>Intuitionistic propositional logic</strong> has the usual connectives <span class="math inline">\(\wedge, \vee, \to, \bot\)</span>, with <span class="math inline">\(\neg \varphi\)</span> defined as <span class="math inline">\(\varphi \to \bot\)</span>, and the usual natural deduction rules — except that the law of excluded middle <span class="math inline">\(\varphi \vee \neg\varphi\)</span> (equivalently, double negation elimination <span class="math inline">\(\neg\neg\varphi \to \varphi\)</span>) is <strong>not</strong> a rule.</p>
+<p>The informal reading behind it is the <strong>BHK interpretation</strong> (Brouwer–Heyting–Kolmogorov), which we develop in Week 10:</p>
+<ul>
+<li>a proof of <span class="math inline">\(\varphi \wedge \psi\)</span> is a proof of <span class="math inline">\(\varphi\)</span> together with a proof of <span class="math inline">\(\psi\)</span>;</li>
+<li>a proof of <span class="math inline">\(\varphi \vee \psi\)</span> is a proof of one of them, <em>together with the information which one</em>;</li>
+<li>a proof of <span class="math inline">\(\varphi \to \psi\)</span> is a method transforming proofs of <span class="math inline">\(\varphi\)</span> into proofs of <span class="math inline">\(\psi\)</span>;</li>
+<li>a proof of <span class="math inline">\(\exists x\, \varphi(x)\)</span> provides a witness <span class="math inline">\(a\)</span> and a proof of <span class="math inline">\(\varphi(a)\)</span>.</li>
+</ul>
+<p>On this reading, <span class="math inline">\(\varphi \vee \neg\varphi\)</span> would require a uniform method deciding every proposition, so there is no reason to expect it.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>valid intuitionistically</th>
+<th>valid only classically</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\varphi \to \neg\neg\varphi\)</span></td>
+<td><span class="math inline">\(\neg\neg\varphi \to \varphi\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\neg\neg\neg\varphi \leftrightarrow \neg\varphi\)</span></td>
+<td><span class="math inline">\(\varphi \vee \neg\varphi\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((\varphi \to \psi) \to (\neg\psi \to \neg\varphi)\)</span></td>
+<td><span class="math inline">\((\neg\psi \to \neg\varphi) \to (\varphi \to \psi)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\neg(\varphi \vee \psi) \leftrightarrow \neg\varphi \wedge \neg\psi\)</span></td>
+<td><span class="math inline">\(\neg(\varphi \wedge \psi) \to \neg\varphi \vee \neg\psi\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\neg\neg(\varphi \vee \neg\varphi)\)</span></td>
+<td><span class="math inline">\(((\varphi \to \psi) \to \varphi) \to \varphi\)</span> (Peirce)</td>
+</tr>
+</tbody>
+</table>
+<p>The last entry on the left is worth pausing on: excluded middle is not provable, but it is <strong>not refutable</strong> either.</p>
+</section>
+<section id="heyting-algebras" class="level3">
+<h3 class="anchored" data-anchor-id="heyting-algebras">Heyting algebras</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Heyting algebra
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>Heyting algebra</strong> is a lattice <span class="math inline">\(H\)</span> with least element <span class="math inline">\(0\)</span> and greatest element <span class="math inline">\(1\)</span>, together with an operation <span class="math inline">\(\Rightarrow\)</span> such that for all <span class="math inline">\(a, b, c \in H\)</span> <span class="math display">\[
+c \le (a \Rightarrow b) \quad \Longleftrightarrow \quad c \wedge a \le b .
+\]</span> We put <span class="math inline">\(\neg a := a \Rightarrow 0\)</span>, the largest element disjoint from <span class="math inline">\(a\)</span>.</p>
+</div>
+</div>
+<p>The defining condition should look familiar. It is the exponential law <span class="math display">\[
+\frac{X \longrightarrow Y^B}{X \times B \longrightarrow Y}
+\]</span> for a <em>poset</em> regarded as a category, where <span class="math inline">\(\times\)</span> is <span class="math inline">\(\wedge\)</span> and <span class="math inline">\(Y^B\)</span> is <span class="math inline">\(B \Rightarrow Y\)</span>. So:</p>
+<blockquote class="blockquote">
+<p><strong>A Heyting algebra is exactly a cartesian closed poset with finite joins.</strong></p>
+</blockquote>
+<p>Many facts then come for free from the exponentials lecture. For instance, <span class="math inline">\(a \wedge -\)</span> is a left adjoint, so it preserves joins: <strong>every Heyting algebra is distributive</strong>, just as exponentials forced distributivity of <span class="math inline">\(\times\)</span> over <span class="math inline">\(+\)</span>.</p>
+<p>A <strong>Boolean algebra</strong> is a Heyting algebra in which <span class="math inline">\(a \vee \neg a = 1\)</span> for all <span class="math inline">\(a\)</span> (equivalently, <span class="math inline">\(\neg\neg a = a\)</span>).</p>
+<p><em>Examples.</em></p>
+<ol type="1">
+<li>Every Boolean algebra, with <span class="math inline">\(a \Rightarrow b = \neg a \vee b\)</span>; in particular <span class="math inline">\(2\)</span>.</li>
+<li>The open sets <span class="math inline">\(\mathcal{O}(X)\)</span> of a topological space, with <span class="math inline">\(U \Rightarrow V = \operatorname{int}\big((X \setminus U) \cup V\big)\)</span> and <span class="math inline">\(\neg U = \operatorname{int}(X \setminus U)\)</span>.</li>
+<li>Any finite chain <span class="math inline">\(0 &lt; a_1 &lt; \dots &lt; 1\)</span>, with <span class="math inline">\(a \Rightarrow b = 1\)</span> if <span class="math inline">\(a \le b\)</span> and <span class="math inline">\(a \Rightarrow b = b\)</span> otherwise. The three-element chain <span class="math inline">\(\{\bot, \tfrac12, \top\}\)</span> is the stage-<span class="math inline">\(0\)</span> truth values of the Sierpiński topos: <span class="math inline">\(\neg \tfrac12 = \bot\)</span>, <span class="math inline">\(\neg\neg\tfrac12 = \top\)</span>, and <span class="math inline">\(\tfrac12 \vee \neg\tfrac12 = \tfrac12\)</span>.</li>
+</ol>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-heyting-completeness" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20.1 (Soundness and completeness)</strong></span> <br>
+A propositional formula is provable in intuitionistic logic if and only if it evaluates to <span class="math inline">\(1\)</span> under every assignment in every Heyting algebra. In fact, the single Heyting algebra <span class="math inline">\(\mathcal{O}(\mathbb{R})\)</span> suffices (Tarski).</p>
+</div>
+</div>
+</div>
+</div>
+<p>Compare: classical propositional logic is complete for Boolean algebras, and already for the two-element algebra <span class="math inline">\(2\)</span> — the truth tables.</p>
+</section>
+</section>
+<section id="the-logic-of-parts-in-a-topos" class="level2">
+<h2 class="anchored" data-anchor-id="the-logic-of-parts-in-a-topos">The logic of parts in a topos</h2>
+<p>Throughout, <span class="math inline">\(\operatorname{Sub}(X)\)</span> is ordered by <strong>inclusion of parts</strong>: for parts <span class="math inline">\(i : A \rightarrowtail X\)</span> and <span class="math inline">\(j : B \rightarrowtail X\)</span>, <span class="math display">\[
+i \subseteq_X j \quad\Longleftrightarrow\quad i = j k \text{ for some (necessarily unique) } k : A \to B .
+\]</span> On monos this is only a preorder; two monos that factor through each other are isomorphic over <span class="math inline">\(X\)</span>, and <span class="math inline">\(\operatorname{Sub}(X)\)</span> consists of these equivalence classes, on which <span class="math inline">\(\subseteq_X\)</span> is a partial order. In terms of characteristic maps, <span class="math inline">\(A \subseteq_X B\)</span> iff <span class="math inline">\(\chi_A \wedge \chi_B = \chi_A\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Inclusion is tested at all stages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <span class="math inline">\(\mathcal{S}\)</span>, <span class="math inline">\(A \subseteq_X B\)</span> can be checked with elements <span class="math inline">\(1 \to X\)</span>. In a general topos one needs <em>generalized</em> elements <span class="math inline">\(T \to X\)</span>. In the Sierpiński topos, the parts <span class="math inline">\((\varnothing, 1)\)</span> and <span class="math inline">\(0\)</span> of <span class="math inline">\(1\)</span> contain the same global elements (none), yet they are different.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-sub-heyting" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20.2 (Parts form Heyting algebras)</strong></span> <br>
+Let <span class="math inline">\(\mathcal{E}\)</span> be a topos.</p>
+<ol type="1">
+<li>For every object <span class="math inline">\(X\)</span>, <span class="math inline">\(\operatorname{Sub}(X)\)</span> is a Heyting algebra.</li>
+<li>For every <span class="math inline">\(f : Y \to X\)</span>, pullback <span class="math inline">\(f^* : \operatorname{Sub}(X) \to \operatorname{Sub}(Y)\)</span> preserves all the Heyting operations, and it has both adjoints: <span class="math display">\[
+\exists_f \;\dashv\; f^* \;\dashv\; \forall_f .
+\]</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>Concretely, the top and bottom of <span class="math inline">\(\operatorname{Sub}(X)\)</span> are <span class="math inline">\(1_X\)</span> and <span class="math inline">\(0 \rightarrowtail X\)</span>; the meet <span class="math inline">\(A \cap B\)</span> is the pullback; the join <span class="math inline">\(A \cup B\)</span> is the image of <span class="math inline">\(A + B \to X\)</span>; and the implication <span class="math inline">\(A \Rightarrow B\)</span>, the largest part <span class="math inline">\(C\)</span> with <span class="math inline">\(C \cap A \subseteq_X B\)</span>, is <span class="math inline">\(\forall_i(i^* B)\)</span> for <span class="math inline">\(i : A \rightarrowtail X\)</span>.</p>
+<p>In <span class="math inline">\(\mathcal{S}\)</span>, for <span class="math inline">\(B \subseteq Y\)</span> and <span class="math inline">\(f : Y \to X\)</span>: <span class="math display">\[
+\exists_f(B) = \{ x : \exists y\,( f(y) = x \wedge y \in B)\}, \qquad
+\forall_f(B) = \{ x : \forall y\,( f(y) = x \to y \in B)\}.
+\]</span> For a projection <span class="math inline">\(\pi : X \times Y \to X\)</span> these are literally the quantifiers <span class="math inline">\(\exists y\)</span> and <span class="math inline">\(\forall y\)</span>. This is Lawvere’s slogan <strong>“quantifiers are adjoints”</strong>: the rules <span class="math display">\[
+\frac{\exists y\, \varphi(x,y) \;\vdash\; \psi(x)}{\varphi(x,y) \;\vdash\; \psi(x)}
+\qquad\qquad
+\frac{\psi(x) \;\vdash\; \forall y\, \varphi(x,y)}{\psi(x) \;\vdash\; \varphi(x,y)}
+\]</span> (with <span class="math inline">\(y\)</span> not free in <span class="math inline">\(\psi\)</span>) are exactly the two adjunctions.</p>
+<p><strong>The operations are maps on <span class="math inline">\(\Omega\)</span>.</strong> Because <span class="math inline">\(\operatorname{Sub}(X) \cong \mathcal{E}(X,\Omega)\)</span> naturally in <span class="math inline">\(X\)</span>, the Heyting operations are induced by maps <span class="math display">\[
+\wedge,\ \vee,\ \Rightarrow\ : \ \Omega \times \Omega \to \Omega, \qquad \bot : 1 \to \Omega,
+\]</span> making <span class="math inline">\(\Omega\)</span> an <strong>internal Heyting algebra</strong> — the topos version of the truth tables. For instance, <span class="math inline">\(\wedge\)</span> classifies the part <span class="math inline">\(\langle \mathrm{true}, \mathrm{true}\rangle : 1 \rightarrowtail \Omega \times \Omega\)</span>, and <span class="math inline">\(\Rightarrow\)</span> classifies the order relation <span class="math inline">\(\{(p, q) : p \wedge q = p\} \subseteq \Omega \times \Omega\)</span>.</p>
+<p><em>In the examples.</em></p>
+<ul>
+<li>In <span class="math inline">\(\mathrm{Sh}(X)\)</span>: <span class="math inline">\(\Omega(U) = \mathcal{O}(U)\)</span> with the Heyting operations of open sets, computed on each <span class="math inline">\(U\)</span>.</li>
+<li>In presheaves on <span class="math inline">\(C\)</span>: on sieves, <span class="math inline">\(\wedge\)</span> and <span class="math inline">\(\vee\)</span> are intersection and union, and <span class="math display">\[
+(S \Rightarrow T) = \{ f : d \to c \;:\; \text{for all } g,\ \ f g \in S \Rightarrow f g \in T \}.
+\]</span></li>
+<li>In <span class="math inline">\(\mathcal{S}/X\)</span>, <span class="math inline">\(\mathcal{S}^G\)</span>: Boolean, computed fiberwise or on underlying sets.</li>
+</ul>
+</section>
+<section id="the-internal-language" class="level2">
+<h2 class="anchored" data-anchor-id="the-internal-language">The internal language</h2>
+<p>The correspondence between parts and formulas can be pushed all the way: every topos comes with an <strong>internal language</strong> (the Mitchell–Bénabou language).</p>
+<ul>
+<li><strong>Types</strong> are objects of <span class="math inline">\(\mathcal{E}\)</span>; <strong>terms</strong> <span class="math inline">\(t(x)\)</span> with <span class="math inline">\(x : X\)</span> of type <span class="math inline">\(Y\)</span> are maps <span class="math inline">\(X \to Y\)</span>.</li>
+<li>A <strong>formula</strong> <span class="math inline">\(\varphi(x)\)</span> with <span class="math inline">\(x : X\)</span> is interpreted as a part <span class="math inline">\(\{ x : \varphi \} \subseteq X\)</span>, or equivalently a map <span class="math inline">\(X \to \Omega\)</span>.</li>
+<li>Connectives are interpreted by the Heyting operations of <span class="math inline">\(\operatorname{Sub}(X)\)</span>; quantifiers by <span class="math inline">\(\exists_\pi\)</span> and <span class="math inline">\(\forall_\pi\)</span> along projections; and <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(Y^X\)</span> give higher-order quantification (“for all subsets”, “for all functions”).</li>
+<li>A sentence <strong>holds</strong> in <span class="math inline">\(\mathcal{E}\)</span> if its interpretation is the top part, i.e.&nbsp;<span class="math inline">\(\mathrm{true}: 1 \to \Omega\)</span>.</li>
+</ul>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-ihol" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20.3 (Toposes model intuitionistic higher-order logic)</strong></span> <br>
+Every statement provable in intuitionistic higher-order logic holds in every topos. Conversely, a statement holding in all toposes is intuitionistically provable: every theory has a “free” topos built from its syntax (Lambek–Scott).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="box">
+<p><strong>Slogan.</strong> Toposes are to intuitionistic higher-order logic what Boolean-valued models are to classical logic. A mathematical argument that avoids excluded middle and choice is valid in <em>every</em> topos — for sheaves, <span class="math inline">\(G\)</span>-sets, the effective topos, … all at once.</p>
+</div>
+<section id="local-truth-kripkejoyal-semantics" class="level3">
+<h3 class="anchored" data-anchor-id="local-truth-kripkejoyal-semantics">Local truth: Kripke–Joyal semantics</h3>
+<p>How do we actually compute whether a formula holds? For <span class="math inline">\(\mathrm{Sh}(X)\)</span>, write <span class="math inline">\(U \Vdash \varphi\)</span> (“<span class="math inline">\(U\)</span> forces <span class="math inline">\(\varphi\)</span>”) for <span class="math inline">\(U \subseteq [\![\varphi]\!]\)</span>. Then:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(U \Vdash \ldots\)</span> iff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\varphi \wedge \psi\)</span></td>
+<td><span class="math inline">\(U \Vdash \varphi\)</span> and <span class="math inline">\(U \Vdash \psi\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\varphi \vee \psi\)</span></td>
+<td>there is an open cover <span class="math inline">\(U = \bigcup_i U_i\)</span> with each <span class="math inline">\(U_i \Vdash \varphi\)</span> or <span class="math inline">\(U_i \Vdash \psi\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\varphi \to \psi\)</span></td>
+<td>for all open <span class="math inline">\(V \subseteq U\)</span>: if <span class="math inline">\(V \Vdash \varphi\)</span> then <span class="math inline">\(V \Vdash \psi\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\neg \varphi\)</span></td>
+<td>the only open <span class="math inline">\(V \subseteq U\)</span> with <span class="math inline">\(V \Vdash \varphi\)</span> is <span class="math inline">\(V = \varnothing\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\exists x\, \varphi(x)\)</span></td>
+<td>there is a cover <span class="math inline">\(U = \bigcup_i U_i\)</span> and sections <span class="math inline">\(a_i \in F(U_i)\)</span> with <span class="math inline">\(U_i \Vdash \varphi(a_i)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\forall x\, \varphi(x)\)</span></td>
+<td>for all open <span class="math inline">\(V \subseteq U\)</span> and all <span class="math inline">\(a \in F(V)\)</span>: <span class="math inline">\(V \Vdash \varphi(a)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Two features stand out:</p>
+<ol type="1">
+<li><strong>Disjunction and existence are local.</strong> A disjunction holds if it holds piece by piece; an existential statement holds if witnesses exist <em>locally</em>, which need not glue to a global one.</li>
+<li><strong>Implication and negation look ahead</strong> to all smaller open sets, exactly as in Kripke models (and in the Sierpiński topos, where “<span class="math inline">\(\neg\)</span>” looks ahead to the later stage).</li>
+</ol>
+<p><em>Example: square roots.</em> In <span class="math inline">\(\mathrm{Sh}(\mathbb{C}\setminus \{0\})\)</span>, let <span class="math inline">\(z\)</span> be the identity function, a global section of the sheaf of continuous complex-valued functions. Every point has a slit-plane neighborhood on which a continuous square root of <span class="math inline">\(z\)</span> exists, so <span class="math display">\[
+\mathbb{C}\setminus \{0\} \;\Vdash\; \exists w\, (w \cdot w = z),
+\]</span> although there is <strong>no global square root</strong> (see the presheaves and sheaves handout). Internally, “<span class="math inline">\(z\)</span> has a square root” is <em>true</em>; externally there is no element to point to. This is the intuitionistic meaning of <span class="math inline">\(\exists\)</span>, and it is why internal versions of the axiom of choice can fail even when every <span class="math inline">\(\forall\exists\)</span> statement we care about holds.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Connection to Week 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These clauses are the forcing clauses of Cohen’s method, with open sets in place of forcing conditions: a condition forces <span class="math inline">\(\varphi \vee \psi\)</span> if densely many stronger conditions force one of them, and forces <span class="math inline">\(\neg\varphi\)</span> if no stronger condition forces <span class="math inline">\(\varphi\)</span>. Forcing <em>is</em> sheaf semantics.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="where-classical-logic-lives" class="level2">
+<h2 class="anchored" data-anchor-id="where-classical-logic-lives">Where classical logic lives</h2>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-classical" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20.4 (Classical toposes)</strong></span> <br>
+For a topos <span class="math inline">\(\mathcal{E}\)</span> the following are equivalent:</p>
+<ol type="1">
+<li><span class="math inline">\(\mathcal{E}\)</span> is Boolean: every <span class="math inline">\(\operatorname{Sub}(X)\)</span> is a Boolean algebra;</li>
+<li><span class="math inline">\([\mathrm{true}, \mathrm{false}] : 1 + 1 \to \Omega\)</span> is an isomorphism;</li>
+<li>the internal language satisfies excluded middle, <span class="math inline">\(\forall p \in \Omega\,(p \vee \neg p)\)</span>.</li>
+</ol>
+<p>Moreover (Diaconescu), the internal axiom of choice implies these.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Even in a non-Boolean topos, classical logic is not far away. Every topos <span class="math inline">\(\mathcal{E}\)</span> contains a <strong>Boolean subtopos</strong> <span class="math inline">\(\mathrm{Sh}_{\neg\neg}(\mathcal{E})\)</span> of “<span class="math inline">\(\neg\neg\)</span>-sheaves”, where a statement holds iff it is not refuted. Applied to presheaves on a poset of forcing conditions, this is exactly how the Cohen topos is built — the categorical version of the passage from forcing to a Boolean-valued model. It mirrors the Gödel–Gentzen <strong>double negation translation</strong>, which embeds classical logic into intuitionistic logic.</p>
+<div class="box">
+<p><strong>Summary.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>classical</th>
+<th>intuitionistic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>algebras of truth values</td>
+<td>Boolean algebras</td>
+<td>Heyting algebras</td>
+</tr>
+<tr class="even">
+<td>“canonical” model</td>
+<td><span class="math inline">\(2\)</span>, <span class="math inline">\(\mathcal{S}\)</span></td>
+<td><span class="math inline">\(\mathcal{O}(X)\)</span>, toposes</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\exists\)</span> means</td>
+<td>some witness exists</td>
+<td>a witness exists <em>locally</em> / can be constructed</td>
+</tr>
+<tr class="even">
+<td>completeness</td>
+<td>Boolean algebras, <span class="math inline">\(2\)</span></td>
+<td>Heyting algebras, <span class="math inline">\(\mathcal{O}(\mathbb{R})\)</span>, all toposes</td>
+</tr>
+</tbody>
+</table>
+<p>In a topos, intuitionistic logic is not a philosophical restriction imposed from outside: it is forced by the fact that truth is <strong>local</strong> — it varies over stages, points, or conditions.</p>
+</div>
+<section id="outlook-week-10" class="level3">
+<h3 class="anchored" data-anchor-id="outlook-week-10">Outlook: Week 10</h3>
+<p>A Heyting algebra is a cartesian closed <em>poset</em>. Forgetting that the order is a preorder — keeping track of <em>which</em> proof shows <span class="math inline">\(a \le b\)</span>, not just <em>that</em> one exists — gives a cartesian closed <em>category</em>. This is the categorical side of the <strong>Curry–Howard correspondence</strong>: propositions are types, proofs are programs, and the BHK clauses above become the typing rules of the simply typed <span class="math inline">\(\lambda\)</span>-calculus.</p>
+</section>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.1</strong></span> In any Heyting algebra, prove: (a) <span class="math inline">\(a \le \neg\neg a\)</span>; (b) <span class="math inline">\(\neg\neg\neg a = \neg a\)</span>; (c) <span class="math inline">\(\neg(a \vee b) = \neg a \wedge \neg b\)</span>; (d) <span class="math inline">\(\neg\neg(a \vee \neg a) = 1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.2</strong></span> In <span class="math inline">\(\mathcal{O}(\mathbb{R})\)</span>, find open sets <span class="math inline">\(U, V\)</span> with <span class="math inline">\(\neg(U \cap V) \neq \neg U \cup \neg V\)</span>, and an open <span class="math inline">\(U\)</span> with <span class="math inline">\(\neg\neg U \neq U\)</span>. Use your examples to show that the De Morgan law and double negation elimination from the right-hand column of the table of laws are not intuitionistically provable.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.3</strong></span> Write out the truth tables of <span class="math inline">\(\wedge\)</span>, <span class="math inline">\(\vee\)</span>, <span class="math inline">\(\Rightarrow\)</span>, <span class="math inline">\(\neg\)</span> on the three-element chain <span class="math inline">\(\{\bot, \tfrac12, \top\}\)</span>. Check that Peirce’s law fails for <span class="math inline">\(\varphi = \tfrac12\)</span>, <span class="math inline">\(\psi = \bot\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.4</strong></span> In <span class="math inline">\(\mathcal{S}\)</span>, verify <span class="math inline">\(\exists_f \dashv f^* \dashv \forall_f\)</span> for <span class="math inline">\(f : Y \to X\)</span>, and check that for a projection <span class="math inline">\(\pi : X \times Y \to X\)</span> they give the usual quantifiers.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 20.5</strong></span> Using the Kripke–Joyal clauses, show that in <span class="math inline">\(\mathrm{Sh}(\mathbb{R})\)</span>, with <span class="math inline">\(x\)</span> the identity function, <span class="math inline">\(\mathbb{R}\Vdash \neg\neg(x &gt; 0 \vee x &lt; 0)\)</span> but not <span class="math inline">\(\mathbb{R}\Vdash x &gt; 0 \vee x &lt; 0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/presheaves-sheaves.html" class="pagination-link" aria-label="Presheaves and Sheaves: A First Look">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/topos-vs-zfc.html" class="pagination-link" aria-label="Topos Theory and ZFC">
+        <span class="nav-page-text"><span class="chapter-title">Topos Theory and ZFC</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

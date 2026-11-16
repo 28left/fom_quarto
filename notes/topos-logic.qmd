@@ -1,0 +1,330 @@
+---
+title: "Toposes and Intuitionistic Logic"
+subtitle: "Truth values, Heyting algebras, and the internal language of a topos"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+<!-- $$
+\newcommand{\Sets}{\mathcal{S}}
+\newcommand{\Sh}{\mathrm{Sh}}
+\newcommand{\Sub}{\operatorname{Sub}}
+\newcommand{\true}{\mathrm{true}}
+\newcommand{\tv}[1]{[\![#1]\!]}
+\newcommand{\imp}{\Rightarrow}
+$$ -->
+:::
+
+::: {.box}
+In $\Sets$, parts of $X$ correspond to maps $X \to 2$, and the propositional connectives are maps
+$2 \times 2 \to 2$ — the truth tables (L–R, Prop. 3.18). In a topos, $2$ is replaced by $\Omega$, and
+the parts of an object no longer form a Boolean algebra but a **Heyting algebra**. These notes show
+that this is not an accident of a few examples: **the logic of every topos is intuitionistic**,
+and intuitionistic logic is exactly the logic that is valid in all toposes.
+:::
+
+## From truth tables to $\Omega$
+
+Recall from L–R, Chapter 3: a part $A \subseteq X$ has a characteristic map $\chi_A : X \to 2$, and
+a truth table such as $\& : 2 \times 2 \to 2$ acts on parts by composition:
+$$
+X \xrightarrow{\ \langle \chi_A, \chi_B \rangle\ } 2 \times 2 \xrightarrow{\ \&\ } 2
+\qquad \text{classifies} \qquad A \cap B .
+$$
+In a topos $\mathcal{E}$, the same picture holds with $\Omega$ in place of $2$:
+$$
+\Sub(X) \;\cong\; \mathcal{E}(X, \Omega),
+$$
+and operations on parts that are natural in $X$ are induced by maps $\Omega \times \Omega \to \Omega$.
+We have already seen, in the Sierpiński topos and in $\Sh(\R)$, that these operations do not
+satisfy excluded middle. The question is: **what laws do they satisfy?**
+
+## Intuitionistic logic and Heyting algebras
+
+### Intuitionistic logic
+
+**Intuitionistic propositional logic** has the usual connectives $\wedge, \vee, \to, \bot$, with
+$\neg \varphi$ defined as $\varphi \to \bot$, and the usual natural deduction rules — except that
+the law of excluded middle $\varphi \vee \neg\varphi$ (equivalently, double negation elimination
+$\neg\neg\varphi \to \varphi$) is **not** a rule.
+
+The informal reading behind it is the **BHK interpretation** (Brouwer–Heyting–Kolmogorov), which
+we develop in Week 10:
+
+- a proof of $\varphi \wedge \psi$ is a proof of $\varphi$ together with a proof of $\psi$;
+- a proof of $\varphi \vee \psi$ is a proof of one of them, *together with the information which one*;
+- a proof of $\varphi \to \psi$ is a method transforming proofs of $\varphi$ into proofs of $\psi$;
+- a proof of $\exists x\, \varphi(x)$ provides a witness $a$ and a proof of $\varphi(a)$.
+
+On this reading, $\varphi \vee \neg\varphi$ would require a uniform method deciding every
+proposition, so there is no reason to expect it.
+
+| valid intuitionistically | valid only classically |
+|---|---|
+| $\varphi \to \neg\neg\varphi$ | $\neg\neg\varphi \to \varphi$ |
+| $\neg\neg\neg\varphi \leftrightarrow \neg\varphi$ | $\varphi \vee \neg\varphi$ |
+| $(\varphi \to \psi) \to (\neg\psi \to \neg\varphi)$ | $(\neg\psi \to \neg\varphi) \to (\varphi \to \psi)$ |
+| $\neg(\varphi \vee \psi) \leftrightarrow \neg\varphi \wedge \neg\psi$ | $\neg(\varphi \wedge \psi) \to \neg\varphi \vee \neg\psi$ |
+| $\neg\neg(\varphi \vee \neg\varphi)$ | $((\varphi \to \psi) \to \varphi) \to \varphi$ (Peirce) |
+
+The last entry on the left is worth pausing on: excluded middle is not provable, but it is
+**not refutable** either.
+
+### Heyting algebras
+
+::: {.callout-note icon=false}
+## Definition: Heyting algebra
+
+A **Heyting algebra** is a lattice $H$ with least element $0$ and greatest element $1$, together with
+an operation $\imp$ such that for all $a, b, c \in H$
+$$
+c \le (a \imp b) \quad \Longleftrightarrow \quad c \wedge a \le b .
+$$
+We put $\neg a := a \imp 0$, the largest element disjoint from $a$.
+:::
+
+The defining condition should look familiar. It is the exponential law
+$$
+\frac{X \longrightarrow Y^B}{X \times B \longrightarrow Y}
+$$
+for a *poset* regarded as a category, where $\times$ is $\wedge$ and $Y^B$ is $B \imp Y$. So:
+
+> **A Heyting algebra is exactly a cartesian closed poset with finite joins.**
+
+Many facts then come for free from the exponentials lecture. For instance, $a \wedge -$ is a left
+adjoint, so it preserves joins: **every Heyting algebra is distributive**, just as exponentials
+forced distributivity of $\times$ over $+$.
+
+A **Boolean algebra** is a Heyting algebra in which $a \vee \neg a = 1$ for all $a$ (equivalently,
+$\neg\neg a = a$).
+
+*Examples.*
+
+1. Every Boolean algebra, with $a \imp b = \neg a \vee b$; in particular $2$.
+2. The open sets $\O(X)$ of a topological space, with
+   $U \imp V = \operatorname{int}\big((X \setminus U) \cup V\big)$ and $\neg U = \operatorname{int}(X \setminus U)$.
+3. Any finite chain $0 < a_1 < \dots < 1$, with $a \imp b = 1$ if $a \le b$ and $a \imp b = b$ otherwise.
+   The three-element chain $\{\bot, \tfrac12, \top\}$ is the stage-$0$ truth values of the Sierpiński
+   topos: $\neg \tfrac12 = \bot$, $\neg\neg\tfrac12 = \top$, and $\tfrac12 \vee \neg\tfrac12 = \tfrac12$.
+
+::: {#thm-heyting-completeness}
+## Soundness and completeness
+\
+A propositional formula is provable in intuitionistic logic if and only if it evaluates to $1$
+under every assignment in every Heyting algebra. In fact, the single Heyting algebra $\O(\R)$
+suffices (Tarski).
+:::
+
+Compare: classical propositional logic is complete for Boolean algebras, and already for the
+two-element algebra $2$ — the truth tables.
+
+## The logic of parts in a topos
+
+Throughout, $\Sub(X)$ is ordered by **inclusion of parts**: for parts $i : A \rightarrowtail X$ and
+$j : B \rightarrowtail X$,
+$$
+i \subseteq_X j \quad\Longleftrightarrow\quad i = j k \text{ for some (necessarily unique) } k : A \to B .
+$$
+On monos this is only a preorder; two monos that factor through each other are isomorphic over
+$X$, and $\Sub(X)$ consists of these equivalence classes, on which $\subseteq_X$ is a partial order.
+In terms of characteristic maps, $A \subseteq_X B$ iff $\chi_A \wedge \chi_B = \chi_A$.
+
+::: {.callout-warning}
+## Inclusion is tested at all stages
+
+In $\Sets$, $A \subseteq_X B$ can be checked with elements $1 \to X$. In a general topos one needs
+*generalized* elements $T \to X$. In the Sierpiński topos, the parts $(\varnothing, 1)$ and $0$ of $1$
+contain the same global elements (none), yet they are different.
+:::
+
+::: {#thm-sub-heyting}
+## Parts form Heyting algebras
+\
+Let $\mathcal{E}$ be a topos.
+
+1. For every object $X$, $\Sub(X)$ is a Heyting algebra.
+2. For every $f : Y \to X$, pullback $f^* : \Sub(X) \to \Sub(Y)$ preserves all the Heyting operations,
+   and it has both adjoints:
+   $$
+   \exists_f \;\dashv\; f^* \;\dashv\; \forall_f .
+   $$
+:::
+
+Concretely, the top and bottom of $\Sub(X)$ are $1_X$ and $0 \rightarrowtail X$; the meet $A \cap B$ is the
+pullback; the join $A \cup B$ is the image of $A + B \to X$; and the implication $A \imp B$, the largest
+part $C$ with $C \cap A \subseteq_X B$, is $\forall_i(i^* B)$ for $i : A \rightarrowtail X$.
+
+In $\Sets$, for $B \subseteq Y$ and $f : Y \to X$:
+$$
+\exists_f(B) = \{ x : \exists y\,( f(y) = x \wedge y \in B)\}, \qquad
+\forall_f(B) = \{ x : \forall y\,( f(y) = x \to y \in B)\}.
+$$
+For a projection $\pi : X \times Y \to X$ these are literally the quantifiers $\exists y$ and $\forall y$.
+This is Lawvere's slogan **"quantifiers are adjoints"**: the rules
+$$
+\frac{\exists y\, \varphi(x,y) \;\vdash\; \psi(x)}{\varphi(x,y) \;\vdash\; \psi(x)}
+\qquad\qquad
+\frac{\psi(x) \;\vdash\; \forall y\, \varphi(x,y)}{\psi(x) \;\vdash\; \varphi(x,y)}
+$$
+(with $y$ not free in $\psi$) are exactly the two adjunctions.
+
+**The operations are maps on $\Omega$.** Because $\Sub(X) \cong \mathcal{E}(X,\Omega)$ naturally in $X$,
+the Heyting operations are induced by maps
+$$
+\wedge,\ \vee,\ \imp \ : \ \Omega \times \Omega \to \Omega, \qquad \bot : 1 \to \Omega,
+$$
+making $\Omega$ an **internal Heyting algebra** — the topos version of the truth tables. For instance,
+$\wedge$ classifies the part $\langle \true, \true\rangle : 1 \rightarrowtail \Omega \times \Omega$, and $\imp$ classifies the
+order relation $\{(p, q) : p \wedge q = p\} \subseteq \Omega \times \Omega$.
+
+*In the examples.*
+
+- In $\Sh(X)$: $\Omega(U) = \O(U)$ with the Heyting operations of open sets, computed on each $U$.
+- In presheaves on $C$: on sieves, $\wedge$ and $\vee$ are intersection and union, and
+  $$
+  (S \imp T) = \{ f : d \to c \;:\; \text{for all } g,\ \ f g \in S \Rightarrow f g \in T \}.
+  $$
+- In $\Sets/X$, $\Sets^G$: Boolean, computed fiberwise or on underlying sets.
+
+## The internal language
+
+The correspondence between parts and formulas can be pushed all the way: every topos comes with
+an **internal language** (the Mitchell–Bénabou language).
+
+- **Types** are objects of $\mathcal{E}$; **terms** $t(x)$ with $x : X$ of type $Y$ are maps $X \to Y$.
+- A **formula** $\varphi(x)$ with $x : X$ is interpreted as a part $\{ x : \varphi \} \subseteq X$, or
+  equivalently a map $X \to \Omega$.
+- Connectives are interpreted by the Heyting operations of $\Sub(X)$; quantifiers by $\exists_\pi$ and
+  $\forall_\pi$ along projections; and $\Omega$, $Y^X$ give higher-order quantification ("for all
+  subsets", "for all functions").
+- A sentence **holds** in $\mathcal{E}$ if its interpretation is the top part, i.e. $\true : 1 \to \Omega$.
+
+::: {#thm-ihol}
+## Toposes model intuitionistic higher-order logic
+\
+Every statement provable in intuitionistic higher-order logic holds in every topos. Conversely, a
+statement holding in all toposes is intuitionistically provable: every theory has a "free" topos
+built from its syntax (Lambek–Scott).
+:::
+
+::: {.box}
+**Slogan.** Toposes are to intuitionistic higher-order logic what Boolean-valued models are to
+classical logic. A mathematical argument that avoids excluded middle and choice is valid in
+*every* topos — for sheaves, $G$-sets, the effective topos, … all at once.
+:::
+
+### Local truth: Kripke–Joyal semantics
+
+How do we actually compute whether a formula holds? For $\Sh(X)$, write $U \Vdash \varphi$
+("$U$ forces $\varphi$") for $U \subseteq \tv{\varphi}$. Then:
+
+| | $U \Vdash \ldots$ iff |
+|---|---|
+| $\varphi \wedge \psi$ | $U \Vdash \varphi$ and $U \Vdash \psi$ |
+| $\varphi \vee \psi$ | there is an open cover $U = \bigcup_i U_i$ with each $U_i \Vdash \varphi$ or $U_i \Vdash \psi$ |
+| $\varphi \to \psi$ | for all open $V \subseteq U$: if $V \Vdash \varphi$ then $V \Vdash \psi$ |
+| $\neg \varphi$ | the only open $V \subseteq U$ with $V \Vdash \varphi$ is $V = \varnothing$ |
+| $\exists x\, \varphi(x)$ | there is a cover $U = \bigcup_i U_i$ and sections $a_i \in F(U_i)$ with $U_i \Vdash \varphi(a_i)$ |
+| $\forall x\, \varphi(x)$ | for all open $V \subseteq U$ and all $a \in F(V)$: $V \Vdash \varphi(a)$ |
+
+Two features stand out:
+
+1. **Disjunction and existence are local.** A disjunction holds if it holds piece by piece; an
+   existential statement holds if witnesses exist *locally*, which need not glue to a global one.
+2. **Implication and negation look ahead** to all smaller open sets, exactly as in Kripke models
+   (and in the Sierpiński topos, where "$\neg$" looks ahead to the later stage).
+
+*Example: square roots.* In $\Sh(\C \setminus \{0\})$, let $z$ be the identity function, a global
+section of the sheaf of continuous complex-valued functions. Every point has a slit-plane
+neighborhood on which a continuous square root of $z$ exists, so
+$$
+\C \setminus \{0\} \;\Vdash\; \exists w\, (w \cdot w = z),
+$$
+although there is **no global square root** (see the presheaves and sheaves handout). Internally,
+"$z$ has a square root" is *true*; externally there is no element to point to. This is the
+intuitionistic meaning of $\exists$, and it is why internal versions of the axiom of choice can
+fail even when every $\forall\exists$ statement we care about holds.
+
+::: {.callout-tip}
+## Connection to Week 5
+
+These clauses are the forcing clauses of Cohen's method, with open sets in place of forcing
+conditions: a condition forces $\varphi \vee \psi$ if densely many stronger conditions force one of
+them, and forces $\neg\varphi$ if no stronger condition forces $\varphi$. Forcing *is* sheaf
+semantics.
+:::
+
+## Where classical logic lives
+
+::: {#thm-classical}
+## Classical toposes
+\
+For a topos $\mathcal{E}$ the following are equivalent:
+
+1. $\mathcal{E}$ is Boolean: every $\Sub(X)$ is a Boolean algebra;
+2. $[\true, \mathrm{false}] : 1 + 1 \to \Omega$ is an isomorphism;
+3. the internal language satisfies excluded middle, $\forall p \in \Omega\,(p \vee \neg p)$.
+
+Moreover (Diaconescu), the internal axiom of choice implies these.
+:::
+
+Even in a non-Boolean topos, classical logic is not far away. Every topos $\mathcal{E}$ contains a
+**Boolean subtopos** $\Sh_{\neg\neg}(\mathcal{E})$ of "$\neg\neg$-sheaves", where a statement holds iff it is not
+refuted. Applied to presheaves on a poset of forcing conditions, this is exactly how the Cohen
+topos is built — the categorical version of the passage from forcing to a Boolean-valued model.
+It mirrors the Gödel–Gentzen **double negation translation**, which embeds classical logic into
+intuitionistic logic.
+
+::: {.box}
+**Summary.**
+
+| | classical | intuitionistic |
+|---|---|---|
+| algebras of truth values | Boolean algebras | Heyting algebras |
+| "canonical" model | $2$, $\Sets$ | $\O(X)$, toposes |
+| $\exists$ means | some witness exists | a witness exists *locally* / can be constructed |
+| completeness | Boolean algebras, $2$ | Heyting algebras, $\O(\R)$, all toposes |
+
+In a topos, intuitionistic logic is not a philosophical restriction imposed from outside: it is
+forced by the fact that truth is **local** — it varies over stages, points, or conditions.
+:::
+
+### Outlook: Week 10
+
+A Heyting algebra is a cartesian closed *poset*. Forgetting that the order is a preorder — keeping
+track of *which* proof shows $a \le b$, not just *that* one exists — gives a cartesian closed
+*category*. This is the categorical side of the **Curry–Howard correspondence**: propositions
+are types, proofs are programs, and the BHK clauses above become the typing rules of the
+simply typed $\lambda$-calculus.
+
+## Exercises
+
+::: {#exr-}
+In any Heyting algebra, prove: (a) $a \le \neg\neg a$; (b) $\neg\neg\neg a = \neg a$;
+(c) $\neg(a \vee b) = \neg a \wedge \neg b$; (d) $\neg\neg(a \vee \neg a) = 1$.
+:::
+
+::: {#exr-}
+In $\O(\R)$, find open sets $U, V$ with $\neg(U \cap V) \neq \neg U \cup \neg V$, and an open $U$ with
+$\neg\neg U \neq U$. Use your examples to show that the De Morgan law and double negation elimination from the
+right-hand column of the table of laws are not intuitionistically provable.
+:::
+
+::: {#exr-}
+Write out the truth tables of $\wedge$, $\vee$, $\imp$, $\neg$ on the three-element chain
+$\{\bot, \tfrac12, \top\}$. Check that Peirce's law fails for $\varphi = \tfrac12$, $\psi = \bot$.
+:::
+
+::: {#exr-}
+In $\Sets$, verify $\exists_f \dashv f^* \dashv \forall_f$ for $f : Y \to X$, and check that for a projection
+$\pi : X \times Y \to X$ they give the usual quantifiers.
+:::
+
+::: {#exr-}
+Using the Kripke–Joyal clauses, show that in $\Sh(\R)$, with $x$ the identity function,
+$\R \Vdash \neg\neg(x > 0 \vee x < 0)$ but not $\R \Vdash x > 0 \vee x < 0$.
+:::

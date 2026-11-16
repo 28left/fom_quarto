@@ -1,0 +1,590 @@
+---
+title: "Topos Theory and ZFC"
+subtitle: "Consistency strength, size, universes, and the Feferman–Mac Lane debate"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+
+\newcommand{\ETCS}{\mathsf{ETCS}}
+\newcommand{\BZC}{\mathsf{BZC}}
+\newcommand{\ZC}{\mathsf{ZC}}
+\newcommand{\Zer}{\mathsf{Z}}
+\newcommand{\UA}{\mathsf{UA}}
+\newcommand{\NBG}{\mathsf{NBG}}
+\newcommand{\MK}{\mathsf{MK}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Cat}{\mathbf{Cat}}
+\newcommand{\Grp}{\mathbf{Grp}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Con}{\operatorname{Con}}
+:::
+
+# Topos Theory and ZFC
+
+Over the last weeks we developed category theory up to elementary toposes and met Lawvere's *Elementary Theory of the Category of Sets* ($\ETCS$) as an alternative to $\ZFC$. This lecture closes Part II by comparing the two on three fronts:
+
+1. **Logical strength.** What can $\ETCS$ prove, and how does that compare with $\ZFC$?
+2. **Size.** Category theory constantly talks about "the category of *all* groups" or "the category of *all* sets". How do the set-theoretic antinomies resurface, and how are they handled?
+3. **Autonomy.** Can category theory be a foundation *in its own right*, or does it presuppose set theory? This is the substance of the **Feferman–Mac Lane debate**.
+
+A preview of the answers: the difference in strength between $\ETCS$ and $\ZFC$ is *not* the difference between structural and material set theory — it is precisely the **Axiom of Replacement**. Size problems, on the other hand, are genuinely shared by both frameworks, and the standard fix (Grothendieck universes) is a large cardinal assumption you have already met. The debate is mostly about the third question.
+
+
+## Recap: ETCS
+
+::: {.callout-note icon=false}
+## The axioms of $\ETCS$ (Lawvere 1964)
+
+A model of $\ETCS$ is a category $\mathcal{S}$ (think: *sets and functions*) such that
+
+1. $\mathcal{S}$ has all finite limits (terminal object $1$, products, pullbacks);
+2. $\mathcal{S}$ is cartesian closed (exponentials $Y^X$);
+3. $\mathcal{S}$ has a subobject classifier $\top \colon 1 \to \Omega$;
+4. $\mathcal{S}$ has a natural numbers object $1 \xrightarrow{0} N \xrightarrow{s} N$;
+5. $\mathcal{S}$ is **well-pointed**: $0 \not\cong 1$, and if $f \neq g \colon X \to Y$, then there is $x\colon 1 \to X$ with $f x \neq g x$;
+6. **Choice**: every epimorphism has a section.
+
+In short: *$\ETCS$ is the theory of a well-pointed topos with a natural numbers object satisfying choice.*
+:::
+
+Recall that in a well-pointed topos, $\Omega \cong 1+1 = 2$, so the internal logic is classical and two-valued. An *element* of $X$ is an arrow $x \colon 1 \to X$; membership in a subset $A \rightarrowtail X$ means that $x$ factors through $A$. There is **no global membership relation**: the question "is $0 \in 1$?" cannot even be formulated, and sets are determined only up to isomorphism. This is the sense in which $\ETCS$ is a **structural** set theory, while $\ZFC$ is a **material** one.
+
+$\ETCS$ is a first-order theory in the (two-sorted, or one-sorted with arrows only) language of categories, just as $\ZFC$ is a first-order theory in the language $\{\in\}$. Comparing them therefore means comparing two first-order theories, and the right tool is that of **interpretations** and **relative consistency**.
+
+
+## The strength of ETCS
+
+### From material sets to a category
+
+The material set theory corresponding to $\ETCS$ turns out to be a weakening of Zermelo set theory. Recall that a formula is **$\Delta_0$** (or *bounded*) if all its quantifiers are bounded, i.e. of the form $\forall x \in y$ or $\exists x \in y$.
+
+::: {.callout-note icon=false}
+## Bounded Zermelo set theory with Choice ($\BZC$)
+
+Extensionality, Empty Set, Pairing, Union, Power Set, Infinity, Foundation, Choice, and
+
+**$\Delta_0$-Separation**: for every $\Delta_0$-formula $\varphi(x, \vec p)$,
+$$
+\forall \vec p \; \forall a \; \exists b \; \forall x \; \big(x \in b \leftrightarrow x \in a \wedge \varphi(x,\vec p)\big).
+$$
+:::
+
+Mac Lane called this system $\mathsf{ZBQC}$ ("Zermelo with bounded quantifiers and choice") and argued that it suffices for essentially all of mathematics outside set theory. Mathias, who studied it in great detail, calls a slight variant **Mac Lane set theory**. Note what is missing compared with $\ZFC$: Replacement entirely, and Separation for formulas with unbounded quantifiers.
+
+Given a model $(M,E)$ of $\BZC$, let $\Set_M$ be the category whose objects are the elements of $M$ and whose arrows $X \to Y$ are the triples $(f,X,Y)$ in $M$ with $f$ a function from $X$ to $Y$. (We have to remember the codomain: in material set theory a function $f$ does not determine it.)
+
+::: {#prp-setM-etcs}
+\
+If $(M,E) \models \BZC$, then $\Set_M \models \ETCS$.
+:::
+
+::: {.proof}
+Each construction required by $\ETCS$ is given by a $\Delta_0$-definable subset of a set that exists by the remaining axioms:
+
+- $X \times Y = \{ z \in \Pow(\Pow(X \cup Y)) \colon \exists x \in X \, \exists y \in Y \; z = (x,y) \}$, and "$z = (x,y)$" is $\Delta_0$;
+- $Y^X = \{ f \in \Pow(X \times Y) \colon f \text{ is a function from } X \text{ to } Y\}$, again a $\Delta_0$ condition;
+- pullbacks/equalizers are $\Delta_0$-subsets of products;
+- $\Omega = 2 = \{0,1\}$, with $A \subseteq X$ classified by its characteristic function;
+- $N = \omega$ with $s(n) = n \cup \{n\}$; the recursion property (given $a \in X$ and $g \colon X \to X$ there is a unique $f\colon \omega \to X$ with $f(0) = a$, $f(n+1) = g(f(n))$) holds because $f$ can be obtained as the intersection of all $R \in \Pow(\omega \times X)$ closed under the recursion clauses — a $\Delta_0$-definition with parameter $\Pow(\omega \times X)$;
+- well-pointedness holds because functions are extensional, and Choice gives sections of surjections. $\qquad$
+:::
+
+Since $V_\alpha \models \ZFC - \mathsf{Replacement}$ for every limit $\alpha > \omega$ (see the notes on models of set theory), we get
+
+::: {#cor-zfc-proves-con-etcs}
+\
+$\Set_{V_{\omega+\omega}} \models \ETCS$. In particular, $\ZFC \vdash \Con(\ETCS)$.
+:::
+
+### From a category back to material sets
+
+The converse direction is more interesting. How do we recover a material universe — with a global $\in$ — from a category that has no membership relation at all?
+
+The key is the **Mostowski collapse**. In $\ZFC$, a set $x$ is completely determined by the structure $(\Op{TC}(\{x\}), \in)$ with distinguished "top" element $x$: this is a well-founded, extensional relation, and $x$ is recovered as the image of the top under the collapse. Conversely, every well-founded extensional relation collapses to a transitive set. So material sets are, up to isomorphism, the same thing as *well-founded extensional pointed graphs* — and graphs are structures, which a category of sets can talk about.
+
+::: {#def-apg}
+\
+Let $\mathcal{S}$ be a model of $\ETCS$. An **accessible pointed graph (APG)** is a triple $(X, R, r)$ with $R \rightarrowtail X \times X$ a relation (read $y \mathrel{R} x$ as "$y$ is a member of $x$") and $r \colon 1 \to X$ a point such that
+
+- (*accessible*) the only subobject of $X$ containing $r$ and closed under $R$-predecessors is $X$ itself;
+- (*well-founded*) every subobject of $X$ that has an element has an $R$-minimal element;
+- (*extensional*) if $x, x' \colon 1 \to X$ have the same $R$-predecessors, then $x = x'$.
+:::
+
+We now interpret the language of set theory: a "set" is an APG; two APGs are "equal" if they are isomorphic; and $A \mathrel{\varepsilon} B$ holds if $A$ is isomorphic to $B_x$ for some $x \mathrel{R} r_B$, where $B_x$ is the sub-APG of nodes from which $x$ can be reached. (As in the uniqueness part of the Mostowski collapse, an isomorphism between APGs is unique if it exists.)
+
+::: {#thm-etcs-bzc}
+## Lawvere 1964; Cole, Mitchell 1972; Osius 1974
+\
+If $\mathcal{S} \models \ETCS$, then the APGs of $\mathcal{S}$, with $\cong$ as equality and $\varepsilon$ as membership, form a model $M(\mathcal{S})$ of $\BZC$. Moreover, $\Set_{M(\mathcal{S})}$ is equivalent to $\mathcal{S}$.
+
+Consequently, $\ETCS$ and $\BZC$ are **equiconsistent**.
+:::
+
+We will not verify the axioms here (the verification of Power Set, using $\Omega^X$, is a good exercise), but it is worth understanding exactly *why the separation axiom comes out bounded*.
+
+::: {.callout-tip}
+## Why only $\Delta_0$-Separation?
+
+To separate $\{y \mathrel{\varepsilon} A \colon \varphi(y)\}$, we need a *subobject* of the object of children of the root of $A$. Subobjects are produced by the internal logic of the topos: formulas whose quantifiers range over given *objects* define subobjects (via $\Omega$ and the adjoints $\exists$, $\forall$ along projections). If $\varphi$ is $\Delta_0$, its quantifiers range over nodes of finitely many given APGs, i.e. over elements of given objects, and we are fine.
+
+An *unbounded* quantifier $\forall z$ in $\varphi$ ranges over **all APGs**, i.e. essentially over **all objects of $\mathcal{S}$**. There is no object of all objects — we will see shortly that there cannot be — so there is nothing to form the subobject from.
+
+This is the first place where the *size* of the universe of sets enters the comparison.
+:::
+
+::: {#rem-round-trip}
+\
+The round trip $\mathcal{S} \mapsto M(\mathcal{S}) \mapsto \Set_{M(\mathcal{S})}$ returns $\mathcal{S}$ up to equivalence, but the round trip $M \mapsto \Set_M \mapsto M(\Set_M)$ can *enlarge* $M$. For example, the well-order of type $\omega + \omega$ exists in $V_{\omega+\omega}$ as a relation on a countable set, hence gives an APG in $\Set_{V_{\omega+\omega}}$; so $M(\Set_{V_{\omega+\omega}})$ contains a von Neumann ordinal $\omega+\omega$, while $V_{\omega+\omega}$ does not. The models arising from $\ETCS$ always satisfy a *Mostowski principle* (every well-founded extensional relation is isomorphic to a transitive set), which is not provable in $\BZC$ but does not add consistency strength. A structural theory sees a material universe only through its structures, not through its particular membership trees.
+:::
+
+In terms of mathematical content, $\ETCS$ (equivalently $\BZC$) has the strength of **higher-order arithmetic**: we have $N$, $\Omega^N$, $\Omega^{\Omega^N}$, and so on, each finite type above the natural numbers, with full (impredicative) comprehension at each type. This is enough for real and complex analysis, algebra, most of topology, functional analysis on reasonable spaces, and so on.
+
+### What ETCS cannot prove
+
+By @cor-zfc-proves-con-etcs and Gödel's second incompleteness theorem, $\ETCS$ is strictly weaker than $\ZFC$. Here are two concrete witnesses.
+
+::: {#prp-beth-omega}
+\
+$\ETCS$ does not prove the existence of a family $p \colon E \to N$ whose fibers satisfy
+$$
+E_0 \cong N, \qquad E_{n+1} \cong \Omega^{E_n}.
+$$
+:::
+
+::: {.proof}
+Such an $E$ would have cardinality at least $\beth_n$ for every $n$, hence at least $\beth_\omega$. In $\Set_{V_{\omega+\omega}}$ every object is an element of some $V_{\omega+n}$, and $|V_{\omega+n}| = \beth_n$. So no such family exists in this model of $\ETCS$.
+:::
+
+Note the subtlety: for each *fixed* $n$, $\ETCS$ proves that $\Omega^{\cdots^{\Omega^N}}$ ($n$ times) exists. What it cannot do is collect these into a single family indexed by $N$. Turning a *definable sequence of sets* into a *set-indexed family* is exactly what Replacement does.
+
+The second example is a celebrated result of descriptive set theory.
+
+::: {#thm-borel-det}
+## Martin 1975; Friedman 1971
+\
+**Borel determinacy** (every Gale–Stewart game on $\Baire$ with Borel payoff set is determined) is provable in $\ZFC$, but not in Zermelo set theory with Choice. In particular, it is not provable in $\ETCS$.
+:::
+
+Friedman showed that any proof of Borel determinacy must use $\omega_1$-many iterations of the power set operation — something available only with Replacement. This is a striking example: the *statement* is about subsets of $\Baire$, i.e. it lives at the second level of the type hierarchy, yet its *proof* requires sets far up the cumulative hierarchy.
+
+### Replacement, structurally
+
+What would a structural version of Replacement say? We cannot say "the image of $A$ under a class function", since there are no global elements to collect. Instead:
+
+::: {.callout-note icon=false}
+## Structural Replacement ($\mathsf{R}$)
+
+Let $\varphi(x, Y)$ be a formula in the language of categories, where $x$ ranges over elements $1 \to A$ and $Y$ over objects (possibly with extra structure). Suppose that for each $x \colon 1 \to A$ there is an object $Y$ with $\varphi(x,Y)$, and that it is **unique up to unique isomorphism**. Then there is a family $p \colon B \to A$ such that $\varphi(x, B_x)$ holds for every $x\colon 1 \to A$, where $B_x$ is the fiber of $p$ over $x$.
+:::
+
+The "unique up to unique isomorphism" clause is the structural substitute for "the" value of a class function; it is what lets us glue the $Y$'s into a family without choosing representatives.
+
+::: {#thm-etcs-r}
+## Cole, Osius; Shulman 2019
+\
+$\ETCS + \mathsf{R}$ and $\ZFC$ are equiconsistent; in fact, the two constructions above restrict to models of $\ETCS + \mathsf{R}$ and models of $\ZFC$.
+:::
+
+::: {.callout-important}
+## Moral
+
+The strength gap between $\ZFC$ and $\ETCS$ has **nothing to do** with the material/structural distinction. Both styles come in a weak version ($\BZC$, $\ETCS$) and a strong version ($\ZFC$, $\ETCS + \mathsf{R}$). What separates them is Replacement.
+:::
+
+### Elementary toposes in general
+
+What about toposes that are not models of $\ETCS$? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is **intuitionistic higher-order arithmetic**, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of $\neg\neg$-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.
+
+So neither well-pointedness, nor Booleanness, nor Choice adds logical strength; the strength of a topos with NNO comes from the **impredicative power objects** $\Omega^X$ together with the infinite object $N$.
+
+| Categorical theory | Material counterpart | Strength |
+|---|---|---|
+| elementary topos | — | trivial (finite sets) |
+| topos with NNO | intuitionistic bounded Zermelo | higher-order arithmetic |
+| $\ETCS$ | $\BZC$ | higher-order arithmetic |
+| $\ETCS + \mathsf{R}$ | $\ZFC$ | $\ZFC$ |
+| $\ETCS + \mathsf{R}$ + universes | $\ZFC$ + inaccessibles | $\ZFC$ + inaccessibles |
+
+: Categorical theories and their material counterparts {tbl-colwidths="[30,40,30]"}
+
+
+## Size and the antinomies
+
+### Where size enters
+
+Almost every interesting category is "too big to be a set":
+
+- $\Set$, $\Grp$, $\mathbf{Top}$ have a proper class of objects (every set carries the trivial group structure, etc.);
+- the category $\Cat$ of categories, and functor categories $[\mathcal{C}, \mathcal{D}]$ with $\mathcal{C}$ large, such as $[\Set, \Set]$ or the presheaf category $[\Set^{op},\Set]$ into which $\Set$ Yoneda-embeds;
+- localizations: inverting a class of morphisms in a locally small category can produce hom-collections that are proper classes;
+- the 2-category of all (Grothendieck) toposes and geometric morphisms.
+
+In $\ZFC$, the standard convention is: a category is **small** if its objects and arrows form sets, **locally small** if each $\Hom(A,B)$ is a set, and **large** if objects or arrows form a proper class. But classes in $\ZFC$ are merely formulas. We can talk about $\Set$ as a class, but we cannot quantify over classes, form classes of classes, or form $[\Set, \Set]$, whose objects are themselves class functions.
+
+Size conditions are not mere bookkeeping. They appear in the **solution set condition** of Freyd's adjoint functor theorem, and they can make a difference to whether a construction exists at all:
+
+::: {#exm-free-cba}
+## Gaifman, Hales 1964
+\
+The forgetful functor from complete Boolean algebras to $\Set$ preserves all limits, yet has no left adjoint: there is no free complete Boolean algebra on $\aleph_0$ generators. (Informally, it "would be a proper class".)
+:::
+
+### Russell: no category of all categories
+
+Suppose there were a category $\Cat$ of *all* categories. It would be one of its own objects. Consider the full subcategory $\mathcal{R}$ on those categories $\mathcal{C}$ that are not objects of themselves. Is $\mathcal{R}$ an object of $\mathcal{R}$? This is Russell's paradox verbatim.
+
+In $\ZFC$-based category theory, categories are sets (or classes), so $\Cat$ can only be the large category of *small* categories, which is not one of its own objects. This leads to an open-ended hierarchy: sets, classes, "collections of classes", … — and the question how to make that hierarchy rigorous is exactly what universes address.
+
+### Cantor: Freyd's theorem
+
+The categorical form of Cantor's theorem says that a category cannot be complete with respect to its own size.
+
+::: {#thm-freyd}
+## Freyd
+\
+If $\mathcal{C}$ is a small category with all small products, then $\mathcal{C}$ is a preorder: between any two objects there is at most one arrow.
+:::
+
+::: {.proof}
+Suppose $f \neq g \colon A \to B$ in $\mathcal{C}$. Let $M$ be the set of all arrows of $\mathcal{C}$, and let $P = \prod_{m \in M} B$. Then
+$$
+\Hom(A, P) \cong \Hom(A,B)^M,
+$$
+which has cardinality at least $2^{|M|}$. But $\Hom(A,P) \subseteq M$, so $2^{|M|} \le |M|$, contradicting Cantor's theorem.
+:::
+
+So $\Set$ is complete *because* it is large: products indexed by sets exist, but the indexing sets never exhaust $\Set$ itself. In topos-theoretic language, completeness is always relative to *families* $p \colon X \to I$ indexed by an object $I$ — and the totality of all objects is not an object.
+
+### Diagonalization: Lawvere's fixed point theorem
+
+Lawvere (1969) found a single categorical argument underlying Cantor's theorem, Russell's paradox, Gödel's incompleteness theorem, and Tarski's undefinability of truth.
+
+::: {#def-weakly-point-surjective}
+\
+In a category with finite products, a map $\phi \colon A \times A \to Y$ is **weakly point-surjective** if for every $g \colon A \to Y$ there is a point $a \colon 1 \to A$ such that
+$$
+\phi \circ \langle a, x\rangle = g \circ x \quad \text{for all } x \colon 1 \to A.
+$$
+(In a cartesian closed category, this says the transpose $A \to Y^A$ "hits" every $g$ on points.)
+:::
+
+::: {#thm-lawvere-fixed-point}
+## Lawvere 1969
+\
+If $\phi \colon A \times A \to Y$ is weakly point-surjective, then every $f \colon Y \to Y$ has a fixed point $y \colon 1 \to Y$, $f y = y$.
+:::
+
+::: {.proof}
+Let $g = f \circ \phi \circ \langle 1_A, 1_A \rangle \colon A \to Y$ and choose $a$ for this $g$. Put $y = \phi \circ \langle a, a\rangle$. Then
+$$
+y = \phi \circ \langle a,a \rangle = g \circ a = f \circ \phi \circ \langle a, a\rangle = f y. \qquad
+$$
+:::
+
+::: {#cor-cantor-topos}
+## Cantor's theorem in a topos
+\
+In a nondegenerate topos ($0 \not\cong 1$), there is no weakly point-surjective $A \times A \to \Omega$. In particular, no $A \to \Omega^A$ is surjective on points.
+:::
+
+::: {.proof}
+It suffices to see that $\neg \colon \Omega \to \Omega$ has no fixed point. If $\neg p = p$ for $p \colon 1 \to \Omega$, then $p = p \wedge p = p \wedge \neg p = \bot$, hence $\top = \neg \bot = \neg p = p = \bot$, which forces the subobject $1 \rightarrowtail 1$ to equal $0 \rightarrowtail 1$, i.e. $0 \cong 1$.
+:::
+
+::: {.callout-tip}
+## Russell's paradox as a fixed point failure
+
+Suppose (naively) there were a set $V$ such that every subset of $V$ is an element of $V$. Define $\phi \colon V \times V \to 2$ by $\phi(x,y) = 1$ iff $y \in x$. For any $g \colon V \to 2$, the set $a = \{ y \in V \colon g(y) = 1\}$ is an element of $V$, and $\phi(a, -) = g$. So $\phi$ is weakly point-surjective, and @thm-lawvere-fixed-point would give a fixed point of negation. Unwinding the proof, the fixed point is $\phi(R,R)$ for $R = \{ y \colon y \notin y \}$.
+:::
+
+In $\ETCS$ or any topos, the theorem says: **no object can parametrize all of its own predicates.** There is no object of all objects, no object of all subobjects, no "universe object" $U$ with $U \cong \Omega^U$. The totality of all sets is necessarily an external, metatheoretic notion — exactly as in $\ZFC$, where it is a proper class. The antinomies are not artifacts of the membership relation; they are artifacts of *self-application*, which any sufficiently expressive framework must control.
+
+(In the type theory unit you will meet the same phenomenon again: a type theory with a type of all types, $\mathsf{Type} : \mathsf{Type}$, is inconsistent by **Girard's paradox**. This is why proof assistants use a hierarchy of universes $\mathsf{Type}_0 : \mathsf{Type}_1 : \mathsf{Type}_2 : \cdots$.)
+
+### Size in topos theory
+
+Topos theory adds some specific twists.
+
+**Grothendieck vs. elementary toposes.** A Grothendieck topos is a category equivalent to sheaves $\mathrm{Sh}(\mathcal{C}, J)$ on a *small* site. Giraud's characterization (cocomplete, exact in a suitable sense, with a *small* set of generators) is inherently size-relative. One motivation for Lawvere and Tierney's elementary definition (1969–70) was to obtain a first-order, size-free notion.
+
+**Relativization to a base.** In the elementary theory, "small" becomes relative: a Grothendieck topos is really a topos $\mathcal{E}$ together with a bounded geometric morphism $\mathcal{E} \to \mathcal{S}$ to a base topos $\mathcal{S}$, and "small" means "internal to $\mathcal{S}$" or "indexed by an object of $\mathcal{S}$". Bénabou argued (1985) that this is how *all* naive category theory should be done — with fibrations over a base, rather than with an absolute ambient universe of sets.
+
+**Plurality of $\Set$.** $\ETCS$, being a consistent first-order theory, has many non-equivalent models (some satisfy $\CH$, some do not). Topos theory makes this plurality visible: Cohen's forcing can be presented as passing to a sheaf topos, and Tierney (1972) gave a topos-theoretic proof of the independence of $\CH$ along these lines. From this perspective "the" category of sets is just one topos among many.
+
+**Impredicativity.** The power object $\Omega^X$ "contains" all subobjects of $X$, including those defined by quantifying over $\Omega^X$ itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré's "vicious circle") that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of toposes (pretoposes with $\Pi$- and $W$-types, Joyal's arithmetic universes) correspond to Martin-Löf type theory, which we study next.
+
+
+## Grothendieck universes
+
+The most common way to make "large" categories rigorous was introduced by Grothendieck for the purposes of SGA 4.
+
+::: {#def-universe}
+## Grothendieck
+\
+A **(Grothendieck) universe** is a set $U$ such that
+
+1. $x \in U$ and $y \in x$ imply $y \in U$ ($U$ is transitive);
+2. $x, y \in U$ imply $\{x,y\} \in U$;
+3. $x \in U$ implies $\Pow(x) \in U$;
+4. if $I \in U$ and $x_i \in U$ for all $i \in I$, then $\bigcup_{i \in I} x_i \in U$;
+5. $\omega \in U$.
+:::
+
+(Without (5), $\emptyset$ and $V_\omega$ would also count as universes.) Two consequences we will use repeatedly:
+
+- if $x \in U$ and $y \subseteq x$, then $y \in \Pow(x) \in U$, so $y \in U$;
+- if $I \in U$ and $f \colon I \to U$, then $f[I] = \bigcup_{i \in I} \{f(i), f(i)\} \in U$. In particular, if $x \in U$ and $Y \subseteq U$ is the image of some surjection $x \to Y$, then $Y \in U$.
+
+You have already seen that $V_\kappa \models \ZFC$ for inaccessible $\kappa$. The universes are exactly these sets.
+
+::: {#thm-universe-inaccessible}
+## Tarski, Sonner, Bourbaki
+\
+A set $U$ is a universe if and only if $U = V_\kappa$ for some (strongly) inaccessible cardinal $\kappa$.
+:::
+
+::: {.proof}
+($\Leftarrow$) $V_\kappa$ is transitive, and closure under pairs and power sets follows since these raise rank by at most $2$. For (4): if $I \in V_\kappa$ and all $x_i \in V_\kappa$, then $\{x_i \colon i \in I\} \subseteq V_\kappa$ has cardinality $\le |I| < \kappa$, so it is in $V_\kappa$ by the characterization of elements of $V_\kappa$ from the notes on large cardinals, and its union has no larger rank.
+
+($\Rightarrow$) Let $U$ be a universe. Since $U$ is transitive, $\kappa := \Ord \cap U$ is a transitive set of ordinals, i.e. an ordinal, and $\kappa \notin U$.
+
+*$\kappa$ is a limit ordinal $> \omega$:* $\omega \in U$, and if $\alpha \in U$ then $\alpha + 1 = \bigcup\{\alpha, \{\alpha\}\} \in U$.
+
+*$V_\kappa \subseteq U$:* By induction, $V_\alpha \in U$ for all $\alpha < \kappa$: $V_0 = \emptyset \subseteq \omega$; $V_{\alpha+1} = \Pow(V_\alpha)$; and for limit $\lambda < \kappa$, $V_\lambda = \bigcup_{\alpha < \lambda} V_\alpha$ with $\lambda \in U$, so (4) applies. By transitivity, $V_\kappa = \bigcup_{\alpha<\kappa} V_\alpha \subseteq U$.
+
+*$U \subseteq V_\kappa$:* We show $\Op{rank}(x) \in U$ for all $x \in U$ by $\in$-induction. If this holds for all $y \in x$, then $y \mapsto \Op{rank}(y)+1$ maps $x$ into $U$, so its image is in $U$, and so is the union of the image, which is $\Op{rank}(x)$. Hence $\Op{rank}(x) < \kappa$ and $x \in V_\kappa$.
+
+*$\kappa$ is regular:* If $f \colon \alpha \to \kappa$ were cofinal with $\alpha < \kappa$, then $f[\alpha] \in U$ and hence $\kappa = \bigcup f[\alpha] \in U$, a contradiction.
+
+*$\kappa$ is a strong limit:* Let $\alpha < \kappa$. Then $\Pow(\alpha) \in U$. If $|\Pow(\alpha)| \ge \kappa$, there would be a surjection $\Pow(\alpha) \to \kappa$, and then $\kappa \in U$. So $2^{|\alpha|} < \kappa$. $\qquad$
+:::
+
+::: {.callout-note icon=false}
+## Universe Axiom ($\UA$, Grothendieck)
+
+Every set is an element of some universe.
+:::
+
+::: {#prp-ua-inaccessibles}
+\
+Over $\ZFC$, $\UA$ is equivalent to: *for every ordinal $\alpha$ there is an inaccessible cardinal $\kappa > \alpha$.*
+:::
+
+### How universes are used
+
+Fix a universe $U$. Call a set **$U$-small** if it is an element of $U$. Then $\Set_U$, $\Grp_U$, $\Cat_U$ — the categories of $U$-small sets, groups, categories — are honest *sets* (subsets of $U$), so every set-theoretic construction applies to them. $[\Set_U, \Set_U]$ is a set; the Yoneda embedding of $\Set_U$ into $U$-presheaves on $\Set_U$ is a function between sets; $\Cat_U$ is a category but not a $U$-small one.
+
+If we want to treat $\Cat_U$ itself as an object of a category of categories, we need a second universe $U' \ni U$: then $\Cat_U \in \Cat_{U'}$. The category of $U'$-small categories requires a third universe, and so on. Theorems are then proved *schematically*: "for every universe $U$, every $U$-small … ". To apply such a theorem to an arbitrary set, we need that set to be in *some* universe — this is $\UA$.
+
+::: {.callout-tip}
+## Why "infinitely many inaccessibles"?
+
+Each layer of "largeness" consumes one universe, and in a general theory there is no bound on how many layers might be needed. The full Universe Axiom (a proper class of inaccessibles) is what Grothendieck adopted in SGA 4, and what, e.g., Lurie adopts in *Higher Topos Theory*. Any *particular* proof uses only finitely many universes, so in practice the relevant strength is "for each $n$, there are $n$ inaccessible cardinals". Remarkably, this is also (roughly) the consistency strength of the type theory of the Lean proof assistant, whose universes $\mathsf{Type}_0 : \mathsf{Type}_1 : \cdots$ are the type-theoretic analogue of Grothendieck universes (Carneiro 2019; similar results for Coq go back to Werner 1997).
+
+Strictly speaking, "infinitely many inaccessibles" (e.g. $\omega$ many) is weaker than $\UA$: if $\kappa_\omega$ is the $\omega$-th inaccessible and $\lambda$ the next one, $V_\lambda$ has infinitely many inaccessibles but none above $\kappa_\omega$.
+:::
+
+The price of universes:
+
+1. **Strength.** $\ZFC + \UA$ proves $\Con(\ZFC)$, an arithmetic statement that $\ZFC$ does not prove. So universes are *not* conservative, even over number theory.
+2. **Universe-dependence.** Constructions depend on the chosen $U$, and one must check that the outcome does not (e.g. that étale cohomology groups of a scheme are independent of the universe used to define them).
+3. **Apparent overkill.** Using inaccessible cardinals to compute the cohomology of a scheme over $\Z$ looks disproportionate to a logician. This raised the question whether Wiles's proof of Fermat's Last Theorem — which relies on Grothendieck-style machinery — "uses" large cardinals. McLarty (2010, 2020) argued in detail that it does not: the large structures of SGA can be founded on finite-order arithmetic, i.e. at roughly the strength of $\ETCS$.
+
+### Alternatives to universes
+
+| Approach | Idea | Strength |
+|---|---|---|
+| $\NBG$ classes | sets and classes; $\Set$, $\Grp$ are classes | conservative over $\ZFC$; no "class of classes" |
+| $\MK$ classes | classes with impredicative comprehension | stronger than $\ZFC$ |
+| One universe (Mac Lane 1969) | $\ZFC$ + one inaccessible: small = in $U$, large = set | $\ZFC$ + 1 inaccessible |
+| Reflection (Feferman 1969) | $\ZFC/S$, see below | conservative over $\ZFC$ |
+| Careful bounding | fix a large enough $V_\alpha$ by hand (e.g. the Stacks Project) | $\ZFC$ |
+| Structural universes | $\ETCS + \mathsf{R}$ + universe *objects* $\mathrm{El} \to U$ | matches $\ZFC$ + inaccessibles |
+
+: Approaches to size {tbl-colwidths="[25,45,30]"}
+
+Feferman's approach deserves a closer look, since it uses the **reflection theorem** (Lévy–Montague): for any finite set of formulas $\varphi_1, \dots, \varphi_n$ of set theory, $\ZFC$ proves that there are arbitrarily large $\alpha$ such that each $\varphi_i$ is **absolute** between $V_\alpha$ and $V$.
+
+::: {#def-zfc-s}
+## Feferman 1969
+\
+$\ZFC/S$ is the theory in the language $\{\in, S\}$, with $S$ a new constant, consisting of $\ZFC$ (with schemas for the extended language), the axiom "$S$ is transitive", and the **reflection schema**
+$$
+\forall x_1, \dots, x_n \in S \; \big( \varphi(\vec x) \leftrightarrow \varphi^S(\vec x) \big)
+$$
+for every formula $\varphi$ of the language $\{\in\}$.
+:::
+
+Inside $\ZFC/S$, $S$ behaves like a universe for all practical purposes: since every $\ZFC$ axiom is true, it is true relativized to $S$; one also checks that $S$ is closed under pairs, power sets, etc. (Exercise.) Category theory can then use "element of $S$" as "small".
+
+::: {#thm-zfc-s-conservative}
+## Feferman
+\
+$\ZFC/S$ is conservative over $\ZFC$: any sentence of $\{\in\}$ provable in $\ZFC/S$ is provable in $\ZFC$.
+:::
+
+::: {.proof}
+## Proof sketch
+A proof in $\ZFC/S$ uses only finitely many instances of the reflection schema. By the reflection theorem, $\ZFC$ proves that there is an $\alpha$ (take the least) such that $V_\alpha$ reflects the finitely many formulas involved. Interpreting $S$ as this definable $V_\alpha$ turns the proof into a proof in $\ZFC$.
+:::
+
+The catch: $S$ is not provably inaccessible, and $\ZFC/S$ handles only *one* step of largeness (small vs. large) without extra effort. It is a precise version of the working mathematician's intuition that "small" categories should look like large ones.
+
+
+## The Feferman–Mac Lane debate
+
+The "Feferman–Mac Lane debate" is less a single exchange than a series of papers and replies, from the late 1960s to the 2010s, on whether category theory can serve as an *autonomous* foundation for mathematics, and how its size problems should be handled. It is worth noting at the outset that on size, the two protagonists started from agreement: both of their 1969 papers (in the same Springer Lecture Notes volume) proposed *set-theoretic* treatments — Mac Lane one universe, Feferman reflection.
+
+### A rough chronology
+
+- **1964–66.** Lawvere's $\ETCS$, and his *category of categories as a foundation* (CCAF), an axiomatization in which categories are primitive and sets are a derived notion. (Isbell pointed out problems with the original formulation; McLarty later repaired it.)
+- **1969.** Mac Lane, *One universe as a foundation for category theory*; Feferman, *Set-theoretical foundations of category theory*.
+- **1977.** Feferman, *Categorical foundations and foundations of category theory* — the central critical text.
+- **1986.** Mac Lane, *Mathematics: Form and Function*; advocates $\mathsf{ZBQC}$ (our $\BZC$) and a structural, pluralist view.
+- **1992.** Mathias, *What is Mac Lane missing?*, and Mac Lane's reply, *Is Mathias an ontologist?*
+- **2003–04.** Hellman's challenge to categorical structuralism, answered by Awodey and McLarty.
+- **2006, 2013.** Feferman's stratified (NFU-based) proposals and *Foundations of unlimited category theory: what remains to be done*.
+
+### Feferman's position
+
+Feferman's 1977 argument targets the claim (associated with Lawvere) that category theory could replace set theory as *the* foundation. His central thesis is one of **priority**:
+
+> The notion of a category presupposes the notions of *collection* and *operation*: a category is a collection of objects and a collection of arrows, with operations of domain, codomain, and composition.
+
+He distinguishes two kinds of priority:
+
+- **logical priority**: the definition of "category" (and of "functor", "topos", …) is formulated in terms of collections and operations, so these notions are *logically* prior;
+- **psychological (conceptual) priority**: to *understand* categorical notions, one must already understand collection and operation; no one learns "category" first.
+
+From this he concludes that category theory cannot be an autonomous foundation, although it is an extraordinarily powerful *organizing* framework. Feferman's alternative is not $\ZFC$ dogmatism — he was himself a predicativist with deep reservations about full power sets — but a theory of operations and collections that is prior to both sets and categories.
+
+His second theme is the **foundations of category theory itself**. In his later work he formulated requirements (paraphrased) that an adequate foundation for "unlimited" category theory should meet:
+
+- **(R1)** form the category of *all* structures of a given kind, e.g. *all* groups, *all* topological spaces, *all* categories;
+- **(R2)** form the category $\mathcal{B}^{\mathcal{A}}$ of all functors between *any* two categories $\mathcal{A}$, $\mathcal{B}$;
+- **(R3)** establish the existence of $\N$ and the usual set-theoretic constructions, so that ordinary mathematics is available.
+
+In $\ZFC + \UA$, (R1) and (R2) hold only *relative to a universe*: we get all $U$-small groups, never all groups. Feferman's stratified systems, based on Quine's $\mathsf{NF}$ with urelements ($\mathsf{NFU}$, consistent by Jensen), contain a universal set and can meet (R1) — even $\Cat \in \Cat$ — but satisfy (R2) only partially. As far as anyone knows, the full set of requirements has not been met; the antinomies of the previous section suggest why it is hard.
+
+### Mac Lane's position
+
+Mac Lane did not dispute the logic; he disputed what foundations are *for*.
+
+1. **Mathematics is about form.** Mathematical objects are determined by their structure, not by what they are "made of". Questions like "is $1 \in 2$?" or "is $\pi$ an element of $3$?" are artifacts of the material encoding, not mathematics (compare Benacerraf's problem, Week 15).
+2. **ZFC is too strong in the wrong places.** The cumulative hierarchy and Replacement are, in Mac Lane's view, "irrelevant" to almost all of mathematics. He proposed $\mathsf{ZBQC}$ — which, as we have seen, is exactly the strength of $\ETCS$.
+3. **On priority.** The notions of "collection" and "operation" that Feferman calls prior are the *informal* notions underlying any first-order theory — including $\ZFC$, whose models are also collections with operations. They do not privilege *set theory* over category theory. (Later categorical structuralists, e.g. Awodey and McLarty, sharpened this: $\ETCS$ takes *function* as primitive just as $\ZFC$ takes *membership* as primitive; neither is defined from the other.)
+4. **Pluralism.** Mathematics has no single privileged foundation; set theory, category theory, and (today one would add) type theory each illuminate different aspects of it.
+
+### The Mathias interlude
+
+Mathias attacked Mac Lane from the set-theoretic side: $\mathsf{ZBQC}$ cannot handle large parts of set theory and some of analysis. It cannot prove that $\omega + \omega$ (as a von Neumann ordinal) exists, it cannot carry out transfinite recursions of the type used in descriptive set theory, and by Friedman's theorem it cannot prove Borel determinacy. Mac Lane replied that this reflects an ontological prejudice in favor of the cumulative hierarchy. Notice that both of them were right about the *logic* — the dispute is over whether the mathematics that needs Replacement is "central".
+
+### Assessment
+
+It helps to separate several questions that the debate sometimes runs together.
+
+- **Logical strength** is settled: $\ETCS \approx \BZC$ and $\ETCS + \mathsf{R} \approx \ZFC$. This is *not* where the disagreement lies.
+- **Autonomy** comes in several flavors (Linnebo–Pettigrew): *logical* (can the theory be stated without prior set theory? — yes, $\ETCS$ is a first-order theory), *conceptual* (can its notions be understood without prior set-theoretic notions? — this is Feferman's psychological priority), and *justificatory* (can its axioms be justified without appeal to set theory?).
+- **Algebraic vs. assertory axioms** (Hellman): the axioms of a category describe a *kind* of structure, like the group axioms, and assert nothing exists. $\ETCS$, however, *is* assertory in the relevant sense — it asserts that there is a universe of sets with certain properties, exactly as $\ZFC$ does.
+- **Size** remains a shared problem. Both frameworks need some external device — classes, universes, reflection, or relativization to a base topos — and the diagonal arguments show that no framework can make the totality of all its objects an object of itself.
+
+Recall the three senses of "foundation" from Unit 0: *ontological*, *epistemological*, *organizational*. Feferman's priority argument is essentially **epistemological**; Mac Lane's case is essentially **organizational** (and anti-ontological). Much of the debate is the sound of these two senses talking past each other — a theme we will return to when we add type theory to the comparison in Part III and in Week 15.
+
+
+## Summary
+
+| | $\ZFC$ | $\ETCS$ | $\ZFC + \UA$ |
+|---|---|---|---|
+| Primitive notion | membership $\in$ | function (arrow) | membership $\in$ |
+| Identity of sets | extensional, absolute | up to isomorphism | extensional, absolute |
+| Material counterpart | — | $\BZC$ | — |
+| Proves Borel determinacy | yes | no | yes |
+| Large categories | classes (formulas) | metatheoretic | sets one universe up |
+| Strength | $\ZFC$ | higher-order arithmetic | proper class of inaccessibles |
+| Missing ingredient | — | Replacement | — |
+
+
+## Exercises
+
+::: {#exr-}
+Show directly that $\Set_{V_{\omega+\omega}}$ satisfies all axioms of $\ETCS$, and fill in the details of @prp-beth-omega. Which instance of Replacement proves the existence of the family in @prp-beth-omega in $\ZFC$?
+:::
+
+::: {#exr-}
+Show that an isomorphism between two APGs in a model of $\ETCS$ is unique if it exists. (Compare the uniqueness part of the Mostowski collapse.)
+:::
+
+::: {#exr-}
+Let $\mathcal{S} \models \ETCS$. Show that the interpretation $M(\mathcal{S})$ satisfies the Power Set axiom. (Hint: given an APG $(X,R,r)$, build a new APG whose children of the root correspond to the subobjects of the set of children of $r$, using $\Omega^X$.)
+:::
+
+::: {#exr-}
+Use @thm-lawvere-fixed-point to prove: in a cartesian closed category, if some object $Y$ has an endomorphism without fixed points, then for no object $A$ is there a weakly point-surjective map $A \times A \to Y$. Derive Cantor's theorem $|X| < |\Pow(X)|$ for sets as a special case.
+:::
+
+::: {#exr-}
+Prove @prp-ua-inaccessibles.
+:::
+
+::: {#exr-}
+Show that if $\kappa$ is an inaccessible cardinal that is a limit of inaccessible cardinals, then $V_\kappa \models \ZFC + \UA$. Conclude that $\ZFC + \UA$ is strictly weaker in consistency strength than $\ZFC + {}$"there is an inaccessible limit of inaccessibles".
+:::
+
+::: {#exr-}
+In $\ZFC/S$, show that $S$ is closed under pairs and power sets, and that $\omega \in S$. (Hint: reflect the formulas $\exists z\, (z = \{x,y\})$ and $\exists z\, (z = \Pow(x))$, and also the formula "$z = \Pow(x)$" itself.) Can you prove in $\ZFC/S$ that $S$ is a universe?
+:::
+
+::: {#exr-}
+Let $U \in U'$ be universes. Show that $\Cat_U$ is an object of $\Cat_{U'}$ but not of $\Cat_U$. Which of Feferman's requirements (R1)–(R3) does $\ZFC + \UA$ satisfy, and in what relativized sense?
+:::
+
+
+## Discussion questions
+
+1. Feferman argues that "collection" and "operation" are prior to "category". Does the same argument show that "collection" is prior to "set" in $\ZFC$? If so, what does the argument actually establish?
+2. Mac Lane claimed Replacement is irrelevant to ordinary mathematics; Borel determinacy is a counterexample. Is Borel determinacy "ordinary mathematics"? Who gets to decide?
+3. Is the use of Grothendieck universes in algebraic geometry an ontological commitment to inaccessible cardinals, or a convenient bookkeeping device? Does McLarty's work on finite-order arithmetic change your answer?
+4. Lawvere's fixed point theorem shows that a "universe object" $U \cong \Omega^U$ is impossible in a nondegenerate topos. Type theories nevertheless have universe types. What is the difference?
+
+
+## References and further reading
+
+::: {.callout-warning}
+These references were compiled from memory. Please double-check bibliographic details before distributing.
+:::
+
+**ETCS and its strength**
+
+- F. W. Lawvere, *An elementary theory of the category of sets*, Proc. Nat. Acad. Sci. 52 (1964). Expanded reprint with commentary by Lawvere and McLarty: *Reprints in Theory and Applications of Categories* 11 (2005).
+- T. Leinster, *Rethinking set theory*, Amer. Math. Monthly 121 (2014). (A very readable account of $\ETCS$.)
+- W. Mitchell, *Boolean topoi and the theory of sets*, J. Pure Appl. Algebra 2 (1972).
+- G. Osius, *Categorical set theory: a characterization of the category of sets*, J. Pure Appl. Algebra 4 (1974).
+- A. R. D. Mathias, *The strength of Mac Lane set theory*, Ann. Pure Appl. Logic 110 (2001).
+- M. Shulman, *Comparing material and structural set theories*, Ann. Pure Appl. Logic 170 (2019).
+- J. Lambek, P. Scott, *Introduction to Higher Order Categorical Logic*, Cambridge (1986).
+- H. Friedman, *Higher set theory and mathematical practice*, Ann. Math. Logic 2 (1971); D. A. Martin, *Borel determinacy*, Ann. of Math. 102 (1975).
+
+**Size, universes, and the antinomies**
+
+- F. W. Lawvere, *Diagonal arguments and cartesian closed categories*, LNM 92 (1969).
+- M. Artin, A. Grothendieck, J.-L. Verdier, *SGA 4*, Exposé I, Appendix on universes.
+- M. Shulman, *Set theory for category theory*, arXiv:0810.1279 (2008). (Excellent survey of the options.)
+- J. Bénabou, *Fibered categories and the foundations of naive category theory*, J. Symbolic Logic 50 (1985).
+- C. McLarty, *What does it take to prove Fermat's Last Theorem?*, Bull. Symb. Logic 16 (2010); *The large structures of Grothendieck founded on finite-order arithmetic*, Rev. Symb. Logic 13 (2020).
+- M. Carneiro, *The Type Theory of Lean*, MS thesis, CMU (2019).
+
+**The debate**
+
+- S. Mac Lane, *One universe as a foundation for category theory*, and S. Feferman, *Set-theoretical foundations of category theory*, both in LNM 106 (1969).
+- S. Feferman, *Categorical foundations and foundations of category theory*, in Butts–Hintikka (eds.), *Logic, Foundations of Mathematics and Computability Theory* (1977).
+- S. Mac Lane, *Mathematics: Form and Function*, Springer (1986).
+- A. R. D. Mathias, *What is Mac Lane missing?*, and S. Mac Lane, *Is Mathias an ontologist?*, both in *Set Theory of the Continuum*, MSRI Publ. 26 (1992).
+- G. Hellman, *Does category theory provide a framework for mathematical structuralism?*, Philos. Math. 11 (2003); S. Awodey, *An answer to Hellman's question*, Philos. Math. 12 (2004); C. McLarty, *Exploring categorical structuralism*, Philos. Math. 12 (2004).
+- Ø. Linnebo, R. Pettigrew, *Category theory as an autonomous foundation*, Philos. Math. 19 (2011).
+- S. Feferman, *Foundations of unlimited category theory: what remains to be done*, Rev. Symb. Logic 6 (2013).

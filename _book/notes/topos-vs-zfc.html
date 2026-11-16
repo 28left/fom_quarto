@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Topos Theory and ZFC – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/topos-logic.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-vs-zfc.html"><span class="chapter-title">Topos Theory and ZFC</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#topos-theory-and-zfc" id="toc-topos-theory-and-zfc" class="nav-link active" data-scroll-target="#topos-theory-and-zfc">Topos Theory and ZFC</a>
+  <ul class="collapse">
+  <li><a href="#recap-etcs" id="toc-recap-etcs" class="nav-link" data-scroll-target="#recap-etcs">Recap: ETCS</a></li>
+  <li><a href="#the-strength-of-etcs" id="toc-the-strength-of-etcs" class="nav-link" data-scroll-target="#the-strength-of-etcs">The strength of ETCS</a>
+  <ul class="collapse">
+  <li><a href="#from-material-sets-to-a-category" id="toc-from-material-sets-to-a-category" class="nav-link" data-scroll-target="#from-material-sets-to-a-category">From material sets to a category</a></li>
+  <li><a href="#from-a-category-back-to-material-sets" id="toc-from-a-category-back-to-material-sets" class="nav-link" data-scroll-target="#from-a-category-back-to-material-sets">From a category back to material sets</a></li>
+  <li><a href="#what-etcs-cannot-prove" id="toc-what-etcs-cannot-prove" class="nav-link" data-scroll-target="#what-etcs-cannot-prove">What ETCS cannot prove</a></li>
+  <li><a href="#replacement-structurally" id="toc-replacement-structurally" class="nav-link" data-scroll-target="#replacement-structurally">Replacement, structurally</a></li>
+  <li><a href="#elementary-toposes-in-general" id="toc-elementary-toposes-in-general" class="nav-link" data-scroll-target="#elementary-toposes-in-general">Elementary toposes in general</a></li>
+  </ul></li>
+  <li><a href="#size-and-the-antinomies" id="toc-size-and-the-antinomies" class="nav-link" data-scroll-target="#size-and-the-antinomies">Size and the antinomies</a>
+  <ul class="collapse">
+  <li><a href="#where-size-enters" id="toc-where-size-enters" class="nav-link" data-scroll-target="#where-size-enters">Where size enters</a></li>
+  <li><a href="#russell-no-category-of-all-categories" id="toc-russell-no-category-of-all-categories" class="nav-link" data-scroll-target="#russell-no-category-of-all-categories">Russell: no category of all categories</a></li>
+  <li><a href="#cantor-freyds-theorem" id="toc-cantor-freyds-theorem" class="nav-link" data-scroll-target="#cantor-freyds-theorem">Cantor: Freyd’s theorem</a></li>
+  <li><a href="#diagonalization-lawveres-fixed-point-theorem" id="toc-diagonalization-lawveres-fixed-point-theorem" class="nav-link" data-scroll-target="#diagonalization-lawveres-fixed-point-theorem">Diagonalization: Lawvere’s fixed point theorem</a></li>
+  <li><a href="#size-in-topos-theory" id="toc-size-in-topos-theory" class="nav-link" data-scroll-target="#size-in-topos-theory">Size in topos theory</a></li>
+  </ul></li>
+  <li><a href="#grothendieck-universes" id="toc-grothendieck-universes" class="nav-link" data-scroll-target="#grothendieck-universes">Grothendieck universes</a>
+  <ul class="collapse">
+  <li><a href="#how-universes-are-used" id="toc-how-universes-are-used" class="nav-link" data-scroll-target="#how-universes-are-used">How universes are used</a></li>
+  <li><a href="#alternatives-to-universes" id="toc-alternatives-to-universes" class="nav-link" data-scroll-target="#alternatives-to-universes">Alternatives to universes</a></li>
+  </ul></li>
+  <li><a href="#the-fefermanmac-lane-debate" id="toc-the-fefermanmac-lane-debate" class="nav-link" data-scroll-target="#the-fefermanmac-lane-debate">The Feferman–Mac Lane debate</a>
+  <ul class="collapse">
+  <li><a href="#a-rough-chronology" id="toc-a-rough-chronology" class="nav-link" data-scroll-target="#a-rough-chronology">A rough chronology</a></li>
+  <li><a href="#fefermans-position" id="toc-fefermans-position" class="nav-link" data-scroll-target="#fefermans-position">Feferman’s position</a></li>
+  <li><a href="#mac-lanes-position" id="toc-mac-lanes-position" class="nav-link" data-scroll-target="#mac-lanes-position">Mac Lane’s position</a></li>
+  <li><a href="#the-mathias-interlude" id="toc-the-mathias-interlude" class="nav-link" data-scroll-target="#the-mathias-interlude">The Mathias interlude</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions">Discussion questions</a></li>
+  <li><a href="#references-and-further-reading" id="toc-references-and-further-reading" class="nav-link" data-scroll-target="#references-and-further-reading">References and further reading</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/topos-vs-zfc.html"><span class="chapter-title">Topos Theory and ZFC</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Topos Theory and ZFC</span></h1>
+<p class="subtitle lead">Consistency strength, size, universes, and the Feferman–Mac Lane debate</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="topos-theory-and-zfc" class="level1">
+<h1>Topos Theory and ZFC</h1>
+<p>Over the last weeks we developed category theory up to elementary toposes and met Lawvere’s <em>Elementary Theory of the Category of Sets</em> (<span class="math inline">\(\mathsf{ETCS}\)</span>) as an alternative to <span class="math inline">\(\mathsf{ZFC}\)</span>. This lecture closes Part II by comparing the two on three fronts:</p>
+<ol type="1">
+<li><strong>Logical strength.</strong> What can <span class="math inline">\(\mathsf{ETCS}\)</span> prove, and how does that compare with <span class="math inline">\(\mathsf{ZFC}\)</span>?</li>
+<li><strong>Size.</strong> Category theory constantly talks about “the category of <em>all</em> groups” or “the category of <em>all</em> sets”. How do the set-theoretic antinomies resurface, and how are they handled?</li>
+<li><strong>Autonomy.</strong> Can category theory be a foundation <em>in its own right</em>, or does it presuppose set theory? This is the substance of the <strong>Feferman–Mac Lane debate</strong>.</li>
+</ol>
+<p>A preview of the answers: the difference in strength between <span class="math inline">\(\mathsf{ETCS}\)</span> and <span class="math inline">\(\mathsf{ZFC}\)</span> is <em>not</em> the difference between structural and material set theory — it is precisely the <strong>Axiom of Replacement</strong>. Size problems, on the other hand, are genuinely shared by both frameworks, and the standard fix (Grothendieck universes) is a large cardinal assumption you have already met. The debate is mostly about the third question.</p>
+<section id="recap-etcs" class="level2">
+<h2 class="anchored" data-anchor-id="recap-etcs">Recap: ETCS</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The axioms of <span class="math inline">\(\mathsf{ETCS}\)</span> (Lawvere 1964)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A model of <span class="math inline">\(\mathsf{ETCS}\)</span> is a category <span class="math inline">\(\mathcal{S}\)</span> (think: <em>sets and functions</em>) such that</p>
+<ol type="1">
+<li><span class="math inline">\(\mathcal{S}\)</span> has all finite limits (terminal object <span class="math inline">\(1\)</span>, products, pullbacks);</li>
+<li><span class="math inline">\(\mathcal{S}\)</span> is cartesian closed (exponentials <span class="math inline">\(Y^X\)</span>);</li>
+<li><span class="math inline">\(\mathcal{S}\)</span> has a subobject classifier <span class="math inline">\(\top \colon 1 \to \Omega\)</span>;</li>
+<li><span class="math inline">\(\mathcal{S}\)</span> has a natural numbers object <span class="math inline">\(1 \xrightarrow{0} N \xrightarrow{s} N\)</span>;</li>
+<li><span class="math inline">\(\mathcal{S}\)</span> is <strong>well-pointed</strong>: <span class="math inline">\(0 \not\cong 1\)</span>, and if <span class="math inline">\(f \neq g \colon X \to Y\)</span>, then there is <span class="math inline">\(x\colon 1 \to X\)</span> with <span class="math inline">\(f x \neq g x\)</span>;</li>
+<li><strong>Choice</strong>: every epimorphism has a section.</li>
+</ol>
+<p>In short: <em><span class="math inline">\(\mathsf{ETCS}\)</span> is the theory of a well-pointed topos with a natural numbers object satisfying choice.</em></p>
+</div>
+</div>
+<p>Recall that in a well-pointed topos, <span class="math inline">\(\Omega \cong 1+1 = 2\)</span>, so the internal logic is classical and two-valued. An <em>element</em> of <span class="math inline">\(X\)</span> is an arrow <span class="math inline">\(x \colon 1 \to X\)</span>; membership in a subset <span class="math inline">\(A \rightarrowtail X\)</span> means that <span class="math inline">\(x\)</span> factors through <span class="math inline">\(A\)</span>. There is <strong>no global membership relation</strong>: the question “is <span class="math inline">\(0 \in 1\)</span>?” cannot even be formulated, and sets are determined only up to isomorphism. This is the sense in which <span class="math inline">\(\mathsf{ETCS}\)</span> is a <strong>structural</strong> set theory, while <span class="math inline">\(\mathsf{ZFC}\)</span> is a <strong>material</strong> one.</p>
+<p><span class="math inline">\(\mathsf{ETCS}\)</span> is a first-order theory in the (two-sorted, or one-sorted with arrows only) language of categories, just as <span class="math inline">\(\mathsf{ZFC}\)</span> is a first-order theory in the language <span class="math inline">\(\{\in\}\)</span>. Comparing them therefore means comparing two first-order theories, and the right tool is that of <strong>interpretations</strong> and <strong>relative consistency</strong>.</p>
+</section>
+<section id="the-strength-of-etcs" class="level2">
+<h2 class="anchored" data-anchor-id="the-strength-of-etcs">The strength of ETCS</h2>
+<section id="from-material-sets-to-a-category" class="level3">
+<h3 class="anchored" data-anchor-id="from-material-sets-to-a-category">From material sets to a category</h3>
+<p>The material set theory corresponding to <span class="math inline">\(\mathsf{ETCS}\)</span> turns out to be a weakening of Zermelo set theory. Recall that a formula is <strong><span class="math inline">\(\Delta_0\)</span></strong> (or <em>bounded</em>) if all its quantifiers are bounded, i.e.&nbsp;of the form <span class="math inline">\(\forall x \in y\)</span> or <span class="math inline">\(\exists x \in y\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Bounded Zermelo set theory with Choice (<span class="math inline">\(\mathsf{BZC}\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Extensionality, Empty Set, Pairing, Union, Power Set, Infinity, Foundation, Choice, and</p>
+<p><strong><span class="math inline">\(\Delta_0\)</span>-Separation</strong>: for every <span class="math inline">\(\Delta_0\)</span>-formula <span class="math inline">\(\varphi(x, \vec p)\)</span>, <span class="math display">\[
+\forall \vec p \; \forall a \; \exists b \; \forall x \; \big(x \in b \leftrightarrow x \in a \wedge \varphi(x,\vec p)\big).
+\]</span></p>
+</div>
+</div>
+<p>Mac Lane called this system <span class="math inline">\(\mathsf{ZBQC}\)</span> (“Zermelo with bounded quantifiers and choice”) and argued that it suffices for essentially all of mathematics outside set theory. Mathias, who studied it in great detail, calls a slight variant <strong>Mac Lane set theory</strong>. Note what is missing compared with <span class="math inline">\(\mathsf{ZFC}\)</span>: Replacement entirely, and Separation for formulas with unbounded quantifiers.</p>
+<p>Given a model <span class="math inline">\((M,E)\)</span> of <span class="math inline">\(\mathsf{BZC}\)</span>, let <span class="math inline">\(\mathbf{Set}_M\)</span> be the category whose objects are the elements of <span class="math inline">\(M\)</span> and whose arrows <span class="math inline">\(X \to Y\)</span> are the triples <span class="math inline">\((f,X,Y)\)</span> in <span class="math inline">\(M\)</span> with <span class="math inline">\(f\)</span> a function from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span>. (We have to remember the codomain: in material set theory a function <span class="math inline">\(f\)</span> does not determine it.)</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-setM-etcs" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 22.1</strong></span> <br>
+If <span class="math inline">\((M,E) \models \mathsf{BZC}\)</span>, then <span class="math inline">\(\mathbf{Set}_M \models \mathsf{ETCS}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Each construction required by <span class="math inline">\(\mathsf{ETCS}\)</span> is given by a <span class="math inline">\(\Delta_0\)</span>-definable subset of a set that exists by the remaining axioms:</p>
+<ul>
+<li><span class="math inline">\(X \times Y = \{ z \in \mathcal{P}(\mathcal{P}(X \cup Y)) \colon \exists x \in X \, \exists y \in Y \; z = (x,y) \}\)</span>, and “<span class="math inline">\(z = (x,y)\)</span>” is <span class="math inline">\(\Delta_0\)</span>;</li>
+<li><span class="math inline">\(Y^X = \{ f \in \mathcal{P}(X \times Y) \colon f \text{ is a function from } X \text{ to } Y\}\)</span>, again a <span class="math inline">\(\Delta_0\)</span> condition;</li>
+<li>pullbacks/equalizers are <span class="math inline">\(\Delta_0\)</span>-subsets of products;</li>
+<li><span class="math inline">\(\Omega = 2 = \{0,1\}\)</span>, with <span class="math inline">\(A \subseteq X\)</span> classified by its characteristic function;</li>
+<li><span class="math inline">\(N = \omega\)</span> with <span class="math inline">\(s(n) = n \cup \{n\}\)</span>; the recursion property (given <span class="math inline">\(a \in X\)</span> and <span class="math inline">\(g \colon X \to X\)</span> there is a unique <span class="math inline">\(f\colon \omega \to X\)</span> with <span class="math inline">\(f(0) = a\)</span>, <span class="math inline">\(f(n+1) = g(f(n))\)</span>) holds because <span class="math inline">\(f\)</span> can be obtained as the intersection of all <span class="math inline">\(R \in \mathcal{P}(\omega \times X)\)</span> closed under the recursion clauses — a <span class="math inline">\(\Delta_0\)</span>-definition with parameter <span class="math inline">\(\mathcal{P}(\omega \times X)\)</span>;</li>
+<li>well-pointedness holds because functions are extensional, and Choice gives sections of surjections. <span class="math inline">\(\qquad\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Since <span class="math inline">\(V_\alpha \models \mathsf{ZFC}- \mathsf{Replacement}\)</span> for every limit <span class="math inline">\(\alpha &gt; \omega\)</span> (see the notes on models of set theory), we get</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-zfc-proves-con-etcs" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> <br>
+<span class="math inline">\(\mathbf{Set}_{V_{\omega+\omega}} \models \mathsf{ETCS}\)</span>. In particular, <span class="math inline">\(\mathsf{ZFC}\vdash \operatorname{Con}(\mathsf{ETCS})\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="from-a-category-back-to-material-sets" class="level3">
+<h3 class="anchored" data-anchor-id="from-a-category-back-to-material-sets">From a category back to material sets</h3>
+<p>The converse direction is more interesting. How do we recover a material universe — with a global <span class="math inline">\(\in\)</span> — from a category that has no membership relation at all?</p>
+<p>The key is the <strong>Mostowski collapse</strong>. In <span class="math inline">\(\mathsf{ZFC}\)</span>, a set <span class="math inline">\(x\)</span> is completely determined by the structure <span class="math inline">\((\operatorname{TC}(\{x\}), \in)\)</span> with distinguished “top” element <span class="math inline">\(x\)</span>: this is a well-founded, extensional relation, and <span class="math inline">\(x\)</span> is recovered as the image of the top under the collapse. Conversely, every well-founded extensional relation collapses to a transitive set. So material sets are, up to isomorphism, the same thing as <em>well-founded extensional pointed graphs</em> — and graphs are structures, which a category of sets can talk about.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-apg" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 22.1</strong></span> <br>
+Let <span class="math inline">\(\mathcal{S}\)</span> be a model of <span class="math inline">\(\mathsf{ETCS}\)</span>. An <strong>accessible pointed graph (APG)</strong> is a triple <span class="math inline">\((X, R, r)\)</span> with <span class="math inline">\(R \rightarrowtail X \times X\)</span> a relation (read <span class="math inline">\(y \mathrel{R} x\)</span> as “<span class="math inline">\(y\)</span> is a member of <span class="math inline">\(x\)</span>”) and <span class="math inline">\(r \colon 1 \to X\)</span> a point such that</p>
+<ul>
+<li>(<em>accessible</em>) the only subobject of <span class="math inline">\(X\)</span> containing <span class="math inline">\(r\)</span> and closed under <span class="math inline">\(R\)</span>-predecessors is <span class="math inline">\(X\)</span> itself;</li>
+<li>(<em>well-founded</em>) every subobject of <span class="math inline">\(X\)</span> that has an element has an <span class="math inline">\(R\)</span>-minimal element;</li>
+<li>(<em>extensional</em>) if <span class="math inline">\(x, x' \colon 1 \to X\)</span> have the same <span class="math inline">\(R\)</span>-predecessors, then <span class="math inline">\(x = x'\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>We now interpret the language of set theory: a “set” is an APG; two APGs are “equal” if they are isomorphic; and <span class="math inline">\(A \mathrel{\varepsilon} B\)</span> holds if <span class="math inline">\(A\)</span> is isomorphic to <span class="math inline">\(B_x\)</span> for some <span class="math inline">\(x \mathrel{R} r_B\)</span>, where <span class="math inline">\(B_x\)</span> is the sub-APG of nodes from which <span class="math inline">\(x\)</span> can be reached. (As in the uniqueness part of the Mostowski collapse, an isomorphism between APGs is unique if it exists.)</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-etcs-bzc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.1 (Lawvere 1964; Cole, Mitchell 1972; Osius 1974)</strong></span> <br>
+If <span class="math inline">\(\mathcal{S} \models \mathsf{ETCS}\)</span>, then the APGs of <span class="math inline">\(\mathcal{S}\)</span>, with <span class="math inline">\(\cong\)</span> as equality and <span class="math inline">\(\varepsilon\)</span> as membership, form a model <span class="math inline">\(M(\mathcal{S})\)</span> of <span class="math inline">\(\mathsf{BZC}\)</span>. Moreover, <span class="math inline">\(\mathbf{Set}_{M(\mathcal{S})}\)</span> is equivalent to <span class="math inline">\(\mathcal{S}\)</span>.</p>
+<p>Consequently, <span class="math inline">\(\mathsf{ETCS}\)</span> and <span class="math inline">\(\mathsf{BZC}\)</span> are <strong>equiconsistent</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We will not verify the axioms here (the verification of Power Set, using <span class="math inline">\(\Omega^X\)</span>, is a good exercise), but it is worth understanding exactly <em>why the separation axiom comes out bounded</em>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why only <span class="math inline">\(\Delta_0\)</span>-Separation?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To separate <span class="math inline">\(\{y \mathrel{\varepsilon} A \colon \varphi(y)\}\)</span>, we need a <em>subobject</em> of the object of children of the root of <span class="math inline">\(A\)</span>. Subobjects are produced by the internal logic of the topos: formulas whose quantifiers range over given <em>objects</em> define subobjects (via <span class="math inline">\(\Omega\)</span> and the adjoints <span class="math inline">\(\exists\)</span>, <span class="math inline">\(\forall\)</span> along projections). If <span class="math inline">\(\varphi\)</span> is <span class="math inline">\(\Delta_0\)</span>, its quantifiers range over nodes of finitely many given APGs, i.e.&nbsp;over elements of given objects, and we are fine.</p>
+<p>An <em>unbounded</em> quantifier <span class="math inline">\(\forall z\)</span> in <span class="math inline">\(\varphi\)</span> ranges over <strong>all APGs</strong>, i.e.&nbsp;essentially over <strong>all objects of <span class="math inline">\(\mathcal{S}\)</span></strong>. There is no object of all objects — we will see shortly that there cannot be — so there is nothing to form the subobject from.</p>
+<p>This is the first place where the <em>size</em> of the universe of sets enters the comparison.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-round-trip" class="proof remark">
+<p><span class="proof-title"><em>Remark 22.1</em>. </span><br>
+The round trip <span class="math inline">\(\mathcal{S} \mapsto M(\mathcal{S}) \mapsto \mathbf{Set}_{M(\mathcal{S})}\)</span> returns <span class="math inline">\(\mathcal{S}\)</span> up to equivalence, but the round trip <span class="math inline">\(M \mapsto \mathbf{Set}_M \mapsto M(\mathbf{Set}_M)\)</span> can <em>enlarge</em> <span class="math inline">\(M\)</span>. For example, the well-order of type <span class="math inline">\(\omega + \omega\)</span> exists in <span class="math inline">\(V_{\omega+\omega}\)</span> as a relation on a countable set, hence gives an APG in <span class="math inline">\(\mathbf{Set}_{V_{\omega+\omega}}\)</span>; so <span class="math inline">\(M(\mathbf{Set}_{V_{\omega+\omega}})\)</span> contains a von Neumann ordinal <span class="math inline">\(\omega+\omega\)</span>, while <span class="math inline">\(V_{\omega+\omega}\)</span> does not. The models arising from <span class="math inline">\(\mathsf{ETCS}\)</span> always satisfy a <em>Mostowski principle</em> (every well-founded extensional relation is isomorphic to a transitive set), which is not provable in <span class="math inline">\(\mathsf{BZC}\)</span> but does not add consistency strength. A structural theory sees a material universe only through its structures, not through its particular membership trees.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In terms of mathematical content, <span class="math inline">\(\mathsf{ETCS}\)</span> (equivalently <span class="math inline">\(\mathsf{BZC}\)</span>) has the strength of <strong>higher-order arithmetic</strong>: we have <span class="math inline">\(N\)</span>, <span class="math inline">\(\Omega^N\)</span>, <span class="math inline">\(\Omega^{\Omega^N}\)</span>, and so on, each finite type above the natural numbers, with full (impredicative) comprehension at each type. This is enough for real and complex analysis, algebra, most of topology, functional analysis on reasonable spaces, and so on.</p>
+</section>
+<section id="what-etcs-cannot-prove" class="level3">
+<h3 class="anchored" data-anchor-id="what-etcs-cannot-prove">What ETCS cannot prove</h3>
+<p>By <a href="#cor-zfc-proves-con-etcs" class="quarto-xref">Corollary&nbsp;<span>22.1</span></a> and Gödel’s second incompleteness theorem, <span class="math inline">\(\mathsf{ETCS}\)</span> is strictly weaker than <span class="math inline">\(\mathsf{ZFC}\)</span>. Here are two concrete witnesses.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-beth-omega" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 22.2</strong></span> <br>
+<span class="math inline">\(\mathsf{ETCS}\)</span> does not prove the existence of a family <span class="math inline">\(p \colon E \to N\)</span> whose fibers satisfy <span class="math display">\[
+E_0 \cong N, \qquad E_{n+1} \cong \Omega^{E_n}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Such an <span class="math inline">\(E\)</span> would have cardinality at least <span class="math inline">\(\beth_n\)</span> for every <span class="math inline">\(n\)</span>, hence at least <span class="math inline">\(\beth_\omega\)</span>. In <span class="math inline">\(\mathbf{Set}_{V_{\omega+\omega}}\)</span> every object is an element of some <span class="math inline">\(V_{\omega+n}\)</span>, and <span class="math inline">\(|V_{\omega+n}| = \beth_n\)</span>. So no such family exists in this model of <span class="math inline">\(\mathsf{ETCS}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Note the subtlety: for each <em>fixed</em> <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathsf{ETCS}\)</span> proves that <span class="math inline">\(\Omega^{\cdots^{\Omega^N}}\)</span> (<span class="math inline">\(n\)</span> times) exists. What it cannot do is collect these into a single family indexed by <span class="math inline">\(N\)</span>. Turning a <em>definable sequence of sets</em> into a <em>set-indexed family</em> is exactly what Replacement does.</p>
+<p>The second example is a celebrated result of descriptive set theory.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-borel-det" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.2 (Martin 1975; Friedman 1971)</strong></span> <br>
+<strong>Borel determinacy</strong> (every Gale–Stewart game on <span class="math inline">\(\mathbb{N}^{\mathbb{N}}\)</span> with Borel payoff set is determined) is provable in <span class="math inline">\(\mathsf{ZFC}\)</span>, but not in Zermelo set theory with Choice. In particular, it is not provable in <span class="math inline">\(\mathsf{ETCS}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Friedman showed that any proof of Borel determinacy must use <span class="math inline">\(\omega_1\)</span>-many iterations of the power set operation — something available only with Replacement. This is a striking example: the <em>statement</em> is about subsets of <span class="math inline">\(\mathbb{N}^{\mathbb{N}}\)</span>, i.e.&nbsp;it lives at the second level of the type hierarchy, yet its <em>proof</em> requires sets far up the cumulative hierarchy.</p>
+</section>
+<section id="replacement-structurally" class="level3">
+<h3 class="anchored" data-anchor-id="replacement-structurally">Replacement, structurally</h3>
+<p>What would a structural version of Replacement say? We cannot say “the image of <span class="math inline">\(A\)</span> under a class function”, since there are no global elements to collect. Instead:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Structural Replacement (<span class="math inline">\(\mathsf{R}\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\varphi(x, Y)\)</span> be a formula in the language of categories, where <span class="math inline">\(x\)</span> ranges over elements <span class="math inline">\(1 \to A\)</span> and <span class="math inline">\(Y\)</span> over objects (possibly with extra structure). Suppose that for each <span class="math inline">\(x \colon 1 \to A\)</span> there is an object <span class="math inline">\(Y\)</span> with <span class="math inline">\(\varphi(x,Y)\)</span>, and that it is <strong>unique up to unique isomorphism</strong>. Then there is a family <span class="math inline">\(p \colon B \to A\)</span> such that <span class="math inline">\(\varphi(x, B_x)\)</span> holds for every <span class="math inline">\(x\colon 1 \to A\)</span>, where <span class="math inline">\(B_x\)</span> is the fiber of <span class="math inline">\(p\)</span> over <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<p>The “unique up to unique isomorphism” clause is the structural substitute for “the” value of a class function; it is what lets us glue the <span class="math inline">\(Y\)</span>’s into a family without choosing representatives.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-etcs-r" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.3 (Cole, Osius; Shulman 2019)</strong></span> <br>
+<span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span> and <span class="math inline">\(\mathsf{ZFC}\)</span> are equiconsistent; in fact, the two constructions above restrict to models of <span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span> and models of <span class="math inline">\(\mathsf{ZFC}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Moral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The strength gap between <span class="math inline">\(\mathsf{ZFC}\)</span> and <span class="math inline">\(\mathsf{ETCS}\)</span> has <strong>nothing to do</strong> with the material/structural distinction. Both styles come in a weak version (<span class="math inline">\(\mathsf{BZC}\)</span>, <span class="math inline">\(\mathsf{ETCS}\)</span>) and a strong version (<span class="math inline">\(\mathsf{ZFC}\)</span>, <span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span>). What separates them is Replacement.</p>
+</div>
+</div>
+</section>
+<section id="elementary-toposes-in-general" class="level3">
+<h3 class="anchored" data-anchor-id="elementary-toposes-in-general">Elementary toposes in general</h3>
+<p>What about toposes that are not models of <span class="math inline">\(\mathsf{ETCS}\)</span>? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is <strong>intuitionistic higher-order arithmetic</strong>, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of <span class="math inline">\(\neg\neg\)</span>-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.</p>
+<p>So neither well-pointedness, nor Booleanness, nor Choice adds logical strength; the strength of a topos with NNO comes from the <strong>impredicative power objects</strong> <span class="math inline">\(\Omega^X\)</span> together with the infinite object <span class="math inline">\(N\)</span>.</p>
+<table class="caption-top table">
+<caption>Categorical theories and their material counterparts</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categorical theory</th>
+<th>Material counterpart</th>
+<th>Strength</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>elementary topos</td>
+<td>—</td>
+<td>trivial (finite sets)</td>
+</tr>
+<tr class="even">
+<td>topos with NNO</td>
+<td>intuitionistic bounded Zermelo</td>
+<td>higher-order arithmetic</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathsf{ETCS}\)</span></td>
+<td><span class="math inline">\(\mathsf{BZC}\)</span></td>
+<td>higher-order arithmetic</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span></td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span></td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span> + universes</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span> + inaccessibles</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span> + inaccessibles</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="size-and-the-antinomies" class="level2">
+<h2 class="anchored" data-anchor-id="size-and-the-antinomies">Size and the antinomies</h2>
+<section id="where-size-enters" class="level3">
+<h3 class="anchored" data-anchor-id="where-size-enters">Where size enters</h3>
+<p>Almost every interesting category is “too big to be a set”:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{Set}\)</span>, <span class="math inline">\(\mathbf{Grp}\)</span>, <span class="math inline">\(\mathbf{Top}\)</span> have a proper class of objects (every set carries the trivial group structure, etc.);</li>
+<li>the category <span class="math inline">\(\mathcal{C}\)</span> of categories, and functor categories <span class="math inline">\([\mathcal{C}, \mathcal{D}]\)</span> with <span class="math inline">\(\mathcal{C}\)</span> large, such as <span class="math inline">\([\mathbf{Set}, \mathbf{Set}]\)</span> or the presheaf category <span class="math inline">\([\mathbf{Set}^{op},\mathbf{Set}]\)</span> into which <span class="math inline">\(\mathbf{Set}\)</span> Yoneda-embeds;</li>
+<li>localizations: inverting a class of morphisms in a locally small category can produce hom-collections that are proper classes;</li>
+<li>the 2-category of all (Grothendieck) toposes and geometric morphisms.</li>
+</ul>
+<p>In <span class="math inline">\(\mathsf{ZFC}\)</span>, the standard convention is: a category is <strong>small</strong> if its objects and arrows form sets, <strong>locally small</strong> if each <span class="math inline">\(\mathcal{S}((,A),B)\)</span> is a set, and <strong>large</strong> if objects or arrows form a proper class. But classes in <span class="math inline">\(\mathsf{ZFC}\)</span> are merely formulas. We can talk about <span class="math inline">\(\mathbf{Set}\)</span> as a class, but we cannot quantify over classes, form classes of classes, or form <span class="math inline">\([\mathbf{Set}, \mathbf{Set}]\)</span>, whose objects are themselves class functions.</p>
+<p>Size conditions are not mere bookkeeping. They appear in the <strong>solution set condition</strong> of Freyd’s adjoint functor theorem, and they can make a difference to whether a construction exists at all:</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-free-cba" class="theorem example">
+<p><span class="theorem-title"><strong>Example 22.1 (Gaifman, Hales 1964)</strong></span> <br>
+The forgetful functor from complete Boolean algebras to <span class="math inline">\(\mathbf{Set}\)</span> preserves all limits, yet has no left adjoint: there is no free complete Boolean algebra on <span class="math inline">\(\aleph_0\)</span> generators. (Informally, it “would be a proper class”.)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="russell-no-category-of-all-categories" class="level3">
+<h3 class="anchored" data-anchor-id="russell-no-category-of-all-categories">Russell: no category of all categories</h3>
+<p>Suppose there were a category <span class="math inline">\(\mathcal{C}\)</span> of <em>all</em> categories. It would be one of its own objects. Consider the full subcategory <span class="math inline">\(\mathcal{R}\)</span> on those categories <span class="math inline">\(\mathcal{C}\)</span> that are not objects of themselves. Is <span class="math inline">\(\mathcal{R}\)</span> an object of <span class="math inline">\(\mathcal{R}\)</span>? This is Russell’s paradox verbatim.</p>
+<p>In <span class="math inline">\(\mathsf{ZFC}\)</span>-based category theory, categories are sets (or classes), so <span class="math inline">\(\mathcal{C}\)</span> can only be the large category of <em>small</em> categories, which is not one of its own objects. This leads to an open-ended hierarchy: sets, classes, “collections of classes”, … — and the question how to make that hierarchy rigorous is exactly what universes address.</p>
+</section>
+<section id="cantor-freyds-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="cantor-freyds-theorem">Cantor: Freyd’s theorem</h3>
+<p>The categorical form of Cantor’s theorem says that a category cannot be complete with respect to its own size.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-freyd" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.4 (Freyd)</strong></span> <br>
+If <span class="math inline">\(\mathcal{C}\)</span> is a small category with all small products, then <span class="math inline">\(\mathcal{C}\)</span> is a preorder: between any two objects there is at most one arrow.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(f \neq g \colon A \to B\)</span> in <span class="math inline">\(\mathcal{C}\)</span>. Let <span class="math inline">\(M\)</span> be the set of all arrows of <span class="math inline">\(\mathcal{C}\)</span>, and let <span class="math inline">\(P = \prod_{m \in M} B\)</span>. Then <span class="math display">\[
+\mathcal{S}((,A), P) \cong \mathcal{S}((,A),B)^M,
+\]</span> which has cardinality at least <span class="math inline">\(2^{|M|}\)</span>. But <span class="math inline">\(\mathcal{S}((,A),P) \subseteq M\)</span>, so <span class="math inline">\(2^{|M|} \le |M|\)</span>, contradicting Cantor’s theorem.</p>
+</div>
+</div>
+</div>
+</div>
+<p>So <span class="math inline">\(\mathbf{Set}\)</span> is complete <em>because</em> it is large: products indexed by sets exist, but the indexing sets never exhaust <span class="math inline">\(\mathbf{Set}\)</span> itself. In topos-theoretic language, completeness is always relative to <em>families</em> <span class="math inline">\(p \colon X \to I\)</span> indexed by an object <span class="math inline">\(I\)</span> — and the totality of all objects is not an object.</p>
+</section>
+<section id="diagonalization-lawveres-fixed-point-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="diagonalization-lawveres-fixed-point-theorem">Diagonalization: Lawvere’s fixed point theorem</h3>
+<p>Lawvere (1969) found a single categorical argument underlying Cantor’s theorem, Russell’s paradox, Gödel’s incompleteness theorem, and Tarski’s undefinability of truth.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-weakly-point-surjective" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 22.2</strong></span> <br>
+In a category with finite products, a map <span class="math inline">\(\varphi\colon A \times A \to Y\)</span> is <strong>weakly point-surjective</strong> if for every <span class="math inline">\(g \colon A \to Y\)</span> there is a point <span class="math inline">\(a \colon 1 \to A\)</span> such that <span class="math display">\[
+\varphi\circ \langle a, x\rangle = g \circ x \quad \text{for all } x \colon 1 \to A.
+\]</span> (In a cartesian closed category, this says the transpose <span class="math inline">\(A \to Y^A\)</span> “hits” every <span class="math inline">\(g\)</span> on points.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-lawvere-fixed-point" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.5 (Lawvere 1969)</strong></span> <br>
+If <span class="math inline">\(\varphi\colon A \times A \to Y\)</span> is weakly point-surjective, then every <span class="math inline">\(f \colon Y \to Y\)</span> has a fixed point <span class="math inline">\(y \colon 1 \to Y\)</span>, <span class="math inline">\(f y = y\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(g = f \circ \varphi\circ \langle 1_A, 1_A \rangle \colon A \to Y\)</span> and choose <span class="math inline">\(a\)</span> for this <span class="math inline">\(g\)</span>. Put <span class="math inline">\(y = \varphi\circ \langle a, a\rangle\)</span>. Then <span class="math display">\[
+y = \varphi\circ \langle a,a \rangle = g \circ a = f \circ \varphi\circ \langle a, a\rangle = f y. \qquad
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-cantor-topos" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 22.2 (Cantor’s theorem in a topos)</strong></span> <br>
+In a nondegenerate topos (<span class="math inline">\(0 \not\cong 1\)</span>), there is no weakly point-surjective <span class="math inline">\(A \times A \to \Omega\)</span>. In particular, no <span class="math inline">\(A \to \Omega^A\)</span> is surjective on points.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It suffices to see that <span class="math inline">\(\neg \colon \Omega \to \Omega\)</span> has no fixed point. If <span class="math inline">\(\neg p = p\)</span> for <span class="math inline">\(p \colon 1 \to \Omega\)</span>, then <span class="math inline">\(p = p \wedge p = p \wedge \neg p = \bot\)</span>, hence <span class="math inline">\(\top = \neg \bot = \neg p = p = \bot\)</span>, which forces the subobject <span class="math inline">\(1 \rightarrowtail 1\)</span> to equal <span class="math inline">\(0 \rightarrowtail 1\)</span>, i.e.&nbsp;<span class="math inline">\(0 \cong 1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Russell’s paradox as a fixed point failure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose (naively) there were a set <span class="math inline">\(V\)</span> such that every subset of <span class="math inline">\(V\)</span> is an element of <span class="math inline">\(V\)</span>. Define <span class="math inline">\(\varphi\colon V \times V \to 2\)</span> by <span class="math inline">\(\varphi(x,y) = 1\)</span> iff <span class="math inline">\(y \in x\)</span>. For any <span class="math inline">\(g \colon V \to 2\)</span>, the set <span class="math inline">\(a = \{ y \in V \colon g(y) = 1\}\)</span> is an element of <span class="math inline">\(V\)</span>, and <span class="math inline">\(\varphi(a, -) = g\)</span>. So <span class="math inline">\(\varphi\)</span> is weakly point-surjective, and <a href="#thm-lawvere-fixed-point" class="quarto-xref">Theorem&nbsp;<span>22.5</span></a> would give a fixed point of negation. Unwinding the proof, the fixed point is <span class="math inline">\(\varphi(R,R)\)</span> for <span class="math inline">\(R = \{ y \colon y \notin y \}\)</span>.</p>
+</div>
+</div>
+<p>In <span class="math inline">\(\mathsf{ETCS}\)</span> or any topos, the theorem says: <strong>no object can parametrize all of its own predicates.</strong> There is no object of all objects, no object of all subobjects, no “universe object” <span class="math inline">\(U\)</span> with <span class="math inline">\(U \cong \Omega^U\)</span>. The totality of all sets is necessarily an external, metatheoretic notion — exactly as in <span class="math inline">\(\mathsf{ZFC}\)</span>, where it is a proper class. The antinomies are not artifacts of the membership relation; they are artifacts of <em>self-application</em>, which any sufficiently expressive framework must control.</p>
+<p>(In the type theory unit you will meet the same phenomenon again: a type theory with a type of all types, <span class="math inline">\(\mathsf{Type} : \mathsf{Type}\)</span>, is inconsistent by <strong>Girard’s paradox</strong>. This is why proof assistants use a hierarchy of universes <span class="math inline">\(\mathsf{Type}_0 : \mathsf{Type}_1 : \mathsf{Type}_2 : \cdots\)</span>.)</p>
+</section>
+<section id="size-in-topos-theory" class="level3">
+<h3 class="anchored" data-anchor-id="size-in-topos-theory">Size in topos theory</h3>
+<p>Topos theory adds some specific twists.</p>
+<p><strong>Grothendieck vs.&nbsp;elementary toposes.</strong> A Grothendieck topos is a category equivalent to sheaves <span class="math inline">\(\mathrm{Sh}(\mathcal{C}, J)\)</span> on a <em>small</em> site. Giraud’s characterization (cocomplete, exact in a suitable sense, with a <em>small</em> set of generators) is inherently size-relative. One motivation for Lawvere and Tierney’s elementary definition (1969–70) was to obtain a first-order, size-free notion.</p>
+<p><strong>Relativization to a base.</strong> In the elementary theory, “small” becomes relative: a Grothendieck topos is really a topos <span class="math inline">\(\mathcal{E}\)</span> together with a bounded geometric morphism <span class="math inline">\(\mathcal{E} \to \mathcal{S}\)</span> to a base topos <span class="math inline">\(\mathcal{S}\)</span>, and “small” means “internal to <span class="math inline">\(\mathcal{S}\)</span>” or “indexed by an object of <span class="math inline">\(\mathcal{S}\)</span>”. Bénabou argued (1985) that this is how <em>all</em> naive category theory should be done — with fibrations over a base, rather than with an absolute ambient universe of sets.</p>
+<p><strong>Plurality of <span class="math inline">\(\mathbf{Set}\)</span>.</strong> <span class="math inline">\(\mathsf{ETCS}\)</span>, being a consistent first-order theory, has many non-equivalent models (some satisfy <span class="math inline">\(\mathsf{CH}\)</span>, some do not). Topos theory makes this plurality visible: Cohen’s forcing can be presented as passing to a sheaf topos, and Tierney (1972) gave a topos-theoretic proof of the independence of <span class="math inline">\(\mathsf{CH}\)</span> along these lines. From this perspective “the” category of sets is just one topos among many.</p>
+<p><strong>Impredicativity.</strong> The power object <span class="math inline">\(\Omega^X\)</span> “contains” all subobjects of <span class="math inline">\(X\)</span>, including those defined by quantifying over <span class="math inline">\(\Omega^X\)</span> itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré’s “vicious circle”) that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of toposes (pretoposes with <span class="math inline">\(\Pi\)</span>- and <span class="math inline">\(W\)</span>-types, Joyal’s arithmetic universes) correspond to Martin-Löf type theory, which we study next.</p>
+</section>
+</section>
+<section id="grothendieck-universes" class="level2">
+<h2 class="anchored" data-anchor-id="grothendieck-universes">Grothendieck universes</h2>
+<p>The most common way to make “large” categories rigorous was introduced by Grothendieck for the purposes of SGA 4.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-universe" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 22.3 (Grothendieck)</strong></span> <br>
+A <strong>(Grothendieck) universe</strong> is a set <span class="math inline">\(U\)</span> such that</p>
+<ol type="1">
+<li><span class="math inline">\(x \in U\)</span> and <span class="math inline">\(y \in x\)</span> imply <span class="math inline">\(y \in U\)</span> (<span class="math inline">\(U\)</span> is transitive);</li>
+<li><span class="math inline">\(x, y \in U\)</span> imply <span class="math inline">\(\{x,y\} \in U\)</span>;</li>
+<li><span class="math inline">\(x \in U\)</span> implies <span class="math inline">\(\mathcal{P}(x) \in U\)</span>;</li>
+<li>if <span class="math inline">\(I \in U\)</span> and <span class="math inline">\(x_i \in U\)</span> for all <span class="math inline">\(i \in I\)</span>, then <span class="math inline">\(\bigcup_{i \in I} x_i \in U\)</span>;</li>
+<li><span class="math inline">\(\omega \in U\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>(Without (5), <span class="math inline">\(\emptyset\)</span> and <span class="math inline">\(V_\omega\)</span> would also count as universes.) Two consequences we will use repeatedly:</p>
+<ul>
+<li>if <span class="math inline">\(x \in U\)</span> and <span class="math inline">\(y \subseteq x\)</span>, then <span class="math inline">\(y \in \mathcal{P}(x) \in U\)</span>, so <span class="math inline">\(y \in U\)</span>;</li>
+<li>if <span class="math inline">\(I \in U\)</span> and <span class="math inline">\(f \colon I \to U\)</span>, then <span class="math inline">\(f[I] = \bigcup_{i \in I} \{f(i), f(i)\} \in U\)</span>. In particular, if <span class="math inline">\(x \in U\)</span> and <span class="math inline">\(Y \subseteq U\)</span> is the image of some surjection <span class="math inline">\(x \to Y\)</span>, then <span class="math inline">\(Y \in U\)</span>.</li>
+</ul>
+<p>You have already seen that <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span> for inaccessible <span class="math inline">\(\kappa\)</span>. The universes are exactly these sets.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-universe-inaccessible" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.6 (Tarski, Sonner, Bourbaki)</strong></span> <br>
+A set <span class="math inline">\(U\)</span> is a universe if and only if <span class="math inline">\(U = V_\kappa\)</span> for some (strongly) inaccessible cardinal <span class="math inline">\(\kappa\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Leftarrow\)</span>) <span class="math inline">\(V_\kappa\)</span> is transitive, and closure under pairs and power sets follows since these raise rank by at most <span class="math inline">\(2\)</span>. For (4): if <span class="math inline">\(I \in V_\kappa\)</span> and all <span class="math inline">\(x_i \in V_\kappa\)</span>, then <span class="math inline">\(\{x_i \colon i \in I\} \subseteq V_\kappa\)</span> has cardinality <span class="math inline">\(\le |I| &lt; \kappa\)</span>, so it is in <span class="math inline">\(V_\kappa\)</span> by the characterization of elements of <span class="math inline">\(V_\kappa\)</span> from the notes on large cardinals, and its union has no larger rank.</p>
+<p>(<span class="math inline">\(\Rightarrow\)</span>) Let <span class="math inline">\(U\)</span> be a universe. Since <span class="math inline">\(U\)</span> is transitive, <span class="math inline">\(\kappa := \mathop{\mathrm{Ord}}\cap U\)</span> is a transitive set of ordinals, i.e.&nbsp;an ordinal, and <span class="math inline">\(\kappa \notin U\)</span>.</p>
+<p><em><span class="math inline">\(\kappa\)</span> is a limit ordinal <span class="math inline">\(&gt; \omega\)</span>:</em> <span class="math inline">\(\omega \in U\)</span>, and if <span class="math inline">\(\alpha \in U\)</span> then <span class="math inline">\(\alpha + 1 = \bigcup\{\alpha, \{\alpha\}\} \in U\)</span>.</p>
+<p><em><span class="math inline">\(V_\kappa \subseteq U\)</span>:</em> By induction, <span class="math inline">\(V_\alpha \in U\)</span> for all <span class="math inline">\(\alpha &lt; \kappa\)</span>: <span class="math inline">\(V_0 = \emptyset \subseteq \omega\)</span>; <span class="math inline">\(V_{\alpha+1} = \mathcal{P}(V_\alpha)\)</span>; and for limit <span class="math inline">\(\lambda &lt; \kappa\)</span>, <span class="math inline">\(V_\lambda = \bigcup_{\alpha &lt; \lambda} V_\alpha\)</span> with <span class="math inline">\(\lambda \in U\)</span>, so (4) applies. By transitivity, <span class="math inline">\(V_\kappa = \bigcup_{\alpha&lt;\kappa} V_\alpha \subseteq U\)</span>.</p>
+<p><em><span class="math inline">\(U \subseteq V_\kappa\)</span>:</em> We show <span class="math inline">\(\operatorname{rank}(x) \in U\)</span> for all <span class="math inline">\(x \in U\)</span> by <span class="math inline">\(\in\)</span>-induction. If this holds for all <span class="math inline">\(y \in x\)</span>, then <span class="math inline">\(y \mapsto \operatorname{rank}(y)+1\)</span> maps <span class="math inline">\(x\)</span> into <span class="math inline">\(U\)</span>, so its image is in <span class="math inline">\(U\)</span>, and so is the union of the image, which is <span class="math inline">\(\operatorname{rank}(x)\)</span>. Hence <span class="math inline">\(\operatorname{rank}(x) &lt; \kappa\)</span> and <span class="math inline">\(x \in V_\kappa\)</span>.</p>
+<p><em><span class="math inline">\(\kappa\)</span> is regular:</em> If <span class="math inline">\(f \colon \alpha \to \kappa\)</span> were cofinal with <span class="math inline">\(\alpha &lt; \kappa\)</span>, then <span class="math inline">\(f[\alpha] \in U\)</span> and hence <span class="math inline">\(\kappa = \bigcup f[\alpha] \in U\)</span>, a contradiction.</p>
+<p><em><span class="math inline">\(\kappa\)</span> is a strong limit:</em> Let <span class="math inline">\(\alpha &lt; \kappa\)</span>. Then <span class="math inline">\(\mathcal{P}(\alpha) \in U\)</span>. If <span class="math inline">\(|\mathcal{P}(\alpha)| \ge \kappa\)</span>, there would be a surjection <span class="math inline">\(\mathcal{P}(\alpha) \to \kappa\)</span>, and then <span class="math inline">\(\kappa \in U\)</span>. So <span class="math inline">\(2^{|\alpha|} &lt; \kappa\)</span>. <span class="math inline">\(\qquad\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Universe Axiom (<span class="math inline">\(\mathsf{UA}\)</span>, Grothendieck)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every set is an element of some universe.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-ua-inaccessibles" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 22.3</strong></span> <br>
+Over <span class="math inline">\(\mathsf{ZFC}\)</span>, <span class="math inline">\(\mathsf{UA}\)</span> is equivalent to: <em>for every ordinal <span class="math inline">\(\alpha\)</span> there is an inaccessible cardinal <span class="math inline">\(\kappa &gt; \alpha\)</span>.</em></p>
+</div>
+</div>
+</div>
+</div>
+<section id="how-universes-are-used" class="level3">
+<h3 class="anchored" data-anchor-id="how-universes-are-used">How universes are used</h3>
+<p>Fix a universe <span class="math inline">\(U\)</span>. Call a set <strong><span class="math inline">\(U\)</span>-small</strong> if it is an element of <span class="math inline">\(U\)</span>. Then <span class="math inline">\(\mathbf{Set}_U\)</span>, <span class="math inline">\(\mathbf{Grp}_U\)</span>, <span class="math inline">\(\mathcal{C}_U\)</span> — the categories of <span class="math inline">\(U\)</span>-small sets, groups, categories — are honest <em>sets</em> (subsets of <span class="math inline">\(U\)</span>), so every set-theoretic construction applies to them. <span class="math inline">\([\mathbf{Set}_U, \mathbf{Set}_U]\)</span> is a set; the Yoneda embedding of <span class="math inline">\(\mathbf{Set}_U\)</span> into <span class="math inline">\(U\)</span>-presheaves on <span class="math inline">\(\mathbf{Set}_U\)</span> is a function between sets; <span class="math inline">\(\mathcal{C}_U\)</span> is a category but not a <span class="math inline">\(U\)</span>-small one.</p>
+<p>If we want to treat <span class="math inline">\(\mathcal{C}_U\)</span> itself as an object of a category of categories, we need a second universe <span class="math inline">\(U' \ni U\)</span>: then <span class="math inline">\(\mathcal{C}_U \in \mathcal{C}_{U'}\)</span>. The category of <span class="math inline">\(U'\)</span>-small categories requires a third universe, and so on. Theorems are then proved <em>schematically</em>: “for every universe <span class="math inline">\(U\)</span>, every <span class="math inline">\(U\)</span>-small …”. To apply such a theorem to an arbitrary set, we need that set to be in <em>some</em> universe — this is <span class="math inline">\(\mathsf{UA}\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why “infinitely many inaccessibles”?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each layer of “largeness” consumes one universe, and in a general theory there is no bound on how many layers might be needed. The full Universe Axiom (a proper class of inaccessibles) is what Grothendieck adopted in SGA 4, and what, e.g., Lurie adopts in <em>Higher Topos Theory</em>. Any <em>particular</em> proof uses only finitely many universes, so in practice the relevant strength is “for each <span class="math inline">\(n\)</span>, there are <span class="math inline">\(n\)</span> inaccessible cardinals”. Remarkably, this is also (roughly) the consistency strength of the type theory of the Lean proof assistant, whose universes <span class="math inline">\(\mathsf{Type}_0 : \mathsf{Type}_1 : \cdots\)</span> are the type-theoretic analogue of Grothendieck universes (Carneiro 2019; similar results for Coq go back to Werner 1997).</p>
+<p>Strictly speaking, “infinitely many inaccessibles” (e.g.&nbsp;<span class="math inline">\(\omega\)</span> many) is weaker than <span class="math inline">\(\mathsf{UA}\)</span>: if <span class="math inline">\(\kappa_\omega\)</span> is the <span class="math inline">\(\omega\)</span>-th inaccessible and <span class="math inline">\(\lambda\)</span> the next one, <span class="math inline">\(V_\lambda\)</span> has infinitely many inaccessibles but none above <span class="math inline">\(\kappa_\omega\)</span>.</p>
+</div>
+</div>
+<p>The price of universes:</p>
+<ol type="1">
+<li><strong>Strength.</strong> <span class="math inline">\(\mathsf{ZFC}+ \mathsf{UA}\)</span> proves <span class="math inline">\(\operatorname{Con}(\mathsf{ZFC})\)</span>, an arithmetic statement that <span class="math inline">\(\mathsf{ZFC}\)</span> does not prove. So universes are <em>not</em> conservative, even over number theory.</li>
+<li><strong>Universe-dependence.</strong> Constructions depend on the chosen <span class="math inline">\(U\)</span>, and one must check that the outcome does not (e.g.&nbsp;that étale cohomology groups of a scheme are independent of the universe used to define them).</li>
+<li><strong>Apparent overkill.</strong> Using inaccessible cardinals to compute the cohomology of a scheme over <span class="math inline">\(\mathbb{Z}\)</span> looks disproportionate to a logician. This raised the question whether Wiles’s proof of Fermat’s Last Theorem — which relies on Grothendieck-style machinery — “uses” large cardinals. McLarty (2010, 2020) argued in detail that it does not: the large structures of SGA can be founded on finite-order arithmetic, i.e.&nbsp;at roughly the strength of <span class="math inline">\(\mathsf{ETCS}\)</span>.</li>
+</ol>
+</section>
+<section id="alternatives-to-universes" class="level3">
+<h3 class="anchored" data-anchor-id="alternatives-to-universes">Alternatives to universes</h3>
+<table class="caption-top table">
+<caption>Approaches to size</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 45%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Idea</th>
+<th>Strength</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathsf{NBG}\)</span> classes</td>
+<td>sets and classes; <span class="math inline">\(\mathbf{Set}\)</span>, <span class="math inline">\(\mathbf{Grp}\)</span> are classes</td>
+<td>conservative over <span class="math inline">\(\mathsf{ZFC}\)</span>; no “class of classes”</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathsf{MK}\)</span> classes</td>
+<td>classes with impredicative comprehension</td>
+<td>stronger than <span class="math inline">\(\mathsf{ZFC}\)</span></td>
+</tr>
+<tr class="odd">
+<td>One universe (Mac Lane 1969)</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span> + one inaccessible: small = in <span class="math inline">\(U\)</span>, large = set</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span> + 1 inaccessible</td>
+</tr>
+<tr class="even">
+<td>Reflection (Feferman 1969)</td>
+<td><span class="math inline">\(\mathsf{ZFC}/S\)</span>, see below</td>
+<td>conservative over <span class="math inline">\(\mathsf{ZFC}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Careful bounding</td>
+<td>fix a large enough <span class="math inline">\(V_\alpha\)</span> by hand (e.g.&nbsp;the Stacks Project)</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span></td>
+</tr>
+<tr class="even">
+<td>Structural universes</td>
+<td><span class="math inline">\(\mathsf{ETCS}+ \mathsf{R}\)</span> + universe <em>objects</em> <span class="math inline">\(\mathrm{El} \to U\)</span></td>
+<td>matches <span class="math inline">\(\mathsf{ZFC}\)</span> + inaccessibles</td>
+</tr>
+</tbody>
+</table>
+<p>Feferman’s approach deserves a closer look, since it uses the <strong>reflection theorem</strong> (Lévy–Montague): for any finite set of formulas <span class="math inline">\(\varphi_1, \dots, \varphi_n\)</span> of set theory, <span class="math inline">\(\mathsf{ZFC}\)</span> proves that there are arbitrarily large <span class="math inline">\(\alpha\)</span> such that each <span class="math inline">\(\varphi_i\)</span> is <strong>absolute</strong> between <span class="math inline">\(V_\alpha\)</span> and <span class="math inline">\(V\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-zfc-s" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 22.4 (Feferman 1969)</strong></span> <br>
+<span class="math inline">\(\mathsf{ZFC}/S\)</span> is the theory in the language <span class="math inline">\(\{\in, S\}\)</span>, with <span class="math inline">\(S\)</span> a new constant, consisting of <span class="math inline">\(\mathsf{ZFC}\)</span> (with schemas for the extended language), the axiom “<span class="math inline">\(S\)</span> is transitive”, and the <strong>reflection schema</strong> <span class="math display">\[
+\forall x_1, \dots, x_n \in S \; \big( \varphi(\vec x) \leftrightarrow \varphi^S(\vec x) \big)
+\]</span> for every formula <span class="math inline">\(\varphi\)</span> of the language <span class="math inline">\(\{\in\}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Inside <span class="math inline">\(\mathsf{ZFC}/S\)</span>, <span class="math inline">\(S\)</span> behaves like a universe for all practical purposes: since every <span class="math inline">\(\mathsf{ZFC}\)</span> axiom is true, it is true relativized to <span class="math inline">\(S\)</span>; one also checks that <span class="math inline">\(S\)</span> is closed under pairs, power sets, etc. (Exercise.) Category theory can then use “element of <span class="math inline">\(S\)</span>” as “small”.</p>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-zfc-s-conservative" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 22.7 (Feferman)</strong></span> <br>
+<span class="math inline">\(\mathsf{ZFC}/S\)</span> is conservative over <span class="math inline">\(\mathsf{ZFC}\)</span>: any sentence of <span class="math inline">\(\{\in\}\)</span> provable in <span class="math inline">\(\mathsf{ZFC}/S\)</span> is provable in <span class="math inline">\(\mathsf{ZFC}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof (Proof sketch)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof sketch). </span>A proof in <span class="math inline">\(\mathsf{ZFC}/S\)</span> uses only finitely many instances of the reflection schema. By the reflection theorem, <span class="math inline">\(\mathsf{ZFC}\)</span> proves that there is an <span class="math inline">\(\alpha\)</span> (take the least) such that <span class="math inline">\(V_\alpha\)</span> reflects the finitely many formulas involved. Interpreting <span class="math inline">\(S\)</span> as this definable <span class="math inline">\(V_\alpha\)</span> turns the proof into a proof in <span class="math inline">\(\mathsf{ZFC}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The catch: <span class="math inline">\(S\)</span> is not provably inaccessible, and <span class="math inline">\(\mathsf{ZFC}/S\)</span> handles only <em>one</em> step of largeness (small vs.&nbsp;large) without extra effort. It is a precise version of the working mathematician’s intuition that “small” categories should look like large ones.</p>
+</section>
+</section>
+<section id="the-fefermanmac-lane-debate" class="level2">
+<h2 class="anchored" data-anchor-id="the-fefermanmac-lane-debate">The Feferman–Mac Lane debate</h2>
+<p>The “Feferman–Mac Lane debate” is less a single exchange than a series of papers and replies, from the late 1960s to the 2010s, on whether category theory can serve as an <em>autonomous</em> foundation for mathematics, and how its size problems should be handled. It is worth noting at the outset that on size, the two protagonists started from agreement: both of their 1969 papers (in the same Springer Lecture Notes volume) proposed <em>set-theoretic</em> treatments — Mac Lane one universe, Feferman reflection.</p>
+<section id="a-rough-chronology" class="level3">
+<h3 class="anchored" data-anchor-id="a-rough-chronology">A rough chronology</h3>
+<ul>
+<li><strong>1964–66.</strong> Lawvere’s <span class="math inline">\(\mathsf{ETCS}\)</span>, and his <em>category of categories as a foundation</em> (CCAF), an axiomatization in which categories are primitive and sets are a derived notion. (Isbell pointed out problems with the original formulation; McLarty later repaired it.)</li>
+<li><strong>1969.</strong> Mac Lane, <em>One universe as a foundation for category theory</em>; Feferman, <em>Set-theoretical foundations of category theory</em>.</li>
+<li><strong>1977.</strong> Feferman, <em>Categorical foundations and foundations of category theory</em> — the central critical text.</li>
+<li><strong>1986.</strong> Mac Lane, <em>Mathematics: Form and Function</em>; advocates <span class="math inline">\(\mathsf{ZBQC}\)</span> (our <span class="math inline">\(\mathsf{BZC}\)</span>) and a structural, pluralist view.</li>
+<li><strong>1992.</strong> Mathias, <em>What is Mac Lane missing?</em>, and Mac Lane’s reply, <em>Is Mathias an ontologist?</em></li>
+<li><strong>2003–04.</strong> Hellman’s challenge to categorical structuralism, answered by Awodey and McLarty.</li>
+<li><strong>2006, 2013.</strong> Feferman’s stratified (NFU-based) proposals and <em>Foundations of unlimited category theory: what remains to be done</em>.</li>
+</ul>
+</section>
+<section id="fefermans-position" class="level3">
+<h3 class="anchored" data-anchor-id="fefermans-position">Feferman’s position</h3>
+<p>Feferman’s 1977 argument targets the claim (associated with Lawvere) that category theory could replace set theory as <em>the</em> foundation. His central thesis is one of <strong>priority</strong>:</p>
+<blockquote class="blockquote">
+<p>The notion of a category presupposes the notions of <em>collection</em> and <em>operation</em>: a category is a collection of objects and a collection of arrows, with operations of domain, codomain, and composition.</p>
+</blockquote>
+<p>He distinguishes two kinds of priority:</p>
+<ul>
+<li><strong>logical priority</strong>: the definition of “category” (and of “functor”, “topos”, …) is formulated in terms of collections and operations, so these notions are <em>logically</em> prior;</li>
+<li><strong>psychological (conceptual) priority</strong>: to <em>understand</em> categorical notions, one must already understand collection and operation; no one learns “category” first.</li>
+</ul>
+<p>From this he concludes that category theory cannot be an autonomous foundation, although it is an extraordinarily powerful <em>organizing</em> framework. Feferman’s alternative is not <span class="math inline">\(\mathsf{ZFC}\)</span> dogmatism — he was himself a predicativist with deep reservations about full power sets — but a theory of operations and collections that is prior to both sets and categories.</p>
+<p>His second theme is the <strong>foundations of category theory itself</strong>. In his later work he formulated requirements (paraphrased) that an adequate foundation for “unlimited” category theory should meet:</p>
+<ul>
+<li><strong>(R1)</strong> form the category of <em>all</em> structures of a given kind, e.g.&nbsp;<em>all</em> groups, <em>all</em> topological spaces, <em>all</em> categories;</li>
+<li><strong>(R2)</strong> form the category <span class="math inline">\(\mathcal{B}^{\mathcal{A}}\)</span> of all functors between <em>any</em> two categories <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\mathcal{B}\)</span>;</li>
+<li><strong>(R3)</strong> establish the existence of <span class="math inline">\(\mathbb{N}\)</span> and the usual set-theoretic constructions, so that ordinary mathematics is available.</li>
+</ul>
+<p>In <span class="math inline">\(\mathsf{ZFC}+ \mathsf{UA}\)</span>, (R1) and (R2) hold only <em>relative to a universe</em>: we get all <span class="math inline">\(U\)</span>-small groups, never all groups. Feferman’s stratified systems, based on Quine’s <span class="math inline">\(\mathsf{NF}\)</span> with urelements (<span class="math inline">\(\mathsf{NFU}\)</span>, consistent by Jensen), contain a universal set and can meet (R1) — even <span class="math inline">\(\mathcal{C}\in \mathcal{C}\)</span> — but satisfy (R2) only partially. As far as anyone knows, the full set of requirements has not been met; the antinomies of the previous section suggest why it is hard.</p>
+</section>
+<section id="mac-lanes-position" class="level3">
+<h3 class="anchored" data-anchor-id="mac-lanes-position">Mac Lane’s position</h3>
+<p>Mac Lane did not dispute the logic; he disputed what foundations are <em>for</em>.</p>
+<ol type="1">
+<li><strong>Mathematics is about form.</strong> Mathematical objects are determined by their structure, not by what they are “made of”. Questions like “is <span class="math inline">\(1 \in 2\)</span>?” or “is <span class="math inline">\(\pi\)</span> an element of <span class="math inline">\(3\)</span>?” are artifacts of the material encoding, not mathematics (compare Benacerraf’s problem, Week 15).</li>
+<li><strong>ZFC is too strong in the wrong places.</strong> The cumulative hierarchy and Replacement are, in Mac Lane’s view, “irrelevant” to almost all of mathematics. He proposed <span class="math inline">\(\mathsf{ZBQC}\)</span> — which, as we have seen, is exactly the strength of <span class="math inline">\(\mathsf{ETCS}\)</span>.</li>
+<li><strong>On priority.</strong> The notions of “collection” and “operation” that Feferman calls prior are the <em>informal</em> notions underlying any first-order theory — including <span class="math inline">\(\mathsf{ZFC}\)</span>, whose models are also collections with operations. They do not privilege <em>set theory</em> over category theory. (Later categorical structuralists, e.g.&nbsp;Awodey and McLarty, sharpened this: <span class="math inline">\(\mathsf{ETCS}\)</span> takes <em>function</em> as primitive just as <span class="math inline">\(\mathsf{ZFC}\)</span> takes <em>membership</em> as primitive; neither is defined from the other.)</li>
+<li><strong>Pluralism.</strong> Mathematics has no single privileged foundation; set theory, category theory, and (today one would add) type theory each illuminate different aspects of it.</li>
+</ol>
+</section>
+<section id="the-mathias-interlude" class="level3">
+<h3 class="anchored" data-anchor-id="the-mathias-interlude">The Mathias interlude</h3>
+<p>Mathias attacked Mac Lane from the set-theoretic side: <span class="math inline">\(\mathsf{ZBQC}\)</span> cannot handle large parts of set theory and some of analysis. It cannot prove that <span class="math inline">\(\omega + \omega\)</span> (as a von Neumann ordinal) exists, it cannot carry out transfinite recursions of the type used in descriptive set theory, and by Friedman’s theorem it cannot prove Borel determinacy. Mac Lane replied that this reflects an ontological prejudice in favor of the cumulative hierarchy. Notice that both of them were right about the <em>logic</em> — the dispute is over whether the mathematics that needs Replacement is “central”.</p>
+</section>
+<section id="assessment" class="level3">
+<h3 class="anchored" data-anchor-id="assessment">Assessment</h3>
+<p>It helps to separate several questions that the debate sometimes runs together.</p>
+<ul>
+<li><strong>Logical strength</strong> is settled: <span class="math inline">\(\mathsf{ETCS}\approx \mathsf{BZC}\)</span> and <span class="math inline">\(\mathsf{ETCS}+ \mathsf{R} \approx \mathsf{ZFC}\)</span>. This is <em>not</em> where the disagreement lies.</li>
+<li><strong>Autonomy</strong> comes in several flavors (Linnebo–Pettigrew): <em>logical</em> (can the theory be stated without prior set theory? — yes, <span class="math inline">\(\mathsf{ETCS}\)</span> is a first-order theory), <em>conceptual</em> (can its notions be understood without prior set-theoretic notions? — this is Feferman’s psychological priority), and <em>justificatory</em> (can its axioms be justified without appeal to set theory?).</li>
+<li><strong>Algebraic vs.&nbsp;assertory axioms</strong> (Hellman): the axioms of a category describe a <em>kind</em> of structure, like the group axioms, and assert nothing exists. <span class="math inline">\(\mathsf{ETCS}\)</span>, however, <em>is</em> assertory in the relevant sense — it asserts that there is a universe of sets with certain properties, exactly as <span class="math inline">\(\mathsf{ZFC}\)</span> does.</li>
+<li><strong>Size</strong> remains a shared problem. Both frameworks need some external device — classes, universes, reflection, or relativization to a base topos — and the diagonal arguments show that no framework can make the totality of all its objects an object of itself.</li>
+</ul>
+<p>Recall the three senses of “foundation” from Unit 0: <em>ontological</em>, <em>epistemological</em>, <em>organizational</em>. Feferman’s priority argument is essentially <strong>epistemological</strong>; Mac Lane’s case is essentially <strong>organizational</strong> (and anti-ontological). Much of the debate is the sound of these two senses talking past each other — a theme we will return to when we add type theory to the comparison in Part III and in Week 15.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\mathsf{ZFC}\)</span></th>
+<th><span class="math inline">\(\mathsf{ETCS}\)</span></th>
+<th><span class="math inline">\(\mathsf{ZFC}+ \mathsf{UA}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primitive notion</td>
+<td>membership <span class="math inline">\(\in\)</span></td>
+<td>function (arrow)</td>
+<td>membership <span class="math inline">\(\in\)</span></td>
+</tr>
+<tr class="even">
+<td>Identity of sets</td>
+<td>extensional, absolute</td>
+<td>up to isomorphism</td>
+<td>extensional, absolute</td>
+</tr>
+<tr class="odd">
+<td>Material counterpart</td>
+<td>—</td>
+<td><span class="math inline">\(\mathsf{BZC}\)</span></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Proves Borel determinacy</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Large categories</td>
+<td>classes (formulas)</td>
+<td>metatheoretic</td>
+<td>sets one universe up</td>
+</tr>
+<tr class="even">
+<td>Strength</td>
+<td><span class="math inline">\(\mathsf{ZFC}\)</span></td>
+<td>higher-order arithmetic</td>
+<td>proper class of inaccessibles</td>
+</tr>
+<tr class="odd">
+<td>Missing ingredient</td>
+<td>—</td>
+<td>Replacement</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.1</strong></span> Show directly that <span class="math inline">\(\mathbf{Set}_{V_{\omega+\omega}}\)</span> satisfies all axioms of <span class="math inline">\(\mathsf{ETCS}\)</span>, and fill in the details of <a href="#prp-beth-omega" class="quarto-xref">Proposition&nbsp;<span>22.2</span></a>. Which instance of Replacement proves the existence of the family in <a href="#prp-beth-omega" class="quarto-xref">Proposition&nbsp;<span>22.2</span></a> in <span class="math inline">\(\mathsf{ZFC}\)</span>?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.2</strong></span> Show that an isomorphism between two APGs in a model of <span class="math inline">\(\mathsf{ETCS}\)</span> is unique if it exists. (Compare the uniqueness part of the Mostowski collapse.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.3</strong></span> Let <span class="math inline">\(\mathcal{S} \models \mathsf{ETCS}\)</span>. Show that the interpretation <span class="math inline">\(M(\mathcal{S})\)</span> satisfies the Power Set axiom. (Hint: given an APG <span class="math inline">\((X,R,r)\)</span>, build a new APG whose children of the root correspond to the subobjects of the set of children of <span class="math inline">\(r\)</span>, using <span class="math inline">\(\Omega^X\)</span>.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.4</strong></span> Use <a href="#thm-lawvere-fixed-point" class="quarto-xref">Theorem&nbsp;<span>22.5</span></a> to prove: in a cartesian closed category, if some object <span class="math inline">\(Y\)</span> has an endomorphism without fixed points, then for no object <span class="math inline">\(A\)</span> is there a weakly point-surjective map <span class="math inline">\(A \times A \to Y\)</span>. Derive Cantor’s theorem <span class="math inline">\(|X| &lt; |\mathcal{P}(X)|\)</span> for sets as a special case.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.5</strong></span> Prove <a href="#prp-ua-inaccessibles" class="quarto-xref">Proposition&nbsp;<span>22.3</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.6</strong></span> Show that if <span class="math inline">\(\kappa\)</span> is an inaccessible cardinal that is a limit of inaccessible cardinals, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}+ \mathsf{UA}\)</span>. Conclude that <span class="math inline">\(\mathsf{ZFC}+ \mathsf{UA}\)</span> is strictly weaker in consistency strength than <span class="math inline">\(\mathsf{ZFC}+ {}\)</span>“there is an inaccessible limit of inaccessibles”.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.7</strong></span> In <span class="math inline">\(\mathsf{ZFC}/S\)</span>, show that <span class="math inline">\(S\)</span> is closed under pairs and power sets, and that <span class="math inline">\(\omega \in S\)</span>. (Hint: reflect the formulas <span class="math inline">\(\exists z\, (z = \{x,y\})\)</span> and <span class="math inline">\(\exists z\, (z = \mathcal{P}(x))\)</span>, and also the formula “<span class="math inline">\(z = \mathcal{P}(x)\)</span>” itself.) Can you prove in <span class="math inline">\(\mathsf{ZFC}/S\)</span> that <span class="math inline">\(S\)</span> is a universe?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 22.8</strong></span> Let <span class="math inline">\(U \in U'\)</span> be universes. Show that <span class="math inline">\(\mathcal{C}_U\)</span> is an object of <span class="math inline">\(\mathcal{C}_{U'}\)</span> but not of <span class="math inline">\(\mathcal{C}_U\)</span>. Which of Feferman’s requirements (R1)–(R3) does <span class="math inline">\(\mathsf{ZFC}+ \mathsf{UA}\)</span> satisfy, and in what relativized sense?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion-questions" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-questions">Discussion questions</h2>
+<ol type="1">
+<li>Feferman argues that “collection” and “operation” are prior to “category”. Does the same argument show that “collection” is prior to “set” in <span class="math inline">\(\mathsf{ZFC}\)</span>? If so, what does the argument actually establish?</li>
+<li>Mac Lane claimed Replacement is irrelevant to ordinary mathematics; Borel determinacy is a counterexample. Is Borel determinacy “ordinary mathematics”? Who gets to decide?</li>
+<li>Is the use of Grothendieck universes in algebraic geometry an ontological commitment to inaccessible cardinals, or a convenient bookkeeping device? Does McLarty’s work on finite-order arithmetic change your answer?</li>
+<li>Lawvere’s fixed point theorem shows that a “universe object” <span class="math inline">\(U \cong \Omega^U\)</span> is impossible in a nondegenerate topos. Type theories nevertheless have universe types. What is the difference?</li>
+</ol>
+</section>
+<section id="references-and-further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="references-and-further-reading">References and further reading</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These references were compiled from memory. Please double-check bibliographic details before distributing.</p>
+</div>
+</div>
+<p><strong>ETCS and its strength</strong></p>
+<ul>
+<li>F. W. Lawvere, <em>An elementary theory of the category of sets</em>, Proc. Nat. Acad. Sci. 52 (1964). Expanded reprint with commentary by Lawvere and McLarty: <em>Reprints in Theory and Applications of Categories</em> 11 (2005).</li>
+<li>T. Leinster, <em>Rethinking set theory</em>, Amer. Math. Monthly 121 (2014). (A very readable account of <span class="math inline">\(\mathsf{ETCS}\)</span>.)</li>
+<li>W. Mitchell, <em>Boolean topoi and the theory of sets</em>, J. Pure Appl. Algebra 2 (1972).</li>
+<li>G. Osius, <em>Categorical set theory: a characterization of the category of sets</em>, J. Pure Appl. Algebra 4 (1974).</li>
+<li>A. R. D. Mathias, <em>The strength of Mac Lane set theory</em>, Ann. Pure Appl. Logic 110 (2001).</li>
+<li>M. Shulman, <em>Comparing material and structural set theories</em>, Ann. Pure Appl. Logic 170 (2019).</li>
+<li>J. Lambek, P. Scott, <em>Introduction to Higher Order Categorical Logic</em>, Cambridge (1986).</li>
+<li>H. Friedman, <em>Higher set theory and mathematical practice</em>, Ann. Math. Logic 2 (1971); D. A. Martin, <em>Borel determinacy</em>, Ann. of Math. 102 (1975).</li>
+</ul>
+<p><strong>Size, universes, and the antinomies</strong></p>
+<ul>
+<li>F. W. Lawvere, <em>Diagonal arguments and cartesian closed categories</em>, LNM 92 (1969).</li>
+<li>M. Artin, A. Grothendieck, J.-L. Verdier, <em>SGA 4</em>, Exposé I, Appendix on universes.</li>
+<li>M. Shulman, <em>Set theory for category theory</em>, arXiv:0810.1279 (2008). (Excellent survey of the options.)</li>
+<li>J. Bénabou, <em>Fibered categories and the foundations of naive category theory</em>, J. Symbolic Logic 50 (1985).</li>
+<li>C. McLarty, <em>What does it take to prove Fermat’s Last Theorem?</em>, Bull. Symb. Logic 16 (2010); <em>The large structures of Grothendieck founded on finite-order arithmetic</em>, Rev.&nbsp;Symb. Logic 13 (2020).</li>
+<li>M. Carneiro, <em>The Type Theory of Lean</em>, MS thesis, CMU (2019).</li>
+</ul>
+<p><strong>The debate</strong></p>
+<ul>
+<li>S. Mac Lane, <em>One universe as a foundation for category theory</em>, and S. Feferman, <em>Set-theoretical foundations of category theory</em>, both in LNM 106 (1969).</li>
+<li>S. Feferman, <em>Categorical foundations and foundations of category theory</em>, in Butts–Hintikka (eds.), <em>Logic, Foundations of Mathematics and Computability Theory</em> (1977).</li>
+<li>S. Mac Lane, <em>Mathematics: Form and Function</em>, Springer (1986).</li>
+<li>A. R. D. Mathias, <em>What is Mac Lane missing?</em>, and S. Mac Lane, <em>Is Mathias an ontologist?</em>, both in <em>Set Theory of the Continuum</em>, MSRI Publ. 26 (1992).</li>
+<li>G. Hellman, <em>Does category theory provide a framework for mathematical structuralism?</em>, Philos. Math. 11 (2003); S. Awodey, <em>An answer to Hellman’s question</em>, Philos. Math. 12 (2004); C. McLarty, <em>Exploring categorical structuralism</em>, Philos. Math. 12 (2004).</li>
+<li>Ø. Linnebo, R. Pettigrew, <em>Category theory as an autonomous foundation</em>, Philos. Math. 19 (2011).</li>
+<li>S. Feferman, <em>Foundations of unlimited category theory: what remains to be done</em>, Rev.&nbsp;Symb. Logic 6 (2013).</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/topos-logic.html" class="pagination-link" aria-label="Toposes and Intuitionistic Logic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Toposes and Intuitionistic Logic</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

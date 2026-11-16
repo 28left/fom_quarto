@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>The Foundational Crisis – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/zfc-as-a-foundation.html" rel="next">
+<link href="../lectures/lec01.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/lec01.html">The Foundational Crisis</a></li><li class="breadcrumb-item"><a href="../lectures/lec02.html"><span class="chapter-title">The Foundational Crisis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-and-roadmap" id="toc-recap-and-roadmap" class="nav-link active" data-scroll-target="#recap-and-roadmap">Recap and Roadmap</a></li>
+  <li><a href="#the-comprehension-principle-again" id="toc-the-comprehension-principle-again" class="nav-link" data-scroll-target="#the-comprehension-principle-again">The Comprehension Principle, Again</a></li>
+  <li><a href="#the-set-theoretic-paradoxes" id="toc-the-set-theoretic-paradoxes" class="nav-link" data-scroll-target="#the-set-theoretic-paradoxes">The Set-Theoretic Paradoxes</a></li>
+  <li><a href="#hilbert-and-existence" id="toc-hilbert-and-existence" class="nav-link" data-scroll-target="#hilbert-and-existence">Hilbert and Existence</a></li>
+  <li><a href="#predicativity-poincarés-diagnosis" id="toc-predicativity-poincarés-diagnosis" class="nav-link" data-scroll-target="#predicativity-poincarés-diagnosis">Predicativity — Poincaré’s Diagnosis</a></li>
+  <li><a href="#richards-paradox-a-semantic-paradox" id="toc-richards-paradox-a-semantic-paradox" class="nav-link" data-scroll-target="#richards-paradox-a-semantic-paradox">Richard’s Paradox (a Semantic Paradox)</a></li>
+  <li><a href="#two-responses-to-impredicativity" id="toc-two-responses-to-impredicativity" class="nav-link" data-scroll-target="#two-responses-to-impredicativity">Two Responses to Impredicativity</a></li>
+  <li><a href="#where-predicativity-led" id="toc-where-predicativity-led" class="nav-link" data-scroll-target="#where-predicativity-led">Where Predicativity Led</a></li>
+  <li><a href="#controversy-on-the-axiom-of-choice" id="toc-controversy-on-the-axiom-of-choice" class="nav-link" data-scroll-target="#controversy-on-the-axiom-of-choice">Controversy on the Axiom of Choice</a></li>
+  <li><a href="#from-controversy-to-axiom-system" id="toc-from-controversy-to-axiom-system" class="nav-link" data-scroll-target="#from-controversy-to-axiom-system">From Controversy to Axiom System</a></li>
+  <li><a href="#what-zfc-codifies" id="toc-what-zfc-codifies" class="nav-link" data-scroll-target="#what-zfc-codifies">What ZFC Codifies</a></li>
+  <li><a href="#summary---response-to-the-paradoxes" id="toc-summary---response-to-the-paradoxes" class="nav-link" data-scroll-target="#summary---response-to-the-paradoxes">Summary - Response to the Paradoxes</a></li>
+  <li><a href="#a-new-kind-of-critique" id="toc-a-new-kind-of-critique" class="nav-link" data-scroll-target="#a-new-kind-of-critique">A New Kind of Critique</a></li>
+  <li><a href="#what-is-brouwers-revolution" id="toc-what-is-brouwers-revolution" class="nav-link" data-scroll-target="#what-is-brouwers-revolution">What is Brouwer’s “Revolution”?</a></li>
+  <li><a href="#intuitionism-first-principles" id="toc-intuitionism-first-principles" class="nav-link" data-scroll-target="#intuitionism-first-principles">Intuitionism — First Principles</a></li>
+  <li><a href="#the-constructive-standard" id="toc-the-constructive-standard" class="nav-link" data-scroll-target="#the-constructive-standard">The Constructive Standard</a></li>
+  <li><a href="#a-different-notion-of-truth" id="toc-a-different-notion-of-truth" class="nav-link" data-scroll-target="#a-different-notion-of-truth">A Different Notion of Truth</a></li>
+  <li><a href="#rebuilding-analysis-choice-sequences" id="toc-rebuilding-analysis-choice-sequences" class="nav-link" data-scroll-target="#rebuilding-analysis-choice-sequences">Rebuilding Analysis: Choice Sequences</a></li>
+  <li><a href="#spreads-and-a-new-continuum" id="toc-spreads-and-a-new-continuum" class="nav-link" data-scroll-target="#spreads-and-a-new-continuum">Spreads and a New Continuum</a></li>
+  <li><a href="#the-startling-consequence" id="toc-the-startling-consequence" class="nav-link" data-scroll-target="#the-startling-consequence">The Startling Consequence</a></li>
+  <li><a href="#the-cost-of-intuitionism" id="toc-the-cost-of-intuitionism" class="nav-link" data-scroll-target="#the-cost-of-intuitionism">The Cost of Intuitionism</a></li>
+  <li><a href="#hilberts-program" id="toc-hilberts-program" class="nav-link" data-scroll-target="#hilberts-program">Hilbert’s Program</a></li>
+  <li><a href="#the-four-steps-of-the-program" id="toc-the-four-steps-of-the-program" class="nav-link" data-scroll-target="#the-four-steps-of-the-program">The Four Steps of the Program</a></li>
+  <li><a href="#finitism-what-counts-as-given" id="toc-finitism-what-counts-as-given" class="nav-link" data-scroll-target="#finitism-what-counts-as-given">Finitism: What Counts as “Given”</a></li>
+  <li><a href="#progress-and-limits-1920s" id="toc-progress-and-limits-1920s" class="nav-link" data-scroll-target="#progress-and-limits-1920s">Progress and Limits (1920s)</a></li>
+  <li><a href="#formalism-a-slightly-misleading-name" id="toc-formalism-a-slightly-misleading-name" class="nav-link" data-scroll-target="#formalism-a-slightly-misleading-name">“Formalism” — a Slightly Misleading Name</a></li>
+  <li><a href="#a-personal-crisis-too" id="toc-a-personal-crisis-too" class="nav-link" data-scroll-target="#a-personal-crisis-too">A Personal Crisis, Too</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/lec01.html">The Foundational Crisis</a></li><li class="breadcrumb-item"><a href="../lectures/lec02.html"><span class="chapter-title">The Foundational Crisis</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">The Foundational Crisis</span></h1>
+<p class="subtitle lead">From Paradox to Program</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="recap-and-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="recap-and-roadmap">Recap and Roadmap</h2>
+<p>Last time: Dedekind &amp; Cantor’s existential, set-theoretic style of mathematics — and Russell’s paradox, which broke Frege’s comprehension principle.</p>
+<p>Today</p>
+<ul>
+<li>paradoxes and consistency, predicativity, the axiom of choice</li>
+<li>Brouwer’s intuitionism vs.&nbsp;Hilbert’s program</li>
+</ul>
+<p>The question throughout: <em>what is a legitimate mathematical object, definition, or proof?</em></p>
+</section>
+<section id="the-comprehension-principle-again" class="level2">
+<h2 class="anchored" data-anchor-id="the-comprehension-principle-again">The Comprehension Principle, Again</h2>
+<p>Recall the principle that broke under Russell’s paradox:</p>
+<p><span class="math display">\[
+\text{for any well-defined property } p,\ \text{there exists } \{x : p(x)\}
+\]</span></p>
+<ul>
+<li>This was the <em>basis for the logicist understanding of set theory</em> — “naive” set theory</li>
+<li>Not just Russell’s paradox: <strong>two families</strong> of paradoxes emerged around 1900
+<ul>
+<li><strong>set-theoretic</strong> paradoxes (Burali-Forti, Cantor, Russell/Zermelo)</li>
+<li><strong>semantic</strong> paradoxes (Richard, König, Grelling) — about truth and definability</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-set-theoretic-paradoxes" class="level2">
+<h2 class="anchored" data-anchor-id="the-set-theoretic-paradoxes">The Set-Theoretic Paradoxes</h2>
+<ul>
+<li><strong>Burali-Forti (1897; Cantor 1896):</strong> the set of all ordinals would itself be well-ordered, hence have an ordinal <span class="math inline">\(&gt;\)</span> every ordinal in it — contradiction</li>
+<li><strong>Cantor (1899):</strong> the set of all cardinals leads to the same kind of contradiction</li>
+<li><strong>Zermelo–Russell (1901–02):</strong> let <span class="math inline">\(p(x)\)</span> be “<span class="math inline">\(x \notin x\)</span>” and consider <span class="math inline">\(R = \{x : x \notin x\}\)</span></li>
+</ul>
+<p>Comprehension is contradictory in the <em>simplest possible way</em> — no need for a theory of the transfinite to state it.</p>
+</section>
+<section id="hilbert-and-existence" class="level2">
+<h2 class="anchored" data-anchor-id="hilbert-and-existence">Hilbert and Existence</h2>
+<p>Hilbert abandoned logicism. He proposed working with axiom systems that comprise non-logical axioms.</p>
+<p>This, however, requires a new kind of justification why the ojects we are trying to axiomatize exist.</p>
+<p><strong>Hilbert’s proposal:</strong></p>
+<ul>
+<li>A set of objects “exists” only if we can prove its defining axiom system <strong>consistent</strong></li>
+<li><em>concept <span class="math inline">\(\to\)</span> set</em> becomes <em>consistency proof <span class="math inline">\(\to\)</span> legitimate existence</em></li>
+<li>Objects have a kind of <strong>ideal existence</strong> “in the realm of thought,” not independent metaphysical existence <!-- - Task handed to **Zermelo**: axiomatize set theory as a *mathematical*, not logical, theory --></li>
+</ul>
+</section>
+<section id="predicativity-poincarés-diagnosis" class="level2">
+<h2 class="anchored" data-anchor-id="predicativity-poincarés-diagnosis">Predicativity — Poincaré’s Diagnosis</h2>
+<p>When Frege’s and Russell’s paradoxes became widely known (1903), <strong>Poincaré</strong> offered his own culprit: <strong>impredicative definitions</strong>.</p>
+<blockquote class="blockquote">
+<p>A definition is <em>impredicative</em> when it refers to a totality that already contains the very element being defined.</p>
+</blockquote>
+<ul>
+<li>Example: <strong>least upper bound</strong> – defining the supremum involves quantifying over “all upper bounds,” a set of real numbers, in order to pin down a particular real number. That real number is thus specified by reference to a totality it belongs to.<br></li>
+<li>Poincaré: this kind of circularity is exactly what licenses the paradoxes</li>
+</ul>
+</section>
+<section id="richards-paradox-a-semantic-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="richards-paradox-a-semantic-paradox">Richard’s Paradox (a Semantic Paradox)</h2>
+<ul>
+<li>Only countably many reals are <em>definable</em> by a finite expression — list them <span class="math inline">\(a_1, a_2, a_3, \dots\)</span> (lexicographic order)</li>
+<li>Define <span class="math inline">\(r\)</span>: the <span class="math inline">\(n\)</span>th decimal digit of <span class="math inline">\(r\)</span> differs from the <span class="math inline">\(n\)</span>th digit of <span class="math inline">\(a_n\)</span></li>
+<li><span class="math inline">\(r\)</span> is not on the list — yet <span class="math inline">\(r\)</span> was just <em>defined</em>, in finitely many words!</li>
+</ul>
+<p>Poincaré’s diagnosis: <span class="math inline">\(r\)</span>’s definition refers to the totality of <em>all</em> definable numbers, of which <span class="math inline">\(r\)</span> is itself meant to be a member. Impredicative.</p>
+</section>
+<section id="two-responses-to-impredicativity" class="level2">
+<h2 class="anchored" data-anchor-id="two-responses-to-impredicativity">Two Responses to Impredicativity</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Zermelo — unconvinced</strong></p>
+<ul>
+<li>Impredicative definitions are everywhere in classical analysis (e.g.&nbsp;least upper bound)</li>
+<li>Harmless: the object isn’t <em>created</em> by the definition, only <em>singled out</em> from what already exists</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Russell — convinced</strong></p>
+<ul>
+<li>Adopts Poincaré’s “vicious circle principle”</li>
+<li>Builds a <strong>theory of types</strong>: objects stratified into levels; no set of “mixed” type</li>
+<li>Result: <em>Principia Mathematica</em> (1910–13)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="where-predicativity-led" class="level2">
+<h2 class="anchored" data-anchor-id="where-predicativity-led">Where Predicativity Led</h2>
+<ul>
+<li>Russell’s <em>ramified</em> type theory needed extra ad hoc machinery (the axiom of <strong>reducibility</strong>) to recover ordinary mathematics</li>
+<li><strong>Weyl</strong>, in <em>Das Kontinuum</em> (1918), tried a leaner predicative foundation: accept classical logic and <span class="math inline">\(\mathbb{N}\)</span>, but build the reals predicatively
+<ul>
+<li>cost: <span class="math inline">\(\mathbb{R}\)</span> is no longer complete — the Bolzano–Weierstrass theorem fails</li>
+</ul></li>
+<li>Predicative mathematics survives today as a serious <em>middle ground</em> between classical and constructive mathematics</li>
+</ul>
+</section>
+<section id="controversy-on-the-axiom-of-choice" class="level2">
+<h2 class="anchored" data-anchor-id="controversy-on-the-axiom-of-choice">Controversy on the Axiom of Choice</h2>
+<p><strong>Zermelo (1904):</strong> <span class="math inline">\(\mathrm{AC} \implies\)</span> every set — in particular <span class="math inline">\(\mathbb{R}\)</span> — can be <strong>well-ordered</strong>.</p>
+<ul>
+<li><span class="math inline">\(\mathrm{AC}\)</span>: given any family of disjoint nonempty sets, a <em>choice set</em> exists containing one element from each</li>
+<li>The proof gives <strong>no explicit construction</strong> of the well-ordering</li>
+<li>Critics: <span class="math inline">\(\mathrm{AC}\)</span> merely <em>asserts</em> the choice set exists, without a defining property for it</li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span> a deep debate followed, cutting across the logicism/predicativism divide.</p>
+</section>
+<section id="from-controversy-to-axiom-system" class="level2">
+<h2 class="anchored" data-anchor-id="from-controversy-to-axiom-system">From Controversy to Axiom System</h2>
+<p>The AC debate spurred Zermelo to work out his <strong>axiom system</strong> for set theory (1908) — a careful, mathematical (not logical) analysis of Cantor’s and Dedekind’s set theory.</p>
+<ul>
+<li><strong>Fraenkel &amp; von Neumann</strong> (1920s) add: <strong>Replacement</strong> and <strong>Regularity</strong></li>
+<li><strong>Weyl &amp; Skolem</strong>: formalize within <strong>first-order logic</strong> — quantify only over <em>sets</em>, not over <em>properties</em></li>
+</ul>
+<p><span class="math display">\[
+\rightsquigarrow \quad \mathrm{ZF(C)}
+\]</span></p>
+</section>
+<section id="what-zfc-codifies" class="level2">
+<h2 class="anchored" data-anchor-id="what-zfc-codifies">What ZFC Codifies</h2>
+<p>ZFC settles the early-1900s controversies by simply <strong>building in</strong> the modern, anti-Kroneckerian traits:</p>
+<ul>
+<li>impredicative definitions — <strong>allowed</strong></li>
+<li>arbitrary functions and subsets — <strong>allowed</strong></li>
+<li>purely existential proofs — <strong>allowed</strong></li>
+</ul>
+<div class="box">
+<p>The result: a working <strong>“Platonistic” view</strong> of mathematics — the objects a theory refers to are treated <em>as if</em> they exist independently of what a mathematician can explicitly define or construct.</p>
+</div>
+<p>By the 1920s, Russell’s (simplified) type theory and Zermelo’s set theory had largely converged on this same methodology.</p>
+</section>
+<section id="summary---response-to-the-paradoxes" class="level2">
+<h2 class="anchored" data-anchor-id="summary---response-to-the-paradoxes">Summary - Response to the Paradoxes</h2>
+<p>The paradoxes did <strong>not</strong> kill modern mathematics.</p>
+<ul>
+<li>They forced a <em>clarification</em>: existence via <strong>consistency</strong>, not naive comprehension</li>
+<li>Poincaré’s predicativism and Russell’s type theory tried to <em>restrain</em> the new methods</li>
+<li>Zermelo’s set theory — soon ZFC — <em>codified</em> the new methods instead.</li>
+</ul>
+<!-- But not everyone was satisfied. A young Dutch mathematician was about to say so, loudly. -->
+</section>
+<section id="a-new-kind-of-critique" class="level2">
+<h2 class="anchored" data-anchor-id="a-new-kind-of-critique">A New Kind of Critique</h2>
+<p><strong>1921:</strong> Weyl publishes a paper in the <em>Mathematische Zeitschrift</em> — a disciple of Hilbert’s — openly siding with <strong>Brouwer</strong>, diagnosing a “crisis in the foundations.”</p>
+<ul>
+<li>Weyl’s paper: deliberately a <em>propaganda pamphlet</em>, “to rouse the sleepers”</li>
+<li><strong>Hilbert’s reply</strong>, same year: Brouwer and Weyl are attempting a <strong>“putsch”</strong> — a “dictatorship à la Kronecker”</li>
+</ul>
+<p>The foundational debate turns into open battle: Hilbert’s classical mathematics vs.&nbsp;Brouwer’s constructive “revolution.”</p>
+</section>
+<section id="what-is-brouwers-revolution" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-brouwers-revolution">What is Brouwer’s “Revolution”?</h2>
+<p>Up to 1920, the debate concerned: real numbers, impredicativity, and the strong existential assumptions of set theory (esp.&nbsp;AC).</p>
+<p>Brouwer went further: <!-- — asking a question no one else had posed:
+
+> **Can one make legitimate use of "arbitrary subsets" at all?** --></p>
+<ul>
+<li>He put <strong>classical logic itself</strong> on trial: quantifiers over infinite domains, and the <strong>principle of excluded middle</strong> (PEM)</li>
+<li>Poincaré, Klein, and others had said logic is not the whole of mathematics; Brouwer said mathematics is <em>prior to and independent of</em> logic and language altogether.</li>
+</ul>
+</section>
+<section id="intuitionism-first-principles" class="level2">
+<h2 class="anchored" data-anchor-id="intuitionism-first-principles">Intuitionism — First Principles</h2>
+<ul>
+<li>For Brouwer, mathematical objects are <strong>mental constructions</strong>; mathematics does not depend on language or logic to exist</li>
+<li>Classical logic (including PEM) was abstracted from experience with <strong>finite</strong> sets — and wrongly extrapolated to infinite ones</li>
+<li>PEM: <span class="math inline">\(p \vee \neg p\)</span> — “either <span class="math inline">\(p\)</span> or not <span class="math inline">\(p\)</span>” — always holds, classically</li>
+</ul>
+<p>Brouwer’s claim: this is <em>not</em> a law of thought, but an unjustified generalization.</p>
+</section>
+<section id="the-constructive-standard" class="level2">
+<h2 class="anchored" data-anchor-id="the-constructive-standard">The Constructive Standard</h2>
+<!-- **Classical:** to assert "$p$ or $q$," it suffices to derive a contradiction from $\neg p \wedge \neg q$.
+
+**Constructive:** to assert "$p$ or $q$," one must actually **give** a proof of $p$, or a proof of $q$. -->
+<p>Consequence: <strong>proof by contradiction is invalid</strong>.</p>
+<ul>
+<li>Classically: assume <span class="math inline">\(\neg p\)</span>, derive a contradiction, conclude <span class="math inline">\(p\)</span></li>
+<li>Constructively: this only shows <span class="math inline">\(\neg\neg p\)</span> — not the same as a <em>construction</em> of <span class="math inline">\(p\)</span></li>
+</ul>
+<!-- ## A Concrete Failure of PEM
+
+**Catalan's constant:**
+$$
+K = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)^2}
+$$
+
+It is *not known* whether $K$ is transcendental.
+
+- No constructive proof that $K$ is transcendental — and no counterexample either
+- A constructivist will not assert "$K$ is transcendental, or $K$ is not" — PEM simply fails to apply here, *right now* -->
+</section>
+<section id="a-different-notion-of-truth" class="level2">
+<h2 class="anchored" data-anchor-id="a-different-notion-of-truth">A Different Notion of Truth</h2>
+<p>For a constructivist:</p>
+<ul>
+<li>“<span class="math inline">\(p\)</span> is <strong>true</strong>” means: we possess a proof of <span class="math inline">\(p\)</span> by stringent constructive methods</li>
+<li>“<span class="math inline">\(p\)</span> is <strong>false</strong>” means: we possess a counterexample to <span class="math inline">\(p\)</span></li>
+</ul>
+<div class="box">
+<p>To a constructivist, the statement <strong>“π is normal”</strong> currently has <em>no truth value</em> — not true, not false, not “unknown-but-determinate.” Truth is not timeless; it is made.</p>
+</div>
+<!-- (Still: **Gödel–Gentzen (1933)** show classical arithmetic is consistent *relative to* intuitionistic arithmetic — a small, surprising rapprochement.) -->
+</section>
+<section id="rebuilding-analysis-choice-sequences" class="level2">
+<h2 class="anchored" data-anchor-id="rebuilding-analysis-choice-sequences">Rebuilding Analysis: Choice Sequences</h2>
+<p>Brouwer (1918) replaces Cantorian sets with constructive substitutes: <strong>spreads</strong> and <strong>species</strong>.</p>
+<ul>
+<li>A <strong>choice sequence</strong>: a sequence of rationals not required to be fully specified in advance
+<ul>
+<li>may be generated by a fixed rule (e.g.&nbsp;Newton’s method for <span class="math inline">\(\sqrt 2\)</span>)</li>
+<li>or by choices the mathematician makes freely, <em>over time</em>, subject to constraints</li>
+</ul></li>
+</ul>
+<p>Intuitionistic mathematics is <em>“mathematics in the making”</em> — unlike the timeless, fully-determinate objects of classical analysis.</p>
+</section>
+<section id="spreads-and-a-new-continuum" class="level2">
+<h2 class="anchored" data-anchor-id="spreads-and-a-new-continuum">Spreads and a New Continuum</h2>
+<ul>
+<li>A <strong>spread</strong> is a law regulating which choice sequences are admissible — the basis for Brouwer’s reconstruction of <span class="math inline">\(\mathbb{R}\)</span></li>
+<li>The continuum becomes a genuinely <strong>continuous domain</strong>, not a set of pre-existing points
+<ul>
+<li>an echo of Aristotle: the continuum is <em>not</em> made up of unextended points</li>
+</ul></li>
+</ul>
+<p>A function on a spread must be determined from a <strong>finite initial segment</strong> of any choice sequence — this has a startling consequence.</p>
+</section>
+<section id="the-startling-consequence" class="level2">
+<h2 class="anchored" data-anchor-id="the-startling-consequence">The Startling Consequence</h2>
+<p>Every intuitionistically total function on <span class="math inline">\(\mathbb{R}\)</span> is (uniformly) <strong>continuous</strong>.</p>
+<ul>
+<li>The classical step function <span class="math display">\[
+f(x) = \begin{cases} 0 &amp; x \leq 0 \\ 1 &amp; x &gt; 0 \end{cases}
+\]</span> is <strong>not a legitimate function</strong> for Brouwer</li>
+<li>Reason: deciding <span class="math inline">\(x &gt; 0\)</span> vs.&nbsp;<span class="math inline">\(x \leq 0\)</span> is not always possible — not <em>decidable</em> from a finite stage of the sequence</li>
+</ul>
+<p><em>(Anticipates the later, independent discovery that all computable real functions are continuous — Turing and others.)</em></p>
+</section>
+<section id="the-cost-of-intuitionism" class="level2">
+<h2 class="anchored" data-anchor-id="the-cost-of-intuitionism">The Cost of Intuitionism</h2>
+<p>Rebuilding analysis this way is hard. Weyl, who once championed Brouwer’s program, wrote in 1925:</p>
+<blockquote class="blockquote">
+<p>“The mathematician watches with pain the largest part of his towering theories dissolve into mist before his eyes.”</p>
+</blockquote>
+<p>Brouwer himself, unfazed, replied (1933):</p>
+<blockquote class="blockquote">
+<p>“The spheres of truth are less transparent than those of illusion.”</p>
+</blockquote>
+<p>Weyl abandoned intuitionism shortly after. But Hilbert had another answer in mind.</p>
+</section>
+<section id="hilberts-program" class="level2">
+<h2 class="anchored" data-anchor-id="hilberts-program">Hilbert’s Program</h2>
+<p>Hilbert (1928): to <strong>“eliminate from the world once and for all the skeptical doubts”</strong> about classical mathematics.</p>
+<ul>
+<li>Strategy: use <strong>Kroneckerian</strong> (finitary, constructive) means to justify <strong>anti-Kroneckerian</strong> (classical) methods</li>
+<li>Key move: turn proofs into <strong>formal, syntactic objects</strong> — finite strings of symbols manipulated by explicit rules</li>
+<li>A proof becomes something a <strong>finitary, combinatorial</strong> argument can reason <em>about</em>, from the outside — <strong>metamathematics</strong></li>
+</ul>
+</section>
+<section id="the-four-steps-of-the-program" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-steps-of-the-program">The Four Steps of the Program</h2>
+<ol type="1">
+<li>Find suitable <strong>axioms and primitive concepts</strong> for a theory <span class="math inline">\(T\)</span> (e.g.&nbsp;the real numbers)</li>
+<li>Find axioms and rules for <strong>classical logic</strong> — syntactic rules turning propositions into new propositions</li>
+<li><strong>Formalize</strong> <span class="math inline">\(T\)</span>: propositions become strings of symbols, proofs become sequences of strings obeying formal rules</li>
+<li>Give a <strong>finitary</strong> proof that no string expressing a contradiction can ever be the last line of a proof</li>
+</ol>
+<p>If (iv) succeeds for <span class="math inline">\(T\)</span>: consistency is established by means even a strict finitist should accept.</p>
+</section>
+<section id="finitism-what-counts-as-given" class="level2">
+<h2 class="anchored" data-anchor-id="finitism-what-counts-as-given">Finitism: What Counts as “Given”</h2>
+<p>Hilbert’s answer to Poincaré’s 1905 circularity worry (a consistency proof for arithmetic would need induction):</p>
+<ul>
+<li>What is genuinely, intuitively given: <strong>signs and formulas</strong> themselves, as concrete finite objects</li>
+<li>Metamathematical reasoning about them needs only a <em>very weak</em> form of induction — much weaker than full arithmetical induction</li>
+<li>Finitary mathematics needs <strong>no further justification</strong> — it is where justification bottoms out</li>
+</ul>
+</section>
+<section id="progress-and-limits-1920s" class="level2">
+<h2 class="anchored" data-anchor-id="progress-and-limits-1920s">Progress and Limits (1920s)</h2>
+<ul>
+<li>Propositional logic: proved <strong>consistent and complete</strong></li>
+<li>First-order (predicate) logic: proved <strong>complete</strong> — Gödel’s dissertation, 1929</li>
+<li>Ackermann, von Neumann: consistency results for <strong>subsystems</strong> of arithmetic (1928–1930)</li>
+<li>By 1930 Hilbert believed full consistency of arithmetic was within reach</li>
+</ul>
+<p>A crucial hidden assumption: that the axiomatic systems in question would also be <strong>complete</strong>.</p>
+</section>
+<section id="formalism-a-slightly-misleading-name" class="level2">
+<h2 class="anchored" data-anchor-id="formalism-a-slightly-misleading-name">“Formalism” — a Slightly Misleading Name</h2>
+<ul>
+<li>The label comes from Hilbert’s <em>method</em>: formalize a theory, study its formal proof-structure</li>
+<li>But Hilbert did <strong>not</strong> think mathematics is a meaningless game with symbols
+<ul>
+<li>he consistently stressed the <em>meaningfulness</em> of informal mathematical statements</li>
+</ul></li>
+<li>Unlike intuitionism, formalism was never a full philosophy of mathematics — it was a <strong>method</strong> for justifying the classical one</li>
+</ul>
+</section>
+<section id="a-personal-crisis-too" class="level2">
+<h2 class="anchored" data-anchor-id="a-personal-crisis-too">A Personal Crisis, Too</h2>
+<p>The dispute was not only intellectual.</p>
+<ul>
+<li>Hilbert and Brouwer: strong-willed, brilliant, and deeply incompatible personalities</li>
+<li><strong>1928:</strong> Hilbert moves to remove Brouwer from the editorial board of <em>Mathematische Annalen</em>
+<ul>
+<li>Einstein: the move is “unwise” and wants no part of it</li>
+<li>The board is dissolved and reconstituted without Brouwer — the journal loses Einstein and Carathéodory</li>
+</ul></li>
+<li>Brouwer, disturbed, withdraws from the scene for years — as political tensions fade, so does the sense of “crisis”</li>
+</ul>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p><br> <br></p>
+<p>Hilbert’s program looked to be within reach by 1930 — one more push on the consistency of arithmetic.</p>
+<p><br> <br></p>
+<p>Things turned out otherwise… <!-- Next time: **Gödel, 1931.**
+
+- Gödel's incompleteness theorems will show why that push could never succeed as planned
+- A "purely constructivist and even finitistic" result — respected by *all* parties to the debate
+
+## Takeaways {.smaller}
+
+- **Logicism** collapsed under its own comprehension principle; **set theory (ZFC)** absorbed and codified the modern, existential methodology instead
+- **Predicativity** (Poincaré, Weyl) and **intuitionism** (Brouwer) both restrict what counts as a legitimate mathematical object or proof — for different reasons, to different degrees
+- **Formalism** (Hilbert) tries to *justify* classical mathematics by finitary means, without restricting it
+
+> "When it comes to laying out the bare beginnings [of mathematics], philosophical issues cannot be avoided." — Ferreirós --></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/lec01.html" class="pagination-link" aria-label="Foundations of Mathematics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Foundations of Mathematics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/zfc-as-a-foundation.html" class="pagination-link" aria-label="ZFC as a Foundational Theory">
+        <span class="nav-page-text"><span class="chapter-title">ZFC as a Foundational Theory</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

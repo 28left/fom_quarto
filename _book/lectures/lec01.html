@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Foundations of Mathematics – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../lectures/lec02.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/lec01.html">The Foundational Crisis</a></li><li class="breadcrumb-item"><a href="../lectures/lec01.html"><span class="chapter-title">Foundations of Mathematics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#where-were-going" id="toc-where-were-going" class="nav-link active" data-scroll-target="#where-were-going">Where We’re Going</a></li>
+  <li><a href="#gauss-and-the-fundamental-theorem-of-algebra" id="toc-gauss-and-the-fundamental-theorem-of-algebra" class="nav-link" data-scroll-target="#gauss-and-the-fundamental-theorem-of-algebra">Gauss and the Fundamental Theorem of Algebra</a></li>
+  <li><a href="#bolzanos-insight-1817" id="toc-bolzanos-insight-1817" class="nav-link" data-scroll-target="#bolzanos-insight-1817">Bolzano’s Insight (1817)</a></li>
+  <li><a href="#completeness-an-ancient-intuition" id="toc-completeness-an-ancient-intuition" class="nav-link" data-scroll-target="#completeness-an-ancient-intuition">Completeness: An Ancient Intuition</a></li>
+  <li><a href="#how-to-prove-completeness" id="toc-how-to-prove-completeness" class="nav-link" data-scroll-target="#how-to-prove-completeness">How to Prove Completeness?</a></li>
+  <li><a href="#dedekinds-breakthrough-1872" id="toc-dedekinds-breakthrough-1872" class="nav-link" data-scroll-target="#dedekinds-breakthrough-1872">Dedekind’s Breakthrough (1872)</a></li>
+  <li><a href="#a-deeper-problem" id="toc-a-deeper-problem" class="nav-link" data-scroll-target="#a-deeper-problem">A Deeper Problem</a></li>
+  <li><a href="#a-new-kind-of-object" id="toc-a-new-kind-of-object" class="nav-link" data-scroll-target="#a-new-kind-of-object">A New Kind of Object</a></li>
+  <li><a href="#cantor-1874-two-kinds-of-infinity" id="toc-cantor-1874-two-kinds-of-infinity" class="nav-link" data-scroll-target="#cantor-1874-two-kinds-of-infinity">Cantor (1874): Two Kinds of Infinity</a></li>
+  <li><a href="#cantors-construction" id="toc-cantors-construction" class="nav-link" data-scroll-target="#cantors-construction">Cantor’s Construction</a></li>
+  <li><a href="#cantors-argument" id="toc-cantors-argument" class="nav-link" data-scroll-target="#cantors-argument">Cantor’s Argument</a></li>
+  <li><a href="#a-bonus-transcendental-numbers" id="toc-a-bonus-transcendental-numbers" class="nav-link" data-scroll-target="#a-bonus-transcendental-numbers">A Bonus: Transcendental Numbers</a></li>
+  <li><a href="#not-everyone-was-convinced" id="toc-not-everyone-was-convinced" class="nav-link" data-scroll-target="#not-everyone-was-convinced">Not Everyone Was Convinced</a></li>
+  <li><a href="#kroneckers-critique" id="toc-kroneckers-critique" class="nav-link" data-scroll-target="#kroneckers-critique">Kronecker’s Critique</a></li>
+  <li><a href="#a-debate-ensues" id="toc-a-debate-ensues" class="nav-link" data-scroll-target="#a-debate-ensues">A Debate Ensues</a></li>
+  <li><a href="#freges-logicism" id="toc-freges-logicism" class="nav-link" data-scroll-target="#freges-logicism">Frege’s Logicism</a></li>
+  <li><a href="#freges-logicism-1" id="toc-freges-logicism-1" class="nav-link" data-scroll-target="#freges-logicism-1">Frege’s Logicism</a></li>
+  <li><a href="#russells-paradox-190102" id="toc-russells-paradox-190102" class="nav-link" data-scroll-target="#russells-paradox-190102">Russell’s Paradox (1901–02)</a></li>
+  <li><a href="#letter-to-frege-16-june-1902" id="toc-letter-to-frege-16-june-1902" class="nav-link" data-scroll-target="#letter-to-frege-16-june-1902">Letter to Frege, 16 June 1902</a></li>
+  <li><a href="#freges-reply-22-june-1902" id="toc-freges-reply-22-june-1902" class="nav-link" data-scroll-target="#freges-reply-22-june-1902">Frege’s Reply, 22 June 1902</a></li>
+  <li><a href="#what-now" id="toc-what-now" class="nav-link" data-scroll-target="#what-now">What now?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/lec01.html">The Foundational Crisis</a></li><li class="breadcrumb-item"><a href="../lectures/lec01.html"><span class="chapter-title">Foundations of Mathematics</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Foundations of Mathematics</span></h1>
+<p class="subtitle lead">Week 1: Some History and Setting the Stage</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="where-were-going" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="where-were-going">Where We’re Going</h2>
+<ul>
+<li>This course compares three modern foundations of mathematics: <strong>set theory</strong>, <strong>category theory</strong>, <strong>type theory</strong></li>
+<li>Before any of that: a 19th-century story about <strong>rigor</strong>, <strong>completeness</strong>, and <strong>infinity</strong></li>
+<li>Today: Prologue – Bolzano (1817) <span class="math inline">\(\to\)</span> Dedekind (1872) <span class="math inline">\(\to\)</span> Cantor (1874)</li>
+</ul>
+</section>
+<section id="gauss-and-the-fundamental-theorem-of-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="gauss-and-the-fundamental-theorem-of-algebra">Gauss and the Fundamental Theorem of Algebra</h2>
+<ul>
+<li><strong>THM:</strong> Every non-constant polynomial has a root over the complex numbers.</li>
+<li>Gauss’s proofs (from 1799 on) quietly depend on the <strong>Intermediate Value Theorem</strong></li>
+</ul>
+<p><span class="math display">\[
+f \text{ continuous},\ f(a)&lt;0,\ f(b)&gt;0 \ \implies\ f(c)=0 \text{ for some } c\in(a,b)
+\]</span></p>
+<ul>
+<li>IVT feels obvious: a curve can’t get from below the axis to above it without crossing. (Gauss and many others at the time thought so.) <!-- - But *why* is it true? --></li>
+</ul>
+</section>
+<section id="bolzanos-insight-1817" class="level2">
+<h2 class="anchored" data-anchor-id="bolzanos-insight-1817">Bolzano’s Insight (1817)</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Bernard Bolzano was the first to realize importance of <strong>continuity</strong> in the proof of Fundamental Theorem of Algebra.</p>
+<ul>
+<li>He attempted a genuine proof of the IVT.</li>
+<li>But he had <strong>no clear concept of the real numbers</strong> to work with.</li>
+<li>His proof was not fully satisfactory — a rigorous treatment of continuity had to wait for <strong>Weierstrass (1874)</strong>.</li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/bolzano.jpg" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Bernard Bolzano<br>
+(1781–1848)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="completeness-an-ancient-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="completeness-an-ancient-intuition">Completeness: An Ancient Intuition</h2>
+<p>Bolzano’s realization:</p>
+<p><span class="math display">\[
+\text{completeness of } \mathbb{R} \quad\longleftrightarrow\quad \text{absence of gaps}
+\]</span></p>
+<ul>
+<li>Ancient intuition: a line has no gaps</li>
+<li>But then — <strong>what are the “parts” of a line?</strong></li>
+</ul>
+<p>To capture this, Bolzano introduced two principles:</p>
+<ul>
+<li>the <strong>least upper bound principle</strong></li>
+<li>the <strong>nested interval property</strong></li>
+</ul>
+</section>
+<section id="how-to-prove-completeness" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-prove-completeness">How to Prove Completeness?</h2>
+<ul>
+<li>Bolzano could <em>state</em> completeness — but not <em>prove</em> it</li>
+<li>Proving it requires first knowing what a real number <strong>is</strong></li>
+<li>That formalization of <span class="math inline">\(\mathbb{R}\)</span> did not arrive until the <strong>1870s</strong>
+<ul>
+<li>e.g.&nbsp;via <strong>Dedekind cuts</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="dedekinds-breakthrough-1872" class="level2">
+<h2 class="anchored" data-anchor-id="dedekinds-breakthrough-1872">Dedekind’s Breakthrough (1872)</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Dedekind’s key move: stop presupposing what <span class="math inline">\(x \in \mathbb{R}\)</span> is.</p>
+<blockquote class="blockquote">
+<p>A real number <strong>is</strong> a Dedekind cut <span class="math inline">\((L, U)\)</span>.</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\((L,U)\)</span> partitions <span class="math inline">\(\mathbb{Q}\)</span>: every element of <span class="math inline">\(L\)</span> is less than every element of <span class="math inline">\(U\)</span></li>
+<li>Completeness is now straightforward — union of left-sides of cuts defines a cut.</li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dedekind.jpg" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Richard Dedekind<br>
+(1831–1916)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="a-deeper-problem" class="level2">
+<h2 class="anchored" data-anchor-id="a-deeper-problem">A Deeper Problem</h2>
+<p>Dedekind (1872) solved the problem <em>“What is a real number?”</em></p>
+<p>— but in doing so, he opened a <strong>deeper</strong> problem: the nature of <strong>infinity</strong>.</p>
+<ul>
+<li>Reals are introduced as (pairs of) <strong>infinite sets</strong> of rationals</li>
+<li>There seemed to be no way around this</li>
+</ul>
+</section>
+<section id="a-new-kind-of-object" class="level2">
+<h2 class="anchored" data-anchor-id="a-new-kind-of-object">A New Kind of Object</h2>
+<ul>
+<li><strong>Sets</strong> — and <strong>infinity</strong> — stop being background intuition.</li>
+<li>They become <strong>mathematical objects in their own right</strong></li>
+<li>This shift is the seed of everything that follows in this course</li>
+</ul>
+</section>
+<section id="cantor-1874-two-kinds-of-infinity" class="level2">
+<h2 class="anchored" data-anchor-id="cantor-1874-two-kinds-of-infinity">Cantor (1874): Two Kinds of Infinity</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Cantor showed that <span class="math inline">\(\mathbb{N}\)</span> and <span class="math inline">\(\mathbb{R}\)</span> represent <strong>different types of infinity</strong>.</p>
+<p>His first proof of the uncountability of <span class="math inline">\(\mathbb{R}\)</span>:</p>
+<ul>
+<li>Take any sequence <span class="math inline">\((x_m)_{m \in \mathbb{N}}\)</span> of distinct real numbers.</li>
+<li>Construct nested intervals that exclude one <span class="math inline">\(x_m\)</span> at a time.</li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/cantor.jpg" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Georg Cantor<br>
+(1845–1918)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cantors-construction" class="level2">
+<h2 class="anchored" data-anchor-id="cantors-construction">Cantor’s Construction</h2>
+<p>Build nested intervals</p>
+<p><span class="math display">\[
+a_0 &lt; a_1 &lt; a_2 &lt; \cdots &lt; b_2 &lt; b_1 &lt; b_0
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\forall m\ \exists i \quad x_m \notin [a_i, b_i]
+\]</span></p>
+<p><em>(at each stage, shrink the interval just enough to exclude the next <span class="math inline">\(x_m\)</span>)</em></p>
+</section>
+<section id="cantors-argument" class="level2">
+<h2 class="anchored" data-anchor-id="cantors-argument">Cantor’s Argument</h2>
+<p>By the <strong>nested interval property</strong>:</p>
+<p><span class="math display">\[
+\bigcap_i [a_i, b_i] \neq \emptyset
+\]</span></p>
+<p>Let <span class="math inline">\(x\)</span> be a point in this intersection.</p>
+<ul>
+<li>By construction, <span class="math inline">\(x \neq x_i\)</span> for every <span class="math inline">\(i\)</span>.</li>
+<li>So <span class="math inline">\((x_m)\)</span> could <strong>not</strong> have enumerated all of <span class="math inline">\(\mathbb{R}\)</span>.</li>
+<li>Hence <span class="math inline">\(\mathbb{R}\)</span> is <strong>uncountable</strong>.</li>
+</ul>
+<div class="fragment">
+<p>This only works because <span class="math inline">\(\mathbb{R}\)</span> is <em>complete</em> — the nested interval property fails over <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+</div>
+</section>
+<section id="a-bonus-transcendental-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="a-bonus-transcendental-numbers">A Bonus: Transcendental Numbers</h2>
+<p>The same construction gives more than uncountability:</p>
+<ul>
+<li>The set of <strong>algebraic numbers</strong> is countable.</li>
+<li>So the same nested-interval argument produces a real number <strong>not</strong> among the algebraic numbers</li>
+</ul>
+<p><span class="math display">\[
+\implies \text{transcendental numbers exist}
+\]</span></p>
+<p>— without ever exhibiting one!</p>
+</section>
+<section id="not-everyone-was-convinced" class="level2">
+<h2 class="anchored" data-anchor-id="not-everyone-was-convinced">Not Everyone Was Convinced</h2>
+<p>Dedekind’s cuts and ideals, Cantor’s infinite sets — both rely on <strong>purely existential</strong> proofs:</p>
+<ul>
+<li>they show an object exists, without showing how to construct or compute it.</li>
+<li>this was a genuinely new style of mathematics in the 1870s–80s.</li>
+</ul>
+<p>Not everyone welcomed it.</p>
+</section>
+<section id="kroneckers-critique" class="level2">
+<h2 class="anchored" data-anchor-id="kroneckers-critique">Kronecker’s Critique</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/kronecker.jpg" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Leopold Kronecker<br>
+(1823–1891)</p>
+</div>
+</div><div class="column" style="width:75%;">
+<p>Leopold Kronecker, one of the leading algebraists of the day, objected on principle.</p>
+<ul>
+<li>1870: points out that the accumulation point in the Bolzano–Weierstrass theorem cannot be constructed by <em>elementary</em> operations from the rational numbers.</li>
+<li>1882: publicly attacked Dedekind’s <strong>ideals</strong> — used to prove unique factorization <em>exists</em> but the proof does not tell you how to <em>compute</em> it.</li>
+<li>Combated Cantor’s transfinite sets as well.</li>
+</ul>
+<blockquote class="blockquote">
+<p>“Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk.” — attributed to Kronecker: <em>“God made the integers; all else is the work of man.”</em></p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="a-debate-ensues" class="level2">
+<h2 class="anchored" data-anchor-id="a-debate-ensues">A Debate Ensues</h2>
+<ul>
+<li>Dedekind replied in 1888 with a fully set-theoretic theory of the natural numbers (“<em>Was sind und was sollen die Zahlen?</em>”, includes his definition of an infinite set).</li>
+<li>The “early round” of the debate ended in victory for the infinitary side.
+<ul>
+<li>Hurwitz, Minkowski, Hilbert, Volterra, Peano, Hadamard, Klein all sided with Dedekind and Cantor.</li>
+</ul></li>
+<li>Arbitrary functions, infinite sets, and existential proofs become the mainstream of analysis and algebra.</li>
+</ul>
+<p><em>Kronecker’s constructivist objection doesn’t disappear — it resurfaces in Brouwer’s intuitionism, decades later.</em></p>
+</section>
+<section id="freges-logicism" class="level2">
+<h2 class="anchored" data-anchor-id="freges-logicism">Frege’s Logicism</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<p>Gottlob Frege pursued an even more ambitious foundation: reduce <strong>all of arithmetic to pure logic</strong>.</p>
+<ul>
+<li>Basic mathematical concepts should be <em>definable</em> in purely logical terms</li>
+<li>Basic mathematical truths should be <em>derivable</em> from purely logical laws</li>
+<li>Central logical law (the <strong>comprehension principle</strong>): for any well-defined property <span class="math inline">\(p\)</span>, there is a set <span class="math display">\[
+\{x : p(x)\}
+\]</span></li>
+<li>Frege built his <em>Grundgesetze der Arithmetik</em> (1893, 1903) on exactly this idea.</li>
+</ul>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/frege.png" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Gottlob Frege<br>
+(1848–1925)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="freges-logicism-1" class="level2">
+<h2 class="anchored" data-anchor-id="freges-logicism-1">Frege’s Logicism</h2>
+<p>Frege needed the comprehension principle to define the natural numbers in a purely logical way.</p>
+<ul>
+<li>Frege (as later Russell and Whitehead) realized that natural numbers are <em>logical attributes that belong to concepts, not to things</em>.</li>
+<li>“<em>There are four horses in the barn</em>” should be thought of as <em>four objects fall under the concept “horse in barn”</em>.</li>
+<li>If <span class="math inline">\(f\)</span> is a concept, we can then define “<em>at least two objects fall under <span class="math inline">\(f\)</span></em>” as <span class="math display">\[
+2_m(f) := \exists x \exists y \: [ x \neq y \: \wedge f(x) \: \wedge \: f(y)]
+\]</span> and can define the number <span class="math inline">\(2\)</span> as <span class="math inline">\(2() := 2_m() \: \wedge \ \neg 3_m()\)</span>.</li>
+</ul>
+<p>For this definition to work, Frege needed the comprehension principle - every concept determines a class containing exactly the objects falling under it.</p>
+</section>
+<section id="russells-paradox-190102" class="level2">
+<h2 class="anchored" data-anchor-id="russells-paradox-190102">Russell’s Paradox (1901–02)</h2>
+<p>Around 1901, Bertrand Russell (and, independently, Zermelo) found that comprehension is <strong>inconsistent</strong>.</p>
+<p>Let <span class="math display">\[
+R = \{\, x : x \notin x \,\}
+\]</span></p>
+<ul>
+<li>If <span class="math inline">\(R \in R\)</span>, then by definition <span class="math inline">\(R \notin R\)</span></li>
+<li>If <span class="math inline">\(R \notin R\)</span>, then by definition <span class="math inline">\(R \in R\)</span></li>
+</ul>
+<p>Either way, contradiction. The very principle underlying Frege’s logic — and “naive” set theory generally — collapses.</p>
+</section>
+<section id="letter-to-frege-16-june-1902" class="level2">
+<h2 class="anchored" data-anchor-id="letter-to-frege-16-june-1902">Letter to Frege, 16 June 1902</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<blockquote class="blockquote">
+<p>“Let <span class="math inline">\(w\)</span> be the predicate: to be a predicate that cannot be predicated of itself. Can <span class="math inline">\(w\)</span> be predicated of itself? From each answer its opposite follows. […] Likewise there is no class (as a totality) of those classes which, each taken as a totality, do not belong to themselves.”</p>
+<p>— Bertrand Russell, letter to Gottlob Frege</p>
+</blockquote>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/russell.jpg" class="portrait img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<div class="caption">
+<p>Bertrand Russell<br>
+(1872–1970)</p>
+</div>
+</div>
+</div>
+<p>Russell had been reading Frege’s <em>Grundgesetze</em> closely — and found the one crack in its foundation.</p>
+</section>
+<section id="freges-reply-22-june-1902" class="level2">
+<h2 class="anchored" data-anchor-id="freges-reply-22-june-1902">Frege’s Reply, 22 June 1902</h2>
+<blockquote class="blockquote">
+<p>“Your discovery of the contradiction caused me the greatest surprise and, I would almost say, consternation, since it has shaken the basis on which I intended to build arithmetic. […] It is all the more serious since, with the loss of my Rule V, not only the foundations of my arithmetic, but also the <strong>sole possible foundations of arithmetic</strong>, seem to vanish.”</p>
+<p>— Gottlob Frege, letter to Bertrand Russell</p>
+</blockquote>
+<p>Frege added a hasty appendix to Volume II of the <em>Grundgesetze</em>, already at the printer, acknowledging the disaster.</p>
+</section>
+<section id="what-now" class="level2">
+<h2 class="anchored" data-anchor-id="what-now">What now?</h2>
+<p>Other set theoretic paradoxes had emerged before Russell’s.</p>
+<ul>
+<li><em>Burali-Forti paradox (Cantor, 1896)</em>: There cannot be a set of all ordinals.</li>
+</ul>
+<p>But these were tied deeply to Cantor’s transfinite set theory, which many people still viewed as remote and suspect.</p>
+<p>Russell’s antinomy struck right at the heart of the very foundation of all of mathematics: the efforts to <em>define</em> the natural numbers.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Foundations of Mathematics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Foundations of Mathematics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/lec02.html" class="pagination-link" aria-label="The Foundational Crisis">
+        <span class="nav-page-text"><span class="chapter-title">The Foundational Crisis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

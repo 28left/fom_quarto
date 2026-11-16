@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Relations and Functions – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/ordinals.html" rel="next">
+<link href="../notes/first-consequences.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/relations-and-functions.html"><span class="chapter-title">Relations and Functions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#relations" id="toc-relations" class="nav-link active" data-scroll-target="#relations">Relations</a>
+  <ul class="collapse">
+  <li><a href="#usual-terminology" id="toc-usual-terminology" class="nav-link" data-scroll-target="#usual-terminology">Usual terminology</a></li>
+  <li><a href="#domain-range-restriction" id="toc-domain-range-restriction" class="nav-link" data-scroll-target="#domain-range-restriction">Domain, range, restriction</a></li>
+  </ul></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#building-relations-and-functions" id="toc-building-relations-and-functions" class="nav-link" data-scroll-target="#building-relations-and-functions">Building relations and functions</a>
+  <ul class="collapse">
+  <li><a href="#first-method-power-set" id="toc-first-method-power-set" class="nav-link" data-scroll-target="#first-method-power-set">First method: Power Set</a></li>
+  <li><a href="#second-method-replacement" id="toc-second-method-replacement" class="nav-link" data-scroll-target="#second-method-replacement">Second method: Replacement</a></li>
+  </ul></li>
+  <li><a href="#inverses-composition-isomorphism" id="toc-inverses-composition-isomorphism" class="nav-link" data-scroll-target="#inverses-composition-isomorphism">Inverses, composition, isomorphism</a></li>
+  <li><a href="#equivalence-relations-and-quotients" id="toc-equivalence-relations-and-quotients" class="nav-link" data-scroll-target="#equivalence-relations-and-quotients">Equivalence relations and quotients</a></li>
+  <li><a href="#object-theory-versus-metatheory" id="toc-object-theory-versus-metatheory" class="nav-link" data-scroll-target="#object-theory-versus-metatheory">Object theory versus metatheory</a>
+  <ul class="collapse">
+  <li><a href="#as-sets" id="toc-as-sets" class="nav-link" data-scroll-target="#as-sets">As sets</a></li>
+  <li><a href="#as-abbreviations-in-the-metatheory" id="toc-as-abbreviations-in-the-metatheory" class="nav-link" data-scroll-target="#as-abbreviations-in-the-metatheory">As abbreviations in the metatheory</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/relations-and-functions.html"><span class="chapter-title">Relations and Functions</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Relations and Functions</span></h1>
+<p class="subtitle lead">Relations, functions, Cartesian products via Replacement, isomorphism, quotients — and the object-theory/metatheory split</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="box">
+<p>You have used relations (orderings) and functions all your life; the point here is to say what they <em>are</em> inside axiomatic set theory, and to notice where an extra axiom (Replacement) is needed to build them.</p>
+</div>
+<section id="relations" class="level2">
+<h2 class="anchored" data-anchor-id="relations">Relations</h2>
+<p><strong>Definition (binary relation).</strong> <span class="math inline">\(R\)</span> is a <em>(binary) relation</em> iff <span class="math inline">\(R\)</span> is a set of ordered pairs:</p>
+<p><span class="math display">\[
+\forall u \in R\;\exists x, y\;\bigl(u = \langle x, y\rangle\bigr).
+\]</span></p>
+<p>Here <span class="math inline">\(\forall u \in R\,(\dots)\)</span> is shorthand for <span class="math inline">\(\forall u\,(u \in R
+\rightarrow \dots)\)</span>. We write</p>
+<p><span class="math display">\[
+x \mathbin{R} y \quad\text{for}\quad \langle x, y\rangle \in R,
+\qquad\qquad
+x \mathbin{\neg R} y \quad\text{for}\quad \langle x, y\rangle \notin R.
+\]</span></p>
+<p>The abbreviations <span class="math inline">\(x \mathbin{R} y\)</span> and <span class="math inline">\(x \mathbin{\neg R} y\)</span> are meaningful even when <span class="math inline">\(R\)</span> is not a relation — we will use this later.</p>
+<section id="usual-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="usual-terminology">Usual terminology</h3>
+<p>Fix a set <span class="math inline">\(A\)</span>. The following say what it means for <span class="math inline">\(R\)</span> to have a property <em>on <span class="math inline">\(A\)</span></em>; each is just an abbreviation, obtained by plugging <span class="math inline">\(R\)</span> into a formula.</p>
+<ul>
+<li><strong>transitive:</strong> <span class="math inline">\(x \mathbin{R} y \wedge y \mathbin{R} z \rightarrow x \mathbin{R} z\)</span></li>
+<li><strong>reflexive / irreflexive:</strong> <span class="math inline">\(\forall x \in A\;(x \mathbin{R} x)\)</span> / <span class="math inline">\(\forall x \in A\;(x \mathbin{\neg R} x)\)</span></li>
+<li><strong>trichotomy:</strong> <span class="math inline">\(\forall x, y \in A\;\bigl(x \mathbin{R} y \vee y \mathbin{R} x \vee x = y\bigr)\)</span></li>
+<li><strong>symmetric:</strong> <span class="math inline">\(x \mathbin{R} y \leftrightarrow y \mathbin{R} x\)</span></li>
+</ul>
+<p>and the three composite notions we care about:</p>
+<div class="axioms">
+<dl>
+<dt><span class="math inline">\(R\)</span> (strictly) <strong>partially orders</strong> <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive and irreflexive on <span class="math inline">\(A\)</span>.
+</dd>
+<dt><span class="math inline">\(R\)</span> (strictly) <strong>totally orders</strong> <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive, irreflexive, and satisfies trichotomy on <span class="math inline">\(A\)</span>.
+</dd>
+<dt><span class="math inline">\(R\)</span> is an <strong>equivalence relation</strong> on <span class="math inline">\(A\)</span></dt>
+<dd>
+<span class="math inline">\(R\)</span> is transitive, reflexive, and symmetric on <span class="math inline">\(A\)</span>.
+</dd>
+</dl>
+</div>
+<p>We take the <em>strict</em> <span class="math inline">\(&lt;\)</span> as basic and read <span class="math inline">\(x \le y\)</span> as <span class="math inline">\(x &lt; y \vee x = y\)</span>. For example, <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(\mathbb{Q}\)</span> is a strict total order; <span class="math inline">\(\le\)</span> is not (it is not irreflexive).</p>
+</section>
+<section id="domain-range-restriction" class="level3">
+<h3 class="anchored" data-anchor-id="domain-range-restriction">Domain, range, restriction</h3>
+<div class="axioms">
+<p><span class="math inline">\(\operatorname{dom}(R) := \{\,x : \exists y\,(\langle x, y\rangle \in R)\,\}\)</span></p>
+<p><span class="math inline">\(\operatorname{ran}(R) := \{\,y : \exists x\,(\langle x, y\rangle \in R)\,\}\)</span></p>
+<p><span class="math inline">\(R \restriction A := \{\,\langle x, y\rangle \in R : x \in A\,\}\)</span></p>
+</div>
+<p>The definitions are stated for an arbitrary set <span class="math inline">\(R\)</span>, not only for relations. The restriction <span class="math inline">\(R \restriction A\)</span> is used mostly for functions.</p>
+<p><strong>Justification (these classes are sets).</strong> Recall <span class="math inline">\(\langle x, y\rangle =
+\bigl\{\{x\}, \{x, y\}\bigr\}\)</span>. So if <span class="math inline">\(\langle x, y\rangle \in R\)</span>, then <span class="math inline">\(\{x\}\)</span> and <span class="math inline">\(\{x, y\}\)</span> lie in <span class="math inline">\(\bigcup R\)</span>, and hence <span class="math inline">\(x, y \in \bigcup\bigcup R\)</span>. Comprehension then gives</p>
+<p><span class="math display">\[
+\operatorname{dom}(R) = \bigl\{\,x \in \textstyle\bigcup\bigcup R : \exists y\,(\langle x, y\rangle \in R)\,\bigr\},
+\]</span></p>
+<p>and similarly for <span class="math inline">\(\operatorname{ran}(R)\)</span>.</p>
+</section>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p><strong>Definition (function).</strong> <span class="math inline">\(R\)</span> is a <em>function</em> iff <span class="math inline">\(R\)</span> is a relation and for every <span class="math inline">\(x \in \operatorname{dom}(R)\)</span> there is a <em>unique</em> <span class="math inline">\(y\)</span> with <span class="math inline">\(\langle x,
+y\rangle \in R\)</span>; that unique <span class="math inline">\(y\)</span> is written <span class="math inline">\(R(x)\)</span>.</p>
+<div class="axioms">
+<p><span class="math inline">\(F : A \to B\)</span>:   <span class="math inline">\(F\)</span> is a function with <span class="math inline">\(\operatorname{dom}(F) = A\)</span> and <span class="math inline">\(\operatorname{ran}(F) \subseteq B\)</span>.</p>
+<p><span class="math inline">\(F : A \xrightarrow[\text{onto}]{} B\)</span>:   <span class="math inline">\(F : A \to B\)</span> and <span class="math inline">\(\operatorname{ran}(F) = B\)</span> (a <em>surjection</em>).</p>
+<p><span class="math inline">\(F : A \xrightarrow{1\text{-}1} B\)</span>:   <span class="math inline">\(F : A \to B\)</span> and <span class="math inline">\(\forall x, x' \in A\;\bigl(F(x) = F(x') \rightarrow x = x'\bigr)\)</span> (an <em>injection</em>).</p>
+<p><span class="math inline">\(F : A \xrightarrow[\text{onto}]{1\text{-}1} B\)</span>:   both of the above (a <em>bijection from <span class="math inline">\(A\)</span> onto <span class="math inline">\(B\)</span></em>).</p>
+</div>
+<p><strong>Image of a set.</strong></p>
+<p><span class="math display">\[
+F(A) \;=\; F{}''A \;=\; \operatorname{ran}(F \restriction A).
+\]</span></p>
+<p>The notation <span class="math inline">\(F(A)\)</span> is standard but ambiguous when <span class="math inline">\(A\)</span> happens to be both a member and a subset of <span class="math inline">\(\operatorname{dom}(F)\)</span> — e.g.&nbsp;with <span class="math inline">\(\operatorname{dom}(F)
+= 3 = \{0, 1, 2\}\)</span>, is <span class="math inline">\(F(2)\)</span> the value at <span class="math inline">\(2\)</span> or the image of <span class="math inline">\(\{0, 1\}\)</span>? Write <span class="math inline">\(F{}''A\)</span> when this could be confused.</p>
+</section>
+<section id="building-relations-and-functions" class="level2">
+<h2 class="anchored" data-anchor-id="building-relations-and-functions">Building relations and functions</h2>
+<p>The axioms used so far (Extensionality, Comprehension, Pairing, Union) do not let us build many relations. The obvious source is the <strong>Cartesian product</strong></p>
+<p><span class="math display">\[
+A \times B \;=\; \{\,\langle x, y\rangle : x \in A \wedge y \in B\,\},
+\]</span></p>
+<p>after which any relation between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is a subset of <span class="math inline">\(A \times B\)</span>, cut out by Comprehension. So everything reduces to: <em>does <span class="math inline">\(A \times B\)</span> exist?</em></p>
+<section id="first-method-power-set" class="level3">
+<h3 class="anchored" data-anchor-id="first-method-power-set">First method: Power Set</h3>
+<p>If <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(\{x\}, \{x, y\} \subseteq A \cup B\)</span>, so <span class="math inline">\(\langle x, y\rangle = \bigl\{\{x\}, \{x, y\}\bigr\} \in \mathcal{P}\bigl(\mathcal{P}(A \cup B)\bigr)\)</span>. Hence</p>
+<p><span class="math display">\[
+A \times B \;=\; \bigl\{\, w \in \mathcal{P}(\mathcal{P}(A \cup B)) : \exists x \in A\;\exists y \in B\;(w = \langle x, y\rangle)\,\bigr\}
+\]</span></p>
+<p>exists by Power Set (twice) and Comprehension.</p>
+<p>This works, but it is a little “wasteful” in terms of <em>cardinality</em>. The sets</p>
+<p><span class="math display">\[
+\{0\} \times \omega, \qquad
+\operatorname{id}_\omega = \{\,\langle x, x\rangle : x \in \omega\,\}
+\]</span></p>
+<p>have the same “size” as <span class="math inline">\(\omega\)</span>, yet the justification above manufactures them as subsets of <span class="math inline">\(\mathcal{P}(\mathcal{P}(\omega))\)</span> — a set of size <span class="math inline">\(2^{2^{\aleph_0}}\)</span>. We are invoking the existence of a huge set to produce a countable one.</p>
+</section>
+<section id="second-method-replacement" class="level3">
+<h3 class="anchored" data-anchor-id="second-method-replacement">Second method: Replacement</h3>
+<div class="box">
+<p><strong>General method.</strong> Suppose <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>. Then Replacement gives a set <span class="math inline">\(B\)</span> with <span class="math inline">\(\forall x \in A\;\exists y \in B\;\varphi(x,
+y)\)</span>, and Comprehension trims it to <span class="math inline">\(\{\,y \in B : \exists x \in A\;\varphi(x,
+y)\,\} = \{\,y : \exists x \in A\;\varphi(x, y)\,\}\)</span>. So <em>the image of a set under a definable single-valued relation is a set.</em></p>
+</div>
+<p>Apply this to build <span class="math inline">\(A \times B\)</span> without Power Set. Fix <span class="math inline">\(b \in B\)</span> and let</p>
+<p><span class="math display">\[
+\varphi(x, y) \;\equiv\; y = \langle x, b\rangle .
+\]</span></p>
+<p>Then <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>, so by Replacement + Comprehension the set</p>
+<p><span class="math display">\[
+A \times \{b\} \;=\; \{\,\langle x, b\rangle : x \in A\,\}
+\]</span></p>
+<p>exists. Applying Replacement again — now over <span class="math inline">\(b \in B\)</span> — gives</p>
+<p><span class="math display">\[
+S \;:=\; \bigl\{\, A \times \{b\} : b \in B\,\bigr\},
+\]</span></p>
+<p>and finally <span class="math inline">\(A \times B = \bigcup S\)</span> by Union.</p>
+<div class="box">
+<p>This argument never opened up <span class="math inline">\(\langle x, b\rangle\)</span>; it used only that <span class="math inline">\(\langle x, b\rangle\)</span> is <em>some</em> set determined by <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span>. So it proves <span class="math inline">\(A \times B\)</span> (and also <span class="math inline">\(\operatorname{dom}(R)\)</span>, <span class="math inline">\(\operatorname{ran}(R)\)</span>) exist for <strong>any</strong> definition of the ordered pair.</p>
+</div>
+<p>Packaging the general method as a statement about functions:</p>
+<div class="axioms">
+<p><strong>Lemma.</strong> If <span class="math inline">\(\forall x \in A\;\exists! y\;\varphi(x, y)\)</span>, then there is a function <span class="math inline">\(f\)</span> with <span class="math inline">\(\operatorname{dom}(f) = A\)</span> such that for each <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(f(x)\)</span> is the unique <span class="math inline">\(y\)</span> with <span class="math inline">\(\varphi(x, y)\)</span>.</p>
+</div>
+<p><em>Proof.</em> Fix <span class="math inline">\(B\)</span> from Replacement and set <span class="math inline">\(f = \{\,\langle x, y\rangle \in A
+\times B : \varphi(x, y)\,\}\)</span>. <span class="math inline">\(\square\)</span></p>
+</section>
+</section>
+<section id="inverses-composition-isomorphism" class="level2">
+<h2 class="anchored" data-anchor-id="inverses-composition-isomorphism">Inverses, composition, isomorphism</h2>
+<div class="axioms">
+<dl>
+<dt><span class="math inline">\(R^{-1} := \{\,\langle y, x\rangle : \langle x, y\rangle \in R\,\}\)</span></dt>
+<dd>
+a subset of <span class="math inline">\(\operatorname{ran}(R) \times \operatorname{dom}(R)\)</span>. If <span class="math inline">\(f\)</span> is a function, <span class="math inline">\(f^{-1}\)</span> is a function iff <span class="math inline">\(f\)</span> is <span class="math inline">\(1\)</span>-<span class="math inline">\(1\)</span>.
+</dd>
+<dt><span class="math inline">\(G \circ F := \{\,\langle x, z\rangle : \exists y\,(\langle x, y\rangle \in F \wedge \langle y, z\rangle \in G)\,\}\)</span></dt>
+<dd>
+when <span class="math inline">\(F, G\)</span> are functions with <span class="math inline">\(\operatorname{ran}(F) \subseteq
+\operatorname{dom}(G)\)</span>, this is just <span class="math inline">\((G \circ F)(x) = G(F(x))\)</span>.
+</dd>
+</dl>
+</div>
+<p><strong>Isomorphism.</strong> Let <span class="math inline">\(R\)</span> be a binary relation on <span class="math inline">\(A\)</span> and <span class="math inline">\(S\)</span> a binary relation on <span class="math inline">\(B\)</span>. Then <span class="math inline">\(F\)</span> is an <em>isomorphism</em> from <span class="math inline">\((A, R)\)</span> onto <span class="math inline">\((B, S)\)</span> iff</p>
+<p><span class="math display">\[
+F : A \xrightarrow[\text{onto}]{1\text{-}1} B
+\qquad\text{and}\qquad
+\forall x, y \in A\;\bigl[\,x \mathbin{R} y \leftrightarrow F(x) \mathbin{S} F(y)\,\bigr].
+\]</span></p>
+<p>We write <span class="math inline">\((A, R) \cong (B, S)\)</span> when such an <span class="math inline">\(F\)</span> exists. The definition makes sense for arbitrary relations; for now we use it for orderings.</p>
+</section>
+<section id="equivalence-relations-and-quotients" class="level2">
+<h2 class="anchored" data-anchor-id="equivalence-relations-and-quotients">Equivalence relations and quotients</h2>
+<p>Let <span class="math inline">\(R\)</span> be an equivalence relation on a set <span class="math inline">\(A\)</span>, and <span class="math inline">\(x \in A\)</span>. Define</p>
+<p><span class="math display">\[
+[x] \;:=\; \{\,y \in A : x \mathbin{R} y\,\}
+\qquad\text{(Comprehension)},
+\]</span></p>
+<p>the <em>equivalence class</em> of <span class="math inline">\(x\)</span>, and</p>
+<p><span class="math display">\[
+A / R \;:=\; \bigl\{\, [x] : x \in A\,\bigr\}.
+\]</span></p>
+<p>To see <span class="math inline">\(A/R\)</span> is a set, apply the general method with <span class="math inline">\(\varphi(x, y) \equiv y =
+[x]\)</span>: by Lemma I.7.9 there is a function <span class="math inline">\(f\)</span> with <span class="math inline">\(\operatorname{dom}(f) = A\)</span> and <span class="math inline">\(f(x) = [x]\)</span> — the <strong>quotient map</strong> <span class="math inline">\(x \mapsto [x]\)</span> — and then <span class="math inline">\(A/R =
+\operatorname{ran}(f)\)</span>.</p>
+<p>This is the standard justification, in books on group theory and topology, for forming a quotient of a structure by an equivalence relation; the extra structure on <span class="math inline">\(A/R\)</span> is defined separately.</p>
+</section>
+<section id="object-theory-versus-metatheory" class="level2">
+<h2 class="anchored" data-anchor-id="object-theory-versus-metatheory">Object theory versus metatheory</h2>
+<p>The informal notions “relation” and “function” get <strong>two</strong> representations in set theory: as <em>sets</em> (objects of the formal theory ZFC), and as <em>abbreviations</em> in the metatheory.</p>
+<section id="as-sets" class="level3">
+<h3 class="anchored" data-anchor-id="as-sets">As sets</h3>
+<p>A relation is a specific kind of set, handled inside ZFC. The defining property is a formula of the object theory — for example</p>
+<p><span class="math display">\[
+\operatorname{Rel}(R) \;:\equiv\; \forall u \in R\;\exists y, z\;\bigl(u = \langle y, z\rangle\bigr).
+\]</span></p>
+<p>We then prove facts <em>about</em> such sets as theorems of ZFC, e.g.</p>
+<p><span class="math display">\[
+\mathrm{ZFC} \;\vdash\; \operatorname{Rel}(R) \rightarrow \exists z\,\bigl(z = \operatorname{dom}(R)\bigr),
+\]</span></p>
+<p>using the justification given earlier. A concrete function such as <span class="math inline">\(f = \{\langle
+1, 2\rangle, \langle 2, 2\rangle, \langle 3, 1\rangle\}\)</span> is likewise a set formally defined in ZFC.</p>
+</section>
+<section id="as-abbreviations-in-the-metatheory" class="level3">
+<h3 class="anchored" data-anchor-id="as-abbreviations-in-the-metatheory">As abbreviations in the metatheory</h3>
+<p>By contrast, <span class="math inline">\(\in\)</span>, <span class="math inline">\(=\)</span>, <span class="math inline">\(\subseteq\)</span> are <em>informal</em> relations — a different kind of animal. The “relation”</p>
+<p><span class="math display">\[
+S \;=\; \{\,p : \exists x, y\;(p = \langle x, y\rangle \wedge x \subseteq y)\,\}
+\]</span></p>
+<p>does <strong>not</strong> exist: it is a proper class, since <span class="math inline">\(\operatorname{dom}(S)\)</span> would be the universe <span class="math inline">\(V\)</span>. We view <span class="math inline">\(x \subseteq y\)</span> instead as an abbreviation in the metatheory for <span class="math inline">\(\forall z\,(z \in x \rightarrow z \in y)\)</span>; likewise <span class="math inline">\((A, R)
+\cong (B, S)\)</span> abbreviates a longer statement. Membership and equality, <span class="math inline">\(\in\)</span> and <span class="math inline">\(=\)</span>, are already primitive symbols.</p>
+<p>Many properties from the terminology list still make sense for such <strong>pseudorelations</strong>, by plugging them into the defining formula. For instance <span class="math inline">\(\in\)</span> totally orders <span class="math inline">\(3 = \{0, 1, 2\}\)</span> (i.e.&nbsp;<span class="math inline">\(\forall x, y, z \in 3\,[x \in y
+\wedge y \in z \rightarrow x \in z]\)</span>, plus trichotomy), while <span class="math inline">\(\subseteq\)</span> is transitive on all of <span class="math inline">\(V\)</span> but not a total order of <span class="math inline">\(3\)</span>, and <span class="math inline">\(\in\)</span> is not transitive on <span class="math inline">\(V\)</span> (since <span class="math inline">\(0 \in \{0\} \in \{\{0\}\}\)</span> but <span class="math inline">\(0 \notin \{\{0\}\}\)</span>).</p>
+<p>Similarly for functions: <span class="math inline">\(\bigcup : V \to V\)</span> and <span class="math inline">\(\mathcal{P} : V \to V\)</span> are <strong>pseudofunctions</strong>. There is no set of pairs <span class="math inline">\(\bigcup = \{\langle \mathcal{F},
+\bigcup \mathcal{F}\rangle : \mathcal{F} \in V\}\)</span>; instead there is a formula <span class="math inline">\(\varphi(\mathcal{F}, Z)\)</span> saying “<span class="math inline">\(Z\)</span> is the union of the members of <span class="math inline">\(\mathcal{F}\)</span>”, we prove <span class="math inline">\(\forall \mathcal{F}\;\exists! Z\;\varphi(\mathcal{F},
+Z)\)</span>, and <span class="math inline">\(\bigcup \mathcal{F}\)</span> <em>denotes</em> that <span class="math inline">\(Z\)</span>. Function properties still apply as abbreviations — e.g.&nbsp;“<span class="math inline">\(\bigcup\)</span> is not <span class="math inline">\(1\)</span>-<span class="math inline">\(1\)</span>” is the formula</p>
+<p><span class="math display">\[
+\exists x_1, x_2, y\;\bigl[\varphi(x_1, y) \wedge \varphi(x_2, y) \wedge x_1 \neq x_2\bigr].
+\]</span></p>
+<!-- ### Sentences versus schemes
+
+Lemma I.7.9 is really a *theorem scheme*: one theorem of ZFC for each formula
+$\varphi(x, y)$. By contrast, a statement like "$\cong$ is an equivalence
+relation" (Kunen's Exercise I.7.18) unwinds to a *single* sentence provable from
+ZFC. -->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/first-consequences.html" class="pagination-link" aria-label="First Consequences of the ZFC Axioms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">First Consequences of the ZFC Axioms</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/ordinals.html" class="pagination-link" aria-label="Ordinals">
+        <span class="nav-page-text"><span class="chapter-title">Ordinals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

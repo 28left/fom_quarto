@@ -1,0 +1,722 @@
+---
+title: "Abstract Sets and Mappings"
+subtitle: "Lawvere's categorical approach to sets — axioms and exercises from Chapter 1 of Lawvere–Rosebrugh"
+author: "Jan Reimann"
+institute: "Penn State — Math 558"
+date: ""
+format: html
+---
+
+::: {.content-hidden}
+{{< include _macros.qmd >}}
+
+\newcommand{\Set}{\mathcal{S}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\id}[1]{1_{#1}}
+\newcommand{\term}[1]{!_{#1}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\cod}{\operatorname{cod}}
+:::
+
+::: {.box}
+These notes follow Chapter 1 of Lawvere–Rosebrugh, *Sets for Mathematics*.
+Numbers such as "Definition 1.14" or "Exercise 1.15" refer to the book. In the
+exercises taken from §§1.5–1.8 (1.15–1.28), argue *only* from the axioms and
+definitions stated here, plus ordinary logic; do not appeal to what you know
+about sets from $\ZFC$. In Exercise 1.30 you work in ordinary mathematics, to
+see how much of the structure of abstract sets is shared by other familiar
+categories. When an exercise is a statement, prove the statement.
+:::
+
+## Sets as a category
+
+In $\ZFC$ the primitive notion is **membership**: a set is determined by its
+elements, and everything else (pairs, functions, …) is coded by membership. In
+Lawvere's approach the primitive notions are **sets** and **mappings** between
+them, together with **composition** of mappings. An *abstract set* has no
+internal structure beyond the fact that its elements can be told apart;
+everything we want to say about a set must be expressed through the mappings
+into and out of it. Even "element" becomes a derived notion: an element of $A$
+is a particular kind of mapping *into* $A$.
+
+## Categories
+
+::: {#def-category}
+## Category (L–R, Definition 1.13)
+
+A **category** $\Cat$ has the following data:
+
+- **Objects**, denoted $A, B, C, \dots$
+- **Arrows**, denoted $f, g, h, \dots$ (also called *morphisms* or *maps*).
+- To each arrow $f$ is assigned an object $\dom(f)$, its **domain**, and an
+  object $\cod(f)$, its **codomain**. If $\dom(f) = A$ and $\cod(f) = B$ we
+  write $f \colon A \to B$ or $A \xrightarrow{\;f\;} B$.
+- **Composition:** to each pair $f \colon A \to B$ and $g \colon B \to C$ is
+  assigned an arrow $gf \colon A \to C$, called "the composite $g$ following
+  $f$" (also written $g \circ f$).
+- **Identities:** to each object $A$ is assigned an arrow
+  $\id{A} \colon A \to A$, called "the identity on $A$".
+
+These data satisfy the axioms
+
+- **Associativity:** if
+  $A \xrightarrow{\;f\;} B \xrightarrow{\;g\;} C \xrightarrow{\;h\;} D$, then
+  $h(gf) = (hg)f$;
+- **Identity:** if $f \colon A \to B$, then $f = f\,\id{A}$ and
+  $f = \id{B}\,f$.
+:::
+
+Note that $gf$ is only defined when the codomain of $f$ is *exactly* the domain
+of $g$. A diagram of objects and arrows is **commutative** if any two paths of
+arrows with the same start and end have equal composites; for example, the
+triangle formed by $f \colon A \to B$, $g \colon B \to C$ and
+$m \colon A \to C$ commutes precisely when $m = gf$.
+
+::: {#def-isomorphism}
+## Isomorphism
+
+Objects $A$ and $B$ of a category are **isomorphic**, written $A \cong B$, if
+there are arrows $f \colon A \to B$ and $g \colon B \to A$ with
+$gf = \id{A}$ and $fg = \id{B}$. Such an $f$ is an **isomorphism**.
+:::
+
+::: {#def-terminal-initial}
+## Terminal and initial objects
+
+An object $T$ of a category $\Cat$ is **terminal** if for every object $A$ of
+$\Cat$ there is exactly one arrow $A \to T$. An object $I$ is **initial** if
+for every object $A$ there is exactly one arrow $I \to A$.
+:::
+
+::: {#rem-terminal-initial}
+The book introduces "terminal" and "initial" only for the category of sets
+(see the axioms below), but the definitions make sense in any category, and
+that is how they are used in @exr-LR-1-30.
+:::
+
+## The axioms of Chapter 1
+
+We write $\Set$ for the category of abstract sets and (arbitrary) mappings.
+
+::: {.callout-note icon=false}
+## Axiom: $\Set$ is a category
+
+Abstract sets and mappings form a category, whose objects are called **sets**
+and whose arrows are called **mappings**.
+:::
+
+::: {.callout-note icon=false}
+## Axiom: Terminal set
+
+There is a set $\one$ such that for any set $A$ there is exactly one mapping
+$A \to \one$.
+:::
+
+The book gives this unique mapping the same name $A$ as its domain; to avoid
+confusion we write it $\term{A} \colon A \to \one$. In a given discussion
+$\one$ denotes a *chosen* terminal set (by @exr-LR-1-28 (b) the choice makes no
+difference).
+
+::: {#def-element}
+## Element (L–R, Definition 1.3)
+
+An **element** of a set $A$ is any mapping whose codomain is $A$ and whose
+domain is $\one$, i.e. any $a \colon \one \to A$.
+:::
+
+Thus *element is a special case of mapping*, and *evaluation is a special
+case of composition*: if $f \colon A \to B$ and $a \colon \one \to A$, then
+$fa \colon \one \to B$ is an element of $B$, and we define the **value** of
+$f$ at $a$ by $f(a) := fa$. Associativity then gives $(gf)(a) = g(f(a))$.
+
+::: {#def-generalized-element}
+## Generalized element (L–R, §1.6)
+
+A **generalized element** of $A$ (or *variable element of $A$ varying over
+$T$*) is an arbitrary mapping $x \colon T \to A$ with codomain $A$; its domain
+$T$ need not be $\one$.
+:::
+
+::: {#def-separator}
+## Separator (L–R, Definition 1.14)
+
+An object $S$ in a category $\Cat$ is a **separator** if and only if whenever
+$f_1, f_2 \colon X \to Y$ are arrows of $\Cat$ with the same domain and the
+same codomain, then
+$$
+\bigl(\forall x\, [\, x \colon S \to X \;\Rightarrow\; f_1 x = f_2 x \,]\bigr)
+\;\Longrightarrow\; f_1 = f_2 .
+$$
+:::
+
+::: {.callout-note icon=false}
+## Axiom: The terminal object $\one$ separates mappings in $\Set$
+
+A one-element set $\one$ is a separator in $\Set$; that is, if
+$f_1, f_2 \colon X \to Y$, then
+$$
+\bigl(\forall x\, [\, x \colon \one \to X \;\Rightarrow\; f_1 x = f_2 x \,]\bigr)
+\;\Longrightarrow\; f_1 = f_2 .
+$$
+:::
+
+In words: two mappings with the same domain and codomain that have the same
+value at every element are equal. Contrapositively, if $f_1 \neq f_2$ there is
+an element $x$ of $X$ with $f_1(x) \neq f_2(x)$.
+
+::: {.callout-note icon=false}
+## Axiom: Initial set
+
+There is a set $\zero$ such that for any set $A$ there is exactly one mapping
+$\zero \to A$.
+:::
+
+::: {.callout-note icon=false}
+## Axiom: Nondegeneracy of $\Set$
+
+$$
+\zero \not\cong \one .
+$$
+:::
+
+::: {#def-coseparator}
+## Coseparator (L–R, Definition 1.19)
+
+An object $V$ of a category $\Cat$ is a **coseparator** if for any $A$ and any
+parallel pair $a_0, a_1 \colon T \to A$ (of generalized elements of $A$),
+$$
+\bigl(\forall \varphi\, [\, \varphi \colon A \to V \;\Rightarrow\;
+\varphi a_0 = \varphi a_1 \,]\bigr)
+\;\Longrightarrow\; a_0 = a_1 .
+$$
+Equivalently: if $a_0 \neq a_1$, then there is some $\varphi \colon A \to V$
+with $\varphi a_0 \neq \varphi a_1$. We say that $V$ **can discriminate
+elements** if this condition holds for $T = \one$.
+:::
+
+A mapping $\varphi \colon A \to V$ is thought of as a ($V$-valued) *property*
+of the elements of $A$, so a coseparator is an object of values with enough
+properties to tell elements apart.
+
+::: {#rem-two}
+## The set $\two$ (L–R, §1.7)
+
+The book provisionally assumes a set $\two$ with exactly two elements
+$0, 1 \colon \one \to \two$ (made precise by the axioms of Chapter 2) and
+claims (Claim 1.21) that $\two$ is a coseparator in $\Set$. None of the
+exercises below depend on this.
+:::
+
+## Exercises
+
+Two consequences of the axioms *Terminal set* and *Initial set* are used again
+and again below:
+
+::: {.callout-tip}
+## A recurring observation
+
+The only mapping $\one \to \one$ is $\id{\one}$, and the only mapping
+$\zero \to \zero$ is $\id{\zero}$. More generally, any two arrows *into* a
+terminal object with the same domain are equal, and any two arrows *out of*
+an initial object with the same codomain are equal.
+:::
+
+### Separators
+
+::: {#exr-LR-1-15}
+## L–R 1.15
+
+In the category of abstract sets $\Set$, any set $A$ with at least one element
+$x_0 \colon \one \to A$ is also a separator.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+Let $f_1, f_2 \colon X \to Y$ and suppose that $f_1 a = f_2 a$ for every
+$a \colon A \to X$. We must show $f_1 = f_2$. Since $\one$ is a separator
+(axiom), it suffices to show $f_1 x = f_2 x$ for every element
+$x \colon \one \to X$.
+
+So fix $x \colon \one \to X$ and consider the generalized element
+$$
+a := x\,\term{A} \colon A \xrightarrow{\;\term{A}\;} \one \xrightarrow{\;x\;} X ,
+$$
+the *constant* map with value $x$. By hypothesis $f_1 a = f_2 a$, i.e.
+$f_1 (x\,\term{A}) = f_2 (x\,\term{A})$. Composing on the right with the given
+element $x_0 \colon \one \to A$ and using associativity,
+$$
+f_1\, x\, (\term{A}\, x_0) \;=\; f_2\, x\, (\term{A}\, x_0).
+$$
+Now $\term{A} x_0 \colon \one \to \one$, and the only mapping $\one \to \one$
+is $\id{\one}$. Hence $\term{A} x_0 = \id{\one}$, and by the identity law
+$f_1 x = f_2 x$. As $x$ was arbitrary, $f_1 = f_2$.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+The key idea is to turn an element $x$ of $X$ into a generalized element
+$A \to X$ by making it constant, and then to recover $x$ by evaluating at the
+element $x_0$ of $A$. Without $x_0$ we could not cancel $\term{A}$, and
+@exr-LR-1-16 shows that the hypothesis cannot be dropped.
+:::
+
+::: {#exr-LR-1-16}
+## L–R 1.16
+
+In the category of abstract sets $\Set$ the initial set $\zero$ is not a
+separator. (Assume that two sets $A$ and $B$ exist with at least two maps
+$A \to B$.)
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+By assumption there are $f_1, f_2 \colon A \to B$ with $f_1 \neq f_2$. For
+$\zero$ to be a separator we would need: if $f_1 x = f_2 x$ for every
+$x \colon \zero \to A$, then $f_1 = f_2$. But for any $x \colon \zero \to A$,
+both $f_1 x$ and $f_2 x$ are mappings $\zero \to B$, and by the axiom *Initial
+set* there is exactly one such mapping. Hence $f_1 x = f_2 x$ for all
+$x \colon \zero \to A$, while $f_1 \neq f_2$. So $\zero$ is not a separator.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+*Why is the extra assumption needed?* The axioms of Chapter 1 alone do not
+guarantee two distinct parallel mappings. Consider the category with two
+objects $\zero, \one$ and only three arrows: $\id{\zero}$, $\id{\one}$, and one
+arrow $u \colon \zero \to \one$ (composition is forced). In it $\one$ is
+terminal, $\zero$ is initial, every hom-set has at most one element (so
+*every* object, including $\zero$, is a separator, and in particular $\one$
+separates), and $\zero \not\cong \one$ because there is no arrow
+$\one \to \zero$. So all the axioms of Chapter 1 hold, yet $\zero$ is a
+separator. This is a first example of a *model* of a fragment of the
+categorical axioms, much like the small models of fragments of $\ZFC$ we
+studied earlier.
+
+Once the set $\two$ with elements $0 \neq 1 \colon \one \to \two$ is available
+(Chapter 2), one can take $A = \one$, $B = \two$.
+
+Compare with @exr-LR-1-15: $\zero$ fails precisely because it has no elements
+(@exr-LR-1-18).
+:::
+
+### The empty set
+
+::: {#exr-LR-1-18}
+## L–R 1.18
+
+How many mappings are there from $\zero$ to $\one$? From $\zero$ to $\zero$?
+From $\one$ to $\zero$? (And so how many elements does $\zero$ have?)
+
+*Hint:* To answer the third question requires more axioms than do the other
+two.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+*From $\zero$ to $\one$: exactly one.* This follows from *Initial set* (with
+$A = \one$), and equally from *Terminal set* (with $A = \zero$). Call it
+$u \colon \zero \to \one$.
+
+*From $\zero$ to $\zero$: exactly one,* by *Initial set* with $A = \zero$.
+Since $\id{\zero}$ is such a mapping, it is $\id{\zero}$.
+
+*From $\one$ to $\zero$: none.* Suppose, for a contradiction, that
+$x \colon \one \to \zero$. Then
+
+- $u x \colon \one \to \one$, so $u x = \id{\one}$ (Terminal set);
+- $x u \colon \zero \to \zero$, so $x u = \id{\zero}$ (Initial set).
+
+Thus $x$ and $u$ are mutually inverse and $\zero \cong \one$, contradicting
+*Nondegeneracy*. Hence there is no mapping $\one \to \zero$.
+
+Since elements of $\zero$ are by definition mappings $\one \to \zero$,
+**$\zero$ has no elements**: it is an empty set, which justifies the name.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+- The first two answers use one axiom each; the third uses *Terminal set*,
+  *Initial set*, and *Nondegeneracy*.
+- The argument shows that, given the other axioms, Nondegeneracy is
+  *equivalent* to the apparently stronger statement "there is no mapping
+  $\one \to \zero$". The converse is immediate: an isomorphism
+  $\zero \cong \one$ includes a mapping $\one \to \zero$.
+- *Extension.* If there is any mapping $h \colon A \to \zero$, then
+  $A \cong \zero$. With $e \colon \zero \to A$ the unique map, $he = \id{\zero}$
+  by initiality. For $eh = \id{A}$ one needs one more axiom: $A$ has no
+  elements (an element $a$ would give an element $ha$ of $\zero$), so $eh$ and
+  $\id{A}$ agree at every element vacuously, and they are equal because $\one$
+  separates mappings.
+- Contrast with $\ZFC$: there, $\emptyset$ has no elements by definition, and
+  is unique by Extensionality. Here, the emptiness of $\zero$ is a *theorem*
+  about mappings, derived from a property (initiality) that does not mention
+  elements at all.
+:::
+
+### Coseparators
+
+::: {#exr-LR-1-20}
+## L–R 1.20
+
+Use the fact that $\one$ is a separator in the category of abstract sets to
+show that (in that category), if $V$ can discriminate elements, then it can
+discriminate generalized elements. Thus, in $\Set$ the general $T$ in
+@def-coseparator could safely be replaced by $T = \one$.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+Assume $V$ discriminates elements: for every set $A$ and all
+$b_0, b_1 \colon \one \to A$,
+$$
+\bigl(\forall \varphi \colon A \to V,\ \varphi b_0 = \varphi b_1\bigr)
+\;\Longrightarrow\; b_0 = b_1 . \tag{*}
+$$
+Let $a_0, a_1 \colon T \to A$ be generalized elements such that
+$\varphi a_0 = \varphi a_1$ for every $\varphi \colon A \to V$. We show
+$a_0 = a_1$. Because $\one$ separates mappings, it suffices to show
+$a_0 t = a_1 t$ for every element $t \colon \one \to T$.
+
+Fix $t \colon \one \to T$. Then $a_0 t$ and $a_1 t$ are elements of $A$, and
+for every $\varphi \colon A \to V$, by associativity,
+$$
+\varphi (a_0 t) = (\varphi a_0) t = (\varphi a_1) t = \varphi (a_1 t).
+$$
+By $(*)$, $a_0 t = a_1 t$. Since $t$ was arbitrary, $a_0 = a_1$.
+
+The converse (discriminating generalized elements implies discriminating
+elements) is trivial, since elements are generalized elements with
+$T = \one$. So in $\Set$ the two conditions are equivalent.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+- Before starting, write out exactly what must be shown: there are two layers
+  of quantifiers (over $t$ and over $\varphi$). Note that $(*)$ cannot be
+  applied directly to $a_0, a_1$, which are not elements.
+- Associativity does all the work: "evaluate first, then apply $\varphi$"
+  equals "apply $\varphi$, then evaluate".
+- This is the dual of the role of the separator: $\one$ lets us reduce
+  statements about generalized elements to statements about ordinary
+  elements. In categories where $\one$ is not a separator (e.g. groups or
+  vector spaces, see @exr-LR-1-30) the reduction fails, which is why
+  @def-coseparator is stated for general $T$.
+:::
+
+### Uniqueness properties
+
+::: {#exr-LR-1-28}
+## L–R 1.28
+
+(a) Show that identity arrows in a category are unique, i.e. if
+    $\id{A} \colon A \to A$ and $\id{A}' \colon A \to A$ both satisfy the
+    equations for identity arrows, then $\id{A} = \id{A}'$.
+(b) Show that the set $\one$ is unique "up to unique isomorphism", i.e. if
+    $\one'$ also satisfies the axiom of the terminal set, then there are
+    unique mappings $f \colon \one \to \one'$ and $g \colon \one' \to \one$,
+    and that $gf = \id{\one}$ and $fg = \id{\one'}$.
+(c) Similarly, show that the empty set $\zero$ is unique up to unique
+    isomorphism.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+**(a)** The identity equations say: $h\,\id{A} = h$ for every
+$h \colon A \to B$, and $\id{A}\,k = k$ for every $k \colon C \to A$; likewise
+for $\id{A}'$. Consider the composite $\id{A}\,\id{A}'$. Using that $\id{A}'$
+is a right identity, with $h = \id{A}$, we get $\id{A}\,\id{A}' = \id{A}$.
+Using that $\id{A}$ is a left identity, with $k = \id{A}'$, we get
+$\id{A}\,\id{A}' = \id{A}'$. Hence
+$$
+\id{A} = \id{A}\,\id{A}' = \id{A}' .
+$$
+
+**(b)** Since $\one'$ satisfies the terminal set axiom, there is exactly one
+mapping $f \colon \one \to \one'$; since $\one$ does, there is exactly one
+mapping $g \colon \one' \to \one$. Now $gf \colon \one \to \one$, and the only
+mapping $\one \to \one$ is $\id{\one}$; so $gf = \id{\one}$. Symmetrically,
+$fg \colon \one' \to \one'$ and the only such mapping is $\id{\one'}$, so
+$fg = \id{\one'}$. Thus $\one \cong \one'$. The isomorphism is *unique*: any
+isomorphism $\one \to \one'$ is in particular a mapping $\one \to \one'$,
+hence equals $f$.
+
+**(c)** Dually, let $\zero'$ also satisfy the initial set axiom. There is
+exactly one $f \colon \zero \to \zero'$ (initiality of $\zero$) and exactly
+one $g \colon \zero' \to \zero$ (initiality of $\zero'$). Then
+$gf \colon \zero \to \zero$ must equal $\id{\zero}$, the only mapping
+$\zero \to \zero$, and $fg \colon \zero' \to \zero'$ must equal $\id{\zero'}$.
+So $f$ is an isomorphism, and it is the only one, since it is the only mapping
+$\zero \to \zero'$ at all.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+- The proofs use nothing specific to $\Set$: in *any* category, identities are
+  unique and terminal (initial) objects are unique up to unique isomorphism.
+  This is what justifies speaking of "the" terminal set: any statement about
+  it is insensitive to which terminal set was chosen.
+- In (a), only "$\id{A}'$ is a right identity" and "$\id{A}$ is a left
+  identity" are used, exactly as for identity elements of a monoid.
+- In (b), both composites must be checked; one-sided inverses do not make an
+  isomorphism.
+- Compare with $\ZFC$: $\emptyset$ is *literally* unique by Extensionality,
+  while $\{\emptyset\}$, $\{\{\emptyset\}\}$, and $\{7\}$ are all different
+  one-element sets. In the categorical approach these are indistinguishable:
+  the theory only ever pins objects down up to (unique) isomorphism.
+:::
+
+### Categories of structures
+
+::: {#exr-LR-1-30}
+## L–R 1.30
+
+(a) Show that (finite-dimensional) vector spaces as objects and linear
+    transformations as arrows form a category with composition of arrows
+    defined by composition of mappings. Show that a one-dimensional space $S$
+    is a separator; is it a coseparator? Is the terminal object a separator?
+(b) Show that groups as objects and group homomorphisms as arrows form a
+    category with composition of arrows defined by composition of mappings.
+    Show that the additive group of integers is a separator.
+(c) Show that partially ordered sets as objects and monotone
+    (= order-preserving) mappings as arrows form a category with composition
+    of arrows defined by composition of mappings. Is the terminal object a
+    separator in this category? Is there a coseparator?
+(d) A **finite state machine** with two inputs $\alpha$ and $\beta$ is a
+    finite set $Q$ of "states" and a pair of endomaps
+    $\alpha, \beta \colon Q \to Q$ that effect the elementary state
+    transitions of which the machine is capable. Given another such machine
+    with state set $Q'$, a **homomorphism** is a mapping
+    $\varphi \colon Q \to Q'$ of state sets preserving the transitions in the
+    sense that
+    $$
+    \varphi\alpha = \alpha'\varphi \qquad\text{and}\qquad
+    \varphi\beta = \beta'\varphi ,
+    $$
+    where $\alpha', \beta' \colon Q' \to Q'$ denote the corresponding state
+    transitions of the second machine. Define composition of homomorphisms and
+    show that a category results.
+:::
+
+In parts (a)–(c), "separator", "coseparator" and "terminal object" are meant
+in the sense of @def-separator, @def-coseparator and @def-terminal-initial,
+applied to the category at hand. In particular, the "elements"
+$x \colon S \to X$ that a separator $S$ uses to test arrows are arrows *of that
+category* (linear maps, homomorphisms, monotone maps), not arbitrary
+functions.
+
+::: {.callout-tip collapse="true"}
+## Solution: a remark common to (a)–(d)
+
+In each case the arrows are certain mappings between underlying sets,
+composition is composition of mappings, and the identity arrow on an object is
+the identity mapping of its underlying set. Therefore, once we know that
+
+(i) the identity mapping is an arrow, and
+(ii) the composite of two arrows is again an arrow,
+
+the associativity and identity laws hold automatically, because they hold for
+mappings in $\Set$. So in each part the only real work in "show that a
+category results" is checking (i) and (ii). Strictly speaking an arrow should
+be recorded as the triple (domain, codomain, underlying mapping), since the
+same function can be an arrow between different structures on the same
+underlying sets; nothing below depends on this.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution to (a): vector spaces
+
+Fix a field $k$ and consider finite-dimensional vector spaces over $k$ with
+linear maps.
+
+*Category.* The identity map is linear. If $f \colon U \to V$ and
+$g \colon V \to W$ are linear then
+$gf(\lambda u + \mu u') = g(\lambda f u + \mu f u') = \lambda\, gf u + \mu\, gf u'$,
+so $gf$ is linear.
+
+*A one-dimensional space $S$ is a separator.* Fix a nonzero $s \in S$, so
+$S = \{\lambda s : \lambda \in k\}$. For every vector $v$ in a space $X$ the
+map $x_v \colon S \to X$, $x_v(\lambda s) = \lambda v$, is linear, and
+$x_v(s) = v$. Now suppose $f_1, f_2 \colon X \to Y$ satisfy $f_1 x = f_2 x$ for
+all linear $x \colon S \to X$. Then for every $v \in X$,
+$$
+f_1(v) = f_1 x_v (s) = f_2 x_v (s) = f_2(v),
+$$
+so $f_1 = f_2$. (In fact linear maps $S \to X$ correspond bijectively to
+vectors of $X$ via $x \mapsto x(s)$; this is the sense in which $S$ plays the
+role of $\one$.)
+
+*$S$ is also a coseparator.* Let $a_0, a_1 \colon T \to A$ be linear with
+$a_0 \neq a_1$. Then there is $t \in T$ with $w := a_0(t) - a_1(t) \neq 0$.
+Extend $\{w\}$ to a basis $\{w, e_2, \dots, e_n\}$ of $A$ and let
+$\varphi \colon A \to S$ be the linear map with $\varphi(w) = s$ and
+$\varphi(e_i) = 0$. Then
+$$
+\varphi a_0 (t) - \varphi a_1 (t) = \varphi(w) = s \neq 0,
+$$
+so $\varphi a_0 \neq \varphi a_1$. (We had to use generalized elements
+$T \to A$ here, because maps out of the terminal object carry no information
+in this category; see the next point.)
+
+*The terminal object is not a separator.* The zero space $\{0\}$ is terminal:
+from any $X$ there is exactly one linear map to it, the zero map. It is also
+initial: the only linear map $\{0\} \to X$ sends $0 \mapsto 0$. So for any
+$f_1, f_2 \colon X \to Y$ and any $x \colon \{0\} \to X$, both $f_1 x$ and
+$f_2 x$ are the unique map $\{0\} \to Y$, hence equal. Taking $f_1 = \id{S}$
+and $f_2 = 0$ (distinct, since $s \neq 0$) shows that $\{0\}$ does not
+separate.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution to (b): groups
+
+*Category.* The identity map is a homomorphism. If $f \colon G \to H$ and
+$g \colon H \to K$ are homomorphisms then
+$gf(xy) = g(f(x)f(y)) = gf(x)\, gf(y)$.
+
+*$(\Z, +)$ is a separator.* For each element $x$ of a group $X$ the map
+$h_x \colon \Z \to X$, $h_x(n) = x^n$, is a homomorphism (since
+$x^{m+n} = x^m x^n$) with $h_x(1) = x$. If $f_1, f_2 \colon X \to Y$ satisfy
+$f_1 h = f_2 h$ for every homomorphism $h \colon \Z \to X$, then for every
+$x \in X$,
+$$
+f_1(x) = f_1 h_x(1) = f_2 h_x(1) = f_2(x),
+$$
+so $f_1 = f_2$. (As in (a), homomorphisms $\Z \to X$ correspond bijectively to
+elements of $X$, because $\Z$ is the free group on one generator.)
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution to (c): partially ordered sets
+
+*Category.* The identity is monotone. If $f, g$ are monotone and $x \le y$
+then $f(x) \le f(y)$, hence $g f(x) \le g f(y)$.
+
+*The terminal object is a separator.* The one-element poset
+$\one = \{\ast\}$ is terminal (the constant map $X \to \one$ is monotone and
+is the only map). Every function $\one \to X$ is monotone, so monotone maps
+$\one \to X$ correspond exactly to points of $X$. If $f_1 x = f_2 x$ for all
+$x \colon \one \to X$, then $f_1$ and $f_2$ agree at every point, so they are
+equal as functions, hence as arrows. So, unlike (a) and (b), $\one$ is a
+separator here.
+
+*There is a coseparator: the two-element chain $\two = \{0 < 1\}$.* Let
+$a_0, a_1 \colon T \to A$ be monotone with $a_0 \neq a_1$; pick $t$ with
+$p := a_0(t) \neq q := a_1(t)$. By antisymmetry, $p \not\le q$ or
+$q \not\le p$; say $p \not\le q$ (otherwise swap the roles of $p$ and $q$).
+Define $\varphi \colon A \to \two$ by
+$$
+\varphi(z) =
+\begin{cases}
+  1 & \text{if } p \le z,\\
+  0 & \text{otherwise,}
+\end{cases}
+$$
+the indicator of the up-set ${\uparrow}p$. It is monotone: if $z \le z'$ and
+$\varphi(z) = 1$ then $p \le z \le z'$, so $\varphi(z') = 1$. And
+$\varphi(p) = 1 \neq 0 = \varphi(q)$ since $p \not\le q$. Hence
+$\varphi a_0 (t) \neq \varphi a_1 (t)$, so $\varphi a_0 \neq \varphi a_1$.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution to (d): finite state machines
+
+Objects are triples $(Q, \alpha, \beta)$ with $\alpha, \beta \colon Q \to Q$;
+an arrow $(Q, \alpha, \beta) \to (Q', \alpha', \beta')$ is a mapping
+$\varphi \colon Q \to Q'$ with $\varphi\alpha = \alpha'\varphi$ and
+$\varphi\beta = \beta'\varphi$.
+
+*Composition* is composition of the underlying mappings: given
+$\varphi \colon (Q, \alpha, \beta) \to (Q', \alpha', \beta')$ and
+$\psi \colon (Q', \alpha', \beta') \to (Q'', \alpha'', \beta'')$, set
+$\psi \circ \varphi := \psi\varphi$. It is a homomorphism, by associativity in
+$\Set$:
+$$
+(\psi\varphi)\alpha = \psi(\varphi\alpha) = \psi(\alpha'\varphi)
+= (\psi\alpha')\varphi = (\alpha''\psi)\varphi = \alpha''(\psi\varphi),
+$$
+and the same computation with $\beta$ in place of $\alpha$.
+
+*Identities:* $\id{Q}$ is a homomorphism
+$(Q, \alpha, \beta) \to (Q, \alpha, \beta)$, since
+$\id{Q}\alpha = \alpha = \alpha\,\id{Q}$, and likewise for $\beta$.
+
+By the common remark above, associativity and the identity laws are inherited
+from $\Set$, so machines and their homomorphisms form a category.
+:::
+
+::: {.callout-note collapse="true"}
+## Remarks
+
+- *Terminal = initial.* In vector spaces (and in groups) the zero space
+  (trivial group) is both terminal and initial. So in these categories
+  $\zero \cong \one$: the Nondegeneracy axiom *fails*. This is a good way to
+  see why Nondegeneracy is a genuine axiom and not a triviality.
+- *Separators replace $\one$.* In (a) and (b) the terminal object sees
+  nothing, and a different object ($k$, respectively $\Z$) does the job of
+  "detecting elements". In each case that object is the *free* structure on
+  one generator, so maps out of it are the same as elements of the underlying
+  set.
+- *Groups have no coseparator.* If $C$ were one, take a simple group $G$ of
+  cardinality larger than $C$ (alternating groups $A_n$, $n \ge 5$, give
+  arbitrarily large finite examples). The kernel of any homomorphism
+  $\varphi \colon G \to C$ is normal, hence trivial or all of $G$; it cannot
+  be trivial for cardinality reasons, so $\varphi$ is trivial. Then no
+  $\varphi$ distinguishes two different elements of $G$ (viewed as
+  homomorphisms $\Z \to G$).
+- *The order on the value object matters.* The *discrete* two-element poset
+  (no order relations between its two points) is *not* a coseparator in
+  posets: monotone maps into it are constant on connected components, so for
+  instance the two elements of the chain $\two$ cannot be told apart by maps
+  into it.
+- *Finite dimension* is only used in (a) for the easy extension of $\{w\}$ to
+  a basis; with the Axiom of Choice the same argument works for all vector
+  spaces.
+- *Machines* preview a later theme of the book (Chapter 10): many categories
+  of structures are categories of "sets with endomaps". The terminal machine
+  has one state with $\alpha = \beta = \mathrm{id}$, so elements
+  $\one \to (Q, \alpha, \beta)$ are exactly the states fixed by both $\alpha$
+  and $\beta$. Hence $\one$ is not a separator: for $Q = \{0, 1\}$ with
+  $\alpha = \beta$ both equal to the swap there are no maps from $\one$ at all, but
+  $\id{Q}$ and the swap are two distinct homomorphisms $Q \to Q$.
+:::
+
+## Which Chapter 1 axioms hold where?
+
+The following table summarizes what @exr-LR-1-30 reveals. The axioms
+"$\one$ separates mappings" and "$\zero \not\cong \one$" already rule out many
+familiar categories of structures, though not all of them. (The machine row
+goes slightly beyond the exercise; see the remarks above.)
+
+| Category | terminal $\one$ | initial $\zero$ | $\zero \not\cong \one$ | $\one$ separates |
+|---|---|---|---|---|
+| Sets $\Set$ | one-element set | empty set | yes | yes |
+| Vector spaces | $\{0\}$ | $\{0\}$ | no | no |
+| Groups | trivial group | trivial group | no | no |
+| Posets | one-point poset | empty poset | yes | yes |
+| Machines | one state, identities | empty machine | yes | no |
+
+::: {.callout-tip}
+## Question
+
+Posets satisfy every axiom of Chapter 1. What distinguishes them from abstract
+sets?
+:::
+
+In posets a monotone bijection need not be an isomorphism: the identity
+function from the discrete two-element poset to the chain $\two$ is monotone
+and bijective, but its inverse is not monotone. Such behaviour is ruled out by
+the further axioms of the book, which make the category of abstract sets a
+topos.
