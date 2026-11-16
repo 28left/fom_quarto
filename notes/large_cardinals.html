@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/incompleteness-consistency-strength.html" rel="next">
+<link href="../notes/models.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/large_cardinals.html">11 · Large Cardinals</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/large_cardinals.html"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#cofinality-and-inaccessible-cardinals" id="toc-cofinality-and-inaccessible-cardinals" class="nav-link active" data-scroll-target="#cofinality-and-inaccessible-cardinals">Cofinality and Inaccessible Cardinals</a>
@@ -265,9 +309,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/large_cardinals.html"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Cofinality and Inaccessible Cardinals</h1>
+<h1 class="title"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></h1>
 </div>
 
 
@@ -315,7 +359,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-cofinal" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 13.1</strong></span> <br>
 A set <span class="math inline">\(X \subseteq \alpha\)</span> is <strong>cofinal</strong> in <span class="math inline">\({}\alpha\)</span> if <span class="math display">\[
     \forall \gamma &lt; \alpha \; \exists \xi \in X \;\; \gamma &lt; \xi.
 \]</span> Equivalently, <span class="math display">\[
@@ -332,7 +376,7 @@ A set <span class="math inline">\(X \subseteq \alpha\)</span> is <strong>cofinal
 </div>
 <div class="callout-body-container">
 <div id="def-cofinality" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 13.2</strong></span> <br>
 The <strong>cofinality</strong> of <span class="math inline">\({}\alpha\)</span> is <span class="math display">\[
     \operatorname{cf}(\alpha) = \text{least ordinal } \beta \text{ such that there exists } f: \beta \to \alpha \text{ with } \operatorname{ran}(f) \text{ cofinal in } \alpha.
 \]</span> We call such an <span class="math inline">\(f\)</span> a <strong>cofinal map</strong>.</p>
@@ -348,7 +392,7 @@ The <strong>cofinality</strong> of <span class="math inline">\({}\alpha\)</span>
 </div>
 <div class="callout-body-container">
 <div id="lem-cofinal-increasing" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 13.1</strong></span> <br>
 There exists a strictly increasing cofinal map <span class="math inline">\(g: \operatorname{cf}(\alpha) \to \alpha\)</span>.</p>
 </div>
 </div>
@@ -381,7 +425,7 @@ There exists a strictly increasing cofinal map <span class="math inline">\(g: \o
 </div>
 <div class="callout-body-container">
 <div id="exm-cofinality" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 13.1</strong></span> <br>
 </p>
 <ul>
 <li><span class="math inline">\(\operatorname{cf}(\omega) = \omega\)</span></li>
@@ -399,7 +443,7 @@ There exists a strictly increasing cofinal map <span class="math inline">\(g: \o
 </div>
 <div class="callout-body-container">
 <div id="prp-cofinality-basic" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.1</strong></span> <br>
 For any limit ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 <ol type="1">
 <li><span class="math inline">\(\operatorname{cf}(\alpha) \leq \alpha\)</span>,</li>
@@ -427,7 +471,7 @@ For any limit ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 <ol type="1">
 <li><p>The identity map <span class="math inline">\(\alpha \to \alpha\)</span> is cofinal.</p></li>
 <li><p>Let <span class="math inline">\(\beta = \operatorname{cf}(\alpha)\)</span> and suppose <span class="math inline">\(|\beta| &lt; \beta\)</span>. Let <span class="math inline">\(h: |\beta| \to \beta\)</span> be a bijection and <span class="math inline">\(f: \beta \to \alpha\)</span> cofinal. Then <span class="math inline">\(f \circ h: |\beta| \to \alpha\)</span> has the same range as <span class="math inline">\(f\)</span> and hence is cofinal, contradicting the minimality of <span class="math inline">\({}\beta\)</span>.</p></li>
-<li><p>By (1), <span class="math inline">\(\operatorname{cf}(\operatorname{cf}(\alpha)) \leq \operatorname{cf}(\alpha)\)</span>. For the other inequality, let <span class="math inline">\(f: \operatorname{cf}(\alpha) \to \alpha\)</span> be strictly increasing and cofinal (<a href="#lem-cofinal-increasing" class="quarto-xref">Lemma&nbsp;1</a>), and let <span class="math inline">\(g: \delta \to \operatorname{cf}(\alpha)\)</span> be cofinal. Then <span class="math inline">\(f \circ g: \delta \to \alpha\)</span> is cofinal: given <span class="math inline">\(\gamma &lt; \alpha\)</span>, pick <span class="math inline">\(\eta\)</span> with <span class="math inline">\(f(\eta) &gt; \gamma\)</span>, and <span class="math inline">\(\zeta &lt; \delta\)</span> with <span class="math inline">\(g(\zeta) &gt; \eta\)</span>. Then <span class="math inline">\(f(g(\zeta)) &gt; f(\eta) &gt; \gamma\)</span>. Hence <span class="math inline">\(\delta \geq \operatorname{cf}(\alpha)\)</span>.</p></li>
+<li><p>By (1), <span class="math inline">\(\operatorname{cf}(\operatorname{cf}(\alpha)) \leq \operatorname{cf}(\alpha)\)</span>. For the other inequality, let <span class="math inline">\(f: \operatorname{cf}(\alpha) \to \alpha\)</span> be strictly increasing and cofinal (<a href="#lem-cofinal-increasing" class="quarto-xref">Lemma&nbsp;<span>13.1</span></a>), and let <span class="math inline">\(g: \delta \to \operatorname{cf}(\alpha)\)</span> be cofinal. Then <span class="math inline">\(f \circ g: \delta \to \alpha\)</span> is cofinal: given <span class="math inline">\(\gamma &lt; \alpha\)</span>, pick <span class="math inline">\(\eta\)</span> with <span class="math inline">\(f(\eta) &gt; \gamma\)</span>, and <span class="math inline">\(\zeta &lt; \delta\)</span> with <span class="math inline">\(g(\zeta) &gt; \eta\)</span>. Then <span class="math inline">\(f(g(\zeta)) &gt; f(\eta) &gt; \gamma\)</span>. Hence <span class="math inline">\(\delta \geq \operatorname{cf}(\alpha)\)</span>.</p></li>
 </ol>
 </div>
 </div>
@@ -450,7 +494,7 @@ For any limit ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 </div>
 <div class="callout-body-container">
 <div id="def-regular" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 13.3</strong></span> <br>
 Let <span class="math inline">\({}\kappa\)</span> be an infinite cardinal. <span class="math inline">\({}\kappa\)</span> is</p>
 <ul>
 <li><strong>regular</strong> if <span class="math inline">\(\operatorname{cf}(\kappa) = \kappa\)</span>,</li>
@@ -470,7 +514,7 @@ Let <span class="math inline">\({}\kappa\)</span> be an infinite cardinal. <span
 </div>
 <div class="callout-body-container">
 <div id="exm-regular" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 13.2</strong></span> <br>
 </p>
 <ul>
 <li><span class="math inline">\(\aleph_0\)</span> is regular.</li>
@@ -489,7 +533,7 @@ Let <span class="math inline">\({}\kappa\)</span> be an infinite cardinal. <span
 </div>
 <div class="callout-body-container">
 <div id="prp-successor-regular" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.2</strong></span> <br>
 (<span class="math inline">\(\mathsf{AC}\)</span>) Every infinite successor cardinal is regular.</p>
 </div>
 </div>
@@ -527,7 +571,7 @@ Let <span class="math inline">\({}\kappa\)</span> be an infinite cardinal. <span
 </div>
 <div class="callout-body-container">
 <div id="prp-cofinality-aleph-limit" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.3</strong></span> <br>
 If <span class="math inline">\({}\lambda\)</span> is a limit ordinal, then <span class="math inline">\(\operatorname{cf}(\aleph_\lambda) = \operatorname{cf}(\lambda)\)</span>.</p>
 </div>
 </div>
@@ -569,7 +613,7 @@ If <span class="math inline">\({}\lambda\)</span> is a limit ordinal, then <span
 </div>
 <div class="callout-body-container">
 <div id="thm-koenig" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (König’s Theorem)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 13.1 (König’s Theorem)</strong></span> <br>
 (<span class="math inline">\(\mathsf{AC}\)</span>) Let <span class="math inline">\((\kappa_i)_{i\in I}\)</span> and <span class="math inline">\((\lambda_i)_{i\in I}\)</span> be families of cardinals such that <span class="math inline">\(\kappa_i &lt; \lambda_i\)</span> for all <span class="math inline">\(i \in I\)</span>. Then <span class="math display">\[
     \sum_{i \in I} \kappa_i &lt; \prod_{i\in I} \lambda_i.
 \]</span></p>
@@ -606,7 +650,7 @@ If <span class="math inline">\({}\lambda\)</span> is a limit ordinal, then <span
 </div>
 <div class="callout-body-container">
 <div id="prp-cofinality-power" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.4</strong></span> <br>
 If <span class="math inline">\(\kappa \geq \aleph_0\)</span>, then <span class="math inline">\(\operatorname{cf}(2^\kappa) &gt; \kappa\)</span>.</p>
 </div>
 </div>
@@ -642,7 +686,7 @@ If <span class="math inline">\(\kappa \geq \aleph_0\)</span>, then <span class="
 </div>
 <div class="callout-body-container">
 <div id="cor-continuum-not-aleph-omega" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 13.1</strong></span> <br>
 <span class="math inline">\(2^{\aleph_0} \neq \aleph_\omega\)</span>.</p>
 </div>
 </div>
@@ -684,7 +728,7 @@ If <span class="math inline">\(\kappa \geq \aleph_0\)</span>, then <span class="
 <p>Are there regular limit cardinals, i.e.&nbsp;regular cardinals of the form <span class="math inline">\(\aleph_\lambda\)</span> with <span class="math inline">\(\lambda\)</span> limit?</p>
 </div>
 </div>
-<p>If <span class="math inline">\(\aleph_\lambda\)</span> is a regular limit cardinal, then by <a href="#prp-cofinality-aleph-limit" class="quarto-xref">Proposition&nbsp;3</a> and <a href="#prp-cofinality-basic" class="quarto-xref">Proposition&nbsp;1</a>, <span class="math display">\[
+<p>If <span class="math inline">\(\aleph_\lambda\)</span> is a regular limit cardinal, then by <a href="#prp-cofinality-aleph-limit" class="quarto-xref">Proposition&nbsp;<span>13.3</span></a> and <a href="#prp-cofinality-basic" class="quarto-xref">Proposition&nbsp;<span>13.1</span></a>, <span class="math display">\[
     \aleph_\lambda = \operatorname{cf}(\aleph_\lambda) = \operatorname{cf}(\lambda) \leq \lambda,
 \]</span> and since always <span class="math inline">\(\lambda \leq \aleph_\lambda\)</span>, we must have <span class="math inline">\(\aleph_\lambda = \lambda\)</span>. So a regular limit cardinal must be very large: it is a fixed point of the <span class="math inline">\(\aleph\)</span>-function.</p>
 <p>This is captured by the notion of <strong>inaccessibility</strong>.</p>
@@ -695,7 +739,7 @@ If <span class="math inline">\(\kappa \geq \aleph_0\)</span>, then <span class="
 </div>
 <div class="callout-body-container">
 <div id="def-inaccessible" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Hausdorff 1908, Tarski, Zermelo 1930)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 13.4 (Hausdorff 1908, Tarski, Zermelo 1930)</strong></span> <br>
 An uncountable cardinal <span class="math inline">\(\kappa &gt; \omega\)</span> is</p>
 <ul>
 <li><p><strong>weakly inaccessible</strong> if <span class="math display">\[\begin{align*}
@@ -733,7 +777,7 @@ where the <strong>beth function</strong> <span class="math inline">\(\beth_\alph
 </div>
 <div class="callout-body-container">
 <div id="prp-cardinality-vkappa" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.5</strong></span> <br>
 If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then <span class="math inline">\(|V_\kappa| = \kappa\)</span>.</p>
 </div>
 </div>
@@ -766,7 +810,7 @@ If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then 
 </div>
 <div class="callout-body-container">
 <div id="prp-inaccessible-cardinality" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 13.6</strong></span> <br>
 Suppose <span class="math inline">\({}\kappa\)</span> is strongly inaccessible and <span class="math inline">\(x\subseteq V_\kappa\)</span>. Then</p>
 <p><span class="math display">\[
     x \in V_\kappa \; \Leftrightarrow \; |x| &lt; \kappa.
@@ -788,7 +832,7 @@ Suppose <span class="math inline">\({}\kappa\)</span> is strongly inaccessible a
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) If <span class="math inline">\(x \in V_\kappa\)</span>, then <span class="math inline">\(x \in V_\alpha\)</span> for some <span class="math inline">\(\alpha &lt; \kappa\)</span>, and by transitivity <span class="math inline">\(x \subseteq V_\alpha\)</span>. By the proof of <a href="#prp-cardinality-vkappa" class="quarto-xref">Proposition&nbsp;5</a>, <span class="math inline">\(|x| \leq |V_\alpha| &lt; \kappa\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) If <span class="math inline">\(x \in V_\kappa\)</span>, then <span class="math inline">\(x \in V_\alpha\)</span> for some <span class="math inline">\(\alpha &lt; \kappa\)</span>, and by transitivity <span class="math inline">\(x \subseteq V_\alpha\)</span>. By the proof of <a href="#prp-cardinality-vkappa" class="quarto-xref">Proposition&nbsp;<span>13.5</span></a>, <span class="math inline">\(|x| \leq |V_\alpha| &lt; \kappa\)</span>.</p>
 <p>(<span class="math inline">\(\Leftarrow\)</span>) Since <span class="math inline">\(x \subseteq V_\kappa\)</span>, each <span class="math inline">\(y \in x\)</span> has rank <span class="math inline">\(&lt; \kappa\)</span>. Since <span class="math inline">\(|x| &lt; \kappa\)</span>, by regularity of <span class="math inline">\({}\kappa\)</span>,</p>
 <p><span class="math display">\[
     \operatorname{rank}(x) = \sup\{\operatorname{rank}(y)+1 \colon y \in x\} &lt; \kappa
@@ -806,7 +850,7 @@ Suppose <span class="math inline">\({}\kappa\)</span> is strongly inaccessible a
 </div>
 <div class="callout-body-container">
 <div id="thm-inaccessible-zfc" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> <br>
 If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>.</p>
 </div>
 </div>
@@ -825,7 +869,7 @@ If <span class="math inline">\({}\kappa\)</span> is strongly inaccessible, then 
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We verify that <span class="math inline">\(V_\kappa\)</span> satisfies the axiom of <em>Replacement</em>. Suppose <span class="math inline">\(x \in V_\kappa\)</span> and <span class="math inline">\(f:x \to V_\kappa\)</span> is a function. Then <span class="math inline">\(f[x] \subseteq V_\kappa\)</span>, and by <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;6</a>, <span class="math inline">\(|f[x]| \leq |x| &lt; \kappa\)</span>. Applying the other direction of <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;6</a> to <span class="math inline">\(f[x]\)</span>, we obtain <span class="math inline">\(f[x] \in V_\kappa\)</span>, as desired.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We verify that <span class="math inline">\(V_\kappa\)</span> satisfies the axiom of <em>Replacement</em>. Suppose <span class="math inline">\(x \in V_\kappa\)</span> and <span class="math inline">\(f:x \to V_\kappa\)</span> is a function. Then <span class="math inline">\(f[x] \subseteq V_\kappa\)</span>, and by <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;<span>13.6</span></a>, <span class="math inline">\(|f[x]| \leq |x| &lt; \kappa\)</span>. Applying the other direction of <a href="#prp-inaccessible-cardinality" class="quarto-xref">Proposition&nbsp;<span>13.6</span></a> to <span class="math inline">\(f[x]\)</span>, we obtain <span class="math inline">\(f[x] \in V_\kappa\)</span>, as desired.</p>
 </div>
 </div>
 </div>
@@ -916,7 +960,7 @@ V_\kappa \models \mathsf{ZFC}+ \text{``there does not exist an inaccessible card
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1243,20 +1287,19 @@ V_\kappa \models \mathsf{ZFC}+ \text{``there does not exist an inaccessible card
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/models.html" class="pagination-link" aria-label="Models of Set Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Models of Set Theory</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/incompleteness-consistency-strength.html" class="pagination-link" aria-label="Incompleteness and Consistency Strength">
+        <span class="nav-page-text"><span class="chapter-title">Incompleteness and Consistency Strength</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/large_cardinals.html" rel="next">
+<link href="../notes/cardinals.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/models.html">10 · Models of Set Theory</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/models.html"><span class="chapter-title">Models of Set Theory</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#models-of-set-theory" id="toc-models-of-set-theory" class="nav-link active" data-scroll-target="#models-of-set-theory">Models of Set Theory</a>
@@ -264,9 +308,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/models.html"><span class="chapter-title">Models of Set Theory</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Models of Set Theory</h1>
+<h1 class="title"><span class="chapter-title">Models of Set Theory</span></h1>
 </div>
 
 
@@ -328,7 +372,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="prp-illfounded-zf-model" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 12.1</strong></span> <br>
 If <span class="math inline">\(\mathsf{ZF}\)</span> is consistent, then there exists a model <span class="math inline">\((M,E)\)</span> of <span class="math inline">\(\mathsf{ZF}\)</span> such that <span class="math inline">\((M,E)\)</span> is ill-founded.</p>
 </div>
 </div>
@@ -373,7 +417,7 @@ If <span class="math inline">\(\mathsf{ZF}\)</span> is consistent, then there ex
 </div>
 <div class="callout-body-container">
 <div id="thm-Mostowski-collapse" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Mostowski collapse)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 12.1 (Mostowski collapse)</strong></span> <br>
 If <span class="math inline">\(E\)</span> is an extensional and well-founded relation on a set <span class="math inline">\(X\)</span>, then there exists a transitive set <span class="math inline">\(S\)</span> and a bijection <span class="math inline">\(\pi: X \to S\)</span> such that <span class="math display">\[\begin{equation*}
     x \, E \, y \iff \pi(x) \in \pi(y) \quad \text{ for all $ x,y \in X$}.      
 \end{equation*}\]</span> Moreover, <span class="math inline">\(S\)</span> and <span class="math inline">\({}\pi\)</span> are unique.</p>
@@ -423,7 +467,7 @@ cEx &amp;\Rightarrow&amp; \pi(c) \in \pi(x) = \pi(y) &amp;\\
 </div>
 <div class="callout-body-container">
 <div id="lem-mostowski-unique" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 12.1</strong></span> <br>
 Suppose <span class="math inline">\(X,Y\)</span> are sets, and <span class="math inline">\({}\theta\)</span> is an isomorphism between <span class="math inline">\((X,\in)\)</span> and <span class="math inline">\((Y,\in)\)</span>. Then <span class="math inline">\(X=Y\)</span> and <span class="math inline">\(\theta(x) = x\)</span> for all <span class="math inline">\(x \in X\)</span>.</p>
 </div>
 </div>
@@ -457,7 +501,7 @@ Suppose <span class="math inline">\(X,Y\)</span> are sets, and <span class="math
 </div>
 <div class="callout-body-container">
 <div id="cor-mostowski-well-order" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 12.1</strong></span> <br>
 If <span class="math inline">\(E\)</span> is a well-order on a set <span class="math inline">\(X\)</span>, then <span class="math inline">\((X,E)\)</span> is isomorphic to <span class="math inline">\((\alpha, \in)\)</span> for a unique ordinal <span class="math inline">\(\alpha\)</span>.</p>
 </div>
 </div>
@@ -492,7 +536,7 @@ If <span class="math inline">\(E\)</span> is a well-order on a set <span class="
 </div>
 <div class="callout-body-container">
 <div id="exm-absoluteness" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 12.1</strong></span> <br>
 Consider <span class="math inline">\(M = \{0, \{\{0\}\}\}\)</span> and let <span class="math inline">\(\varphi \equiv \{\{0\}\} \subseteq 0\)</span>. Clearly <span class="math inline">\({}\varphi\)</span> is not true from the “outside”. But what if we look at it from “inside” <span class="math inline">\(M\)</span>? <span class="math inline">\(x \subseteq y\)</span> means <span class="math inline">\(\forall z (z \in x \to z \in y)\)</span>. <em>Inside</em> <span class="math inline">\(M\)</span> this means every set <span class="math inline">\(z\)</span> <em>in</em> <span class="math inline">\(M\)</span> that is an element of <span class="math inline">\(x\)</span> is also an element of <span class="math inline">\(y\)</span>. But in <span class="math inline">\(M\)</span>, there is no element <span class="math inline">\(z \in \{\{0\}\}\)</span>, <span class="math inline">\(\{0\}\)</span> is not an element of <span class="math inline">\(M\)</span>. Therefore, <span class="math display">\[
     (M, \in) \models \{\{0\}\} \subseteq 0.
 \]</span></p>
@@ -509,7 +553,7 @@ Consider <span class="math inline">\(M = \{0, \{\{0\}\}\}\)</span> and let <span
 </div>
 <div class="callout-body-container">
 <div id="def-absoluteness" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 12.1</strong></span> <br>
 We say a formula <span class="math inline">\(\varphi(x_0, \ldots, x_n)\)</span> is <strong>absolute</strong> for a class <span class="math inline">\(M\)</span> if for all <span class="math inline">\(a_0, \ldots, a_n \in M\)</span> <span class="math display">\[
     \varphi^M(a_0, \ldots, a_n) \text{ holds} \iff  \varphi(a_0, \ldots, a_n) \text{ holds}.
 \]</span></p>
@@ -524,7 +568,7 @@ We say a formula <span class="math inline">\(\varphi(x_0, \ldots, x_n)\)</span> 
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> If <span class="math inline">\(M\)</span> is transitive, then for all <span class="math inline">\({}\varphi\)</span>, <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 12.1</strong></span> If <span class="math inline">\(M\)</span> is transitive, then for all <span class="math inline">\({}\varphi\)</span>, <span class="math display">\[
     (M, \in) \models \varphi \; \iff \; \varphi^M \text{ holds}.
 \]</span></p>
 </div>
@@ -538,7 +582,7 @@ We say a formula <span class="math inline">\(\varphi(x_0, \ldots, x_n)\)</span> 
 </div>
 <div class="callout-body-container">
 <div id="def-delta-zero" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 12.2</strong></span> <br>
 A formula <span class="math inline">\({}\varphi\)</span> is <span class="math inline">\(\Delta_0\)</span> if it has no quantifiers or every quantifier of <span class="math inline">\({}\varphi\)</span> is of the form <span class="math inline">\(\exists x \in y\)</span> or <span class="math inline">\(\forall x \in y\)</span> (i.e.&nbsp;every quantifier is <em>bounded</em>).</p>
 </div>
 </div>
@@ -551,7 +595,7 @@ A formula <span class="math inline">\({}\varphi\)</span> is <span class="math in
 </div>
 <div class="callout-body-container">
 <div id="lem-delta-zero-absolute" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 12.2</strong></span> <br>
 If <span class="math inline">\(M\)</span> is transitive and <span class="math inline">\({}\varphi\)</span> is <span class="math inline">\(\Delta_0\)</span>, then <span class="math inline">\({}\varphi\)</span> is absolute for <span class="math inline">\(M\)</span>.</p>
 </div>
 </div>
@@ -584,7 +628,7 @@ If <span class="math inline">\(M\)</span> is transitive and <span class="math in
 </div>
 <div class="callout-body-container">
 <div id="prp-absolute-properties" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 12.2</strong></span> <br>
 Over <span class="math inline">\(\mathsf{ZF}\)</span>, the following properties can be expressed via <span class="math inline">\(\Delta_0\)</span>-formulas and hence are absolute for any transitive class <span class="math inline">\(M\)</span>:</p>
 <ul>
 <li><span class="math inline">\(x = \emptyset\)</span>, <span class="math inline">\(x=y\)</span>, <span class="math inline">\(x \subseteq y\)</span>, <span class="math inline">\(z = x \cap y\)</span>, <span class="math inline">\(z = x \cup y\)</span>, <span class="math inline">\(x = \bigcap y\)</span>, <span class="math inline">\(x = \bigcup y\)</span>, <span class="math inline">\(z = \{x,y\}\)</span>, <span class="math inline">\(z =(x,y)\)</span>, <span class="math inline">\(z= x \times y\)</span></li>
@@ -604,7 +648,7 @@ Over <span class="math inline">\(\mathsf{ZF}\)</span>, the following properties 
 </div>
 <div class="callout-body-container">
 <div id="def-sigma-pi-delta-one" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 12.3</strong></span> <br>
 A formula <span class="math inline">\({}\varphi\)</span> is</p>
 <ul>
 <li><span class="math inline">\(\Sigma_1\)</span> if it is of the form <span class="math inline">\(\exists x_1 \dots \exists x_m \: \psi\)</span> for a <span class="math inline">\(\Delta_0\)</span>-formula <span class="math inline">\(\psi\)</span>,</li>
@@ -624,7 +668,7 @@ A formula <span class="math inline">\({}\varphi\)</span> is</p>
 </div>
 <div class="callout-body-container">
 <div id="prp-delta-one-absolute" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 12.3</strong></span> <br>
 If <span class="math inline">\(M\)</span> is transitive and for all <span class="math inline">\(\sigma \in T\)</span>, <span class="math inline">\(\sigma^M\)</span> holds, then any <span class="math inline">\(\Delta_1^T\)</span>-formula is absolute for <span class="math inline">\(M\)</span></p>
 </div>
 </div>
@@ -646,7 +690,7 @@ If <span class="math inline">\(M\)</span> is transitive and for all <span class=
 </div>
 <div class="callout-body-container">
 <div id="lem-v-alpha-transitive" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 12.3</strong></span> <br>
 Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 </div>
 </div>
@@ -681,7 +725,7 @@ Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 </div>
 <div class="callout-body-container">
 <div id="lem-v-omega" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 4</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 12.4</strong></span> <br>
 <span class="math inline">\(x \in V_\omega\)</span> if and only if <span class="math inline">\(x \subseteq V_\omega\)</span> and <span class="math inline">\(x\)</span> is finite.</p>
 </div>
 </div>
@@ -700,7 +744,7 @@ Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) Since <span class="math inline">\(V_\omega\)</span> is transitive (<a href="#lem-v-alpha-transitive" class="quarto-xref">Lemma&nbsp;3</a>), <span class="math inline">\(x \in V_\omega\)</span> implies <span class="math inline">\(x \subseteq V_\omega\)</span>. Moreover, <span class="math inline">\(x \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>. By induction on <span class="math inline">\(n\)</span>, each <span class="math inline">\(V_n\)</span> is finite (<span class="math inline">\(|V_{n+1}| = 2^{|V_n|}\)</span>), and since <span class="math inline">\(V_n\)</span> is transitive, <span class="math inline">\(x \subseteq V_n\)</span>, so <span class="math inline">\(x\)</span> is finite.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) Since <span class="math inline">\(V_\omega\)</span> is transitive (<a href="#lem-v-alpha-transitive" class="quarto-xref">Lemma&nbsp;<span>12.3</span></a>), <span class="math inline">\(x \in V_\omega\)</span> implies <span class="math inline">\(x \subseteq V_\omega\)</span>. Moreover, <span class="math inline">\(x \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>. By induction on <span class="math inline">\(n\)</span>, each <span class="math inline">\(V_n\)</span> is finite (<span class="math inline">\(|V_{n+1}| = 2^{|V_n|}\)</span>), and since <span class="math inline">\(V_n\)</span> is transitive, <span class="math inline">\(x \subseteq V_n\)</span>, so <span class="math inline">\(x\)</span> is finite.</p>
 <p>(<span class="math inline">\(\Leftarrow\)</span>) Let <span class="math inline">\(x \subseteq V_\omega\)</span> be finite. If <span class="math inline">\(x = \emptyset\)</span>, then <span class="math inline">\(x \in V_1\)</span>. Otherwise, each <span class="math inline">\(y \in x\)</span> has finite rank, so we can let <span class="math display">\[
     M = \max\{\operatorname{rank}(y) \colon y \in x\} &lt; \omega.
 \]</span> Then <span class="math inline">\(y \in V_{M+1}\)</span> for all <span class="math inline">\(y \in x\)</span>, i.e.&nbsp;<span class="math inline">\(x \subseteq V_{M+1}\)</span>. Hence <span class="math inline">\(x \in V_{M+2} \subseteq V_\omega\)</span>.</p>
@@ -716,7 +760,7 @@ Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 </div>
 <div class="callout-body-container">
 <div id="thm-v-omega-model" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 12.2</strong></span> <br>
 <span class="math inline">\((V_\omega, \in) \models \mathsf{ZF}- \mathsf{Infinity}\)</span>.</p>
 </div>
 </div>
@@ -741,17 +785,17 @@ Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 \]</span> but in <span class="math inline">\(V_\omega\)</span> we have to read this as “<span class="math inline">\(\forall z \in V_\omega\)</span>”. So let <span class="math inline">\(x,y \in V_\omega\)</span>. If <span class="math inline">\(z \in x \in V_\omega\)</span>, then by transitivity <span class="math inline">\(z \in V_\omega\)</span>. So if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> have the same elements in <span class="math inline">\(V_\omega\)</span>, they have the same elements, and thus <span class="math inline">\(x = y\)</span>. In other words, Extensionality follows directly from transitivity.</p>
 <p>(Without transitivity, Extensionality can fail: in <span class="math inline">\(M = \{\emptyset, \mathbb{R}\}\)</span>, the sets <span class="math inline">\(\emptyset \neq \mathbb{R}\)</span> have the same elements <em>in <span class="math inline">\(M\)</span></em>, namely none. The same happens for <span class="math inline">\(\{\emptyset, \mathbb{C}\}\)</span>.)</p>
 <p><em>Foundation:</em> Every non-empty set has an <span class="math inline">\(\in\)</span>-minimal element. Let <span class="math inline">\(x \in V_\omega\)</span>, <span class="math inline">\(x \neq \emptyset\)</span>. Choose <span class="math inline">\(y \in x\)</span> of minimal rank. If <span class="math inline">\(z \in y\)</span>, then <span class="math inline">\(\operatorname{rank}(z) &lt; \operatorname{rank}(y)\)</span>, so <span class="math inline">\(z \notin x\)</span>. Hence <span class="math inline">\(y\)</span> is <span class="math inline">\(\in\)</span>-minimal in <span class="math inline">\(x\)</span> (and <span class="math inline">\(y \in V_\omega\)</span> by transitivity).</p>
-<p><em>Comprehension:</em> This follows from <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>. Let <span class="math inline">\(a \in V_\omega\)</span> and let <span class="math inline">\({}\varphi\)</span> be a formula (possibly with parameters from <span class="math inline">\(V_\omega\)</span>). Then <span class="math display">\[
+<p><em>Comprehension:</em> This follows from <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;<span>12.4</span></a>. Let <span class="math inline">\(a \in V_\omega\)</span> and let <span class="math inline">\({}\varphi\)</span> be a formula (possibly with parameters from <span class="math inline">\(V_\omega\)</span>). Then <span class="math display">\[
     z = \{ v \in a \colon \varphi^{V_\omega}(v) \}
 \]</span> (<span class="math inline">\(\varphi\)</span> is evaluated in <span class="math inline">\(V_\omega\)</span>) is a subset of <span class="math inline">\(a\)</span>. Since <span class="math inline">\(a \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>, by transitivity <span class="math inline">\(a \subseteq V_n\)</span>, so <span class="math inline">\(z \subseteq V_n\)</span> and hence <span class="math inline">\(z \in \mathcal{P}(V_n) = V_{n+1} \subseteq V_\omega\)</span>.</p>
-<p><em>Pairing:</em> If <span class="math inline">\(x, y \in V_\omega\)</span>, then <span class="math inline">\(\{x,y\}\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence in <span class="math inline">\(V_\omega\)</span> by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>.</p>
+<p><em>Pairing:</em> If <span class="math inline">\(x, y \in V_\omega\)</span>, then <span class="math inline">\(\{x,y\}\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence in <span class="math inline">\(V_\omega\)</span> by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;<span>12.4</span></a>.</p>
 <p><em>Union:</em> Let <span class="math inline">\(a \in V_\omega\)</span>. Then <span class="math inline">\(\bigcup a\)</span> is a finite union of finite sets and hence finite. Moreover, <span class="math display">\[
     \textstyle \bigcup a = \{z \in V_\omega \colon \exists y \in a \; (z \in y)\},
-\]</span> since <span class="math inline">\(a \in V_\omega\)</span> implies, by transitivity, that every <span class="math inline">\(z \in \bigcup a\)</span> is in <span class="math inline">\(V_\omega\)</span>, i.e.&nbsp;<span class="math inline">\(\bigcup a \subseteq V_\omega\)</span>. By <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>, <span class="math inline">\(\bigcup a \in V_\omega\)</span>.</p>
+\]</span> since <span class="math inline">\(a \in V_\omega\)</span> implies, by transitivity, that every <span class="math inline">\(z \in \bigcup a\)</span> is in <span class="math inline">\(V_\omega\)</span>, i.e.&nbsp;<span class="math inline">\(\bigcup a \subseteq V_\omega\)</span>. By <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;<span>12.4</span></a>, <span class="math inline">\(\bigcup a \in V_\omega\)</span>.</p>
 <p><em>Power Set:</em> If <span class="math inline">\(x \in V_\omega\)</span>, then <span class="math inline">\(x \in V_n\)</span> for some <span class="math inline">\(n &lt; \omega\)</span>, so <span class="math inline">\(x \subseteq V_n\)</span> and <span class="math display">\[
     \mathcal{P}(x) \subseteq \mathcal{P}(V_n) = V_{n+1} \; \Rightarrow \; \mathcal{P}(x) \in \mathcal{P}(\mathcal{P}(V_n)) = V_{n+2} \subseteq V_\omega.
-\]</span> (Alternatively, <span class="math inline">\(\mathcal{P}(x)\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, so apply <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>.)</p>
-<p><em>Replacement:</em> Suppose <span class="math inline">\({}\varphi\)</span> defines (in <span class="math inline">\(V_\omega\)</span>) a function <span class="math inline">\(f_\varphi: a \to V_\omega\)</span>, where <span class="math inline">\(a \in V_\omega\)</span>. Since <span class="math inline">\(a\)</span> is finite, <span class="math inline">\(f_\varphi[a]\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence, by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;4</a>, <span class="math inline">\(f_\varphi[a] \in V_\omega\)</span>.</p>
+\]</span> (Alternatively, <span class="math inline">\(\mathcal{P}(x)\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, so apply <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;<span>12.4</span></a>.)</p>
+<p><em>Replacement:</em> Suppose <span class="math inline">\({}\varphi\)</span> defines (in <span class="math inline">\(V_\omega\)</span>) a function <span class="math inline">\(f_\varphi: a \to V_\omega\)</span>, where <span class="math inline">\(a \in V_\omega\)</span>. Since <span class="math inline">\(a\)</span> is finite, <span class="math inline">\(f_\varphi[a]\)</span> is a finite subset of <span class="math inline">\(V_\omega\)</span>, hence, by <a href="#lem-v-omega" class="quarto-xref">Lemma&nbsp;<span>12.4</span></a>, <span class="math inline">\(f_\varphi[a] \in V_\omega\)</span>.</p>
 </div>
 </div>
 </div>
@@ -780,7 +824,7 @@ Each <span class="math inline">\(V_\alpha\)</span> is transitive.</p>
 </div>
 <div class="callout-body-container">
 <div id="prp-rank-ordinals" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 12.4</strong></span> <br>
 For every ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 <ul>
 <li><span class="math inline">\(\operatorname{rank}(\alpha) = \alpha\)</span>,</li>
@@ -815,7 +859,7 @@ For every ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 <p>Which axioms does <span class="math inline">\(V_{\omega+\omega}\)</span> satisfy?</p>
 </div>
 </div>
-<p><em>Replacement fails</em> in <span class="math inline">\(V_{\omega+\omega}\)</span>: The function <span class="math inline">\(f: n \mapsto \omega + n\)</span> is definable in <span class="math inline">\(V_{\omega+\omega}\)</span> and has domain <span class="math inline">\(\omega \in V_{\omega+\omega}\)</span>. But its range <span class="math inline">\(\{\omega + n \colon n &lt; \omega\}\)</span> has rank <span class="math inline">\(\omega+\omega\)</span> (by <a href="#prp-rank-ordinals" class="quarto-xref">Proposition&nbsp;4</a>), so it is not an element of <span class="math inline">\(V_{\omega+\omega}\)</span>.</p>
+<p><em>Replacement fails</em> in <span class="math inline">\(V_{\omega+\omega}\)</span>: The function <span class="math inline">\(f: n \mapsto \omega + n\)</span> is definable in <span class="math inline">\(V_{\omega+\omega}\)</span> and has domain <span class="math inline">\(\omega \in V_{\omega+\omega}\)</span>. But its range <span class="math inline">\(\{\omega + n \colon n &lt; \omega\}\)</span> has rank <span class="math inline">\(\omega+\omega\)</span> (by <a href="#prp-rank-ordinals" class="quarto-xref">Proposition&nbsp;<span>12.4</span></a>), so it is not an element of <span class="math inline">\(V_{\omega+\omega}\)</span>.</p>
 <p>The other axioms, however, all hold, as the next theorem shows.</p>
 </section>
 <section id="limit-levels" class="level3">
@@ -828,7 +872,7 @@ For every ordinal <span class="math inline">\({}\alpha\)</span>,</p>
 </div>
 <div class="callout-body-container">
 <div id="thm-v-alpha-model" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 12.3</strong></span> <br>
 If <span class="math inline">\(\alpha &gt; \omega\)</span> is a limit ordinal, then <span class="math inline">\((V_\alpha, \in) \models \mathsf{ZC}\)</span>, i.e.&nbsp;<span class="math inline">\((V_\alpha, \in) \models \mathsf{ZFC}- \mathsf{Replacement}\)</span>.</p>
 </div>
 </div>
@@ -951,7 +995,7 @@ If <span class="math inline">\(\alpha &gt; \omega\)</span> is a limit ordinal, t
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1278,20 +1322,19 @@ If <span class="math inline">\(\alpha &gt; \omega\)</span> is a limit ordinal, t
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/cardinals.html" class="pagination-link" aria-label="Cardinals">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cardinals</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/large_cardinals.html" class="pagination-link" aria-label="Cofinality and Inaccessible Cardinals">
+        <span class="nav-page-text"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

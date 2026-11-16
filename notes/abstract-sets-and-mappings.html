@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Reimann">
+
+<title>Abstract Sets and Mappings – Math 558 · Foundations of Mathematics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notes/parts-functors.html" rel="next">
+<link href="../notes/incompleteness-consistency-strength.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html"><span class="chapter-title">Abstract Sets and Mappings</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Math 558 · Foundations of Mathematics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Abstract Sets and Mappings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sets-as-a-category" id="toc-sets-as-a-category" class="nav-link active" data-scroll-target="#sets-as-a-category">Sets as a category</a></li>
+  <li><a href="#categories" id="toc-categories" class="nav-link" data-scroll-target="#categories">Categories</a></li>
+  <li><a href="#the-axioms-of-chapter-1" id="toc-the-axioms-of-chapter-1" class="nav-link" data-scroll-target="#the-axioms-of-chapter-1">The axioms of Chapter 1</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#separators" id="toc-separators" class="nav-link" data-scroll-target="#separators">Separators</a></li>
+  <li><a href="#the-empty-set" id="toc-the-empty-set" class="nav-link" data-scroll-target="#the-empty-set">The empty set</a></li>
+  <li><a href="#coseparators" id="toc-coseparators" class="nav-link" data-scroll-target="#coseparators">Coseparators</a></li>
+  <li><a href="#uniqueness-properties" id="toc-uniqueness-properties" class="nav-link" data-scroll-target="#uniqueness-properties">Uniqueness properties</a></li>
+  <li><a href="#categories-of-structures" id="toc-categories-of-structures" class="nav-link" data-scroll-target="#categories-of-structures">Categories of structures</a></li>
+  </ul></li>
+  <li><a href="#which-chapter-1-axioms-hold-where" id="toc-which-chapter-1-axioms-hold-where" class="nav-link" data-scroll-target="#which-chapter-1-axioms-hold-where">Which Chapter 1 axioms hold where?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html"><span class="chapter-title">Abstract Sets and Mappings</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Abstract Sets and Mappings</span></h1>
+<p class="subtitle lead">Lawvere’s categorical approach to sets — axioms and exercises from Chapter 1 of Lawvere–Rosebrugh</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jan Reimann </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Penn State — Math 558
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="box">
+<p>These notes follow Chapter 1 of Lawvere–Rosebrugh, <em>Sets for Mathematics</em>. Numbers such as “Definition 1.14” or “Exercise 1.15” refer to the book. In the exercises taken from §§1.5–1.8 (1.15–1.28), argue <em>only</em> from the axioms and definitions stated here, plus ordinary logic; do not appeal to what you know about sets from <span class="math inline">\(\mathsf{ZFC}\)</span>. In Exercise 1.30 you work in ordinary mathematics, to see how much of the structure of abstract sets is shared by other familiar categories. When an exercise is a statement, prove the statement.</p>
+</div>
+<section id="sets-as-a-category" class="level2">
+<h2 class="anchored" data-anchor-id="sets-as-a-category">Sets as a category</h2>
+<p>In <span class="math inline">\(\mathsf{ZFC}\)</span> the primitive notion is <strong>membership</strong>: a set is determined by its elements, and everything else (pairs, functions, …) is coded by membership. In Lawvere’s approach the primitive notions are <strong>sets</strong> and <strong>mappings</strong> between them, together with <strong>composition</strong> of mappings. An <em>abstract set</em> has no internal structure beyond the fact that its elements can be told apart; everything we want to say about a set must be expressed through the mappings into and out of it. Even “element” becomes a derived notion: an element of <span class="math inline">\(A\)</span> is a particular kind of mapping <em>into</em> <span class="math inline">\(A\)</span>.</p>
+</section>
+<section id="categories" class="level2">
+<h2 class="anchored" data-anchor-id="categories">Categories</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-category" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.1 (Category (L–R, Definition 1.13))</strong></span> A <strong>category</strong> <span class="math inline">\(\mathcal{C}\)</span> has the following data:</p>
+<ul>
+<li><strong>Objects</strong>, denoted <span class="math inline">\(A, B, C, \dots\)</span></li>
+<li><strong>Arrows</strong>, denoted <span class="math inline">\(f, g, h, \dots\)</span> (also called <em>morphisms</em> or <em>maps</em>).</li>
+<li>To each arrow <span class="math inline">\(f\)</span> is assigned an object <span class="math inline">\(\operatorname{dom}(f)\)</span>, its <strong>domain</strong>, and an object <span class="math inline">\(\operatorname{cod}(f)\)</span>, its <strong>codomain</strong>. If <span class="math inline">\(\operatorname{dom}(f) = A\)</span> and <span class="math inline">\(\operatorname{cod}(f) = B\)</span> we write <span class="math inline">\(f \colon A \to B\)</span> or <span class="math inline">\(A \xrightarrow{\;f\;} B\)</span>.</li>
+<li><strong>Composition:</strong> to each pair <span class="math inline">\(f \colon A \to B\)</span> and <span class="math inline">\(g \colon B \to C\)</span> is assigned an arrow <span class="math inline">\(gf \colon A \to C\)</span>, called “the composite <span class="math inline">\(g\)</span> following <span class="math inline">\(f\)</span>” (also written <span class="math inline">\(g \circ f\)</span>).</li>
+<li><strong>Identities:</strong> to each object <span class="math inline">\(A\)</span> is assigned an arrow <span class="math inline">\(1_{A} \colon A \to A\)</span>, called “the identity on <span class="math inline">\(A\)</span>”.</li>
+</ul>
+<p>These data satisfy the axioms</p>
+<ul>
+<li><strong>Associativity:</strong> if <span class="math inline">\(A \xrightarrow{\;f\;} B \xrightarrow{\;g\;} C \xrightarrow{\;h\;} D\)</span>, then <span class="math inline">\(h(gf) = (hg)f\)</span>;</li>
+<li><strong>Identity:</strong> if <span class="math inline">\(f \colon A \to B\)</span>, then <span class="math inline">\(f = f\,1_{A}\)</span> and <span class="math inline">\(f = 1_{B}\,f\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Note that <span class="math inline">\(gf\)</span> is only defined when the codomain of <span class="math inline">\(f\)</span> is <em>exactly</em> the domain of <span class="math inline">\(g\)</span>. A diagram of objects and arrows is <strong>commutative</strong> if any two paths of arrows with the same start and end have equal composites; for example, the triangle formed by <span class="math inline">\(f \colon A \to B\)</span>, <span class="math inline">\(g \colon B \to C\)</span> and <span class="math inline">\(m \colon A \to C\)</span> commutes precisely when <span class="math inline">\(m = gf\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-isomorphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.2 (Isomorphism)</strong></span> Objects <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of a category are <strong>isomorphic</strong>, written <span class="math inline">\(A \cong B\)</span>, if there are arrows <span class="math inline">\(f \colon A \to B\)</span> and <span class="math inline">\(g \colon B \to A\)</span> with <span class="math inline">\(gf = 1_{A}\)</span> and <span class="math inline">\(fg = 1_{B}\)</span>. Such an <span class="math inline">\(f\)</span> is an <strong>isomorphism</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-terminal-initial" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.3 (Terminal and initial objects)</strong></span> An object <span class="math inline">\(T\)</span> of a category <span class="math inline">\(\mathcal{C}\)</span> is <strong>terminal</strong> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathcal{C}\)</span> there is exactly one arrow <span class="math inline">\(A \to T\)</span>. An object <span class="math inline">\(I\)</span> is <strong>initial</strong> if for every object <span class="math inline">\(A\)</span> there is exactly one arrow <span class="math inline">\(I \to A\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-terminal-initial" class="proof remark">
+<p><span class="proof-title"><em>Remark 14.1</em>. </span>The book introduces “terminal” and “initial” only for the category of sets (see the axioms below), but the definitions make sense in any category, and that is how they are used in <a href="#exr-LR-1-30" class="quarto-xref">Exercise&nbsp;<span>14.6</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-axioms-of-chapter-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-axioms-of-chapter-1">The axioms of Chapter 1</h2>
+<p>We write <span class="math inline">\(\mathcal{S}\)</span> for the category of abstract sets and (arbitrary) mappings.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: <span class="math inline">\(\mathcal{S}\)</span> is a category
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Abstract sets and mappings form a category, whose objects are called <strong>sets</strong> and whose arrows are called <strong>mappings</strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Terminal set
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is a set <span class="math inline">\(\mathbf{1}\)</span> such that for any set <span class="math inline">\(A\)</span> there is exactly one mapping <span class="math inline">\(A \to \mathbf{1}\)</span>.</p>
+</div>
+</div>
+<p>The book gives this unique mapping the same name <span class="math inline">\(A\)</span> as its domain; to avoid confusion we write it <span class="math inline">\(!_{A} \colon A \to \mathbf{1}\)</span>. In a given discussion <span class="math inline">\(\mathbf{1}\)</span> denotes a <em>chosen</em> terminal set (by <a href="#exr-LR-1-28" class="quarto-xref">Exercise&nbsp;<span>14.5</span></a> (b) the choice makes no difference).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-element" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.4 (Element (L–R, Definition 1.3))</strong></span> An <strong>element</strong> of a set <span class="math inline">\(A\)</span> is any mapping whose codomain is <span class="math inline">\(A\)</span> and whose domain is <span class="math inline">\(\mathbf{1}\)</span>, i.e.&nbsp;any <span class="math inline">\(a \colon \mathbf{1}\to A\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Thus <em>element is a special case of mapping</em>, and <em>evaluation is a special case of composition</em>: if <span class="math inline">\(f \colon A \to B\)</span> and <span class="math inline">\(a \colon \mathbf{1}\to A\)</span>, then <span class="math inline">\(fa \colon \mathbf{1}\to B\)</span> is an element of <span class="math inline">\(B\)</span>, and we define the <strong>value</strong> of <span class="math inline">\(f\)</span> at <span class="math inline">\(a\)</span> by <span class="math inline">\(f(a) := fa\)</span>. Associativity then gives <span class="math inline">\((gf)(a) = g(f(a))\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-generalized-element" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.5 (Generalized element (L–R, §1.6))</strong></span> A <strong>generalized element</strong> of <span class="math inline">\(A\)</span> (or <em>variable element of <span class="math inline">\(A\)</span> varying over <span class="math inline">\(T\)</span></em>) is an arbitrary mapping <span class="math inline">\(x \colon T \to A\)</span> with codomain <span class="math inline">\(A\)</span>; its domain <span class="math inline">\(T\)</span> need not be <span class="math inline">\(\mathbf{1}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-separator" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.6 (Separator (L–R, Definition 1.14))</strong></span> An object <span class="math inline">\(S\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is a <strong>separator</strong> if and only if whenever <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span> are arrows of <span class="math inline">\(\mathcal{C}\)</span> with the same domain and the same codomain, then <span class="math display">\[
+\bigl(\forall x\, [\, x \colon S \to X \;\Rightarrow\; f_1 x = f_2 x \,]\bigr)
+\;\Longrightarrow\; f_1 = f_2 .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: The terminal object <span class="math inline">\(\mathbf{1}\)</span> separates mappings in <span class="math inline">\(\mathcal{S}\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A one-element set <span class="math inline">\(\mathbf{1}\)</span> is a separator in <span class="math inline">\(\mathcal{S}\)</span>; that is, if <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span>, then <span class="math display">\[
+\bigl(\forall x\, [\, x \colon \mathbf{1}\to X \;\Rightarrow\; f_1 x = f_2 x \,]\bigr)
+\;\Longrightarrow\; f_1 = f_2 .
+\]</span></p>
+</div>
+</div>
+<p>In words: two mappings with the same domain and codomain that have the same value at every element are equal. Contrapositively, if <span class="math inline">\(f_1 \neq f_2\)</span> there is an element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span> with <span class="math inline">\(f_1(x) \neq f_2(x)\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Initial set
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is a set <span class="math inline">\(\mathbf{0}\)</span> such that for any set <span class="math inline">\(A\)</span> there is exactly one mapping <span class="math inline">\(\mathbf{0}\to A\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Axiom: Nondegeneracy of <span class="math inline">\(\mathcal{S}\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\mathbf{0}\not\cong \mathbf{1}.
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-coseparator" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.7 (Coseparator (L–R, Definition 1.19))</strong></span> An object <span class="math inline">\(V\)</span> of a category <span class="math inline">\(\mathcal{C}\)</span> is a <strong>coseparator</strong> if for any <span class="math inline">\(A\)</span> and any parallel pair <span class="math inline">\(a_0, a_1 \colon T \to A\)</span> (of generalized elements of <span class="math inline">\(A\)</span>), <span class="math display">\[
+\bigl(\forall \varphi\, [\, \varphi \colon A \to V \;\Rightarrow\;
+\varphi a_0 = \varphi a_1 \,]\bigr)
+\;\Longrightarrow\; a_0 = a_1 .
+\]</span> Equivalently: if <span class="math inline">\(a_0 \neq a_1\)</span>, then there is some <span class="math inline">\(\varphi \colon A \to V\)</span> with <span class="math inline">\(\varphi a_0 \neq \varphi a_1\)</span>. We say that <span class="math inline">\(V\)</span> <strong>can discriminate elements</strong> if this condition holds for <span class="math inline">\(T = \mathbf{1}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>A mapping <span class="math inline">\(\varphi \colon A \to V\)</span> is thought of as a (<span class="math inline">\(V\)</span>-valued) <em>property</em> of the elements of <span class="math inline">\(A\)</span>, so a coseparator is an object of values with enough properties to tell elements apart.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="rem-two" class="proof remark">
+<p><span class="proof-title"><em>Remark 14.2</em> (The set <span class="math inline">\(\mathbf{2}\)</span> (L–R, §1.7)). </span>The book provisionally assumes a set <span class="math inline">\(\mathbf{2}\)</span> with exactly two elements <span class="math inline">\(0, 1 \colon \mathbf{1}\to \mathbf{2}\)</span> (made precise by the axioms of Chapter 2) and claims (Claim 1.21) that <span class="math inline">\(\mathbf{2}\)</span> is a coseparator in <span class="math inline">\(\mathcal{S}\)</span>. None of the exercises below depend on this.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Two consequences of the axioms <em>Terminal set</em> and <em>Initial set</em> are used again and again below:</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A recurring observation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The only mapping <span class="math inline">\(\mathbf{1}\to \mathbf{1}\)</span> is <span class="math inline">\(1_{\mathbf{1}}\)</span>, and the only mapping <span class="math inline">\(\mathbf{0}\to \mathbf{0}\)</span> is <span class="math inline">\(1_{\mathbf{0}}\)</span>. More generally, any two arrows <em>into</em> a terminal object with the same domain are equal, and any two arrows <em>out of</em> an initial object with the same codomain are equal.</p>
+</div>
+</div>
+<section id="separators" class="level3">
+<h3 class="anchored" data-anchor-id="separators">Separators</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.1 (L–R 1.15)</strong></span> In the category of abstract sets <span class="math inline">\(\mathcal{S}\)</span>, any set <span class="math inline">\(A\)</span> with at least one element <span class="math inline">\(x_0 \colon \mathbf{1}\to A\)</span> is also a separator.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span> and suppose that <span class="math inline">\(f_1 a = f_2 a\)</span> for every <span class="math inline">\(a \colon A \to X\)</span>. We must show <span class="math inline">\(f_1 = f_2\)</span>. Since <span class="math inline">\(\mathbf{1}\)</span> is a separator (axiom), it suffices to show <span class="math inline">\(f_1 x = f_2 x\)</span> for every element <span class="math inline">\(x \colon \mathbf{1}\to X\)</span>.</p>
+<p>So fix <span class="math inline">\(x \colon \mathbf{1}\to X\)</span> and consider the generalized element <span class="math display">\[
+a := x\,!_{A} \colon A \xrightarrow{\;!_{A}\;} \mathbf{1}\xrightarrow{\;x\;} X ,
+\]</span> the <em>constant</em> map with value <span class="math inline">\(x\)</span>. By hypothesis <span class="math inline">\(f_1 a = f_2 a\)</span>, i.e. <span class="math inline">\(f_1 (x\,!_{A}) = f_2 (x\,!_{A})\)</span>. Composing on the right with the given element <span class="math inline">\(x_0 \colon \mathbf{1}\to A\)</span> and using associativity, <span class="math display">\[
+f_1\, x\, (!_{A}\, x_0) \;=\; f_2\, x\, (!_{A}\, x_0).
+\]</span> Now <span class="math inline">\(!_{A} x_0 \colon \mathbf{1}\to \mathbf{1}\)</span>, and the only mapping <span class="math inline">\(\mathbf{1}\to \mathbf{1}\)</span> is <span class="math inline">\(1_{\mathbf{1}}\)</span>. Hence <span class="math inline">\(!_{A} x_0 = 1_{\mathbf{1}}\)</span>, and by the identity law <span class="math inline">\(f_1 x = f_2 x\)</span>. As <span class="math inline">\(x\)</span> was arbitrary, <span class="math inline">\(f_1 = f_2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The key idea is to turn an element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span> into a generalized element <span class="math inline">\(A \to X\)</span> by making it constant, and then to recover <span class="math inline">\(x\)</span> by evaluating at the element <span class="math inline">\(x_0\)</span> of <span class="math inline">\(A\)</span>. Without <span class="math inline">\(x_0\)</span> we could not cancel <span class="math inline">\(!_{A}\)</span>, and <a href="#exr-LR-1-16" class="quarto-xref">Exercise&nbsp;<span>14.2</span></a> shows that the hypothesis cannot be dropped.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.2 (L–R 1.16)</strong></span> In the category of abstract sets <span class="math inline">\(\mathcal{S}\)</span> the initial set <span class="math inline">\(\mathbf{0}\)</span> is not a separator. (Assume that two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> exist with at least two maps <span class="math inline">\(A \to B\)</span>.)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By assumption there are <span class="math inline">\(f_1, f_2 \colon A \to B\)</span> with <span class="math inline">\(f_1 \neq f_2\)</span>. For <span class="math inline">\(\mathbf{0}\)</span> to be a separator we would need: if <span class="math inline">\(f_1 x = f_2 x\)</span> for every <span class="math inline">\(x \colon \mathbf{0}\to A\)</span>, then <span class="math inline">\(f_1 = f_2\)</span>. But for any <span class="math inline">\(x \colon \mathbf{0}\to A\)</span>, both <span class="math inline">\(f_1 x\)</span> and <span class="math inline">\(f_2 x\)</span> are mappings <span class="math inline">\(\mathbf{0}\to B\)</span>, and by the axiom <em>Initial set</em> there is exactly one such mapping. Hence <span class="math inline">\(f_1 x = f_2 x\)</span> for all <span class="math inline">\(x \colon \mathbf{0}\to A\)</span>, while <span class="math inline">\(f_1 \neq f_2\)</span>. So <span class="math inline">\(\mathbf{0}\)</span> is not a separator.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Why is the extra assumption needed?</em> The axioms of Chapter 1 alone do not guarantee two distinct parallel mappings. Consider the category with two objects <span class="math inline">\(\mathbf{0}, \mathbf{1}\)</span> and only three arrows: <span class="math inline">\(1_{\mathbf{0}}\)</span>, <span class="math inline">\(1_{\mathbf{1}}\)</span>, and one arrow <span class="math inline">\(u \colon \mathbf{0}\to \mathbf{1}\)</span> (composition is forced). In it <span class="math inline">\(\mathbf{1}\)</span> is terminal, <span class="math inline">\(\mathbf{0}\)</span> is initial, every hom-set has at most one element (so <em>every</em> object, including <span class="math inline">\(\mathbf{0}\)</span>, is a separator, and in particular <span class="math inline">\(\mathbf{1}\)</span> separates), and <span class="math inline">\(\mathbf{0}\not\cong \mathbf{1}\)</span> because there is no arrow <span class="math inline">\(\mathbf{1}\to \mathbf{0}\)</span>. So all the axioms of Chapter 1 hold, yet <span class="math inline">\(\mathbf{0}\)</span> is a separator. This is a first example of a <em>model</em> of a fragment of the categorical axioms, much like the small models of fragments of <span class="math inline">\(\mathsf{ZFC}\)</span> we studied earlier.</p>
+<p>Once the set <span class="math inline">\(\mathbf{2}\)</span> with elements <span class="math inline">\(0 \neq 1 \colon \mathbf{1}\to \mathbf{2}\)</span> is available (Chapter 2), one can take <span class="math inline">\(A = \mathbf{1}\)</span>, <span class="math inline">\(B = \mathbf{2}\)</span>.</p>
+<p>Compare with <a href="#exr-LR-1-15" class="quarto-xref">Exercise&nbsp;<span>14.1</span></a>: <span class="math inline">\(\mathbf{0}\)</span> fails precisely because it has no elements (<a href="#exr-LR-1-18" class="quarto-xref">Exercise&nbsp;<span>14.3</span></a>).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-empty-set" class="level3">
+<h3 class="anchored" data-anchor-id="the-empty-set">The empty set</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-18" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.3 (L–R 1.18)</strong></span> How many mappings are there from <span class="math inline">\(\mathbf{0}\)</span> to <span class="math inline">\(\mathbf{1}\)</span>? From <span class="math inline">\(\mathbf{0}\)</span> to <span class="math inline">\(\mathbf{0}\)</span>? From <span class="math inline">\(\mathbf{1}\)</span> to <span class="math inline">\(\mathbf{0}\)</span>? (And so how many elements does <span class="math inline">\(\mathbf{0}\)</span> have?)</p>
+<p><em>Hint:</em> To answer the third question requires more axioms than do the other two.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>From <span class="math inline">\(\mathbf{0}\)</span> to <span class="math inline">\(\mathbf{1}\)</span>: exactly one.</em> This follows from <em>Initial set</em> (with <span class="math inline">\(A = \mathbf{1}\)</span>), and equally from <em>Terminal set</em> (with <span class="math inline">\(A = \mathbf{0}\)</span>). Call it <span class="math inline">\(u \colon \mathbf{0}\to \mathbf{1}\)</span>.</p>
+<p><em>From <span class="math inline">\(\mathbf{0}\)</span> to <span class="math inline">\(\mathbf{0}\)</span>: exactly one,</em> by <em>Initial set</em> with <span class="math inline">\(A = \mathbf{0}\)</span>. Since <span class="math inline">\(1_{\mathbf{0}}\)</span> is such a mapping, it is <span class="math inline">\(1_{\mathbf{0}}\)</span>.</p>
+<p><em>From <span class="math inline">\(\mathbf{1}\)</span> to <span class="math inline">\(\mathbf{0}\)</span>: none.</em> Suppose, for a contradiction, that <span class="math inline">\(x \colon \mathbf{1}\to \mathbf{0}\)</span>. Then</p>
+<ul>
+<li><span class="math inline">\(u x \colon \mathbf{1}\to \mathbf{1}\)</span>, so <span class="math inline">\(u x = 1_{\mathbf{1}}\)</span> (Terminal set);</li>
+<li><span class="math inline">\(x u \colon \mathbf{0}\to \mathbf{0}\)</span>, so <span class="math inline">\(x u = 1_{\mathbf{0}}\)</span> (Initial set).</li>
+</ul>
+<p>Thus <span class="math inline">\(x\)</span> and <span class="math inline">\(u\)</span> are mutually inverse and <span class="math inline">\(\mathbf{0}\cong \mathbf{1}\)</span>, contradicting <em>Nondegeneracy</em>. Hence there is no mapping <span class="math inline">\(\mathbf{1}\to \mathbf{0}\)</span>.</p>
+<p>Since elements of <span class="math inline">\(\mathbf{0}\)</span> are by definition mappings <span class="math inline">\(\mathbf{1}\to \mathbf{0}\)</span>, <strong><span class="math inline">\(\mathbf{0}\)</span> has no elements</strong>: it is an empty set, which justifies the name.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>The first two answers use one axiom each; the third uses <em>Terminal set</em>, <em>Initial set</em>, and <em>Nondegeneracy</em>.</li>
+<li>The argument shows that, given the other axioms, Nondegeneracy is <em>equivalent</em> to the apparently stronger statement “there is no mapping <span class="math inline">\(\mathbf{1}\to \mathbf{0}\)</span>”. The converse is immediate: an isomorphism <span class="math inline">\(\mathbf{0}\cong \mathbf{1}\)</span> includes a mapping <span class="math inline">\(\mathbf{1}\to \mathbf{0}\)</span>.</li>
+<li><em>Extension.</em> If there is any mapping <span class="math inline">\(h \colon A \to \mathbf{0}\)</span>, then <span class="math inline">\(A \cong \mathbf{0}\)</span>. With <span class="math inline">\(e \colon \mathbf{0}\to A\)</span> the unique map, <span class="math inline">\(he = 1_{\mathbf{0}}\)</span> by initiality. For <span class="math inline">\(eh = 1_{A}\)</span> one needs one more axiom: <span class="math inline">\(A\)</span> has no elements (an element <span class="math inline">\(a\)</span> would give an element <span class="math inline">\(ha\)</span> of <span class="math inline">\(\mathbf{0}\)</span>), so <span class="math inline">\(eh\)</span> and <span class="math inline">\(1_{A}\)</span> agree at every element vacuously, and they are equal because <span class="math inline">\(\mathbf{1}\)</span> separates mappings.</li>
+<li>Contrast with <span class="math inline">\(\mathsf{ZFC}\)</span>: there, <span class="math inline">\(\emptyset\)</span> has no elements by definition, and is unique by Extensionality. Here, the emptiness of <span class="math inline">\(\mathbf{0}\)</span> is a <em>theorem</em> about mappings, derived from a property (initiality) that does not mention elements at all.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="coseparators" class="level3">
+<h3 class="anchored" data-anchor-id="coseparators">Coseparators</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-20" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.4 (L–R 1.20)</strong></span> Use the fact that <span class="math inline">\(\mathbf{1}\)</span> is a separator in the category of abstract sets to show that (in that category), if <span class="math inline">\(V\)</span> can discriminate elements, then it can discriminate generalized elements. Thus, in <span class="math inline">\(\mathcal{S}\)</span> the general <span class="math inline">\(T\)</span> in <a href="#def-coseparator" class="quarto-xref">Definition&nbsp;<span>14.7</span></a> could safely be replaced by <span class="math inline">\(T = \mathbf{1}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Assume <span class="math inline">\(V\)</span> discriminates elements: for every set <span class="math inline">\(A\)</span> and all <span class="math inline">\(b_0, b_1 \colon \mathbf{1}\to A\)</span>, <span class="math display">\[
+\bigl(\forall \varphi \colon A \to V,\ \varphi b_0 = \varphi b_1\bigr)
+\;\Longrightarrow\; b_0 = b_1 . \tag{*}
+\]</span> Let <span class="math inline">\(a_0, a_1 \colon T \to A\)</span> be generalized elements such that <span class="math inline">\(\varphi a_0 = \varphi a_1\)</span> for every <span class="math inline">\(\varphi \colon A \to V\)</span>. We show <span class="math inline">\(a_0 = a_1\)</span>. Because <span class="math inline">\(\mathbf{1}\)</span> separates mappings, it suffices to show <span class="math inline">\(a_0 t = a_1 t\)</span> for every element <span class="math inline">\(t \colon \mathbf{1}\to T\)</span>.</p>
+<p>Fix <span class="math inline">\(t \colon \mathbf{1}\to T\)</span>. Then <span class="math inline">\(a_0 t\)</span> and <span class="math inline">\(a_1 t\)</span> are elements of <span class="math inline">\(A\)</span>, and for every <span class="math inline">\(\varphi \colon A \to V\)</span>, by associativity, <span class="math display">\[
+\varphi (a_0 t) = (\varphi a_0) t = (\varphi a_1) t = \varphi (a_1 t).
+\]</span> By <span class="math inline">\((*)\)</span>, <span class="math inline">\(a_0 t = a_1 t\)</span>. Since <span class="math inline">\(t\)</span> was arbitrary, <span class="math inline">\(a_0 = a_1\)</span>.</p>
+<p>The converse (discriminating generalized elements implies discriminating elements) is trivial, since elements are generalized elements with <span class="math inline">\(T = \mathbf{1}\)</span>. So in <span class="math inline">\(\mathcal{S}\)</span> the two conditions are equivalent.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Before starting, write out exactly what must be shown: there are two layers of quantifiers (over <span class="math inline">\(t\)</span> and over <span class="math inline">\(\varphi\)</span>). Note that <span class="math inline">\((*)\)</span> cannot be applied directly to <span class="math inline">\(a_0, a_1\)</span>, which are not elements.</li>
+<li>Associativity does all the work: “evaluate first, then apply <span class="math inline">\(\varphi\)</span>” equals “apply <span class="math inline">\(\varphi\)</span>, then evaluate”.</li>
+<li>This is the dual of the role of the separator: <span class="math inline">\(\mathbf{1}\)</span> lets us reduce statements about generalized elements to statements about ordinary elements. In categories where <span class="math inline">\(\mathbf{1}\)</span> is not a separator (e.g.&nbsp;groups or vector spaces, see <a href="#exr-LR-1-30" class="quarto-xref">Exercise&nbsp;<span>14.6</span></a>) the reduction fails, which is why <a href="#def-coseparator" class="quarto-xref">Definition&nbsp;<span>14.7</span></a> is stated for general <span class="math inline">\(T\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="uniqueness-properties" class="level3">
+<h3 class="anchored" data-anchor-id="uniqueness-properties">Uniqueness properties</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-28" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.5 (L–R 1.28)</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Show that identity arrows in a category are unique, i.e.&nbsp;if <span class="math inline">\(1_{A} \colon A \to A\)</span> and <span class="math inline">\(1_{A}' \colon A \to A\)</span> both satisfy the equations for identity arrows, then <span class="math inline">\(1_{A} = 1_{A}'\)</span>.</li>
+<li>Show that the set <span class="math inline">\(\mathbf{1}\)</span> is unique “up to unique isomorphism”, i.e.&nbsp;if <span class="math inline">\(\mathbf{1}'\)</span> also satisfies the axiom of the terminal set, then there are unique mappings <span class="math inline">\(f \colon \mathbf{1}\to \mathbf{1}'\)</span> and <span class="math inline">\(g \colon \mathbf{1}' \to \mathbf{1}\)</span>, and that <span class="math inline">\(gf = 1_{\mathbf{1}}\)</span> and <span class="math inline">\(fg = 1_{\mathbf{1}'}\)</span>.</li>
+<li>Similarly, show that the empty set <span class="math inline">\(\mathbf{0}\)</span> is unique up to unique isomorphism.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a)</strong> The identity equations say: <span class="math inline">\(h\,1_{A} = h\)</span> for every <span class="math inline">\(h \colon A \to B\)</span>, and <span class="math inline">\(1_{A}\,k = k\)</span> for every <span class="math inline">\(k \colon C \to A\)</span>; likewise for <span class="math inline">\(1_{A}'\)</span>. Consider the composite <span class="math inline">\(1_{A}\,1_{A}'\)</span>. Using that <span class="math inline">\(1_{A}'\)</span> is a right identity, with <span class="math inline">\(h = 1_{A}\)</span>, we get <span class="math inline">\(1_{A}\,1_{A}' = 1_{A}\)</span>. Using that <span class="math inline">\(1_{A}\)</span> is a left identity, with <span class="math inline">\(k = 1_{A}'\)</span>, we get <span class="math inline">\(1_{A}\,1_{A}' = 1_{A}'\)</span>. Hence <span class="math display">\[
+1_{A} = 1_{A}\,1_{A}' = 1_{A}' .
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(\mathbf{1}'\)</span> satisfies the terminal set axiom, there is exactly one mapping <span class="math inline">\(f \colon \mathbf{1}\to \mathbf{1}'\)</span>; since <span class="math inline">\(\mathbf{1}\)</span> does, there is exactly one mapping <span class="math inline">\(g \colon \mathbf{1}' \to \mathbf{1}\)</span>. Now <span class="math inline">\(gf \colon \mathbf{1}\to \mathbf{1}\)</span>, and the only mapping <span class="math inline">\(\mathbf{1}\to \mathbf{1}\)</span> is <span class="math inline">\(1_{\mathbf{1}}\)</span>; so <span class="math inline">\(gf = 1_{\mathbf{1}}\)</span>. Symmetrically, <span class="math inline">\(fg \colon \mathbf{1}' \to \mathbf{1}'\)</span> and the only such mapping is <span class="math inline">\(1_{\mathbf{1}'}\)</span>, so <span class="math inline">\(fg = 1_{\mathbf{1}'}\)</span>. Thus <span class="math inline">\(\mathbf{1}\cong \mathbf{1}'\)</span>. The isomorphism is <em>unique</em>: any isomorphism <span class="math inline">\(\mathbf{1}\to \mathbf{1}'\)</span> is in particular a mapping <span class="math inline">\(\mathbf{1}\to \mathbf{1}'\)</span>, hence equals <span class="math inline">\(f\)</span>.</p>
+<p><strong>(c)</strong> Dually, let <span class="math inline">\(\mathbf{0}'\)</span> also satisfy the initial set axiom. There is exactly one <span class="math inline">\(f \colon \mathbf{0}\to \mathbf{0}'\)</span> (initiality of <span class="math inline">\(\mathbf{0}\)</span>) and exactly one <span class="math inline">\(g \colon \mathbf{0}' \to \mathbf{0}\)</span> (initiality of <span class="math inline">\(\mathbf{0}'\)</span>). Then <span class="math inline">\(gf \colon \mathbf{0}\to \mathbf{0}\)</span> must equal <span class="math inline">\(1_{\mathbf{0}}\)</span>, the only mapping <span class="math inline">\(\mathbf{0}\to \mathbf{0}\)</span>, and <span class="math inline">\(fg \colon \mathbf{0}' \to \mathbf{0}'\)</span> must equal <span class="math inline">\(1_{\mathbf{0}'}\)</span>. So <span class="math inline">\(f\)</span> is an isomorphism, and it is the only one, since it is the only mapping <span class="math inline">\(\mathbf{0}\to \mathbf{0}'\)</span> at all.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>The proofs use nothing specific to <span class="math inline">\(\mathcal{S}\)</span>: in <em>any</em> category, identities are unique and terminal (initial) objects are unique up to unique isomorphism. This is what justifies speaking of “the” terminal set: any statement about it is insensitive to which terminal set was chosen.</li>
+<li>In (a), only “<span class="math inline">\(1_{A}'\)</span> is a right identity” and “<span class="math inline">\(1_{A}\)</span> is a left identity” are used, exactly as for identity elements of a monoid.</li>
+<li>In (b), both composites must be checked; one-sided inverses do not make an isomorphism.</li>
+<li>Compare with <span class="math inline">\(\mathsf{ZFC}\)</span>: <span class="math inline">\(\emptyset\)</span> is <em>literally</em> unique by Extensionality, while <span class="math inline">\(\{\emptyset\}\)</span>, <span class="math inline">\(\{\{\emptyset\}\}\)</span>, and <span class="math inline">\(\{7\}\)</span> are all different one-element sets. In the categorical approach these are indistinguishable: the theory only ever pins objects down up to (unique) isomorphism.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="categories-of-structures" class="level3">
+<h3 class="anchored" data-anchor-id="categories-of-structures">Categories of structures</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-LR-1-30" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 14.6 (L–R 1.30)</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Show that (finite-dimensional) vector spaces as objects and linear transformations as arrows form a category with composition of arrows defined by composition of mappings. Show that a one-dimensional space <span class="math inline">\(S\)</span> is a separator; is it a coseparator? Is the terminal object a separator?</li>
+<li>Show that groups as objects and group homomorphisms as arrows form a category with composition of arrows defined by composition of mappings. Show that the additive group of integers is a separator.</li>
+<li>Show that partially ordered sets as objects and monotone (= order-preserving) mappings as arrows form a category with composition of arrows defined by composition of mappings. Is the terminal object a separator in this category? Is there a coseparator?</li>
+<li>A <strong>finite state machine</strong> with two inputs <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> is a finite set <span class="math inline">\(Q\)</span> of “states” and a pair of endomaps <span class="math inline">\(\alpha, \beta \colon Q \to Q\)</span> that effect the elementary state transitions of which the machine is capable. Given another such machine with state set <span class="math inline">\(Q'\)</span>, a <strong>homomorphism</strong> is a mapping <span class="math inline">\(\varphi \colon Q \to Q'\)</span> of state sets preserving the transitions in the sense that <span class="math display">\[
+\varphi\alpha = \alpha'\varphi \qquad\text{and}\qquad
+\varphi\beta = \beta'\varphi ,
+\]</span> where <span class="math inline">\(\alpha', \beta' \colon Q' \to Q'\)</span> denote the corresponding state transitions of the second machine. Define composition of homomorphisms and show that a category results.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>In parts (a)–(c), “separator”, “coseparator” and “terminal object” are meant in the sense of <a href="#def-separator" class="quarto-xref">Definition&nbsp;<span>14.6</span></a>, <a href="#def-coseparator" class="quarto-xref">Definition&nbsp;<span>14.7</span></a> and <a href="#def-terminal-initial" class="quarto-xref">Definition&nbsp;<span>14.3</span></a>, applied to the category at hand. In particular, the “elements” <span class="math inline">\(x \colon S \to X\)</span> that a separator <span class="math inline">\(S\)</span> uses to test arrows are arrows <em>of that category</em> (linear maps, homomorphisms, monotone maps), not arbitrary functions.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution: a remark common to (a)–(d)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In each case the arrows are certain mappings between underlying sets, composition is composition of mappings, and the identity arrow on an object is the identity mapping of its underlying set. Therefore, once we know that</p>
+<ol type="i">
+<li>the identity mapping is an arrow, and</li>
+<li>the composite of two arrows is again an arrow,</li>
+</ol>
+<p>the associativity and identity laws hold automatically, because they hold for mappings in <span class="math inline">\(\mathcal{S}\)</span>. So in each part the only real work in “show that a category results” is checking (i) and (ii). Strictly speaking an arrow should be recorded as the triple (domain, codomain, underlying mapping), since the same function can be an arrow between different structures on the same underlying sets; nothing below depends on this.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution to (a): vector spaces
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Fix a field <span class="math inline">\(k\)</span> and consider finite-dimensional vector spaces over <span class="math inline">\(k\)</span> with linear maps.</p>
+<p><em>Category.</em> The identity map is linear. If <span class="math inline">\(f \colon U \to V\)</span> and <span class="math inline">\(g \colon V \to W\)</span> are linear then <span class="math inline">\(gf(\lambda u + \mu u') = g(\lambda f u + \mu f u') = \lambda\, gf u + \mu\, gf u'\)</span>, so <span class="math inline">\(gf\)</span> is linear.</p>
+<p><em>A one-dimensional space <span class="math inline">\(S\)</span> is a separator.</em> Fix a nonzero <span class="math inline">\(s \in S\)</span>, so <span class="math inline">\(S = \{\lambda s : \lambda \in k\}\)</span>. For every vector <span class="math inline">\(v\)</span> in a space <span class="math inline">\(X\)</span> the map <span class="math inline">\(x_v \colon S \to X\)</span>, <span class="math inline">\(x_v(\lambda s) = \lambda v\)</span>, is linear, and <span class="math inline">\(x_v(s) = v\)</span>. Now suppose <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span> satisfy <span class="math inline">\(f_1 x = f_2 x\)</span> for all linear <span class="math inline">\(x \colon S \to X\)</span>. Then for every <span class="math inline">\(v \in X\)</span>, <span class="math display">\[
+f_1(v) = f_1 x_v (s) = f_2 x_v (s) = f_2(v),
+\]</span> so <span class="math inline">\(f_1 = f_2\)</span>. (In fact linear maps <span class="math inline">\(S \to X\)</span> correspond bijectively to vectors of <span class="math inline">\(X\)</span> via <span class="math inline">\(x \mapsto x(s)\)</span>; this is the sense in which <span class="math inline">\(S\)</span> plays the role of <span class="math inline">\(\mathbf{1}\)</span>.)</p>
+<p><em><span class="math inline">\(S\)</span> is also a coseparator.</em> Let <span class="math inline">\(a_0, a_1 \colon T \to A\)</span> be linear with <span class="math inline">\(a_0 \neq a_1\)</span>. Then there is <span class="math inline">\(t \in T\)</span> with <span class="math inline">\(w := a_0(t) - a_1(t) \neq 0\)</span>. Extend <span class="math inline">\(\{w\}\)</span> to a basis <span class="math inline">\(\{w, e_2, \dots, e_n\}\)</span> of <span class="math inline">\(A\)</span> and let <span class="math inline">\(\varphi \colon A \to S\)</span> be the linear map with <span class="math inline">\(\varphi(w) = s\)</span> and <span class="math inline">\(\varphi(e_i) = 0\)</span>. Then <span class="math display">\[
+\varphi a_0 (t) - \varphi a_1 (t) = \varphi(w) = s \neq 0,
+\]</span> so <span class="math inline">\(\varphi a_0 \neq \varphi a_1\)</span>. (We had to use generalized elements <span class="math inline">\(T \to A\)</span> here, because maps out of the terminal object carry no information in this category; see the next point.)</p>
+<p><em>The terminal object is not a separator.</em> The zero space <span class="math inline">\(\{0\}\)</span> is terminal: from any <span class="math inline">\(X\)</span> there is exactly one linear map to it, the zero map. It is also initial: the only linear map <span class="math inline">\(\{0\} \to X\)</span> sends <span class="math inline">\(0 \mapsto 0\)</span>. So for any <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span> and any <span class="math inline">\(x \colon \{0\} \to X\)</span>, both <span class="math inline">\(f_1 x\)</span> and <span class="math inline">\(f_2 x\)</span> are the unique map <span class="math inline">\(\{0\} \to Y\)</span>, hence equal. Taking <span class="math inline">\(f_1 = 1_{S}\)</span> and <span class="math inline">\(f_2 = 0\)</span> (distinct, since <span class="math inline">\(s \neq 0\)</span>) shows that <span class="math inline">\(\{0\}\)</span> does not separate.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution to (b): groups
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Category.</em> The identity map is a homomorphism. If <span class="math inline">\(f \colon G \to H\)</span> and <span class="math inline">\(g \colon H \to K\)</span> are homomorphisms then <span class="math inline">\(gf(xy) = g(f(x)f(y)) = gf(x)\, gf(y)\)</span>.</p>
+<p><em><span class="math inline">\((\mathbb{Z}, +)\)</span> is a separator.</em> For each element <span class="math inline">\(x\)</span> of a group <span class="math inline">\(X\)</span> the map <span class="math inline">\(h_x \colon \mathbb{Z}\to X\)</span>, <span class="math inline">\(h_x(n) = x^n\)</span>, is a homomorphism (since <span class="math inline">\(x^{m+n} = x^m x^n\)</span>) with <span class="math inline">\(h_x(1) = x\)</span>. If <span class="math inline">\(f_1, f_2 \colon X \to Y\)</span> satisfy <span class="math inline">\(f_1 h = f_2 h\)</span> for every homomorphism <span class="math inline">\(h \colon \mathbb{Z}\to X\)</span>, then for every <span class="math inline">\(x \in X\)</span>, <span class="math display">\[
+f_1(x) = f_1 h_x(1) = f_2 h_x(1) = f_2(x),
+\]</span> so <span class="math inline">\(f_1 = f_2\)</span>. (As in (a), homomorphisms <span class="math inline">\(\mathbb{Z}\to X\)</span> correspond bijectively to elements of <span class="math inline">\(X\)</span>, because <span class="math inline">\(\mathbb{Z}\)</span> is the free group on one generator.)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution to (c): partially ordered sets
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Category.</em> The identity is monotone. If <span class="math inline">\(f, g\)</span> are monotone and <span class="math inline">\(x \le y\)</span> then <span class="math inline">\(f(x) \le f(y)\)</span>, hence <span class="math inline">\(g f(x) \le g f(y)\)</span>.</p>
+<p><em>The terminal object is a separator.</em> The one-element poset <span class="math inline">\(\mathbf{1}= \{\ast\}\)</span> is terminal (the constant map <span class="math inline">\(X \to \mathbf{1}\)</span> is monotone and is the only map). Every function <span class="math inline">\(\mathbf{1}\to X\)</span> is monotone, so monotone maps <span class="math inline">\(\mathbf{1}\to X\)</span> correspond exactly to points of <span class="math inline">\(X\)</span>. If <span class="math inline">\(f_1 x = f_2 x\)</span> for all <span class="math inline">\(x \colon \mathbf{1}\to X\)</span>, then <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> agree at every point, so they are equal as functions, hence as arrows. So, unlike (a) and (b), <span class="math inline">\(\mathbf{1}\)</span> is a separator here.</p>
+<p><em>There is a coseparator: the two-element chain <span class="math inline">\(\mathbf{2}= \{0 &lt; 1\}\)</span>.</em> Let <span class="math inline">\(a_0, a_1 \colon T \to A\)</span> be monotone with <span class="math inline">\(a_0 \neq a_1\)</span>; pick <span class="math inline">\(t\)</span> with <span class="math inline">\(p := a_0(t) \neq q := a_1(t)\)</span>. By antisymmetry, <span class="math inline">\(p \not\le q\)</span> or <span class="math inline">\(q \not\le p\)</span>; say <span class="math inline">\(p \not\le q\)</span> (otherwise swap the roles of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>). Define <span class="math inline">\(\varphi \colon A \to \mathbf{2}\)</span> by <span class="math display">\[
+\varphi(z) =
+\begin{cases}
+  1 &amp; \text{if } p \le z,\\
+  0 &amp; \text{otherwise,}
+\end{cases}
+\]</span> the indicator of the up-set <span class="math inline">\({\uparrow}p\)</span>. It is monotone: if <span class="math inline">\(z \le z'\)</span> and <span class="math inline">\(\varphi(z) = 1\)</span> then <span class="math inline">\(p \le z \le z'\)</span>, so <span class="math inline">\(\varphi(z') = 1\)</span>. And <span class="math inline">\(\varphi(p) = 1 \neq 0 = \varphi(q)\)</span> since <span class="math inline">\(p \not\le q\)</span>. Hence <span class="math inline">\(\varphi a_0 (t) \neq \varphi a_1 (t)\)</span>, so <span class="math inline">\(\varphi a_0 \neq \varphi a_1\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution to (d): finite state machines
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Objects are triples <span class="math inline">\((Q, \alpha, \beta)\)</span> with <span class="math inline">\(\alpha, \beta \colon Q \to Q\)</span>; an arrow <span class="math inline">\((Q, \alpha, \beta) \to (Q', \alpha', \beta')\)</span> is a mapping <span class="math inline">\(\varphi \colon Q \to Q'\)</span> with <span class="math inline">\(\varphi\alpha = \alpha'\varphi\)</span> and <span class="math inline">\(\varphi\beta = \beta'\varphi\)</span>.</p>
+<p><em>Composition</em> is composition of the underlying mappings: given <span class="math inline">\(\varphi \colon (Q, \alpha, \beta) \to (Q', \alpha', \beta')\)</span> and <span class="math inline">\(\psi \colon (Q', \alpha', \beta') \to (Q'', \alpha'', \beta'')\)</span>, set <span class="math inline">\(\psi \circ \varphi := \psi\varphi\)</span>. It is a homomorphism, by associativity in <span class="math inline">\(\mathcal{S}\)</span>: <span class="math display">\[
+(\psi\varphi)\alpha = \psi(\varphi\alpha) = \psi(\alpha'\varphi)
+= (\psi\alpha')\varphi = (\alpha''\psi)\varphi = \alpha''(\psi\varphi),
+\]</span> and the same computation with <span class="math inline">\(\beta\)</span> in place of <span class="math inline">\(\alpha\)</span>.</p>
+<p><em>Identities:</em> <span class="math inline">\(1_{Q}\)</span> is a homomorphism <span class="math inline">\((Q, \alpha, \beta) \to (Q, \alpha, \beta)\)</span>, since <span class="math inline">\(1_{Q}\alpha = \alpha = \alpha\,1_{Q}\)</span>, and likewise for <span class="math inline">\(\beta\)</span>.</p>
+<p>By the common remark above, associativity and the identity laws are inherited from <span class="math inline">\(\mathcal{S}\)</span>, so machines and their homomorphisms form a category.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remarks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Terminal = initial.</em> In vector spaces (and in groups) the zero space (trivial group) is both terminal and initial. So in these categories <span class="math inline">\(\mathbf{0}\cong \mathbf{1}\)</span>: the Nondegeneracy axiom <em>fails</em>. This is a good way to see why Nondegeneracy is a genuine axiom and not a triviality.</li>
+<li><em>Separators replace <span class="math inline">\(\mathbf{1}\)</span>.</em> In (a) and (b) the terminal object sees nothing, and a different object (<span class="math inline">\(k\)</span>, respectively <span class="math inline">\(\mathbb{Z}\)</span>) does the job of “detecting elements”. In each case that object is the <em>free</em> structure on one generator, so maps out of it are the same as elements of the underlying set.</li>
+<li><em>Groups have no coseparator.</em> If <span class="math inline">\(C\)</span> were one, take a simple group <span class="math inline">\(G\)</span> of cardinality larger than <span class="math inline">\(C\)</span> (alternating groups <span class="math inline">\(A_n\)</span>, <span class="math inline">\(n \ge 5\)</span>, give arbitrarily large finite examples). The kernel of any homomorphism <span class="math inline">\(\varphi \colon G \to C\)</span> is normal, hence trivial or all of <span class="math inline">\(G\)</span>; it cannot be trivial for cardinality reasons, so <span class="math inline">\(\varphi\)</span> is trivial. Then no <span class="math inline">\(\varphi\)</span> distinguishes two different elements of <span class="math inline">\(G\)</span> (viewed as homomorphisms <span class="math inline">\(\mathbb{Z}\to G\)</span>).</li>
+<li><em>The order on the value object matters.</em> The <em>discrete</em> two-element poset (no order relations between its two points) is <em>not</em> a coseparator in posets: monotone maps into it are constant on connected components, so for instance the two elements of the chain <span class="math inline">\(\mathbf{2}\)</span> cannot be told apart by maps into it.</li>
+<li><em>Finite dimension</em> is only used in (a) for the easy extension of <span class="math inline">\(\{w\}\)</span> to a basis; with the Axiom of Choice the same argument works for all vector spaces.</li>
+<li><em>Machines</em> preview a later theme of the book (Chapter 10): many categories of structures are categories of “sets with endomaps”. The terminal machine has one state with <span class="math inline">\(\alpha = \beta = \mathrm{id}\)</span>, so elements <span class="math inline">\(\mathbf{1}\to (Q, \alpha, \beta)\)</span> are exactly the states fixed by both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Hence <span class="math inline">\(\mathbf{1}\)</span> is not a separator: for <span class="math inline">\(Q = \{0, 1\}\)</span> with <span class="math inline">\(\alpha = \beta\)</span> both equal to the swap there are no maps from <span class="math inline">\(\mathbf{1}\)</span> at all, but <span class="math inline">\(1_{Q}\)</span> and the swap are two distinct homomorphisms <span class="math inline">\(Q \to Q\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="which-chapter-1-axioms-hold-where" class="level2">
+<h2 class="anchored" data-anchor-id="which-chapter-1-axioms-hold-where">Which Chapter 1 axioms hold where?</h2>
+<p>The following table summarizes what <a href="#exr-LR-1-30" class="quarto-xref">Exercise&nbsp;<span>14.6</span></a> reveals. The axioms “<span class="math inline">\(\mathbf{1}\)</span> separates mappings” and “<span class="math inline">\(\mathbf{0}\not\cong \mathbf{1}\)</span>” already rule out many familiar categories of structures, though not all of them. (The machine row goes slightly beyond the exercise; see the remarks above.)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>terminal <span class="math inline">\(\mathbf{1}\)</span></th>
+<th>initial <span class="math inline">\(\mathbf{0}\)</span></th>
+<th><span class="math inline">\(\mathbf{0}\not\cong \mathbf{1}\)</span></th>
+<th><span class="math inline">\(\mathbf{1}\)</span> separates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sets <span class="math inline">\(\mathcal{S}\)</span></td>
+<td>one-element set</td>
+<td>empty set</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>Vector spaces</td>
+<td><span class="math inline">\(\{0\}\)</span></td>
+<td><span class="math inline">\(\{0\}\)</span></td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>Groups</td>
+<td>trivial group</td>
+<td>trivial group</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>Posets</td>
+<td>one-point poset</td>
+<td>empty poset</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td>Machines</td>
+<td>one state, identities</td>
+<td>empty machine</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Posets satisfy every axiom of Chapter 1. What distinguishes them from abstract sets?</p>
+</div>
+</div>
+<p>In posets a monotone bijection need not be an isomorphism: the identity function from the discrete two-element poset to the chain <span class="math inline">\(\mathbf{2}\)</span> is monotone and bijective, but its inverse is not monotone. Such behaviour is ruled out by the further axioms of the book, which make the category of abstract sets a topos.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/incompleteness-consistency-strength.html" class="pagination-link" aria-label="Incompleteness and Consistency Strength">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Incompleteness and Consistency Strength</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/parts-functors.html" class="pagination-link" aria-label="Parts, Characteristic Functions, and Inverse Images">
+        <span class="nav-page-text"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/AC.html" rel="next">
+<link href="../notes/ordinals.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/recursion.html">7 · Induction and Recursion</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/recursion.html"><span class="chapter-title">Induction and Recursion</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#recursion-and-the-von-neumann-hierarchy" id="toc-recursion-and-the-von-neumann-hierarchy" class="nav-link active" data-scroll-target="#recursion-and-the-von-neumann-hierarchy">Recursion and the Von-Neumann Hierarchy</a>
@@ -260,9 +304,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/recursion.html"><span class="chapter-title">Induction and Recursion</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Induction and Recursion</h1>
+<h1 class="title"><span class="chapter-title">Induction and Recursion</span></h1>
 </div>
 
 
@@ -304,7 +348,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="prp-induction-ord-i" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1 (Induction for ordinals, I)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 9.1 (Induction for ordinals, I)</strong></span> <br>
 For every property <span class="math inline">\(\varphi\)</span>, <span class="math display">\[\begin{equation*}
     \forall \alpha \; [ \forall \xi &lt; \alpha \; \varphi(\xi) \to \varphi(\alpha)] \to \forall \alpha \, \varphi(\alpha).
 \end{equation*}\]</span></p>
@@ -322,7 +366,7 @@ For every property <span class="math inline">\(\varphi\)</span>, <span class="ma
 </div>
 <div class="callout-body-container">
 <div id="prp-induction-ord-ii" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2 (Induction for ordinals, II)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 9.2 (Induction for ordinals, II)</strong></span> <br>
 For every property <span class="math inline">\({}\varphi\)</span>, if</p>
 <ul>
 <li><strong>(i)</strong> <span class="math inline">\(\varphi(0)\)</span>,</li>
@@ -351,7 +395,7 @@ For every property <span class="math inline">\({}\varphi\)</span>, if</p>
 </div>
 <div class="callout-body-container">
 <div id="thm-ordinal-recursion" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Recursion on ordinals)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 9.1 (Recursion on ordinals)</strong></span> <br>
 If <span class="math inline">\(G : \mathop{\mathrm{V}}\longrightarrow  \mathop{\mathrm{V}}\)</span> is a function, then there exists a unique function <span class="math inline">\(F: \mathop{\mathrm{Ord}}\longrightarrow \mathop{\mathrm{V}}\)</span> such that for all <span class="math inline">\(\alpha \in \mathop{\mathrm{Ord}}\)</span>,</p>
 <p><span class="math display">\[
 F(\alpha) = G(F\mid_{\alpha})
@@ -403,7 +447,7 @@ F := \bigcup \{h \colon h\, \text{ tame}\}
 </div>
 <div class="callout-body-container">
 <div id="prp-ordinal-recursion-ii" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3 (Recursion on ordinals, variant)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 9.3 (Recursion on ordinals, variant)</strong></span> <br>
 If <span class="math inline">\(G, H: \mathop{\mathrm{Ord}}\times \mathop{\mathrm{V}}\longrightarrow  \mathop{\mathrm{V}}\)</span> are functions and <span class="math inline">\(a\)</span> is a set, then there exists a unique function <span class="math inline">\(F: \mathop{\mathrm{Ord}}\longrightarrow \mathop{\mathrm{V}}\)</span> such that <span class="math display">\[\begin{align*}
     F(0) \quad &amp; =  a\\
     F(\alpha+1) &amp; =  G(\alpha,F(\alpha)) \\    
@@ -429,7 +473,7 @@ S(a,&lt;): = \{x \in A\colon x &lt; a \},
 </div>
 <div class="callout-body-container">
 <div id="def-well-founded" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 9.1</strong></span> <br>
 A relation <span class="math inline">\(R\)</span> on a class <span class="math inline">\(A\)</span> is <strong>well-founded</strong> if it satisfies the <strong>minimality condition</strong> <span class="math display">\[\begin{equation*}
     (\operatorname{Min}_R) \qquad  \emptyset \neq b \subset A \to \exists x \in b \; \forall y \in b \, (  \neg y R x)
 \end{equation*}\]</span> and the <strong>set condition</strong> <span class="math display">\[\begin{equation*}
@@ -450,7 +494,7 @@ A relation <span class="math inline">\(R\)</span> on a class <span class="math i
 </div>
 <div class="callout-body-container">
 <div id="exm-trans-closure" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Transitive closure of a set)</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 9.1 (Transitive closure of a set)</strong></span> <br>
 By the axiom of <em>Foundation</em>, <span class="math inline">\(\in\)</span> is a well-founded relation on <span class="math inline">\(\mathop{\mathrm{V}}\)</span>. (The set condition is satisfied since <span class="math inline">\(S(a,\in)=a\)</span>.)</p>
 <p>We can form the <strong>transitive closure</strong>, the smallest transitive superset, of a set <span class="math inline">\(a\)</span> as</p>
 <p><span class="math display">\[\begin{align*}
@@ -471,7 +515,7 @@ By the axiom of <em>Foundation</em>, <span class="math inline">\(\in\)</span> is
 </div>
 <div class="callout-body-container">
 <div id="lem-min-wf" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 9.1</strong></span> <br>
 For every non-empty class <span class="math inline">\(B \subseteq A\)</span>, there exists <span class="math inline">\(x \in B\)</span> such that</p>
 <p><span class="math display">\[
     \forall y \in B \;  \neg y R x
@@ -497,7 +541,7 @@ For every non-empty class <span class="math inline">\(B \subseteq A\)</span>, th
 </div>
 <div class="callout-body-container">
 <div id="thm-wf-recursion" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Recursion principle for well-founded relations)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 9.2 (Recursion principle for well-founded relations)</strong></span> <br>
 Let <span class="math inline">\(R\)</span> be a well-founded relation on a class <span class="math inline">\(A\)</span>. For every function <span class="math inline">\(G : A \times \mathop{\mathrm{V}}\longrightarrow  \mathop{\mathrm{V}}\)</span> there exists a unique function <span class="math inline">\(F: A \to \mathop{\mathrm{V}}\)</span> such that <span class="math display">\[\begin{equation*}
     F(a) = G(a,F \mid_{\{x \mid xRa\}})  \text{ for all } a \in A.
 \end{equation*}\]</span></p>
@@ -530,7 +574,7 @@ V_ \lambda =  \bigcup_{\xi &lt; \lambda} V_\xi \quad \text{for limit } \lambda
 </div>
 <div class="callout-body-container">
 <div id="prp-" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposition 9.4</strong></span> &nbsp;</p>
 <ol type="1">
 <li>Each <span class="math inline">\(V_\alpha\)</span> is transitive.</li>
 <li><span class="math inline">\(\alpha &lt; \beta\)</span> implies <span class="math inline">\(V_\alpha \subset V_\beta\)</span>.</li>
@@ -548,7 +592,7 @@ V_ \lambda =  \bigcup_{\xi &lt; \lambda} V_\xi \quad \text{for limit } \lambda
 </div>
 <div class="callout-body-container">
 <div id="thm-von-Neumann" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 9.3</strong></span> <br>
 For every set <span class="math inline">\(x\)</span> there exists an ordinal <span class="math inline">\({}\alpha\)</span> with <span class="math inline">\(x \in V_\alpha\)</span>, that is, <span class="math display">\[
     \mathop{\mathrm{V}}= \bigcup_{\alpha \in \mathop{\mathrm{Ord}}} V_\alpha
 \]</span></p>
@@ -563,7 +607,7 @@ For every set <span class="math inline">\(x\)</span> there exists an ordinal <sp
 </div>
 <div class="callout-body-container">
 <div id="rem-union-notation" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em>. </span>Recall that the notation <span class="math inline">\(\bigcup_{\alpha \in \mathop{\mathrm{Ord}}} \dots\)</span> is really just a shortcut for the class obtained as <span class="math inline">\(\{ x \colon \exists \alpha \in \mathop{\mathrm{Ord}}\dots\}\)</span>.</p>
+<p><span class="proof-title"><em>Remark 9.1</em>. </span>Recall that the notation <span class="math inline">\(\bigcup_{\alpha \in \mathop{\mathrm{Ord}}} \dots\)</span> is really just a shortcut for the class obtained as <span class="math inline">\(\{ x \colon \exists \alpha \in \mathop{\mathrm{Ord}}\dots\}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -597,7 +641,7 @@ x \in \mathcal{P}(V_\gamma) = V_{\gamma+1}.
 </div>
 <div class="callout-body-container">
 <div id="def-rank" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> For any set <span class="math inline">\(x\)</span> we define its <strong>rank</strong> as <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 9.2</strong></span> For any set <span class="math inline">\(x\)</span> we define its <strong>rank</strong> as <span class="math display">\[
     \operatorname{rank}(x) = \text{ least } \alpha \text{ with } x \in V_{\alpha+1}.
 \]</span></p>
 </div>
@@ -611,7 +655,7 @@ x \in \mathcal{P}(V_\gamma) = V_{\gamma+1}.
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Show that <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Show that <span class="math display">\[
 \operatorname{rank}(x) = \sup\{ \operatorname{rank}(y)+1 \colon y \in x \}.
 \]</span></p>
 </div>
@@ -702,7 +746,7 @@ x \in \mathcal{P}(V_\gamma) = V_{\gamma+1}.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1029,20 +1073,19 @@ x \in \mathcal{P}(V_\gamma) = V_{\gamma+1}.
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/ordinals.html" class="pagination-link" aria-label="Ordinals">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ordinals</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/AC.html" class="pagination-link" aria-label="The Axiom of Choice">
+        <span class="nav-page-text"><span class="chapter-title">The Axiom of Choice</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

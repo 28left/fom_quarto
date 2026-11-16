@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/exponentials.html" rel="next">
+<link href="../notes/parts-functors.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/finite-limits.html">14 · Finite Limits</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/finite-limits.html"><span class="chapter-title">Finite Limits and Colimits</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#where-we-are-going" id="toc-where-we-are-going" class="nav-link active" data-scroll-target="#where-we-are-going">Where we are going</a></li>
@@ -265,9 +309,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/finite-limits.html"><span class="chapter-title">Finite Limits and Colimits</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Finite Limits and Colimits</h1>
+<h1 class="title"><span class="chapter-title">Finite Limits and Colimits</span></h1>
 <p class="subtitle lead">The first block of topos axioms (Lawvere–Rosebrugh, Ch. 3)</p>
 </div>
 
@@ -347,7 +391,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 <div class="callout-body-container">
 <div id="def-retraction" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Retraction, section)</strong></span> For maps <span class="math inline">\(X \xrightarrow{i} Y \xrightarrow{r} X\)</span> with <span class="math inline">\(ri = 1_X\)</span>, we call <span class="math inline">\(r\)</span> a <strong>retraction</strong> (left inverse) of <span class="math inline">\(i\)</span>, and <span class="math inline">\(i\)</span> a <strong>section</strong> (right inverse) of <span class="math inline">\(r\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 18.1 (Retraction, section)</strong></span> For maps <span class="math inline">\(X \xrightarrow{i} Y \xrightarrow{r} X\)</span> with <span class="math inline">\(ri = 1_X\)</span>, we call <span class="math inline">\(r\)</span> a <strong>retraction</strong> (left inverse) of <span class="math inline">\(i\)</span>, and <span class="math inline">\(i\)</span> a <strong>section</strong> (right inverse) of <span class="math inline">\(r\)</span>.</p>
 </div>
 </div>
 </div>
@@ -359,7 +403,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 <div class="callout-body-container">
 <div id="prp-split-mono" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> If <span class="math inline">\(i\)</span> has a retraction, then <span class="math inline">\(i\)</span> is a monomorphism. Dually, if <span class="math inline">\(r\)</span> has a section, then <span class="math inline">\(r\)</span> is an epimorphism.</p>
+<p><span class="theorem-title"><strong>Proposition 18.1</strong></span> If <span class="math inline">\(i\)</span> has a retraction, then <span class="math inline">\(i\)</span> is a monomorphism. Dually, if <span class="math inline">\(r\)</span> has a section, then <span class="math inline">\(r\)</span> is an epimorphism.</p>
 </div>
 </div>
 </div>
@@ -382,7 +426,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 </div>
 </div>
-<p>A mono with a retraction is called <strong>split</strong>. The converse of <a href="#prp-split-mono" class="quarto-xref">Proposition&nbsp;1</a> is special to sets:</p>
+<p>A mono with a retraction is called <strong>split</strong>. The converse of <a href="#prp-split-mono" class="quarto-xref">Proposition&nbsp;<span>18.1</span></a> is special to sets:</p>
 <ul>
 <li>In <span class="math inline">\(\mathcal{S}\)</span>, every mono <span class="math inline">\(X \rightarrowtail Y\)</span> with <span class="math inline">\(X \neq 0\)</span> splits. Pick <span class="math inline">\(x_0 : 1 \to X\)</span> and let <span class="math inline">\(X'\)</span> be the complement of <span class="math inline">\(X\)</span> in <span class="math inline">\(Y\)</span>, so <span class="math inline">\(Y = X + X'\)</span>. Define <span class="math inline">\(r\)</span> by cases: <span class="math inline">\(r\)</span> is <span class="math inline">\(1_X\)</span> on <span class="math inline">\(X\)</span> and constantly <span class="math inline">\(x_0\)</span> on <span class="math inline">\(X'\)</span>.</li>
 <li>In continuous settings this fails. The inclusion of the circle <span class="math inline">\(S^1 \hookrightarrow \mathbb{R}^2\)</span> has no continuous retraction. It <em>does</em> have one into <span class="math inline">\(\mathbb{R}^2\setminus\{0\}\)</span>, namely <span class="math inline">\(y \mapsto y/|y|\)</span>.</li>
@@ -395,7 +439,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 <div class="callout-body-container">
 <div id="def-iso" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2</strong></span> <span class="math inline">\(f : X \to Y\)</span> is an <strong>isomorphism</strong> if there is <span class="math inline">\(g : Y \to X\)</span> with <span class="math inline">\(gf = 1_X\)</span> and <span class="math inline">\(fg = 1_Y\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 18.2</strong></span> <span class="math inline">\(f : X \to Y\)</span> is an <strong>isomorphism</strong> if there is <span class="math inline">\(g : Y \to X\)</span> with <span class="math inline">\(gf = 1_X\)</span> and <span class="math inline">\(fg = 1_Y\)</span>.</p>
 </div>
 </div>
 </div>
@@ -407,7 +451,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 <div class="callout-body-container">
 <div id="prp-left-right" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> If <span class="math inline">\(rf = 1_X\)</span> and <span class="math inline">\(fs = 1_Y\)</span>, then <span class="math inline">\(r = s\)</span>. In particular, two-sided inverses are unique; we write <span class="math inline">\(f^{-1}\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 18.2</strong></span> If <span class="math inline">\(rf = 1_X\)</span> and <span class="math inline">\(fs = 1_Y\)</span>, then <span class="math inline">\(r = s\)</span>. In particular, two-sided inverses are unique; we write <span class="math inline">\(f^{-1}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -442,7 +486,7 @@ Sections marked (skip if short on time) can be left to the notes.
 </div>
 <div class="callout-body-container">
 <div id="def-product" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Product)</strong></span> A <strong>product</strong> of objects <span class="math inline">\(A, B\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(A \xleftarrow{\pi_A} P \xrightarrow{\pi_B} B\)</span> such that for every <span class="math inline">\(X\)</span> and every pair <span class="math inline">\(f : X \to A\)</span>, <span class="math inline">\(g : X \to B\)</span> there is a <strong>unique</strong> <span class="math inline">\(h : X \to P\)</span> with <span class="math inline">\(\pi_A h = f\)</span> and <span class="math inline">\(\pi_B h = g\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 19.1 (Product)</strong></span> A <strong>product</strong> of objects <span class="math inline">\(A, B\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(A \xleftarrow{\pi_A} P \xrightarrow{\pi_B} B\)</span> such that for every <span class="math inline">\(X\)</span> and every pair <span class="math inline">\(f : X \to A\)</span>, <span class="math inline">\(g : X \to B\)</span> there is a <strong>unique</strong> <span class="math inline">\(h : X \to P\)</span> with <span class="math inline">\(\pi_A h = f\)</span> and <span class="math inline">\(\pi_B h = g\)</span>.</p>
 <p><span class="math display">\[
 \begin{array}{ccc}
 &amp; &amp; A \\
@@ -492,7 +536,7 @@ X &amp; \xrightarrow{\;\;h\;=\;\langle f,g \rangle\;\;} &amp; A \times B \\
 </div>
 <div class="callout-body-container">
 <div id="prp-product-unique" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> If <span class="math inline">\((P, \pi_A, \pi_B)\)</span> and <span class="math inline">\((P', \pi'_A, \pi'_B)\)</span> are both products of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, there is a unique isomorphism <span class="math inline">\(h : P \to P'\)</span> with <span class="math inline">\(\pi'_A h = \pi_A\)</span> and <span class="math inline">\(\pi'_B h = \pi_B\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 19.1</strong></span> If <span class="math inline">\((P, \pi_A, \pi_B)\)</span> and <span class="math inline">\((P', \pi'_A, \pi'_B)\)</span> are both products of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, there is a unique isomorphism <span class="math inline">\(h : P \to P'\)</span> with <span class="math inline">\(\pi'_A h = \pi_A\)</span> and <span class="math inline">\(\pi'_B h = \pi_B\)</span>.</p>
 </div>
 </div>
 </div>
@@ -529,7 +573,7 @@ X &amp; \xrightarrow{\;\;h\;=\;\langle f,g \rangle\;\;} &amp; A \times B \\
 </div>
 <div class="callout-body-container">
 <div id="def-equalizer" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Equalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, an <strong>equalizer</strong> of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is a map <span class="math inline">\(e : E \to A\)</span> such that</p>
+<p><span class="theorem-title"><strong>Definition 20.1 (Equalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, an <strong>equalizer</strong> of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is a map <span class="math inline">\(e : E \to A\)</span> such that</p>
 <ol type="1">
 <li><span class="math inline">\(fe = ge\)</span>;</li>
 <li>for every <span class="math inline">\(x : T \to A\)</span> with <span class="math inline">\(fx = gx\)</span> there is a <strong>unique</strong> <span class="math inline">\(\bar x : T \to E\)</span> with <span class="math inline">\(e\bar x = x\)</span>.</li>
@@ -548,7 +592,7 @@ E \xrightarrow{\;e\;} A \underset{g}{\overset{f}{\rightrightarrows}} B
 </div>
 <div class="callout-body-container">
 <div id="prp-equalizer-mono" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> Every equalizer is a monomorphism. Hence it is a part of <span class="math inline">\(A\)</span>, and for any <span class="math inline">\(x : T \to A\)</span>, <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 20.1</strong></span> Every equalizer is a monomorphism. Hence it is a part of <span class="math inline">\(A\)</span>, and for any <span class="math inline">\(x : T \to A\)</span>, <span class="math display">\[
 x \in e \quad \Leftrightarrow \quad fx = gx.
 \]</span></p>
 </div>
@@ -592,7 +636,7 @@ x \in e \quad \Leftrightarrow \quad fx = gx.
 </div>
 <div class="callout-body-container">
 <div id="def-pullback" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Pullback)</strong></span> Given <span class="math inline">\(A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1\)</span>, a <strong>pullback</strong> (or <strong>fibered product</strong>) is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(\pi_0, \pi_1\)</span> making the square commute, <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 21.1 (Pullback)</strong></span> Given <span class="math inline">\(A_0 \xrightarrow{f_0} B \xleftarrow{f_1} A_1\)</span>, a <strong>pullback</strong> (or <strong>fibered product</strong>) is an object <span class="math inline">\(P\)</span> with maps <span class="math inline">\(\pi_0, \pi_1\)</span> making the square commute, <span class="math display">\[
 \begin{CD}
 P @&gt;{\pi_1}&gt;&gt; A_1\\
 @V{\pi_0}VV @VV{f_1}V\\
@@ -611,7 +655,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 <div class="callout-body-container">
 <div id="prp-pullback-from-prod-eq" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5</strong></span> If a category has binary products and equalizers, it has pullbacks.</p>
+<p><span class="theorem-title"><strong>Proposition 21.1</strong></span> If a category has binary products and equalizers, it has pullbacks.</p>
 </div>
 </div>
 </div>
@@ -677,7 +721,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 <div class="callout-body-container">
 <div id="lem-pullback-mono" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> Monos are stable under pullback: in the square of <a href="#def-pullback" class="quarto-xref">Definition&nbsp;5</a>, if <span class="math inline">\(f_1\)</span> is mono, then so is <span class="math inline">\(\pi_0\)</span>.</p>
+<p><span class="theorem-title"><strong>Lemma 21.1</strong></span> Monos are stable under pullback: in the square of <a href="#def-pullback" class="quarto-xref">Definition&nbsp;<span>21.1</span></a>, if <span class="math inline">\(f_1\)</span> is mono, then so is <span class="math inline">\(\pi_0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -700,7 +744,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 </div>
 </div>
-<p>Combining the first row with the construction of equalizers from products and inverse images gives the converse of <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;5</a>:</p>
+<p>Combining the first row with the construction of equalizers from products and inverse images gives the converse of <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;<span>21.1</span></a>:</p>
 <div class="callout callout-style-simple callout-caution no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -708,7 +752,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 <div class="callout-body-container">
 <div id="prp-prod-eq-from-pullback" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6</strong></span> If a category has a terminal object and pullbacks, it has binary products and equalizers.</p>
+<p><span class="theorem-title"><strong>Proposition 21.2</strong></span> If a category has a terminal object and pullbacks, it has binary products and equalizers.</p>
 </div>
 </div>
 </div>
@@ -725,7 +769,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 <div class="callout-body-container">
 <div id="def-limit" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Limit)</strong></span> A <strong>cone</strong> over the diagram with vertex <span class="math inline">\(L\)</span> is a family <span class="math inline">\(\pi_i : L \to A_i\)</span> with <span class="math inline">\(f_j \pi_{d(j)} = \pi_{c(j)}\)</span> for all <span class="math inline">\(j\)</span>. A <strong>limit</strong> is a cone that is universal: every cone <span class="math inline">\((a_i : T \to A_i)_i\)</span> factors as <span class="math inline">\(a_i = \pi_i a\)</span> through a <strong>unique</strong> <span class="math inline">\(a : T \to L\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 22.1 (Limit)</strong></span> A <strong>cone</strong> over the diagram with vertex <span class="math inline">\(L\)</span> is a family <span class="math inline">\(\pi_i : L \to A_i\)</span> with <span class="math inline">\(f_j \pi_{d(j)} = \pi_{c(j)}\)</span> for all <span class="math inline">\(j\)</span>. A <strong>limit</strong> is a cone that is universal: every cone <span class="math inline">\((a_i : T \to A_i)_i\)</span> factors as <span class="math inline">\(a_i = \pi_i a\)</span> through a <strong>unique</strong> <span class="math inline">\(a : T \to L\)</span>.</p>
 </div>
 </div>
 </div>
@@ -778,7 +822,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 </div>
 <div class="callout-body-container">
 <div id="thm-limits-from-prod-eq" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1</strong></span> If a category has finite products (including the empty product, i.e.&nbsp;a terminal object) and equalizers, then it has all finite limits.</p>
+<p><span class="theorem-title"><strong>Theorem 22.1</strong></span> If a category has finite products (including the empty product, i.e.&nbsp;a terminal object) and equalizers, then it has all finite limits.</p>
 </div>
 </div>
 </div>
@@ -796,7 +840,7 @@ A_0 @&gt;{f_0}&gt;&gt; B
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><em>(Sketch; this is <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;5</a> writ large.)</em> Form the two products <span class="math inline">\(\prod_{i\in I} A_i\)</span> and <span class="math inline">\(\prod_{j\in J} A_{c(j)}\)</span> and two maps between them, specified by their components. Writing <span class="math inline">\(p_i\)</span> for the projections of the first product and <span class="math inline">\(q_j\)</span> for those of the second, define <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span><em>(Sketch; this is <a href="#prp-pullback-from-prod-eq" class="quarto-xref">Proposition&nbsp;<span>21.1</span></a> writ large.)</em> Form the two products <span class="math inline">\(\prod_{i\in I} A_i\)</span> and <span class="math inline">\(\prod_{j\in J} A_{c(j)}\)</span> and two maps between them, specified by their components. Writing <span class="math inline">\(p_i\)</span> for the projections of the first product and <span class="math inline">\(q_j\)</span> for those of the second, define <span class="math display">\[
 \textstyle\prod_{i} A_i \underset{v}{\overset{u}{\rightrightarrows}} \prod_{j} A_{c(j)},
 \qquad
 q_j\, u = p_{c(j)}, \qquad q_j\, v = f_j\, p_{d(j)} .
@@ -812,7 +856,7 @@ q_j\, u = p_{c(j)}, \qquad q_j\, v = f_j\, p_{d(j)} .
 </div>
 <div class="callout-body-container">
 <div id="cor-limits-from-pb" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> A category with a terminal object and pullbacks has all finite limits.</p>
+<p><span class="theorem-title"><strong>Corollary 22.1</strong></span> A category with a terminal object and pullbacks has all finite limits.</p>
 </div>
 </div>
 </div>
@@ -867,17 +911,17 @@ q_j\, u = p_{c(j)}, \qquad q_j\, v = f_j\, p_{d(j)} .
 </div>
 <div class="callout-body-container">
 <div id="def-coequalizer" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Coequalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, a <strong>coequalizer</strong> is <span class="math inline">\(q : B \to Q\)</span> with <span class="math inline">\(qf = qg\)</span> such that every <span class="math inline">\(h : B \to Z\)</span> with <span class="math inline">\(hf = hg\)</span> factors as <span class="math inline">\(h = \bar h q\)</span> for a <strong>unique</strong> <span class="math inline">\(\bar h : Q \to Z\)</span>. <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 23.1 (Coequalizer)</strong></span> Given <span class="math inline">\(A \underset{g}{\overset{f}{\rightrightarrows}} B\)</span>, a <strong>coequalizer</strong> is <span class="math inline">\(q : B \to Q\)</span> with <span class="math inline">\(qf = qg\)</span> such that every <span class="math inline">\(h : B \to Z\)</span> with <span class="math inline">\(hf = hg\)</span> factors as <span class="math inline">\(h = \bar h q\)</span> for a <strong>unique</strong> <span class="math inline">\(\bar h : Q \to Z\)</span>. <span class="math display">\[
 A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 \]</span></p>
 </div>
 </div>
 </div>
 </div>
-<p>Dually to <a href="#prp-equalizer-mono" class="quarto-xref">Proposition&nbsp;4</a>, every coequalizer is an epimorphism.</p>
+<p>Dually to <a href="#prp-equalizer-mono" class="quarto-xref">Proposition&nbsp;<span>20.1</span></a>, every coequalizer is an epimorphism.</p>
 <p><strong>In <span class="math inline">\(\mathcal{S}\)</span>.</strong> <span class="math inline">\(Q = B/{\sim}\)</span>, where <span class="math inline">\(\sim\)</span> is the <em>equivalence relation generated by</em> <span class="math inline">\(f(a) \sim g(a)\)</span> for <span class="math inline">\(a \in A\)</span>, and <span class="math inline">\(q\)</span> is the quotient map. A map out of <span class="math inline">\(Q\)</span> is a map out of <span class="math inline">\(B\)</span> that respects the identifications. Equalizers are <em>comprehension</em> (cutting out by an equation); coequalizers are <em>quotients</em> (gluing by identifications).</p>
 <p><strong>Pushouts</strong> are the dual of pullbacks. In <span class="math inline">\(\mathcal{S}\)</span>, the pushout of <span class="math inline">\(B_0 \xleftarrow{f_0} A \xrightarrow{f_1} B_1\)</span> is <span class="math inline">\((B_0 + B_1)/{\sim}\)</span> with <span class="math inline">\(f_0(a) \sim f_1(a)\)</span>, i.e.&nbsp;<span class="math inline">\(B_0\)</span> and <span class="math inline">\(B_1\)</span> glued along <span class="math inline">\(A\)</span>. In <span class="math inline">\(\mathbf{Top}\)</span>, gluing two closed disks along their boundary circle gives the sphere <span class="math inline">\(S^2\)</span>.</p>
-<p>By duality, from <a href="#thm-limits-from-prod-eq" class="quarto-xref">Theorem&nbsp;1</a> and <a href="#cor-limits-from-pb" class="quarto-xref">Corollary&nbsp;1</a>:</p>
+<p>By duality, from <a href="#thm-limits-from-prod-eq" class="quarto-xref">Theorem&nbsp;<span>22.1</span></a> and <a href="#cor-limits-from-pb" class="quarto-xref">Corollary&nbsp;<span>22.1</span></a>:</p>
 <div class="callout callout-style-simple callout-warning no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -885,7 +929,7 @@ A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 </div>
 <div class="callout-body-container">
 <div id="thm-colimits" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> A category has all finite colimits iff it has an initial object, binary sums, and coequalizers, iff it has an initial object and pushouts.</p>
+<p><span class="theorem-title"><strong>Theorem 23.1</strong></span> A category has all finite colimits iff it has an initial object, binary sums, and coequalizers, iff it has an initial object and pushouts.</p>
 </div>
 </div>
 </div>
@@ -910,7 +954,7 @@ A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 </div>
 <div class="callout-body-container">
 <div id="rem-colimits-redundant" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Finite colimits come for free in a topos). </span>In Lawvere and Tierney’s original axiomatization, finite colimits were an explicit axiom. It was later shown that they <em>follow</em> from finite limits together with power objects (i.e.&nbsp;exponentials plus a subobject classifier). This is due to Mikkelsen, with a slick proof by Paré (1974) via the monadicity of the power-object functor. So axiom (2) in our preview is redundant. We keep it on the list because it is convenient, and because Lawvere–Rosebrugh assume the initial set and binary sums as axioms for <span class="math inline">\(\mathcal{S}\)</span> long before power objects are available.</p>
+<p><span class="proof-title"><em>Remark 23.1</em> (Finite colimits come for free in a topos). </span>In Lawvere and Tierney’s original axiomatization, finite colimits were an explicit axiom. It was later shown that they <em>follow</em> from finite limits together with power objects (i.e.&nbsp;exponentials plus a subobject classifier). This is due to Mikkelsen, with a slick proof by Paré (1974) via the monadicity of the power-object functor. So axiom (2) in our preview is redundant. We keep it on the list because it is convenient, and because Lawvere–Rosebrugh assume the initial set and binary sums as axioms for <span class="math inline">\(\mathcal{S}\)</span> long before power objects are available.</p>
 </div>
 </div>
 </div>
@@ -936,7 +980,7 @@ A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Show from the universal property that <span class="math inline">\(B \times A \cong A \times B\)</span> and <span class="math inline">\(1 \times A \cong A\)</span>. Which equation needs the uniqueness clause? (L-R 3.21, 3.22)</p>
+<p><span class="theorem-title"><strong>Exercise 25.1</strong></span> Show from the universal property that <span class="math inline">\(B \times A \cong A \times B\)</span> and <span class="math inline">\(1 \times A \cong A\)</span>. Which equation needs the uniqueness clause? (L-R 3.21, 3.22)</p>
 </div>
 </div>
 </div>
@@ -948,7 +992,7 @@ A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> Show that the equalizer of <span class="math inline">\(f, g : A \rightrightarrows B\)</span> is the inverse image of the diagonal <span class="math inline">\(\delta_B\)</span> along <span class="math inline">\(\langle f,g \rangle\)</span>. (L-R 3.32)</p>
+<p><span class="theorem-title"><strong>Exercise 25.2</strong></span> Show that the equalizer of <span class="math inline">\(f, g : A \rightrightarrows B\)</span> is the inverse image of the diagonal <span class="math inline">\(\delta_B\)</span> along <span class="math inline">\(\langle f,g \rangle\)</span>. (L-R 3.32)</p>
 </div>
 </div>
 </div>
@@ -960,7 +1004,7 @@ A \underset{g}{\overset{f}{\rightrightarrows}} B \xrightarrow{\;q\;} Q
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Pasting lemma)</strong></span> In a commutative diagram <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 25.3 (Pasting lemma)</strong></span> In a commutative diagram <span class="math display">\[
 \begin{CD}
 X @&gt;&gt;&gt; Y @&gt;&gt;&gt; Z\\
 @VVV @VVV @VVV\\
@@ -978,7 +1022,7 @@ U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> Show that the kernel pair <span class="math inline">\(K \rightrightarrows A\)</span> of <span class="math inline">\(f : A \to B\)</span> (the pullback of <span class="math inline">\(f\)</span> along itself) is, in <span class="math inline">\(\mathcal{S}\)</span>, the equivalence relation <span class="math inline">\(\{(a,a') : fa = fa'\}\)</span>. Then show that the coequalizer of the kernel pair is <span class="math inline">\(A \to f(A)\)</span>, the image of <span class="math inline">\(f\)</span>. (L-R 3.44)</p>
+<p><span class="theorem-title"><strong>Exercise 25.4</strong></span> Show that the kernel pair <span class="math inline">\(K \rightrightarrows A\)</span> of <span class="math inline">\(f : A \to B\)</span> (the pullback of <span class="math inline">\(f\)</span> along itself) is, in <span class="math inline">\(\mathcal{S}\)</span>, the equivalence relation <span class="math inline">\(\{(a,a') : fa = fa'\}\)</span>. Then show that the coequalizer of the kernel pair is <span class="math inline">\(A \to f(A)\)</span>, the image of <span class="math inline">\(f\)</span>. (L-R 3.44)</p>
 </div>
 </div>
 </div>
@@ -990,7 +1034,7 @@ U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> Let <span class="math inline">\(X\)</span> be a set. Show that the slice category <span class="math inline">\(\mathcal{S}/X\)</span> (objects: maps <span class="math inline">\(E \to X\)</span>; arrows: commuting triangles) has all finite limits. What is the terminal object? What is the product of <span class="math inline">\(E \to X\)</span> and <span class="math inline">\(F \to X\)</span>? (L-R 3.48)</p>
+<p><span class="theorem-title"><strong>Exercise 25.5</strong></span> Let <span class="math inline">\(X\)</span> be a set. Show that the slice category <span class="math inline">\(\mathcal{S}/X\)</span> (objects: maps <span class="math inline">\(E \to X\)</span>; arrows: commuting triangles) has all finite limits. What is the terminal object? What is the product of <span class="math inline">\(E \to X\)</span> and <span class="math inline">\(F \to X\)</span>? (L-R 3.48)</p>
 </div>
 </div>
 </div>
@@ -1002,7 +1046,7 @@ U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> Show that <span class="math inline">\(\mathbf{Grp}\)</span> has all finite limits. Does it have finite colimits? What is the sum of <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{Z}\)</span>? (L-R 3.47)</p>
+<p><span class="theorem-title"><strong>Exercise 25.6</strong></span> Show that <span class="math inline">\(\mathbf{Grp}\)</span> has all finite limits. Does it have finite colimits? What is the sum of <span class="math inline">\(\mathbb{Z}\)</span> and <span class="math inline">\(\mathbb{Z}\)</span>? (L-R 3.47)</p>
 </div>
 </div>
 </div>
@@ -1085,7 +1129,7 @@ U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1412,20 +1456,19 @@ U @&gt;&gt;&gt; V @&gt;&gt;&gt; W
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/parts-functors.html" class="pagination-link" aria-label="Parts, Characteristic Functions, and Inverse Images">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/exponentials.html" class="pagination-link" aria-label="Mapping Sets and Exponentials">
+        <span class="nav-page-text"><span class="chapter-title">Mapping Sets and Exponentials</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

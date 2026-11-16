@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/abstract-sets-and-mappings.html" rel="next">
+<link href="../notes/large_cardinals.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/incompleteness-consistency-strength.html">12 · Incompleteness</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/incompleteness-consistency-strength.html"><span class="chapter-title">Incompleteness and Consistency Strength</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#incompleteness-and-consistency-strength" id="toc-incompleteness-and-consistency-strength" class="nav-link active" data-scroll-target="#incompleteness-and-consistency-strength">Incompleteness and Consistency Strength</a>
@@ -283,9 +327,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/zfc-as-a-foundation.html">ZFC as a Foundational Theory</a></li><li class="breadcrumb-item"><a href="../notes/incompleteness-consistency-strength.html"><span class="chapter-title">Incompleteness and Consistency Strength</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Incompleteness and Consistency Strength</h1>
+<h1 class="title"><span class="chapter-title">Incompleteness and Consistency Strength</span></h1>
 <p class="subtitle lead">Gödel’s theorems, inaccessible and weakly compact cardinals, and the hierarchy of consistency strength</p>
 </div>
 
@@ -365,7 +409,7 @@ These notes build on three earlier sets: the *foundational loop* from [ZFC as a 
 </div>
 <div class="callout-body-container">
 <div id="def-provability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 14.1</strong></span> <br>
 The <strong>provability predicate</strong> of <span class="math inline">\({}T\)</span> is the <span class="math inline">\(\Sigma^0_1\)</span> formula <span class="math display">\[
     \operatorname{Prov}_T(x) \;:\equiv\; \exists p \; \operatorname{Prf}_T(p, x),
 \]</span> and the <strong>consistency statement</strong> of <span class="math inline">\({}T\)</span> is the <span class="math inline">\(\Pi^0_1\)</span> sentence <span class="math display">\[
@@ -387,7 +431,7 @@ The <strong>provability predicate</strong> of <span class="math inline">\({}T\)<
 </div>
 <div class="callout-body-container">
 <div id="lem-sigma-one-completeness" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (<span class="math inline">\(\Sigma^0_1\)</span>-completeness)</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 14.1 (<span class="math inline">\(\Sigma^0_1\)</span>-completeness)</strong></span> <br>
 If <span class="math inline">\({}\sigma\)</span> is a <span class="math inline">\(\Sigma^0_1\)</span> sentence that is true in <span class="math inline">\(\mathbb{N}\)</span>, then <span class="math inline">\(\mathsf{Q}\vdash \sigma\)</span>, and hence <span class="math inline">\(T \vdash \sigma\)</span>.</p>
 </div>
 </div>
@@ -405,7 +449,7 @@ If <span class="math inline">\({}\sigma\)</span> is a <span class="math inline">
 </div>
 <div class="callout-body-container">
 <div id="lem-diagonal" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 2 (Diagonal lemma)</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 14.2 (Diagonal lemma)</strong></span> <br>
 For every formula <span class="math inline">\(\psi(x)\)</span> with one free variable, there is a sentence <span class="math inline">\({}\sigma\)</span> such that <span class="math display">\[
     T \vdash \sigma \leftrightarrow \psi(\ulcorner \sigma \urcorner).
 \]</span></p>
@@ -426,7 +470,7 @@ $$
 </section>
 <section id="the-first-incompleteness-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="the-first-incompleteness-theorem">The first incompleteness theorem</h3>
-<p>Apply <a href="#lem-diagonal" class="quarto-xref">Lemma&nbsp;2</a> to <span class="math inline">\(\psi(x) :\equiv \neg \operatorname{Prov}_T(x)\)</span>. We obtain a sentence <span class="math inline">\({}G\)</span>, the <strong>Gödel sentence</strong> of <span class="math inline">\({}T\)</span>, such that</p>
+<p>Apply <a href="#lem-diagonal" class="quarto-xref">Lemma&nbsp;<span>14.2</span></a> to <span class="math inline">\(\psi(x) :\equiv \neg \operatorname{Prov}_T(x)\)</span>. We obtain a sentence <span class="math inline">\({}G\)</span>, the <strong>Gödel sentence</strong> of <span class="math inline">\({}T\)</span>, such that</p>
 <p><span class="math display">\[
     T \vdash G \leftrightarrow \neg \operatorname{Prov}_T(\ulcorner G \urcorner).
 \]</span></p>
@@ -438,7 +482,7 @@ $$
 </div>
 <div class="callout-body-container">
 <div id="thm-goedel1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Gödel’s first incompleteness theorem)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 14.1 (Gödel’s first incompleteness theorem)</strong></span> <br>
 If <span class="math inline">\({}T\)</span> is consistent, then <span class="math inline">\(T \nvdash G\)</span>. If <span class="math inline">\({}T\)</span> is moreover <span class="math inline">\(\omega\)</span>-consistent, then also <span class="math inline">\(T \nvdash \neg G\)</span>.</p>
 </div>
 </div>
@@ -471,7 +515,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 </div>
 <div class="callout-body-container">
 <div id="cor-goedel-true" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 14.1</strong></span> <br>
 If <span class="math inline">\({}T\)</span> is consistent, then <span class="math inline">\({}G\)</span> is true in <span class="math inline">\(\mathbb{N}\)</span> but not provable in <span class="math inline">\({}T\)</span>.</p>
 </div>
 </div>
@@ -490,7 +534,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\({}G\)</span> is equivalent to <span class="math inline">\(\neg \operatorname{Prov}_T(\ulcorner G \urcorner)\)</span>, which states exactly what <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;1</a> established.</p>
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\({}G\)</span> is equivalent to <span class="math inline">\(\neg \operatorname{Prov}_T(\ulcorner G \urcorner)\)</span>, which states exactly what <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a> established.</p>
 </div>
 </div>
 </div>
@@ -501,13 +545,13 @@ Show that the Gödel sentence ${}G$ is (provably equivalent to) a $\Pi^0_1$ sent
 </section>
 <section id="the-second-incompleteness-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="the-second-incompleteness-theorem">The second incompleteness theorem</h3>
-<p>The proof of the first part of <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;1</a> was finitistic: it used nothing but elementary reasoning about finite syntactic objects. By the thesis that every finitistic argument can be formalized, <span class="math inline">\({}T\)</span> should be able to carry it out internally. Making this precise is laborious, and the standard route goes through three properties of <span class="math inline">\(\operatorname{Prov}_T\)</span>, the <strong>Hilbert–Bernays–Löb derivability conditions</strong>. For all sentences <span class="math inline">\({}\varphi, \psi\)</span>:</p>
+<p>The proof of the first part of <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a> was finitistic: it used nothing but elementary reasoning about finite syntactic objects. By the thesis that every finitistic argument can be formalized, <span class="math inline">\({}T\)</span> should be able to carry it out internally. Making this precise is laborious, and the standard route goes through three properties of <span class="math inline">\(\operatorname{Prov}_T\)</span>, the <strong>Hilbert–Bernays–Löb derivability conditions</strong>. For all sentences <span class="math inline">\({}\varphi, \psi\)</span>:</p>
 <ul>
 <li><strong>(D1)</strong> If <span class="math inline">\(T \vdash \varphi\)</span>, then <span class="math inline">\(T \vdash \operatorname{Prov}_T(\ulcorner \varphi \urcorner)\)</span>.</li>
 <li><strong>(D2)</strong> <span class="math inline">\(T \vdash \operatorname{Prov}_T(\ulcorner \varphi\to \psi \urcorner) \to \big(\operatorname{Prov}_T(\ulcorner \varphi \urcorner) \to \operatorname{Prov}_T(\ulcorner \psi \urcorner)\big)\)</span>.</li>
 <li><strong>(D3)</strong> <span class="math inline">\(T \vdash \operatorname{Prov}_T(\ulcorner \varphi \urcorner) \to \operatorname{Prov}_T(\ulcorner \operatorname{Prov}_T(\ulcorner \varphi \urcorner) \urcorner)\)</span>.</li>
 </ul>
-<p>(D1) is <a href="#lem-sigma-one-completeness" class="quarto-xref">Lemma&nbsp;1</a>. (D2) formalizes modus ponens. (D3) is (D1) formalized inside <span class="math inline">\({}T\)</span>: it is a formalized version of <span class="math inline">\(\Sigma^0_1\)</span>-completeness, and its verification is where the real work lies. We take (D1)–(D3) for granted.</p>
+<p>(D1) is <a href="#lem-sigma-one-completeness" class="quarto-xref">Lemma&nbsp;<span>14.1</span></a>. (D2) formalizes modus ponens. (D3) is (D1) formalized inside <span class="math inline">\({}T\)</span>: it is a formalized version of <span class="math inline">\(\Sigma^0_1\)</span>-completeness, and its verification is where the real work lies. We take (D1)–(D3) for granted.</p>
 <div class="callout callout-style-simple callout-warning no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -515,7 +559,7 @@ Show that the Gödel sentence ${}G$ is (provably equivalent to) a $\Pi^0_1$ sent
 </div>
 <div class="callout-body-container">
 <div id="thm-goedel2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Gödel’s second incompleteness theorem)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 14.2 (Gödel’s second incompleteness theorem)</strong></span> <br>
 If <span class="math inline">\({}T\)</span> is consistent, then <span class="math inline">\(T \nvdash \operatorname{Con}(T)\)</span>.</p>
 </div>
 </div>
@@ -534,7 +578,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We show <span class="math inline">\(T \vdash \operatorname{Con}(T) \to G\)</span>. Then <span class="math inline">\(T \vdash \operatorname{Con}(T)\)</span> would imply <span class="math inline">\(T \vdash G\)</span>, contradicting <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We show <span class="math inline">\(T \vdash \operatorname{Con}(T) \to G\)</span>. Then <span class="math inline">\(T \vdash \operatorname{Con}(T)\)</span> would imply <span class="math inline">\(T \vdash G\)</span>, contradicting <a href="#thm-goedel1" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a>.</p>
 <p>Write <span class="math inline">\(P(\varphi)\)</span> for <span class="math inline">\(\operatorname{Prov}_T(\ulcorner \varphi \urcorner)\)</span>. Since <span class="math inline">\(T \vdash G \to \neg P(G)\)</span>, (D1) and (D2) give <span class="math display">\[
     T \vdash P(G) \to P(\neg P(G)).
 \]</span> By (D3), <span class="math inline">\(T \vdash P(G) \to P(P(G))\)</span>. Using (D1) and (D2) once more, applied to the tautology <span class="math inline">\(P(G) \to (\neg P(G) \to 0 = 1)\)</span>, we can combine the two: <span class="math display">\[
@@ -556,7 +600,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 </div>
 <div class="callout-body-container">
 <div id="prp-con-model" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.1</strong></span> <br>
 <span class="math display">\[
     \mathsf{ZFC}\vdash \; \operatorname{Con}(\mathsf{ZFC}) \leftrightarrow \exists M\, (M \models \mathsf{ZFC}).
 \]</span></p>
@@ -564,7 +608,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 </div>
 </div>
 </div>
-<p>Combining this with <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;2</a>:</p>
+<p>Combining this with <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>:</p>
 <div class="callout callout-style-simple callout-caution no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -572,7 +616,7 @@ If <span class="math inline">\({}T\)</span> is consistent, then <span class="mat
 </div>
 <div class="callout-body-container">
 <div id="cor-no-model" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 14.2</strong></span> <br>
 If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span class="math inline">\(\mathsf{ZFC}\)</span> does not prove that there exists a set model of <span class="math inline">\(\mathsf{ZFC}\)</span>. In particular, <span class="math inline">\(\mathsf{ZFC}\)</span> does not prove the existence of a transitive model of <span class="math inline">\(\mathsf{ZFC}\)</span>, or of an ordinal <span class="math inline">\({}\alpha\)</span> with <span class="math inline">\(V_\alpha \models \mathsf{ZFC}\)</span>.</p>
 </div>
 </div>
@@ -582,7 +626,7 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 </section>
 <section id="inaccessible-cardinals-and-consistency" class="level2">
 <h2 class="anchored" data-anchor-id="inaccessible-cardinals-and-consistency">Inaccessible cardinals and consistency</h2>
-<p>Let <span class="math inline">\(\mathsf{IC}\)</span> denote the axiom “<em>there exists a (strongly) inaccessible cardinal</em>.” Recall from <a href="../notes/large_cardinals.html">Large Cardinals</a> that if <span class="math inline">\({}\kappa\)</span> is inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>. With <a href="#prp-con-model" class="quarto-xref">Proposition&nbsp;1</a>, this yields:</p>
+<p>Let <span class="math inline">\(\mathsf{IC}\)</span> denote the axiom “<em>there exists a (strongly) inaccessible cardinal</em>.” Recall from <a href="../notes/large_cardinals.html">Large Cardinals</a> that if <span class="math inline">\({}\kappa\)</span> is inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>. With <a href="#prp-con-model" class="quarto-xref">Proposition&nbsp;<span>14.1</span></a>, this yields:</p>
 <div class="callout callout-style-simple callout-caution no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -590,7 +634,7 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 </div>
 <div class="callout-body-container">
 <div id="prp-ic-proves-con" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.2</strong></span> <br>
 <span class="math display">\[
     \mathsf{ZFC}+ \mathsf{IC} \;\vdash\; \operatorname{Con}(\mathsf{ZFC}).
 \]</span></p>
@@ -611,7 +655,7 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Argue in <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span>. Let <span class="math inline">\({}\kappa\)</span> be inaccessible. Then <span class="math inline">\(V_\kappa\)</span> is a set and <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>, so <span class="math inline">\(\operatorname{Con}(\mathsf{ZFC})\)</span> holds by <a href="#prp-con-model" class="quarto-xref">Proposition&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Argue in <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span>. Let <span class="math inline">\({}\kappa\)</span> be inaccessible. Then <span class="math inline">\(V_\kappa\)</span> is a set and <span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span>, so <span class="math inline">\(\operatorname{Con}(\mathsf{ZFC})\)</span> holds by <a href="#prp-con-model" class="quarto-xref">Proposition&nbsp;<span>14.1</span></a>.</p>
 </div>
 </div>
 </div>
@@ -623,7 +667,7 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 </div>
 <div class="callout-body-container">
 <div id="cor-zfc-not-ic" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 14.3</strong></span> <br>
 If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span class="math inline">\(\mathsf{ZFC}\nvdash \mathsf{IC}\)</span>.</p>
 </div>
 </div>
@@ -642,12 +686,12 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\mathsf{ZFC}\vdash \mathsf{IC}\)</span>, then <span class="math inline">\(\mathsf{ZFC}\vdash \operatorname{Con}(\mathsf{ZFC})\)</span> by <a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;2</a>, contradicting <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;2</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(\mathsf{ZFC}\vdash \mathsf{IC}\)</span>, then <span class="math inline">\(\mathsf{ZFC}\vdash \operatorname{Con}(\mathsf{ZFC})\)</span> by <a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;<span>14.2</span></a>, contradicting <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>We had seen a second proof of <a href="#cor-zfc-not-ic" class="quarto-xref">Corollary&nbsp;3</a> in <a href="../notes/large_cardinals.html">Large Cardinals</a>: if <span class="math inline">\({}\kappa\)</span> is the <em>least</em> inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}+ \neg\mathsf{IC}\)</span>, since being inaccessible is absolute for <span class="math inline">\(V_\kappa\)</span>. Formalized, this argument shows</p>
+<p>We had seen a second proof of <a href="#cor-zfc-not-ic" class="quarto-xref">Corollary&nbsp;<span>14.3</span></a> in <a href="../notes/large_cardinals.html">Large Cardinals</a>: if <span class="math inline">\({}\kappa\)</span> is the <em>least</em> inaccessible, then <span class="math inline">\(V_\kappa \models \mathsf{ZFC}+ \neg\mathsf{IC}\)</span>, since being inaccessible is absolute for <span class="math inline">\(V_\kappa\)</span>. Formalized, this argument shows</p>
 <p><span class="math display">\[
     \mathsf{ZFC}+ \mathsf{IC} \;\vdash\; \operatorname{Con}(\mathsf{ZFC}+ \neg \mathsf{IC}).
 \]</span></p>
@@ -659,7 +703,7 @@ If <span class="math inline">\(\mathsf{ZFC}\)</span> is consistent, then <span c
 </div>
 <div class="callout-body-container">
 <div id="thm-no-relative-consistency" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 14.3</strong></span> <br>
 If <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> is consistent, then <span class="math display">\[
     \mathsf{ZFC}\nvdash \; \operatorname{Con}(\mathsf{ZFC}) \to \operatorname{Con}(\mathsf{ZFC}+ \mathsf{IC}).
 \]</span></p>
@@ -680,9 +724,9 @@ If <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> is consistent,
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(\mathsf{ZFC}\vdash \operatorname{Con}(\mathsf{ZFC}) \to \operatorname{Con}(\mathsf{ZFC}+ \mathsf{IC})\)</span>. Then the same implication is provable in the stronger theory <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span>. By <a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;2</a>, <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC} \vdash \operatorname{Con}(\mathsf{ZFC})\)</span>. Combining the two, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(\mathsf{ZFC}\vdash \operatorname{Con}(\mathsf{ZFC}) \to \operatorname{Con}(\mathsf{ZFC}+ \mathsf{IC})\)</span>. Then the same implication is provable in the stronger theory <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span>. By <a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;<span>14.2</span></a>, <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC} \vdash \operatorname{Con}(\mathsf{ZFC})\)</span>. Combining the two, <span class="math display">\[
     \mathsf{ZFC}+ \mathsf{IC} \;\vdash\; \operatorname{Con}(\mathsf{ZFC}+ \mathsf{IC}),
-\]</span> and by <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> is inconsistent.</p>
+\]</span> and by <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>, <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> is inconsistent.</p>
 </div>
 </div>
 </div>
@@ -711,7 +755,7 @@ If <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> is consistent,
 </div>
 <div class="callout-body-container">
 <div id="def-consistency-strength" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Consistency strength)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 14.2 (Consistency strength)</strong></span> <br>
 Let <span class="math inline">\({}T\)</span> and <span class="math inline">\({}S\)</span> be theories. Define <span class="math display">\[
     T \le_{\operatorname{Con}} S \;:\iff\; B \vdash \operatorname{Con}(S) \to \operatorname{Con}(T).
 \]</span> We say <span class="math inline">\({}T\)</span> and <span class="math inline">\({}S\)</span> are <strong>equiconsistent</strong>, <span class="math inline">\(T \equiv_{\operatorname{Con}} S\)</span>, if <span class="math inline">\(T \le_{\operatorname{Con}} S\)</span> and <span class="math inline">\(S \le_{\operatorname{Con}} T\)</span>. We write <span class="math inline">\(T &lt;_{\operatorname{Con}} S\)</span> if <span class="math inline">\(T \le_{\operatorname{Con}} S\)</span> and <span class="math inline">\(S \vdash \operatorname{Con}(T)\)</span>.</p>
@@ -719,7 +763,7 @@ Let <span class="math inline">\({}T\)</span> and <span class="math inline">\({}S
 </div>
 </div>
 </div>
-<p>The relation <span class="math inline">\(\le_{\operatorname{Con}}\)</span> is reflexive and transitive. The notation <span class="math inline">\(&lt;_{\operatorname{Con}}\)</span> is justified by the following generalization of <a href="#thm-no-relative-consistency" class="quarto-xref">Theorem&nbsp;3</a>.</p>
+<p>The relation <span class="math inline">\(\le_{\operatorname{Con}}\)</span> is reflexive and transitive. The notation <span class="math inline">\(&lt;_{\operatorname{Con}}\)</span> is justified by the following generalization of <a href="#thm-no-relative-consistency" class="quarto-xref">Theorem&nbsp;<span>14.3</span></a>.</p>
 <div class="callout callout-style-simple callout-caution no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -727,7 +771,7 @@ Let <span class="math inline">\({}T\)</span> and <span class="math inline">\({}S
 </div>
 <div class="callout-body-container">
 <div id="prp-strict" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.3</strong></span> <br>
 Suppose <span class="math inline">\({}S\)</span> is consistent and <span class="math inline">\(S \vdash \operatorname{Con}(T)\)</span>. Then <span class="math inline">\(S \not\le_{\operatorname{Con}} T\)</span>.</p>
 </div>
 </div>
@@ -746,7 +790,7 @@ Suppose <span class="math inline">\({}S\)</span> is consistent and <span class="
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(B \vdash \operatorname{Con}(T) \to \operatorname{Con}(S)\)</span>. Since <span class="math inline">\({}S\)</span> extends <span class="math inline">\({}B\)</span> and <span class="math inline">\(S \vdash \operatorname{Con}(T)\)</span>, we get <span class="math inline">\(S \vdash \operatorname{Con}(S)\)</span>, contradicting <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;2</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\(B \vdash \operatorname{Con}(T) \to \operatorname{Con}(S)\)</span>. Since <span class="math inline">\({}S\)</span> extends <span class="math inline">\({}B\)</span> and <span class="math inline">\(S \vdash \operatorname{Con}(T)\)</span>, we get <span class="math inline">\(S \vdash \operatorname{Con}(S)\)</span>, contradicting <a href="#thm-goedel2" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>.</p>
 </div>
 </div>
 </div>
@@ -758,7 +802,7 @@ Suppose <span class="math inline">\({}S\)</span> is consistent and <span class="
 </div>
 <div class="callout-body-container">
 <div id="exm-consistency-strength" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 14.1</strong></span> <br>
 The following relations hold.</p>
 <table class="caption-top table">
 <colgroup>
@@ -792,7 +836,7 @@ The following relations hold.</p>
 <tr class="even">
 <td><span class="math inline">\(\mathsf{ZFC}&lt;_{\operatorname{Con}} \mathsf{ZFC}+ \mathsf{IC}\)</span></td>
 <td><span class="math inline">\(V_\kappa \models \mathsf{ZFC}\)</span></td>
-<td><a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;2</a></td>
+<td><a href="#prp-ic-proves-con" class="quarto-xref">Proposition&nbsp;<span>14.2</span></a></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\mathsf{ZF}+ \mathsf{DC}+ \text{``every set of reals is Lebesgue measurable''} \equiv_{\operatorname{Con}} \mathsf{ZFC}+ \mathsf{IC}\)</span></td>
@@ -826,7 +870,7 @@ The following relations hold.</p>
 </div>
 <div class="callout-body-container">
 <div id="def-weakly-compact" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 14.3</strong></span> <br>
 An uncountable cardinal <span class="math inline">\({}\kappa\)</span> is <strong>weakly compact</strong> if <span class="math inline">\(\kappa \to (\kappa)^2_2\)</span>.</p>
 </div>
 </div>
@@ -842,7 +886,7 @@ An uncountable cardinal <span class="math inline">\({}\kappa\)</span> is <strong
 </div>
 <div class="callout-body-container">
 <div id="prp-wc-regular" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.4</strong></span> <br>
 Every weakly compact cardinal is regular.</p>
 </div>
 </div>
@@ -869,7 +913,7 @@ Let $H$ be homogeneous for $F$. If $F$ is constantly $0$ on $[H]^2$, then $H$ li
 </div>
 <div class="callout-body-container">
 <div id="lem-sierpinski" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 3 (Sierpiński)</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 14.3 (Sierpiński)</strong></span> <br>
 For every infinite cardinal <span class="math inline">\({}\lambda\)</span>, <span class="math inline">\((2^\lambda, &lt;_{\mathop{\mathrm{lex}}})\)</span> has no strictly increasing and no strictly decreasing sequence of length <span class="math inline">\(\lambda^+\)</span>.</p>
 </div>
 </div>
@@ -882,7 +926,7 @@ For every infinite cardinal <span class="math inline">\({}\lambda\)</span>, <spa
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> Prove <a href="#lem-sierpinski" class="quarto-xref">Lemma&nbsp;3</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 14.1</strong></span> Prove <a href="#lem-sierpinski" class="quarto-xref">Lemma&nbsp;<span>14.3</span></a>.</p>
 <p><em>Hint:</em> Suppose <span class="math inline">\((f_\alpha)_{\alpha &lt; \lambda^+}\)</span> is strictly increasing. First let <span class="math inline">\(\gamma \leq \lambda\)</span> be least such that the restrictions <span class="math inline">\(f_\alpha \mid_{\gamma}\)</span> take <span class="math inline">\(\lambda^+\)</span> many values, and pass to a subsequence to reduce to the case where all restrictions <span class="math inline">\(f_\alpha \mid_{\xi}\)</span>, <span class="math inline">\(\xi &lt; \gamma\)</span>, take at most <span class="math inline">\({}\lambda\)</span> values in total. Then let <span class="math inline">\(\xi_\alpha\)</span> be least where <span class="math inline">\(f_\alpha\)</span> and <span class="math inline">\(f_{\alpha+1}\)</span> differ and show that <span class="math inline">\(\alpha \mapsto f_\alpha \mid_{\xi_\alpha}\)</span> is injective.</p>
 </div>
 </div>
@@ -895,7 +939,7 @@ For every infinite cardinal <span class="math inline">\({}\lambda\)</span>, <spa
 </div>
 <div class="callout-body-container">
 <div id="prp-wc-inaccessible" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.5</strong></span> <br>
 Every weakly compact cardinal is inaccessible.</p>
 </div>
 </div>
@@ -985,7 +1029,7 @@ $$
 </div>
 <div class="callout-body-container">
 <div id="prp-wc-proves-con-ic" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 14.6</strong></span> <br>
 <span class="math display">\[
     \mathsf{ZFC}+ \mathsf{WC} \;\vdash\; \operatorname{Con}(\mathsf{ZFC}+ \mathsf{IC}),
 \]</span> and hence, if <span class="math inline">\(\mathsf{ZFC}+ \mathsf{WC}\)</span> is consistent, <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC} &lt;_{\operatorname{Con}} \mathsf{ZFC}+ \mathsf{WC}\)</span>.</p>
@@ -1021,7 +1065,7 @@ Using @prp-wc-stationary, show that if ${}\kappa$ is weakly compact, then $V_\ka
 </ul>
 <section id="what-does-it-mean-to-accept-a-large-cardinal" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-it-mean-to-accept-a-large-cardinal">What does it mean to accept a large cardinal?</h3>
-<p><a href="#thm-no-relative-consistency" class="quarto-xref">Theorem&nbsp;3</a> shows that the consistency of <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> can never be established on the basis of <span class="math inline">\(\mathsf{ZFC}\)</span> alone. So why do set theorists regard large cardinal axioms as legitimate, or even as true? Several kinds of reasons are commonly offered.</p>
+<p><a href="#thm-no-relative-consistency" class="quarto-xref">Theorem&nbsp;<span>14.3</span></a> shows that the consistency of <span class="math inline">\(\mathsf{ZFC}+ \mathsf{IC}\)</span> can never be established on the basis of <span class="math inline">\(\mathsf{ZFC}\)</span> alone. So why do set theorists regard large cardinal axioms as legitimate, or even as true? Several kinds of reasons are commonly offered.</p>
 <ul>
 <li><strong>Reflection and the iterative conception.</strong> The universe <span class="math inline">\(V\)</span> is built in stages <span class="math inline">\(V_\alpha\)</span>, and it should be “too large” to be fully described from within. An inaccessible <span class="math inline">\({}\kappa\)</span> is a stage <span class="math inline">\(V_\kappa\)</span> that already looks like the whole universe as far as <span class="math inline">\(\mathsf{ZFC}\)</span> can tell. Indescribable cardinals strengthen this: no property of a given complexity can distinguish <span class="math inline">\(V_\kappa\)</span> from <span class="math inline">\(V\)</span>.</li>
 <li><strong>Fruitfulness and convergence.</strong> Large cardinals settle questions about sets of reals that <span class="math inline">\(\mathsf{ZFC}\)</span> leaves open, and very different approaches lead to the same large cardinal hypotheses, as with the measurability example above.</li>
@@ -1123,7 +1167,7 @@ The equiconsistencies in @exm-consistency-strength rely on two techniques: Göde
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1450,20 +1494,19 @@ The equiconsistencies in @exm-consistency-strength rely on two techniques: Göde
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/large_cardinals.html" class="pagination-link" aria-label="Cofinality and Inaccessible Cardinals">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/abstract-sets-and-mappings.html" class="pagination-link" aria-label="Abstract Sets and Mappings">
+        <span class="nav-page-text"><span class="chapter-title">Abstract Sets and Mappings</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

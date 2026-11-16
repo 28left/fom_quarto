@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/finite-limits.html" rel="next">
+<link href="../notes/abstract-sets-and-mappings.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/parts-functors.html">13 · Parts and Functors</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/parts-functors.html"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#sec-where" id="toc-sec-where" class="nav-link active" data-scroll-target="#sec-where">Where we are</a>
@@ -274,9 +318,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/parts-functors.html"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Parts, Characteristic Functions, and Inverse Images</h1>
+<h1 class="title"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></h1>
 <p class="subtitle lead">Functors, natural transformations, and representability</p>
 </div>
 
@@ -326,7 +370,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-element" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> An <strong>element</strong> of <span class="math inline">\(X\)</span> is a map <span class="math inline">\(x\colon 1\to X\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 15.1</strong></span> An <strong>element</strong> of <span class="math inline">\(X\)</span> is a map <span class="math inline">\(x\colon 1\to X\)</span>.</p>
 </div>
 </div>
 </div>
@@ -351,7 +395,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-parts" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (L–R §§2.2–2.3, Def. 2.24)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.2 (L–R §§2.2–2.3, Def. 2.24)</strong></span> <br>
 Let <span class="math inline">\(X\)</span> be a set.</p>
 <ol type="a">
 <li><p>A <strong>part</strong> of <span class="math inline">\(X\)</span> is a monomorphism <span class="math inline">\(i\colon A\rightarrowtail X\)</span>.</p></li>
@@ -372,7 +416,7 @@ Let <span class="math inline">\(X\)</span> be a set.</p>
 </div>
 <div class="callout-body-container">
 <div id="lem-points-mono" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 15.1</strong></span> <br>
 Every element <span class="math inline">\(x\colon 1\to X\)</span> is a part of <span class="math inline">\(X\)</span>.</p>
 </div>
 </div>
@@ -406,7 +450,7 @@ Every element <span class="math inline">\(x\colon 1\to X\)</span> is a part of <
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L–R define membership for <em>generalized elements</em> <span class="math inline">\(x\colon T\to X\)</span> with arbitrary domain <span class="math inline">\(T\)</span>, and their Definition 2.20 of characteristic function quantifies over all of these. For abstract sets it makes no difference whether we use all generalized elements or only elements <span class="math inline">\(1\to X\)</span>, by <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>. In these notes we work with elements only.</p>
+<p>L–R define membership for <em>generalized elements</em> <span class="math inline">\(x\colon T\to X\)</span> with arbitrary domain <span class="math inline">\(T\)</span>, and their Definition 2.20 of characteristic function quantifies over all of these. For abstract sets it makes no difference whether we use all generalized elements or only elements <span class="math inline">\(1\to X\)</span>, by <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>. In these notes we work with elements only.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-caution no-icon">
@@ -416,13 +460,13 @@ Every element <span class="math inline">\(x\colon 1\to X\)</span> is a part of <
 </div>
 <div class="callout-body-container">
 <div id="prp-points" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1 (Elements suffice; L–R pp.&nbsp;36–37)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.1 (Elements suffice; L–R pp.&nbsp;36–37)</strong></span> <br>
 Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> be parts of <span class="math inline">\(X\)</span>. If every element of <span class="math inline">\(X\)</span> that is a member of <span class="math inline">\(i\)</span> is also a member of <span class="math inline">\(j\)</span>, then <span class="math inline">\(i\subseteq_X j\)</span>. Consequently, two parts with the same members are equivalent.</p>
 </div>
 </div>
 </div>
 </div>
-<p>L–R justify this informally by the “arbitrariness of mappings” and promise a more explicit argument. One such argument uses the axiom of §2.4 together with the separator axiom; see <a href="#exr-points" class="quarto-xref">Exercise&nbsp;2</a>.</p>
+<p>L–R justify this informally by the “arbitrariness of mappings” and promise a more explicit argument. One such argument uses the axiom of §2.4 together with the separator axiom; see <a href="#exr-points" class="quarto-xref">Exercise&nbsp;<span>15.2</span></a>.</p>
 </section>
 <section id="characteristic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="characteristic-functions">Characteristic functions</h3>
@@ -434,7 +478,7 @@ Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</
 </div>
 <div class="callout-body-container">
 <div id="def-charfn" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (L–R Def. 2.20)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.3 (L–R Def. 2.20)</strong></span> <br>
 A map <span class="math inline">\(\varphi\colon X\to 2\)</span> is a <strong>characteristic function</strong> of a part <span class="math inline">\(i\)</span> of <span class="math inline">\(X\)</span> if for every element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span>, <span class="math display">\[
 x\in i \iff \varphi x=\mathrm{true}.
 \]</span></p>
@@ -458,7 +502,7 @@ x\in i \iff \varphi x=\mathrm{true}.
 </ol>
 </div>
 </div>
-<p><a href="#exr-charfn" class="quarto-xref">Exercise&nbsp;3</a> shows that our definition of characteristic function agrees with L–R’s version for generalized elements.</p>
+<p><a href="#exr-charfn" class="quarto-xref">Exercise&nbsp;<span>15.3</span></a> shows that our definition of characteristic function agrees with L–R’s version for generalized elements.</p>
 <div class="callout callout-style-simple callout-caution no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -466,7 +510,7 @@ x\in i \iff \varphi x=\mathrm{true}.
 </div>
 <div class="callout-body-container">
 <div id="prp-equiv-chi" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2 (L–R Prop. 2.22)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.2 (L–R Prop. 2.22)</strong></span> <br>
 Parts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> of <span class="math inline">\(X\)</span> are equivalent if and only if <span class="math inline">\(\chi_i=\chi_j\)</span>.</p>
 </div>
 </div>
@@ -485,7 +529,7 @@ Parts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(i\equiv j\)</span>, then <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> have the same members, so <span class="math inline">\(\chi_i\)</span> is also a characteristic function of <span class="math inline">\(j\)</span>. By uniqueness, <span class="math inline">\(\chi_i=\chi_j\)</span>. Conversely, if <span class="math inline">\(\chi_i=\chi_j\)</span>, then for every element <span class="math inline">\(x\)</span>, <span class="math inline">\(x\in i \iff \chi_i x=\mathrm{true}\iff \chi_j x=\mathrm{true}\iff x\in j\)</span>. By <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>, <span class="math inline">\(i\equiv j\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(i\equiv j\)</span>, then <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> have the same members, so <span class="math inline">\(\chi_i\)</span> is also a characteristic function of <span class="math inline">\(j\)</span>. By uniqueness, <span class="math inline">\(\chi_i=\chi_j\)</span>. Conversely, if <span class="math inline">\(\chi_i=\chi_j\)</span>, then for every element <span class="math inline">\(x\)</span>, <span class="math inline">\(x\in i \iff \chi_i x=\mathrm{true}\iff \chi_j x=\mathrm{true}\iff x\in j\)</span>. By <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>, <span class="math inline">\(i\equiv j\)</span>.</p>
 </div>
 </div>
 </div>
@@ -497,8 +541,8 @@ Parts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)
 </div>
 <div class="callout-body-container">
 <div id="exm-true" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (L–R Ex. 2.21)</strong></span> <br>
-By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</span> is a part of <span class="math inline">\(2\)</span>. Its characteristic function is <span class="math inline">\(1_2\)</span>. Indeed, since the only map <span class="math inline">\(1\to 1\)</span> is <span class="math inline">\(1_1\)</span>, an element <span class="math inline">\(y\)</span> of <span class="math inline">\(2\)</span> is a member of <span class="math inline">\(\mathrm{true}\)</span> exactly when <span class="math inline">\(y=\mathrm{true}\)</span>, that is, when <span class="math inline">\(1_2\,y=\mathrm{true}\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 15.1 (L–R Ex. 2.21)</strong></span> <br>
+By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;<span>15.1</span></a>, <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</span> is a part of <span class="math inline">\(2\)</span>. Its characteristic function is <span class="math inline">\(1_2\)</span>. Indeed, since the only map <span class="math inline">\(1\to 1\)</span> is <span class="math inline">\(1_1\)</span>, an element <span class="math inline">\(y\)</span> of <span class="math inline">\(2\)</span> is a member of <span class="math inline">\(\mathrm{true}\)</span> exactly when <span class="math inline">\(y=\mathrm{true}\)</span>, that is, when <span class="math inline">\(1_2\,y=\mathrm{true}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -510,7 +554,7 @@ By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;1</a>, <span class=
 </div>
 <div class="callout-body-container">
 <div id="rem-boolean" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em>. </span>L–R point out right after the axiom that it is special to <span class="math inline">\(\mathcal{S}\)</span> and to the so-called <em>Boolean toposes</em>. In a general topos there is still an object of truth values, usually written <span class="math inline">\(\Omega\)</span> with an element <span class="math inline">\(\mathrm{true}\colon 1\to\Omega\)</span>, satisfying (1) and (2); but <span class="math inline">\(\Omega\)</span> need not have just two elements. L–R §6.2 gives an example with three truth values.</p>
+<p><span class="proof-title"><em>Remark 15.1</em>. </span>L–R point out right after the axiom that it is special to <span class="math inline">\(\mathcal{S}\)</span> and to the so-called <em>Boolean toposes</em>. In a general topos there is still an object of truth values, usually written <span class="math inline">\(\Omega\)</span> with an element <span class="math inline">\(\mathrm{true}\colon 1\to\Omega\)</span>, satisfying (1) and (2); but <span class="math inline">\(\Omega\)</span> need not have just two elements. L–R §6.2 gives an example with three truth values.</p>
 </div>
 </div>
 </div>
@@ -527,7 +571,7 @@ By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;1</a>, <span class=
 </div>
 <div class="callout-body-container">
 <div id="def-inverse-image" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (L–R §2.5)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.4 (L–R §2.5)</strong></span> <br>
 Let <span class="math inline">\(f\colon X\to Y\)</span> and let <span class="math inline">\(j\)</span> be a part of <span class="math inline">\(Y\)</span>. A part <span class="math inline">\(i\)</span> of <span class="math inline">\(X\)</span> is an <strong>inverse image of <span class="math inline">\(j\)</span> along <span class="math inline">\(f\)</span></strong> if for every element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span>, <span class="math display">\[
 x\in i \iff fx\in j .
 \]</span></p>
@@ -542,7 +586,7 @@ x\in i \iff fx\in j .
 </div>
 <div class="callout-body-container">
 <div id="prp-inv-unique" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.3</strong></span> <br>
 Any two inverse images of <span class="math inline">\(j\)</span> along <span class="math inline">\(f\)</span> are equivalent.</p>
 </div>
 </div>
@@ -561,7 +605,7 @@ Any two inverse images of <span class="math inline">\(j\)</span> along <span cla
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>They have the same members, so this follows from <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>They have the same members, so this follows from <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>.</p>
 </div>
 </div>
 </div>
@@ -575,7 +619,7 @@ Any two inverse images of <span class="math inline">\(j\)</span> along <span cla
 </div>
 <div class="callout-body-container">
 <div id="thm-inv-exists" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Existence of inverse images; L–R Thm. 2.33)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 15.1 (Existence of inverse images; L–R Thm. 2.33)</strong></span> <br>
 Let <span class="math inline">\(f\colon X\to Y\)</span> and let <span class="math inline">\(j\)</span> be a part of <span class="math inline">\(Y\)</span>. The part of <span class="math inline">\(X\)</span> whose characteristic function is <span class="math inline">\(\chi_j\circ f\)</span> is an inverse image of <span class="math inline">\(j\)</span> along <span class="math inline">\(f\)</span>. In particular, inverse images always exist, and <span class="math display">\[
 \chi_{f^{-1}(j)}=\chi_j\circ f .
 \]</span></p>
@@ -610,7 +654,7 @@ x\in i \iff \chi_j(fx)=\mathrm{true}\iff fx\in j ,
 </div>
 <div class="callout-body-container">
 <div id="rem-comprehension" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Comparison with ZFC). </span>Part (1) of the axiom is a <em>comprehension principle</em>: for every “predicate” <span class="math inline">\(\varphi\colon X\to 2\)</span> there is a part of <span class="math inline">\(X\)</span> consisting of the elements where <span class="math inline">\(\varphi\)</span> is true, <span class="math inline">\(\{x\in X: \varphi x=\mathrm{true}\}\)</span>. Compare the Comprehension (Separation) axiom of <span class="math inline">\(\mathsf{ZFC}\)</span>. There is an important difference: <span class="math inline">\(\mathsf{ZFC}\)</span> separates by <em>arbitrary formulas</em>, while here we may separate only by predicates that are already given as maps <span class="math inline">\(X\to 2\)</span>. Richer forms of comprehension become available later, once we have exponentials and quantifiers.</p>
+<p><span class="proof-title"><em>Remark 15.2</em> (Comparison with ZFC). </span>Part (1) of the axiom is a <em>comprehension principle</em>: for every “predicate” <span class="math inline">\(\varphi\colon X\to 2\)</span> there is a part of <span class="math inline">\(X\)</span> consisting of the elements where <span class="math inline">\(\varphi\)</span> is true, <span class="math inline">\(\{x\in X: \varphi x=\mathrm{true}\}\)</span>. Compare the Comprehension (Separation) axiom of <span class="math inline">\(\mathsf{ZFC}\)</span>. There is an important difference: <span class="math inline">\(\mathsf{ZFC}\)</span> separates by <em>arbitrary formulas</em>, while here we may separate only by predicates that are already given as maps <span class="math inline">\(X\to 2\)</span>. Richer forms of comprehension become available later, once we have exponentials and quantifiers.</p>
 </div>
 </div>
 </div>
@@ -622,7 +666,7 @@ x\in i \iff \chi_j(fx)=\mathrm{true}\iff fx\in j ,
 </div>
 <div class="callout-body-container">
 <div id="prp-inv-true" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4 (L–R Prop. 2.31)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.4 (L–R Prop. 2.31)</strong></span> <br>
 For any <span class="math inline">\(\psi\colon Y\to 2\)</span>, the map <span class="math inline">\(\psi\)</span> is a characteristic function of <span class="math inline">\(\psi^{-1}(\mathrm{true})\)</span>. Consequently, <span class="math inline">\(\psi=\chi_j\)</span> if and only if <span class="math inline">\(j\equiv\psi^{-1}(\mathrm{true})\)</span>.</p>
 </div>
 </div>
@@ -641,7 +685,7 @@ For any <span class="math inline">\(\psi\colon Y\to 2\)</span>, the map <span cl
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#exm-true" class="quarto-xref">Example&nbsp;1</a>, <span class="math inline">\(y\in\mathrm{true}\)</span> iff <span class="math inline">\(y=\mathrm{true}\)</span>. Hence <span class="math inline">\(x\in\psi^{-1}(\mathrm{true})\)</span> iff <span class="math inline">\(\psi x\in\mathrm{true}\)</span> iff <span class="math inline">\(\psi x=\mathrm{true}\)</span>, which proves the first claim. If <span class="math inline">\(j\equiv\psi^{-1}(\mathrm{true})\)</span>, then <span class="math inline">\(j\)</span> has the same members as <span class="math inline">\(\psi^{-1}(\mathrm{true})\)</span>, so <span class="math inline">\(\psi\)</span> is a characteristic function of <span class="math inline">\(j\)</span>. Conversely, if <span class="math inline">\(\psi=\chi_j\)</span>, then <span class="math inline">\(j\)</span> and <span class="math inline">\(\psi^{-1}(\mathrm{true})\)</span> have the same characteristic function, so they are equivalent by <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;2</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#exm-true" class="quarto-xref">Example&nbsp;<span>15.1</span></a>, <span class="math inline">\(y\in\mathrm{true}\)</span> iff <span class="math inline">\(y=\mathrm{true}\)</span>. Hence <span class="math inline">\(x\in\psi^{-1}(\mathrm{true})\)</span> iff <span class="math inline">\(\psi x\in\mathrm{true}\)</span> iff <span class="math inline">\(\psi x=\mathrm{true}\)</span>, which proves the first claim. If <span class="math inline">\(j\equiv\psi^{-1}(\mathrm{true})\)</span>, then <span class="math inline">\(j\)</span> has the same members as <span class="math inline">\(\psi^{-1}(\mathrm{true})\)</span>, so <span class="math inline">\(\psi\)</span> is a characteristic function of <span class="math inline">\(j\)</span>. Conversely, if <span class="math inline">\(\psi=\chi_j\)</span>, then <span class="math inline">\(j\)</span> and <span class="math inline">\(\psi^{-1}(\mathrm{true})\)</span> have the same characteristic function, so they are equivalent by <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;<span>15.2</span></a>.</p>
 </div>
 </div>
 </div>
@@ -653,7 +697,7 @@ For any <span class="math inline">\(\psi\colon Y\to 2\)</span>, the map <span cl
 </div>
 <div class="callout-body-container">
 <div id="prp-functoriality" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5 (Functoriality of inverse image; L–R Ex. 2.30)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.5 (Functoriality of inverse image; L–R Ex. 2.30)</strong></span> <br>
 Let <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span>, and let <span class="math inline">\(j,j'\)</span> be parts of <span class="math inline">\(Y\)</span> and <span class="math inline">\(k\)</span> a part of <span class="math inline">\(Z\)</span>.</p>
 <ol type="a">
 <li><p><span class="math inline">\(1_Y^{-1}(j)\equiv j\)</span>.</p></li>
@@ -677,7 +721,7 @@ Let <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math in
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Each statement is proved by comparing members and applying <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>. (a) <span class="math inline">\(x\in1_Y^{-1}(j)\)</span> iff <span class="math inline">\(x\in j\)</span>. (b) For an element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span>, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Each statement is proved by comparing members and applying <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>. (a) <span class="math inline">\(x\in1_Y^{-1}(j)\)</span> iff <span class="math inline">\(x\in j\)</span>. (b) For an element <span class="math inline">\(x\)</span> of <span class="math inline">\(X\)</span>, <span class="math display">\[
 x\in(gf)^{-1}(k) \iff g(fx)\in k \iff fx\in g^{-1}(k) \iff x\in f^{-1}(g^{-1}(k)) .
 \]</span> (c) If <span class="math inline">\(j=j'k'\)</span> and <span class="math inline">\(x\in f^{-1}(j)\)</span>, then <span class="math inline">\(fx\in j\)</span>, so <span class="math inline">\(fx\in j'\)</span>, so <span class="math inline">\(x\in f^{-1}(j')\)</span>.</p>
 </div>
@@ -692,7 +736,7 @@ x\in(gf)^{-1}(k) \iff g(fx)\in k \iff fx\in g^{-1}(k) \iff x\in f^{-1}(g^{-1}(k)
 </div>
 <div class="callout-body-container">
 <div id="rem-LR-proof" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em>. </span>L–R prove <a href="#thm-inv-exists" class="quarto-xref">Theorem&nbsp;1</a> differently: by <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;4</a> and <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a>, <span class="math display">\[
+<p><span class="proof-title"><em>Remark 15.3</em>. </span>L–R prove <a href="#thm-inv-exists" class="quarto-xref">Theorem&nbsp;<span>15.1</span></a> differently: by <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;<span>15.4</span></a> and <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a>, <span class="math display">\[
 (\chi_j f)^{-1}(\mathrm{true})\equiv f^{-1}(\chi_j^{-1}(\mathrm{true}))\equiv f^{-1}(j),
 \]</span> so <span class="math inline">\(\chi_j f\)</span> is the characteristic function of <span class="math inline">\(f^{-1}(j)\)</span>. This argument only works once we know that <span class="math inline">\(f^{-1}(j)\)</span> exists, which is why we proved existence first. The section on <a href="#sec-representable">representability</a> explains what lies behind L–R’s argument.</p>
 </div>
@@ -707,7 +751,7 @@ x\in(gf)^{-1}(k) \iff g(fx)\in k \iff fx\in g^{-1}(k) \iff x\in f^{-1}(g^{-1}(k)
 </div>
 <div class="callout-body-container">
 <div id="prp-pullback" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6 (L–R Ex. 2.29)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.6 (L–R Ex. 2.29)</strong></span> <br>
 Let <span class="math inline">\(j\colon B\rightarrowtail Y\)</span> be a part of <span class="math inline">\(Y\)</span>, let <span class="math inline">\(f\colon X\to Y\)</span>, and let <span class="math inline">\(i\colon A\rightarrowtail X\)</span> be <span class="math inline">\(f^{-1}(j)\)</span>.</p>
 <ol type="a">
 <li><p>There is a unique <span class="math inline">\(f'\colon A\to B\)</span> with <span class="math inline">\(jf'=fi\)</span>; that is, <span class="math inline">\(f\)</span> restricted to <span class="math inline">\(i\)</span> lands in <span class="math inline">\(j\)</span>.</p></li>
@@ -718,7 +762,7 @@ Let <span class="math inline">\(j\colon B\rightarrowtail Y\)</span> be a part of
 </div>
 </div>
 </div>
-<p>Part (b) follows from <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>: if <span class="math inline">\(x=mc\)</span> is a member of <span class="math inline">\(m\)</span>, then <span class="math inline">\(fx=j(gc)\in j\)</span>, so <span class="math inline">\(x\in i\)</span>. Part (a) is <a href="#exr-pullback" class="quarto-xref">Exercise&nbsp;4</a>.</p>
+<p>Part (b) follows from <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>: if <span class="math inline">\(x=mc\)</span> is a member of <span class="math inline">\(m\)</span>, then <span class="math inline">\(fx=j(gc)\in j\)</span>, so <span class="math inline">\(x\in i\)</span>. Part (a) is <a href="#exr-pullback" class="quarto-xref">Exercise&nbsp;<span>15.4</span></a>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -726,7 +770,7 @@ Let <span class="math inline">\(j\colon B\rightarrowtail Y\)</span> be a part of
 </div>
 <div class="callout-body-container">
 <div id="def-intersection" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (L–R Def. 2.36)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.5 (L–R Def. 2.36)</strong></span> <br>
 A part <span class="math inline">\(m\)</span> of <span class="math inline">\(Y\)</span> is an <strong>intersection</strong> of parts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> of <span class="math inline">\(Y\)</span>, written <span class="math inline">\(m=i\cap j\)</span>, if for every element <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span>, <span class="math inline">\(y\in m\)</span> iff (<span class="math inline">\(y\in i\)</span> and <span class="math inline">\(y\in j\)</span>).</p>
 </div>
 </div>
@@ -739,7 +783,7 @@ A part <span class="math inline">\(m\)</span> of <span class="math inline">\(Y\)
 </div>
 <div class="callout-body-container">
 <div id="prp-intersection" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 7 (L–R Ex. 2.35, Rem. 2.37)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.7 (L–R Ex. 2.35, Rem. 2.37)</strong></span> <br>
 Let <span class="math inline">\(i\colon A\rightarrowtail Y\)</span> and <span class="math inline">\(j\)</span> be parts of <span class="math inline">\(Y\)</span>, and let <span class="math inline">\(k=i^{-1}(j)\)</span>. Then <span class="math inline">\(i\circ k\)</span> is an intersection <span class="math inline">\(i\cap j\)</span>.</p>
 </div>
 </div>
@@ -781,7 +825,7 @@ Let <span class="math inline">\(i\colon A\rightarrowtail Y\)</span> and <span cl
 </div>
 <div class="callout-body-container">
 <div id="def-hom" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Hom-sets)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.6 (Hom-sets)</strong></span> <br>
 For objects <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> of a category <span class="math inline">\(\mathsf{C}\)</span>, write <span class="math inline">\(\mathsf{C}(X,Y)\)</span> for the set of morphisms <span class="math inline">\(X\to Y\)</span>. (A common alternative notation is <span class="math inline">\(\operatorname{Hom}_\mathsf{C}(X,Y)\)</span>.)</p>
 </div>
 </div>
@@ -794,7 +838,7 @@ For objects <span class="math inline">\(X\)</span>, <span class="math inline">\(
 </div>
 <div class="callout-body-container">
 <div id="rem-internal" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em>. </span>Chapter 5 of L–R constructs, for sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, an object <span class="math inline">\(Y^X\)</span> of <span class="math inline">\(\mathcal{S}\)</span> whose elements correspond to maps <span class="math inline">\(X\to Y\)</span>: an <em>internal</em> version of the <em>external</em> hom-set <span class="math inline">\(\mathcal{S}(X,Y)\)</span>. Do not confuse the two. In particular, we do not write <span class="math inline">\(Y^X\)</span> for the hom-set.</p>
+<p><span class="proof-title"><em>Remark 15.4</em>. </span>Chapter 5 of L–R constructs, for sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, an object <span class="math inline">\(Y^X\)</span> of <span class="math inline">\(\mathcal{S}\)</span> whose elements correspond to maps <span class="math inline">\(X\to Y\)</span>: an <em>internal</em> version of the <em>external</em> hom-set <span class="math inline">\(\mathcal{S}(X,Y)\)</span>. Do not confuse the two. In particular, we do not write <span class="math inline">\(Y^X\)</span> for the hom-set.</p>
 </div>
 </div>
 </div>
@@ -809,7 +853,7 @@ For objects <span class="math inline">\(X\)</span>, <span class="math inline">\(
 </div>
 <div class="callout-body-container">
 <div id="def-sub" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.7</strong></span> <br>
 For a set <span class="math inline">\(X\)</span>, let <span class="math inline">\(\operatorname{Sub}(X)\)</span> be the set of equivalence classes of parts of <span class="math inline">\(X\)</span>, partially ordered by inclusion.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> L–R say “part”; the standard term is <em>subobject</em>, hence the notation. We usually write <span class="math inline">\(j\)</span> for the equivalence class of <span class="math inline">\(j\)</span>.</p>
 </div>
 </div>
@@ -819,7 +863,7 @@ For a set <span class="math inline">\(X\)</span>, let <span class="math inline">
 <ul>
 <li>The elements of <span class="math inline">\(X\)</span> form the hom-set <span class="math inline">\(\mathcal{S}(1,X)\)</span>.</li>
 <li>The separator axiom says: if <span class="math inline">\(f,g\in\mathcal{S}(X,Y)\)</span> agree on every <span class="math inline">\(x\in\mathcal{S}(1,X)\)</span>, then <span class="math inline">\(f=g\)</span>.</li>
-<li><a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a> says: the function <span class="math inline">\(\operatorname{Sub}(X)\to\mathcal{P}(\mathcal{S}(1,X))\)</span> sending a part to its set of members is injective.</li>
+<li><a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a> says: the function <span class="math inline">\(\operatorname{Sub}(X)\to\mathcal{P}(\mathcal{S}(1,X))\)</span> sending a part to its set of members is injective.</li>
 <li>The axiom of §2.4 says the following.</li>
 </ul>
 <div class="callout callout-style-simple callout-caution no-icon">
@@ -829,7 +873,7 @@ For a set <span class="math inline">\(X\)</span>, let <span class="math inline">
 </div>
 <div class="callout-body-container">
 <div id="prp-chi-bij" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 8</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.8</strong></span> <br>
 For every set <span class="math inline">\(X\)</span>, the assignment <span class="math inline">\(j\mapsto\chi_j\)</span> is a well-defined bijection <span class="math display">\[
 \chi_X\colon \operatorname{Sub}(X)\longrightarrow\mathcal{S}(X,2).
 \]</span></p>
@@ -850,7 +894,7 @@ For every set <span class="math inline">\(X\)</span>, the assignment <span class
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Part (2) of the axiom gives the assignment on parts, and <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;2</a> (<span class="math inline">\(\Rightarrow\)</span>) shows it is well defined on equivalence classes. It is injective by <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;2</a> (<span class="math inline">\(\Leftarrow\)</span>) and surjective by part (1) of the axiom.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Part (2) of the axiom gives the assignment on parts, and <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;<span>15.2</span></a> (<span class="math inline">\(\Rightarrow\)</span>) shows it is well defined on equivalence classes. It is injective by <a href="#prp-equiv-chi" class="quarto-xref">Proposition&nbsp;<span>15.2</span></a> (<span class="math inline">\(\Leftarrow\)</span>) and surjective by part (1) of the axiom.</p>
 </div>
 </div>
 </div>
@@ -900,7 +944,7 @@ For every set <span class="math inline">\(X\)</span>, the assignment <span class
 (g\circ f)\circ x=g\circ(f\circ x),\qquad
 \varphi\circ(g\circ f)=(\varphi\circ g)\circ f,\qquad
 (g\circ f)^{-1}(k)\equiv f^{-1}(g^{-1}(k)) .
-\]</span> For elements and characteristic functions these are just the identity and associativity laws of a category; for parts, it is <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a>. A rule for moving things along maps that obeys these two laws is called a <em>functor</em>.</p>
+\]</span> For elements and characteristic functions these are just the identity and associativity laws of a category; for parts, it is <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a>. A rule for moving things along maps that obeys these two laws is called a <em>functor</em>.</p>
 </section>
 <section id="functors-and-variance" class="level3">
 <h3 class="anchored" data-anchor-id="functors-and-variance">Functors and variance</h3>
@@ -911,7 +955,7 @@ For every set <span class="math inline">\(X\)</span>, the assignment <span class
 </div>
 <div class="callout-body-container">
 <div id="def-functor" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Riehl §1.3)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.8 (Riehl §1.3)</strong></span> <br>
 Let <span class="math inline">\(\mathsf{C}\)</span> and <span class="math inline">\(\mathsf{D}\)</span> be categories. A <strong>functor</strong> <span class="math inline">\(F\colon\mathsf{C}\to\mathsf{D}\)</span> consists of</p>
 <ul>
 <li>an object <span class="math inline">\(Fc\)</span> of <span class="math inline">\(\mathsf{D}\)</span> for each object <span class="math inline">\(c\)</span> of <span class="math inline">\(\mathsf{C}\)</span>, and</li>
@@ -931,7 +975,7 @@ F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Fg\circ Ff
 </div>
 <div class="callout-body-container">
 <div id="exm-categories" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2</strong></span> <span class="math inline">\(\mathsf{Set}\)</span> is a category, as is <span class="math inline">\(\mathsf{Pos}\)</span>, the category of partially ordered sets and order-preserving maps. Every category has an identity functor.</p>
+<p><span class="theorem-title"><strong>Example 15.2</strong></span> <span class="math inline">\(\mathsf{Set}\)</span> is a category, as is <span class="math inline">\(\mathsf{Pos}\)</span>, the category of partially ordered sets and order-preserving maps. Every category has an identity functor.</p>
 </div>
 </div>
 </div>
@@ -944,13 +988,13 @@ F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Fg\circ Ff
 </div>
 <div class="callout-body-container">
 <div id="def-opposite" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Riehl §1.2)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.9 (Riehl §1.2)</strong></span> <br>
 The <strong>opposite category</strong> <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> has the same objects as <span class="math inline">\(\mathsf{C}\)</span>, and a morphism <span class="math inline">\(f^\mathrm{op}\colon c'\to c\)</span> in <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> for each morphism <span class="math inline">\(f\colon c\to c'\)</span> in <span class="math inline">\(\mathsf{C}\)</span>. Composition is defined by <span class="math inline">\(f^\mathrm{op}\circ g^\mathrm{op}=(g\circ f)^\mathrm{op}\)</span>, and identities are <span class="math inline">\(1_c^\mathrm{op}\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p><a href="#exr-op" class="quarto-xref">Exercise&nbsp;1</a> asks you to check that <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> is a category.</p>
+<p><a href="#exr-op" class="quarto-xref">Exercise&nbsp;<span>15.1</span></a> asks you to check that <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> is a category.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -958,7 +1002,7 @@ The <strong>opposite category</strong> <span class="math inline">\(\mathsf{C}^\m
 </div>
 <div class="callout-body-container">
 <div id="def-variance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Variance)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.10 (Variance)</strong></span> <br>
 A <strong>contravariant functor</strong> from <span class="math inline">\(\mathsf{C}\)</span> to <span class="math inline">\(\mathsf{D}\)</span> is a functor <span class="math inline">\(F\colon\mathsf{C}^\mathrm{op}\to\mathsf{D}\)</span>. Unwinding the definitions, it sends each <span class="math inline">\(f\colon c\to c'\)</span> to a morphism <span class="math inline">\(Ff\colon Fc'\to Fc\)</span> in the opposite direction, with <span class="math display">\[
 F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Ff\circ Fg .
 \]</span> A functor <span class="math inline">\(\mathsf{C}\to\mathsf{D}\)</span> is called <strong>covariant</strong> when we want to stress the contrast. The <strong>variance</strong> of a functor says whether it preserves or reverses the direction of morphisms.</p>
@@ -973,7 +1017,7 @@ F(1_c)=1_{Fc}\qquad\text{and}\qquad F(g\circ f)=Ff\circ Fg .
 </div>
 <div class="callout-body-container">
 <div id="prp-hom-functors" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 9 (Hom-functors)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.9 (Hom-functors)</strong></span> <br>
 Let <span class="math inline">\(c\)</span> be an object of a category <span class="math inline">\(\mathsf{C}\)</span> whose hom-sets are sets.</p>
 <ol type="a">
 <li><p>There is a functor <span class="math inline">\(\mathsf{C}(c,-)\colon\mathsf{C}\to\mathsf{Set}\)</span> sending <span class="math inline">\(x\)</span> to <span class="math inline">\(\mathsf{C}(c,x)\)</span> and <span class="math inline">\(f\colon x\to y\)</span> to <span class="math display">\[
@@ -1022,7 +1066,7 @@ f^*\colon\mathsf{C}(y,c)\to\mathsf{C}(x,c),\qquad h\mapsto h\circ f .
 </div>
 <div class="callout-body-container">
 <div id="thm-sub-functor" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 15.2</strong></span> <br>
 There is a functor <span class="math inline">\(\operatorname{Sub}\colon\mathcal{S}^\mathrm{op}\to\mathsf{Set}\)</span> sending <span class="math inline">\(X\)</span> to <span class="math inline">\(\operatorname{Sub}(X)\)</span> and <span class="math inline">\(f\colon X\to Y\)</span> to <span class="math display">\[
 f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{-1}(j).
 \]</span></p>
@@ -1043,7 +1087,7 @@ f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The function <span class="math inline">\(f^{-1}(-)\)</span> is well defined on equivalence classes by <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a> (c). The functor laws are <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a> (a) and (b).</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The function <span class="math inline">\(f^{-1}(-)\)</span> is well defined on equivalence classes by <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a> (c). The functor laws are <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a> (a) and (b).</p>
 </div>
 </div>
 </div>
@@ -1055,7 +1099,7 @@ f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{
 </div>
 <div class="callout-body-container">
 <div id="rem-equivalence-classes" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Why equivalence classes?). </span>At the level of individual monos, inverse image is not a function: its defining membership condition determines <span class="math inline">\(f^{-1}(j)\)</span> only up to equivalence. The functor laws also hold only up to equivalence: <span class="math inline">\((g\circ f)^{-1}(k)\)</span> and <span class="math inline">\(f^{-1}(g^{-1}(k))\)</span> are equivalent parts, not literally the same mono. Passing to equivalence classes makes <span class="math inline">\(f^{-1}(-)\)</span> a genuine function and turns these equivalences into the equalities the definition of a functor requires.</p>
+<p><span class="proof-title"><em>Remark 15.5</em> (Why equivalence classes?). </span>At the level of individual monos, inverse image is not a function: its defining membership condition determines <span class="math inline">\(f^{-1}(j)\)</span> only up to equivalence. The functor laws also hold only up to equivalence: <span class="math inline">\((g\circ f)^{-1}(k)\)</span> and <span class="math inline">\(f^{-1}(g^{-1}(k))\)</span> are equivalent parts, not literally the same mono. Passing to equivalence classes makes <span class="math inline">\(f^{-1}(-)\)</span> a genuine function and turns these equivalences into the equalities the definition of a functor requires.</p>
 </div>
 </div>
 </div>
@@ -1067,7 +1111,7 @@ f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{
 </div>
 <div class="callout-body-container">
 <div id="rem-sub-pos" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em>. </span>By <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a> (c), each <span class="math inline">\(f^{-1}(-)\)</span> preserves inclusion, so <span class="math inline">\(\operatorname{Sub}\)</span> is in fact a functor <span class="math inline">\(\mathcal{S}^\mathrm{op}\to\mathsf{Pos}\)</span>.</p>
+<p><span class="proof-title"><em>Remark 15.6</em>. </span>By <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a> (c), each <span class="math inline">\(f^{-1}(-)\)</span> preserves inclusion, so <span class="math inline">\(\operatorname{Sub}\)</span> is in fact a functor <span class="math inline">\(\mathcal{S}^\mathrm{op}\to\mathsf{Pos}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1079,7 +1123,7 @@ f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{
 </div>
 <div class="callout-body-container">
 <div id="rem-notation" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Notation). </span>Riehl writes <span class="math inline">\(f^*\)</span> for precomposition with <span class="math inline">\(f\)</span>. Many authors <em>also</em> write <span class="math inline">\(f^*\)</span> for inverse image along <span class="math inline">\(f\)</span>. <a href="#thm-chi-natural" class="quarto-xref">Theorem&nbsp;3</a> below shows that the two operations correspond under <span class="math inline">\(\chi\)</span>, so the clash is harmless. In these notes, inverse image is written <span class="math inline">\(f^{-1}(-)\)</span>.</p>
+<p><span class="proof-title"><em>Remark 15.7</em> (Notation). </span>Riehl writes <span class="math inline">\(f^*\)</span> for precomposition with <span class="math inline">\(f\)</span>. Many authors <em>also</em> write <span class="math inline">\(f^*\)</span> for inverse image along <span class="math inline">\(f\)</span>. <a href="#thm-chi-natural" class="quarto-xref">Theorem&nbsp;<span>15.3</span></a> below shows that the two operations correspond under <span class="math inline">\(\chi\)</span>, so the clash is harmless. In these notes, inverse image is written <span class="math inline">\(f^{-1}(-)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1094,7 +1138,7 @@ f^{-1}(-)\colon\operatorname{Sub}(Y)\to\operatorname{Sub}(X),\qquad j\mapsto f^{
 </div>
 <div class="callout-body-container">
 <div id="def-faithful" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.11</strong></span> <br>
 A functor <span class="math inline">\(F\colon\mathsf{C}\to\mathsf{D}\)</span> is <strong>faithful</strong> if for all objects <span class="math inline">\(c,c'\)</span>, the function <span class="math inline">\(\mathsf{C}(c,c')\to\mathsf{D}(Fc,Fc')\)</span>, <span class="math inline">\(f\mapsto Ff\)</span>, is injective.</p>
 </div>
 </div>
@@ -1107,7 +1151,7 @@ A functor <span class="math inline">\(F\colon\mathsf{C}\to\mathsf{D}\)</span> is
 </div>
 <div class="callout-body-container">
 <div id="prp-faithful" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 10</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 15.10</strong></span> <br>
 The axiom that <span class="math inline">\(1\)</span> separates mappings holds if and only if the elements functor <span class="math inline">\(\mathcal{S}(1,-)\colon\mathcal{S}\to\mathsf{Set}\)</span> is faithful.</p>
 </div>
 </div>
@@ -1139,7 +1183,7 @@ The axiom that <span class="math inline">\(1\)</span> separates mappings holds i
 </div>
 <div class="callout-body-container">
 <div id="rem-mixed" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (Mixed variance). </span>Letting both arguments vary gives a functor of two variables, <span class="math inline">\(\mathsf{C}(-,-)\colon\mathsf{C}^\mathrm{op}\times\mathsf{C}\to\mathsf{Set}\)</span>, contravariant in the first argument and covariant in the second. The exponential <span class="math inline">\(Y^X\)</span> of L–R Chapter 5 behaves the same way.</p>
+<p><span class="proof-title"><em>Remark 15.8</em> (Mixed variance). </span>Letting both arguments vary gives a functor of two variables, <span class="math inline">\(\mathsf{C}(-,-)\colon\mathsf{C}^\mathrm{op}\times\mathsf{C}\to\mathsf{Set}\)</span>, contravariant in the first argument and covariant in the second. The exponential <span class="math inline">\(Y^X\)</span> of L–R Chapter 5 behaves the same way.</p>
 </div>
 </div>
 </div>
@@ -1156,7 +1200,7 @@ The axiom that <span class="math inline">\(1\)</span> separates mappings holds i
 </div>
 <div class="callout-body-container">
 <div id="def-nat" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Riehl §1.4)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.12 (Riehl §1.4)</strong></span> <br>
 Let <span class="math inline">\(F,G\colon\mathsf{C}\to\mathsf{D}\)</span> be functors. A <strong>natural transformation</strong> <span class="math inline">\(\alpha\colon F\Rightarrow G\)</span> consists of a morphism <span class="math inline">\(\alpha_c\colon Fc\to Gc\)</span> in <span class="math inline">\(\mathsf{D}\)</span> for each object <span class="math inline">\(c\)</span> of <span class="math inline">\(\mathsf{C}\)</span> (the <strong>components</strong> of <span class="math inline">\(\alpha\)</span>), such that for every morphism <span class="math inline">\(f\colon c\to c'\)</span> of <span class="math inline">\(\mathsf{C}\)</span> the following square commutes: <span class="math display">\[
 \begin{CD}
 Fc @&gt;{\alpha_c}&gt;&gt; Gc \\
@@ -1183,7 +1227,7 @@ Fx @&gt;&gt;{\alpha_x}&gt; Gx
 </div>
 <div class="callout-body-container">
 <div id="exm-postcomp" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Example 15.3</strong></span> <br>
 Let <span class="math inline">\(u\colon Z\to Z'\)</span> be a morphism of <span class="math inline">\(\mathsf{C}\)</span>. Postcomposition with <span class="math inline">\(u\)</span> gives, for each <span class="math inline">\(x\)</span>, a function <span class="math inline">\(u_*\colon\mathsf{C}(x,Z)\to\mathsf{C}(x,Z')\)</span>. These form a natural transformation <span class="math inline">\(u_*\colon\mathsf{C}(-,Z)\Rightarrow\mathsf{C}(-,Z')\)</span>: for <span class="math inline">\(f\colon x\to y\)</span> the square <span class="math display">\[
 \begin{CD}
 \mathsf{C}(y,Z) @&gt;{u_*}&gt;&gt; \mathsf{C}(y,Z') \\
@@ -1203,7 +1247,7 @@ Let <span class="math inline">\(u\colon Z\to Z'\)</span> be a morphism of <span 
 </div>
 <div class="callout-body-container">
 <div id="thm-chi-natural" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 15.3</strong></span> <br>
 The bijections <span class="math inline">\(\chi_X\)</span> form a natural isomorphism <span class="math display">\[
 \chi\colon\operatorname{Sub}\Longrightarrow\mathcal{S}(-,2).
 \]</span></p>
@@ -1224,13 +1268,13 @@ The bijections <span class="math inline">\(\chi_X\)</span> form a natural isomor
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Each component is a bijection by <a href="#prp-chi-bij" class="quarto-xref">Proposition&nbsp;8</a>. Naturality means that for every <span class="math inline">\(f\colon X\to Y\)</span> the square <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Each component is a bijection by <a href="#prp-chi-bij" class="quarto-xref">Proposition&nbsp;<span>15.8</span></a>. Naturality means that for every <span class="math inline">\(f\colon X\to Y\)</span> the square <span class="math display">\[
 \begin{CD}
 \operatorname{Sub}(Y) @&gt;{\chi_Y}&gt;&gt; \mathcal{S}(Y,2) \\
 @V{f^{-1}(-)}VV @VV{f^*}V \\
 \operatorname{Sub}(X) @&gt;&gt;{\chi_X}&gt; \mathcal{S}(X,2)
 \end{CD}
-\]</span> commutes, that is, <span class="math inline">\(\chi_{f^{-1}(j)}=\chi_j\circ f\)</span> for every part <span class="math inline">\(j\)</span> of <span class="math inline">\(Y\)</span>. This is <a href="#thm-inv-exists" class="quarto-xref">Theorem&nbsp;1</a>.</p>
+\]</span> commutes, that is, <span class="math inline">\(\chi_{f^{-1}(j)}=\chi_j\circ f\)</span> for every part <span class="math inline">\(j\)</span> of <span class="math inline">\(Y\)</span>. This is <a href="#thm-inv-exists" class="quarto-xref">Theorem&nbsp;<span>15.1</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1243,7 +1287,7 @@ The bijections <span class="math inline">\(\chi_X\)</span> form a natural isomor
 </div>
 <div class="callout-body-container">
 <div id="rem-natural" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (What “natural” means). </span>Informally, a natural comparison is one that is defined uniformly in <span class="math inline">\(X\)</span>, without choosing anything specific to <span class="math inline">\(X\)</span>. Bijections that depend on choices, such as a chosen listing of the elements of <span class="math inline">\(X\)</span>, are typically not natural.</p>
+<p><span class="proof-title"><em>Remark 15.9</em> (What “natural” means). </span>Informally, a natural comparison is one that is defined uniformly in <span class="math inline">\(X\)</span>, without choosing anything specific to <span class="math inline">\(X\)</span>. Bijections that depend on choices, such as a chosen listing of the elements of <span class="math inline">\(X\)</span>, are typically not natural.</p>
 </div>
 </div>
 </div>
@@ -1251,7 +1295,7 @@ The bijections <span class="math inline">\(\chi_X\)</span> form a natural isomor
 </section>
 <section id="sec-representable" class="level2">
 <h2 class="anchored" data-anchor-id="sec-representable">Representability and the universal element</h2>
-<p><a href="#thm-chi-natural" class="quarto-xref">Theorem&nbsp;3</a> says that the functor <span class="math inline">\(\operatorname{Sub}\)</span> is isomorphic to a hom-functor. This situation has a name.</p>
+<p><a href="#thm-chi-natural" class="quarto-xref">Theorem&nbsp;<span>15.3</span></a> says that the functor <span class="math inline">\(\operatorname{Sub}\)</span> is isomorphic to a hom-functor. This situation has a name.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1259,7 +1303,7 @@ The bijections <span class="math inline">\(\chi_X\)</span> form a natural isomor
 </div>
 <div class="callout-body-container">
 <div id="def-representable" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Riehl §2.1)</strong></span> <br>
+<p><span class="theorem-title"><strong>Definition 15.13 (Riehl §2.1)</strong></span> <br>
 A functor <span class="math inline">\(F\colon\mathsf{C}^\mathrm{op}\to\mathsf{Set}\)</span> is <strong>representable</strong> if there is an object <span class="math inline">\(c\)</span> of <span class="math inline">\(\mathsf{C}\)</span> and a natural isomorphism <span class="math inline">\(\mathsf{C}(-,c)\cong F\)</span>. We then say that <span class="math inline">\(c\)</span> <strong>represents</strong> <span class="math inline">\(F\)</span>.</p>
 </div>
 </div>
@@ -1273,7 +1317,7 @@ A functor <span class="math inline">\(F\colon\mathsf{C}^\mathrm{op}\to\mathsf{Se
 </div>
 <div class="callout-body-container">
 <div id="lem-theta" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 2</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 15.2</strong></span> <br>
 Let <span class="math inline">\(F\colon\mathsf{C}^\mathrm{op}\to\mathsf{Set}\)</span> be a functor, <span class="math inline">\(c\)</span> an object of <span class="math inline">\(\mathsf{C}\)</span>, and <span class="math inline">\(u\in Fc\)</span>. Then the functions <span class="math display">\[
 \theta_x\colon\mathsf{C}(x,c)\to Fx,\qquad \varphi\mapsto(F\varphi)(u),
 \]</span> form a natural transformation <span class="math inline">\(\theta\colon\mathsf{C}(-,c)\Rightarrow F\)</span>.</p>
@@ -1308,8 +1352,8 @@ Let <span class="math inline">\(F\colon\mathsf{C}^\mathrm{op}\to\mathsf{Set}\)</
 </div>
 <div class="callout-body-container">
 <div id="def-universal" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14</strong></span> <br>
-An element <span class="math inline">\(u\in Fc\)</span> is a <strong>universal element</strong> of <span class="math inline">\(F\)</span> if the natural transformation <span class="math inline">\(\theta\)</span> of <a href="#lem-theta" class="quarto-xref">Lemma&nbsp;2</a> is a natural isomorphism. Equivalently: for every object <span class="math inline">\(x\)</span> and every <span class="math inline">\(a\in Fx\)</span> there is exactly one <span class="math inline">\(\varphi\colon x\to c\)</span> with <span class="math inline">\((F\varphi)(u)=a\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 15.14</strong></span> <br>
+An element <span class="math inline">\(u\in Fc\)</span> is a <strong>universal element</strong> of <span class="math inline">\(F\)</span> if the natural transformation <span class="math inline">\(\theta\)</span> of <a href="#lem-theta" class="quarto-xref">Lemma&nbsp;<span>15.2</span></a> is a natural isomorphism. Equivalently: for every object <span class="math inline">\(x\)</span> and every <span class="math inline">\(a\in Fx\)</span> there is exactly one <span class="math inline">\(\varphi\colon x\to c\)</span> with <span class="math inline">\((F\varphi)(u)=a\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1321,7 +1365,7 @@ An element <span class="math inline">\(u\in Fc\)</span> is a <strong>universal e
 </div>
 <div class="callout-body-container">
 <div id="thm-universal" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 15.4</strong></span> <br>
 The part <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</span> is a universal element of <span class="math inline">\(\operatorname{Sub}\)</span>. Explicitly, for every set <span class="math inline">\(X\)</span> and every part <span class="math inline">\(j\)</span> of <span class="math inline">\(X\)</span>, there is exactly one <span class="math inline">\(\varphi\colon X\to 2\)</span> with <span class="math inline">\(j\equiv\varphi^{-1}(\mathrm{true})\)</span>, and the resulting isomorphism <span class="math inline">\(\theta\)</span> is the inverse of <span class="math inline">\(\chi\)</span>.</p>
 </div>
 </div>
@@ -1340,12 +1384,12 @@ The part <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</s
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Here <span class="math inline">\(\theta_X(\varphi)=\varphi^{-1}(\mathrm{true})\)</span>. By <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;4</a>, this is the part whose characteristic function is <span class="math inline">\(\varphi\)</span>, so <span class="math inline">\(\chi_X(\theta_X(\varphi))=\varphi\)</span>. Also by <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;4</a>, <span class="math inline">\(\theta_X(\chi_X(j))=\chi_j^{-1}(\mathrm{true})\equiv j\)</span>. So <span class="math inline">\(\theta_X=\chi_X^{-1}\)</span> is a bijection for every <span class="math inline">\(X\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Here <span class="math inline">\(\theta_X(\varphi)=\varphi^{-1}(\mathrm{true})\)</span>. By <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;<span>15.4</span></a>, this is the part whose characteristic function is <span class="math inline">\(\varphi\)</span>, so <span class="math inline">\(\chi_X(\theta_X(\varphi))=\varphi\)</span>. Also by <a href="#prp-inv-true" class="quarto-xref">Proposition&nbsp;<span>15.4</span></a>, <span class="math inline">\(\theta_X(\chi_X(j))=\chi_j^{-1}(\mathrm{true})\equiv j\)</span>. So <span class="math inline">\(\theta_X=\chi_X^{-1}\)</span> is a bijection for every <span class="math inline">\(X\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Note that the naturality of <span class="math inline">\(\theta\)</span> came for free, from functoriality of <span class="math inline">\(\operatorname{Sub}\)</span> alone (<a href="#lem-theta" class="quarto-xref">Lemma&nbsp;2</a>). The content of the axiom of §2.4 is that this particular <span class="math inline">\(\theta\)</span>, built from <span class="math inline">\(\mathrm{true}\)</span>, has bijective components. This is the idea behind L–R’s proof of Theorem 2.33.</p>
+<p>Note that the naturality of <span class="math inline">\(\theta\)</span> came for free, from functoriality of <span class="math inline">\(\operatorname{Sub}\)</span> alone (<a href="#lem-theta" class="quarto-xref">Lemma&nbsp;<span>15.2</span></a>). The content of the axiom of §2.4 is that this particular <span class="math inline">\(\theta\)</span>, built from <span class="math inline">\(\mathrm{true}\)</span>, has bijective components. This is the idea behind L–R’s proof of Theorem 2.33.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1353,7 +1397,7 @@ The part <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</s
 </div>
 <div class="callout-body-container">
 <div id="rem-yoneda" class="proof remark">
-<p><span class="proof-title"><em>Remark 10</em> (Preview: the Yoneda lemma). </span>In the situation of <a href="#lem-theta" class="quarto-xref">Lemma&nbsp;2</a>, the identity <span class="math inline">\(1_c\in\mathsf{C}(c,c)\)</span> is sent to <span class="math inline">\(\theta_c(1_c)=(F1_c)(u)=u\)</span>. The Yoneda lemma (Riehl §2.2) says that this is the general pattern: <em>every</em> natural transformation <span class="math inline">\(\alpha\colon\mathsf{C}(-,c)\Rightarrow F\)</span> equals the <span class="math inline">\(\theta\)</span> built from the element <span class="math inline">\(u=\alpha_c(1_c)\)</span>. In our case, <span class="math inline">\(\chi^{-1}\)</span> is determined by <span class="math inline">\(\chi_2^{-1}(1_2)=\mathrm{true}\)</span> (<a href="#exm-true" class="quarto-xref">Example&nbsp;1</a>). So the entire correspondence between parts and characteristic functions is encoded in one piece of data: the part <span class="math inline">\(\mathrm{true}\)</span> of <span class="math inline">\(2\)</span>.</p>
+<p><span class="proof-title"><em>Remark 15.10</em> (Preview: the Yoneda lemma). </span>In the situation of <a href="#lem-theta" class="quarto-xref">Lemma&nbsp;<span>15.2</span></a>, the identity <span class="math inline">\(1_c\in\mathsf{C}(c,c)\)</span> is sent to <span class="math inline">\(\theta_c(1_c)=(F1_c)(u)=u\)</span>. The Yoneda lemma (Riehl §2.2) says that this is the general pattern: <em>every</em> natural transformation <span class="math inline">\(\alpha\colon\mathsf{C}(-,c)\Rightarrow F\)</span> equals the <span class="math inline">\(\theta\)</span> built from the element <span class="math inline">\(u=\alpha_c(1_c)\)</span>. In our case, <span class="math inline">\(\chi^{-1}\)</span> is determined by <span class="math inline">\(\chi_2^{-1}(1_2)=\mathrm{true}\)</span> (<a href="#exm-true" class="quarto-xref">Example&nbsp;<span>15.1</span></a>). So the entire correspondence between parts and characteristic functions is encoded in one piece of data: the part <span class="math inline">\(\mathrm{true}\)</span> of <span class="math inline">\(2\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1365,13 +1409,13 @@ The part <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail 2\)</s
 </div>
 <div class="callout-body-container">
 <div id="cor-unique-2" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Corollary 15.1</strong></span> <br>
 The truth-value object is unique up to unique isomorphism: if <span class="math inline">\(v\colon 1\rightarrowtail V\)</span> is also a universal element of <span class="math inline">\(\operatorname{Sub}\)</span>, there is exactly one isomorphism <span class="math inline">\(\psi\colon 2\to V\)</span> with <span class="math inline">\(\psi\circ\mathrm{true}=v\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>The proof is <a href="#exr-unique" class="quarto-xref">Exercise&nbsp;8</a>. It is a special case of a general fact: an object representing a functor is unique up to unique isomorphism.</p>
+<p>The proof is <a href="#exr-unique" class="quarto-xref">Exercise&nbsp;<span>15.8</span></a>. It is a special case of a general fact: an object representing a functor is unique up to unique isomorphism.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1379,7 +1423,7 @@ The truth-value object is unique up to unique isomorphism: if <span class="math 
 </div>
 <div class="callout-body-container">
 <div id="rem-classifier" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em>. </span>In topos theory, the axiom “there is an object <span class="math inline">\(\Omega\)</span> with a universal element <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail\Omega\)</span> of <span class="math inline">\(\operatorname{Sub}\)</span>” is called the existence of a <strong>subobject classifier</strong>. Its usual formulation uses pullbacks, which we introduce in L–R §3.5; <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;6</a> is a preview.</p>
+<p><span class="proof-title"><em>Remark 15.11</em>. </span>In topos theory, the axiom “there is an object <span class="math inline">\(\Omega\)</span> with a universal element <span class="math inline">\(\mathrm{true}\colon 1\rightarrowtail\Omega\)</span> of <span class="math inline">\(\operatorname{Sub}\)</span>” is called the existence of a <strong>subobject classifier</strong>. Its usual formulation uses pullbacks, which we introduce in L–R §3.5; <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;<span>15.6</span></a> is a preview.</p>
 </div>
 </div>
 </div>
@@ -1451,7 +1495,7 @@ The truth-value object is unique up to unique isomorphism: if <span class="math 
 </div>
 <div class="callout-body-container">
 <div id="exr-op" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1</strong></span> <br>
+<p><span class="theorem-title"><strong>Exercise 15.1</strong></span> <br>
 Verify that <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> satisfies the axioms of a category.</p>
 </div>
 </div>
@@ -1464,8 +1508,8 @@ Verify that <span class="math inline">\(\mathsf{C}^\mathrm{op}\)</span> satisfie
 </div>
 <div class="callout-body-container">
 <div id="exr-points" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> <br>
-Prove <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>, using L–R’s Definition 2.20, which quantifies over generalized elements <span class="math inline">\(T\to X\)</span>, and the axiom that <span class="math inline">\(1\)</span> separates mappings.</p>
+<p><span class="theorem-title"><strong>Exercise 15.2</strong></span> <br>
+Prove <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>, using L–R’s Definition 2.20, which quantifies over generalized elements <span class="math inline">\(T\to X\)</span>, and the axiom that <span class="math inline">\(1\)</span> separates mappings.</p>
 </div>
 </div>
 </div>
@@ -1493,8 +1537,8 @@ Prove <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>, using L�
 </div>
 <div class="callout-body-container">
 <div id="exr-charfn" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> <br>
-Using <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>, show that <span class="math inline">\(\varphi\colon X\to 2\)</span> is a characteristic function of a part <span class="math inline">\(i\)</span> in our sense (testing elements only) if and only if it is one in the sense of L–R’s Definition 2.20 (testing all generalized elements).</p>
+<p><span class="theorem-title"><strong>Exercise 15.3</strong></span> <br>
+Using <a href="#prp-points" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>, show that <span class="math inline">\(\varphi\colon X\to 2\)</span> is a characteristic function of a part <span class="math inline">\(i\)</span> in our sense (testing elements only) if and only if it is one in the sense of L–R’s Definition 2.20 (testing all generalized elements).</p>
 </div>
 </div>
 </div>
@@ -1506,8 +1550,8 @@ Using <a href="#prp-points" class="quarto-xref">Proposition&nbsp;1</a>, show tha
 </div>
 <div class="callout-body-container">
 <div id="exr-pullback" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> <br>
-Prove <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;6</a> (a).</p>
+<p><span class="theorem-title"><strong>Exercise 15.4</strong></span> <br>
+Prove <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;<span>15.6</span></a> (a).</p>
 </div>
 </div>
 </div>
@@ -1524,7 +1568,7 @@ Prove <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;6</a> (a).</p
 </div>
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Use the separator axiom to show <span class="math inline">\(\chi_j\circ f\circ i=\mathrm{true}_A\)</span>, then use <a href="#exr-charfn" class="quarto-xref">Exercise&nbsp;3</a>.</p>
+<p>Use the separator axiom to show <span class="math inline">\(\chi_j\circ f\circ i=\mathrm{true}_A\)</span>, then use <a href="#exr-charfn" class="quarto-xref">Exercise&nbsp;<span>15.3</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1535,7 +1579,7 @@ Prove <a href="#prp-pullback" class="quarto-xref">Proposition&nbsp;6</a> (a).</p
 </div>
 <div class="callout-body-container">
 <div id="exr-intersections" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> <br>
+<p><span class="theorem-title"><strong>Exercise 15.5</strong></span> <br>
 For <span class="math inline">\(f\colon X\to Y\)</span>, show that <span class="math inline">\(f^{-1}(1_Y)\equiv 1_X\)</span> and that <span class="math inline">\(f^{-1}(j_1\cap j_2)\equiv f^{-1}(j_1)\cap f^{-1}(j_2)\)</span> (L–R Ex. 2.39).</p>
 </div>
 </div>
@@ -1548,7 +1592,7 @@ For <span class="math inline">\(f\colon X\to Y\)</span>, show that <span class="
 </div>
 <div class="callout-body-container">
 <div id="exr-nat-inverse" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> <br>
+<p><span class="theorem-title"><strong>Exercise 15.6</strong></span> <br>
 Show that the inverses of the components of a natural isomorphism form a natural transformation.</p>
 </div>
 </div>
@@ -1561,7 +1605,7 @@ Show that the inverses of the components of a natural isomorphism form a natural
 </div>
 <div class="callout-body-container">
 <div id="exr-iso" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7</strong></span> <br>
+<p><span class="theorem-title"><strong>Exercise 15.7</strong></span> <br>
 Show that every functor sends isomorphisms to isomorphisms. Conclude that if <span class="math inline">\(X\cong Y\)</span> in <span class="math inline">\(\mathcal{S}\)</span>, then <span class="math inline">\(\operatorname{Sub}(X)\cong\operatorname{Sub}(Y)\)</span> in <span class="math inline">\(\mathsf{Set}\)</span>.</p>
 </div>
 </div>
@@ -1574,8 +1618,8 @@ Show that every functor sends isomorphisms to isomorphisms. Conclude that if <sp
 </div>
 <div class="callout-body-container">
 <div id="exr-unique" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8</strong></span> <br>
-Prove <a href="#cor-unique-2" class="quarto-xref">Corollary&nbsp;1</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 15.8</strong></span> <br>
+Prove <a href="#cor-unique-2" class="quarto-xref">Corollary&nbsp;<span>15.1</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1592,7 +1636,7 @@ Prove <a href="#cor-unique-2" class="quarto-xref">Corollary&nbsp;1</a>.</p>
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(\varphi\colon V\to 2\)</span> satisfy <span class="math inline">\(v\equiv\varphi^{-1}(\mathrm{true})\)</span>, and <span class="math inline">\(\psi\colon 2\to V\)</span> satisfy <span class="math inline">\(\mathrm{true}\equiv\psi^{-1}(v)\)</span>. Use <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;5</a> and the uniqueness in <a href="#thm-universal" class="quarto-xref">Theorem&nbsp;4</a> to show <span class="math inline">\(\varphi\psi=1_2\)</span>, and similarly <span class="math inline">\(\psi\varphi=1_V\)</span>.</p>
+<p>Let <span class="math inline">\(\varphi\colon V\to 2\)</span> satisfy <span class="math inline">\(v\equiv\varphi^{-1}(\mathrm{true})\)</span>, and <span class="math inline">\(\psi\colon 2\to V\)</span> satisfy <span class="math inline">\(\mathrm{true}\equiv\psi^{-1}(v)\)</span>. Use <a href="#prp-functoriality" class="quarto-xref">Proposition&nbsp;<span>15.5</span></a> and the uniqueness in <a href="#thm-universal" class="quarto-xref">Theorem&nbsp;<span>15.4</span></a> to show <span class="math inline">\(\varphi\psi=1_2\)</span>, and similarly <span class="math inline">\(\psi\varphi=1_V\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1603,8 +1647,8 @@ Prove <a href="#cor-unique-2" class="quarto-xref">Corollary&nbsp;1</a>.</p>
 </div>
 <div class="callout-body-container">
 <div id="exr-variance" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9</strong></span> <br>
-By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(x\mapsto x\)</span> sends <span class="math inline">\(\mathcal{S}(1,X)\)</span> to parts of <span class="math inline">\(X\)</span>. Explain why it makes no sense to ask whether this is a natural transformation <span class="math inline">\(\mathcal{S}(1,-)\Rightarrow\operatorname{Sub}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 15.9</strong></span> <br>
+By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;<span>15.1</span></a>, <span class="math inline">\(x\mapsto x\)</span> sends <span class="math inline">\(\mathcal{S}(1,X)\)</span> to parts of <span class="math inline">\(X\)</span>. Explain why it makes no sense to ask whether this is a natural transformation <span class="math inline">\(\mathcal{S}(1,-)\Rightarrow\operatorname{Sub}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1616,8 +1660,8 @@ By <a href="#lem-points-mono" class="quarto-xref">Lemma&nbsp;1</a>, <span class=
 </div>
 <div class="callout-body-container">
 <div id="exr-four-maps" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10</strong></span> <br>
-Granting that <span class="math inline">\(2\)</span> has exactly two elements, <span class="math inline">\(\mathrm{true}\)</span> and <span class="math inline">\(\mathrm{false}\)</span>, there are exactly four maps <span class="math inline">\(u\colon 2\to 2\)</span>. By <a href="#exm-postcomp" class="quarto-xref">Example&nbsp;3</a>, each gives a natural transformation <span class="math inline">\(u_*\colon\mathcal{S}(-,2)\Rightarrow\mathcal{S}(-,2)\)</span>. Using <span class="math inline">\(\chi\)</span>, describe what each one does to parts. (The Yoneda lemma will show that these are <em>all</em> the natural transformations <span class="math inline">\(\mathcal{S}(-,2)\Rightarrow\mathcal{S}(-,2)\)</span>.)</p>
+<p><span class="theorem-title"><strong>Exercise 15.10</strong></span> <br>
+Granting that <span class="math inline">\(2\)</span> has exactly two elements, <span class="math inline">\(\mathrm{true}\)</span> and <span class="math inline">\(\mathrm{false}\)</span>, there are exactly four maps <span class="math inline">\(u\colon 2\to 2\)</span>. By <a href="#exm-postcomp" class="quarto-xref">Example&nbsp;<span>15.3</span></a>, each gives a natural transformation <span class="math inline">\(u_*\colon\mathcal{S}(-,2)\Rightarrow\mathcal{S}(-,2)\)</span>. Using <span class="math inline">\(\chi\)</span>, describe what each one does to parts. (The Yoneda lemma will show that these are <em>all</em> the natural transformations <span class="math inline">\(\mathcal{S}(-,2)\Rightarrow\mathcal{S}(-,2)\)</span>.)</p>
 </div>
 </div>
 </div>
@@ -1629,7 +1673,7 @@ Granting that <span class="math inline">\(2\)</span> has exactly two elements, <
 </div>
 <div class="callout-body-container">
 <div id="exr-products" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11</strong></span> <br>
+<p><span class="theorem-title"><strong>Exercise 15.11</strong></span> <br>
 Show that the elements functor preserves products in the following sense: if <span class="math inline">\(X\xleftarrow{p}P\xrightarrow{q}Y\)</span> is a product diagram in <span class="math inline">\(\mathcal{S}\)</span> (L–R §3.3), then <span class="math inline">\(x\mapsto(px,qx)\)</span> is a bijection <span class="math inline">\(\mathcal{S}(1,P)\to\mathcal{S}(1,X)\times\mathcal{S}(1,Y)\)</span>.</p>
 </div>
 </div>
@@ -1638,14 +1682,14 @@ Show that the elements functor preserves products in the following sense: if <sp
 
 
 </section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn1"><p>By <a href="#prp-chi-bij" class="quarto-xref">Proposition&nbsp;8</a>, <span class="math inline">\(\operatorname{Sub}(X)\)</span> is in bijection with the hom-set <span class="math inline">\(\mathcal{S}(X,2)\)</span>, so it is an honest set of the metatheory.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>By <a href="#prp-chi-bij" class="quarto-xref">Proposition&nbsp;<span>15.8</span></a>, <span class="math inline">\(\operatorname{Sub}(X)\)</span> is in bijection with the hom-set <span class="math inline">\(\mathcal{S}(X,2)\)</span>, so it is an honest set of the metatheory.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1719,7 +1763,7 @@ Show that the elements functor preserves products in the following sense: if <sp
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -2046,20 +2090,19 @@ Show that the elements functor preserves products in the following sense: if <sp
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/abstract-sets-and-mappings.html" class="pagination-link" aria-label="Abstract Sets and Mappings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Abstract Sets and Mappings</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/finite-limits.html" class="pagination-link" aria-label="Finite Limits and Colimits">
+        <span class="nav-page-text"><span class="chapter-title">Finite Limits and Colimits</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 

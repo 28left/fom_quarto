@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../notes/topos-examples.html" rel="next">
+<link href="../notes/finite-limits.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3154c85b111a1fc3d22a68bb930ba5ef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35e752d80b23a5d07fffdd0e6288f8de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/exponentials.html">15 · Exponentials</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/exponentials.html"><span class="chapter-title">Mapping Sets and Exponentials</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,100 +145,142 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Foundational Crisis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 · Some History and Setting the Stage</span></a>
+  <a href="../lectures/lec01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Foundations of Mathematics</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 · The Foundational Crisis</span></a>
+  <a href="../lectures/lec02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Foundational Crisis</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">ZFC as a Foundational Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 · ZFC as a Foundational Theory</span></a>
+  <a href="../notes/zfc-as-a-foundation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ZFC as a Foundational Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 · First Consequences of the ZFC Axioms</span></a>
+  <a href="../notes/first-consequences.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">First Consequences of the ZFC Axioms</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 · Relations and Functions</span></a>
+  <a href="../notes/relations-and-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Relations and Functions</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 · Ordinals</span></a>
+  <a href="../notes/ordinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ordinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 · Induction and Recursion</span></a>
+  <a href="../notes/recursion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Induction and Recursion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 · Axiom of Choice</span></a>
+  <a href="../notes/AC.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">The Axiom of Choice</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 · Cardinals</span></a>
+  <a href="../notes/cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10 · Models of Set Theory</span></a>
+  <a href="../notes/models.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Models of Set Theory</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11 · Large Cardinals</span></a>
+  <a href="../notes/large_cardinals.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cofinality and Inaccessible Cardinals</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12 · Incompleteness</span></a>
+  <a href="../notes/incompleteness-consistency-strength.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Incompleteness and Consistency Strength</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">The View from Category Theory - Topoi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13 · Parts and Functors</span></a>
+  <a href="../notes/abstract-sets-and-mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abstract Sets and Mappings</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14 · Finite Limits</span></a>
+  <a href="../notes/parts-functors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Parts, Characteristic Functions, and Inverse Images</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">15 · Exponentials</span></a>
+  <a href="../notes/finite-limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finite Limits and Colimits</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/exponentials.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Mapping Sets and Exponentials</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-examples.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">A Gallery of Topoi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/presheaves-sheaves.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Presheaves and Sheaves: A First Look</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-logic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Toposes and Intuitionistic Logic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/topos-vs-zfc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Topos Theory and ZFC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -244,7 +288,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#where-we-are" id="toc-where-we-are" class="nav-link active" data-scroll-target="#where-we-are">Where we are</a></li>
@@ -275,9 +319,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/abstract-sets-and-mappings.html">The View from Category Theory - Topoi</a></li><li class="breadcrumb-item"><a href="../notes/exponentials.html"><span class="chapter-title">Mapping Sets and Exponentials</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Mapping Sets and Exponentials</h1>
+<h1 class="title"><span class="chapter-title">Mapping Sets and Exponentials</span></h1>
 <p class="subtitle lead">The last topos axiom — exponentiation as a natural bijection, functoriality, the exponential laws, and the definition of an elementary topos</p>
 </div>
 
@@ -467,7 +511,7 @@ T \longrightarrow E^B, \qquad T \times B \longrightarrow E, \qquad B \longrighta
 </div>
 <div class="callout-body-container">
 <div id="prp-covariant" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1 (Covariance in the base (L–R 5.2))</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 17.1 (Covariance in the base (L–R 5.2))</strong></span> <br>
 Given <span class="math inline">\(\varphi : Y_1 \to Y_2\)</span>, there is a unique <span class="math inline">\(\varphi^B : Y_1^B \to Y_2^B\)</span> with <span class="math display">\[
 \varphi^B \ulcorner g \urcorner = \ulcorner \varphi g \urcorner \quad \text{for all } g : B \to Y_1 .
 \]</span></p>
@@ -505,7 +549,7 @@ Given <span class="math inline">\(\varphi : Y_1 \to Y_2\)</span>, there is a uni
 </div>
 <div class="callout-body-container">
 <div id="prp-contravariant" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2 (Contravariance in the exponent (L–R 5.4, 5.5))</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 17.2 (Contravariance in the exponent (L–R 5.4, 5.5))</strong></span> <br>
 Given <span class="math inline">\(\beta : B_2 \to B_1\)</span>, there is a unique <span class="math inline">\(Y^\beta : Y^{B_1} \to Y^{B_2}\)</span> with <span class="math display">\[
 Y^\beta \ulcorner g \urcorner = \ulcorner g \beta \urcorner, \qquad\text{namely}\qquad Y^\beta = \ulcorner \mathrm{eval}_1 \circ (1 \times \beta) \urcorner .
 \]</span> Moreover <span class="math inline">\(Y^{\beta\alpha} = Y^\alpha Y^\beta\)</span> and <span class="math inline">\(Y^{1_B} = 1\)</span>.</p>
@@ -526,7 +570,7 @@ Y^\beta \ulcorner g \urcorner = \ulcorner g \beta \urcorner, \qquad\text{namely}
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof" data-collapse="true">
-<p><span class="proof-title"><em>Proof</em>. </span>The construction of <span class="math inline">\(Y^\beta\)</span> is as in <a href="#prp-covariant" class="quarto-xref">Proposition&nbsp;1</a>. For the composition law, evaluate both sides on a name: <span class="math inline">\(Y^\alpha Y^\beta \ulcorner g \urcorner = Y^\alpha\ulcorner g\beta \urcorner = \ulcorner (g\beta)\alpha \urcorner\)</span> and <span class="math inline">\(Y^{\beta\alpha}\ulcorner g \urcorner = \ulcorner g(\beta\alpha) \urcorner\)</span>. These agree by associativity of composition — the proposition is “a higher expression of associativity.”</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The construction of <span class="math inline">\(Y^\beta\)</span> is as in <a href="#prp-covariant" class="quarto-xref">Proposition&nbsp;<span>17.1</span></a>. For the composition law, evaluate both sides on a name: <span class="math inline">\(Y^\alpha Y^\beta \ulcorner g \urcorner = Y^\alpha\ulcorner g\beta \urcorner = \ulcorner (g\beta)\alpha \urcorner\)</span> and <span class="math inline">\(Y^{\beta\alpha}\ulcorner g \urcorner = \ulcorner g(\beta\alpha) \urcorner\)</span>. These agree by associativity of composition — the proposition is “a higher expression of associativity.”</p>
 </div>
 </div>
 </div>
@@ -551,7 +595,7 @@ Y^\beta \ulcorner g \urcorner = \ulcorner g \beta \urcorner, \qquad\text{namely}
 </div>
 <div class="callout-body-container">
 <div id="prp-natural" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3 (Naturality of transposition)</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 17.3 (Naturality of transposition)</strong></span> <br>
 For <span class="math inline">\(\xi : X' \to X\)</span> and <span class="math inline">\(\varphi : Y \to Y'\)</span>, <span class="math display">\[
 \ulcorner f \circ (\xi \times 1_B) \urcorner = \ulcorner f \urcorner \circ \xi,
 \qquad
@@ -574,7 +618,7 @@ For <span class="math inline">\(\xi : X' \to X\)</span> and <span class="math in
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof" data-collapse="true">
-<p><span class="proof-title"><em>Proof</em>. </span>The second identity is <a href="#prp-covariant" class="quarto-xref">Proposition&nbsp;1</a> for generalized elements. For the first, <span class="math inline">\(\mathrm{eval}(\ulcorner f \urcorner\xi \times 1_B) = \mathrm{eval}(\ulcorner f \urcorner \times 1_B)(\xi \times 1_B) = f(\xi \times 1_B)\)</span>, so <span class="math inline">\(\ulcorner f \urcorner\xi\)</span> satisfies the defining equation of <span class="math inline">\(\ulcorner f(\xi\times 1_B) \urcorner\)</span>; apply uniqueness.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The second identity is <a href="#prp-covariant" class="quarto-xref">Proposition&nbsp;<span>17.1</span></a> for generalized elements. For the first, <span class="math inline">\(\mathrm{eval}(\ulcorner f \urcorner\xi \times 1_B) = \mathrm{eval}(\ulcorner f \urcorner \times 1_B)(\xi \times 1_B) = f(\xi \times 1_B)\)</span>, so <span class="math inline">\(\ulcorner f \urcorner\xi\)</span> satisfies the defining equation of <span class="math inline">\(\ulcorner f(\xi\times 1_B) \urcorner\)</span>; apply uniqueness.</p>
 </div>
 </div>
 </div>
@@ -660,7 +704,7 @@ c : Y_2^{Y_1} \times Y_1^B \to Y_2^B, \qquad c(\ulcorner \varphi \urcorner, \ulc
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (L–R 5.7)</strong></span> For <span class="math inline">\(\beta : B_2 \to B_1\)</span>, the map <span class="math inline">\(2^\beta : 2^{B_1} \to 2^{B_2}\)</span> represents taking <strong>inverse images</strong> along <span class="math inline">\(\beta\)</span> of parts of <span class="math inline">\(B_1\)</span>. (Use: the inverse image of a part is a pullback, and the characteristic map of a pullback is a composite.)</p>
+<p><span class="theorem-title"><strong>Exercise 17.1 (L–R 5.7)</strong></span> For <span class="math inline">\(\beta : B_2 \to B_1\)</span>, the map <span class="math inline">\(2^\beta : 2^{B_1} \to 2^{B_2}\)</span> represents taking <strong>inverse images</strong> along <span class="math inline">\(\beta\)</span> of parts of <span class="math inline">\(B_1\)</span>. (Use: the inverse image of a part is a pullback, and the characteristic map of a pullback is a composite.)</p>
 </div>
 </div>
 </div>
@@ -692,7 +736,7 @@ c : Y_2^{Y_1} \times Y_1^B \to Y_2^B, \qquad c(\ulcorner \varphi \urcorner, \ulc
 </div>
 <div class="callout-body-container">
 <div id="lem-representability" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (Representability lemma)</strong></span> <br>
+<p><span class="theorem-title"><strong>Lemma 17.1 (Representability lemma)</strong></span> <br>
 If there are bijections <span class="math inline">\(\theta_T : \mathcal{S}(T,A) \cong \mathcal{S}(T,A')\)</span> natural in <span class="math inline">\(T\)</span>, then <span class="math inline">\(a := \theta_A(1_A) : A \to A'\)</span> is an isomorphism (and <span class="math inline">\(\theta_T = a \circ -\)</span>). The same holds with <span class="math inline">\(\mathcal{S}(A,T) \cong \mathcal{S}(A',T)\)</span> natural in <span class="math inline">\(T\)</span>.</p>
 </div>
 </div>
@@ -724,7 +768,7 @@ If there are bijections <span class="math inline">\(\theta_T : \mathcal{S}(T,A) 
 </div>
 <div class="callout-body-container">
 <div id="prp-exp-laws" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4 (Exponential laws (L–R 5.8–5.10))</strong></span> <br>
+<p><span class="theorem-title"><strong>Proposition 17.4 (Exponential laws (L–R 5.8–5.10))</strong></span> <br>
 <span class="math display">\[
 \begin{aligned}
 Y^1 &amp;\cong Y, &amp; 1^B &amp;\cong 1, &amp; (Y_0 \times Y_1)^B &amp;\cong Y_0^B \times Y_1^B,\\
@@ -748,7 +792,7 @@ Y^{X \times B} &amp;\cong (Y^B)^X, &amp; Y^0 &amp;\cong 1, &amp; Y^{A+B} &amp;\c
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Each is a chain of natural bijections, followed by <a href="#lem-representability" class="quarto-xref">Lemma&nbsp;1</a>. For example: <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Each is a chain of natural bijections, followed by <a href="#lem-representability" class="quarto-xref">Lemma&nbsp;<span>17.1</span></a>. For example: <span class="math display">\[
 \begin{aligned}
 \mathcal{S}(T,(Y^B)^X) &amp;\cong \mathcal{S}(T \times X,Y^B) \cong \mathcal{S}((T \times X) \times B,Y) \\
 &amp;\cong \mathcal{S}(T \times (X \times B),Y) \cong \mathcal{S}(T,Y^{X\times B}),
@@ -770,7 +814,7 @@ Y^{X \times B} &amp;\cong (Y^B)^X, &amp; Y^0 &amp;\cong 1, &amp; Y^{A+B} &amp;\c
 </div>
 <div class="callout-body-container">
 <div id="thm-distributive" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Exponentials force distributivity)</strong></span> <br>
+<p><span class="theorem-title"><strong>Theorem 17.1 (Exponentials force distributivity)</strong></span> <br>
 In any category with finite products, finite sums, and exponentials, <span class="math display">\[
 T \times 0 \cong 0, \qquad (A + B) \times T \cong A \times T + B \times T .
 \]</span></p>
@@ -804,7 +848,7 @@ T \times 0 \cong 0, \qquad (A + B) \times T \cong A \times T + B \times T .
 <p>Distributivity does not mention exponentials, yet it follows from them (L–R return to this in §7.2): <strong>a left adjoint preserves sums</strong>, and <span class="math inline">\(-\times T\)</span> is a left adjoint. With it, <span class="math display">\[
 \mathcal{S}(T,Y^{A+B}) \cong \mathcal{S}(T\times(A+B),Y) \cong \mathcal{S}(T\times A,Y) \times \mathcal{S}(T\times B,Y)
 \cong \mathcal{S}(T,Y^A \times Y^B),
-\]</span> and <span class="math inline">\(\mathcal{S}(T,Y^0) \cong \mathcal{S}(T \times 0,Y) \cong \mathcal{S}(0,Y) \cong \mathcal{S}(T,1)\)</span>. This finishes <a href="#prp-exp-laws" class="quarto-xref">Proposition&nbsp;4</a>.</p>
+\]</span> and <span class="math inline">\(\mathcal{S}(T,Y^0) \cong \mathcal{S}(T \times 0,Y) \cong \mathcal{S}(0,Y) \cong \mathcal{S}(T,1)\)</span>. This finishes <a href="#prp-exp-laws" class="quarto-xref">Proposition&nbsp;<span>17.4</span></a>.</p>
 <p><strong>Counting.</strong> Writing a finite <span class="math inline">\(B\)</span> as <span class="math inline">\(1 + 1 + \cdots + 1\)</span> (<span class="math inline">\(n\)</span> summands), the laws give <span class="math inline">\(Y^B \cong Y \times \cdots \times Y\)</span>, so <span class="math inline">\(|Y^B| = |Y|^n\)</span>. In particular <span class="math inline">\(|2^B| = 2^{|B|}\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -880,7 +924,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2</strong></span> L–R 5.3 and 5.16: functoriality of <span class="math inline">\((-)^B\)</span>, and the inverse maps for <span class="math inline">\(Y^{X\times B} \cong (Y^B)^X\)</span>, checked directly.</p>
+<p><span class="theorem-title"><strong>Exercise 17.2</strong></span> L–R 5.3 and 5.16: functoriality of <span class="math inline">\((-)^B\)</span>, and the inverse maps for <span class="math inline">\(Y^{X\times B} \cong (Y^B)^X\)</span>, checked directly.</p>
 </div>
 </div>
 </div>
@@ -892,7 +936,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3</strong></span> L–R 5.17 (a)–(d): verify that <span class="math inline">\(\Delta\)</span>, <span class="math inline">\(-\times B\)</span>, <span class="math inline">\((-)^B\)</span>, and <span class="math inline">\(- \times -\)</span> are functors. Then show that the diagonals <span class="math inline">\(\delta_X\)</span> form a natural transformation from the identity functor to <span class="math inline">\((-\times-)\circ\Delta\)</span>, and that the <span class="math inline">\(\eta_X\)</span> form one from the identity to <span class="math inline">\((-\times B)^B\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 17.3</strong></span> L–R 5.17 (a)–(d): verify that <span class="math inline">\(\Delta\)</span>, <span class="math inline">\(-\times B\)</span>, <span class="math inline">\((-)^B\)</span>, and <span class="math inline">\(- \times -\)</span> are functors. Then show that the diagonals <span class="math inline">\(\delta_X\)</span> form a natural transformation from the identity functor to <span class="math inline">\((-\times-)\circ\Delta\)</span>, and that the <span class="math inline">\(\eta_X\)</span> form one from the identity to <span class="math inline">\((-\times B)^B\)</span>.</p>
 </div>
 </div>
 </div>
@@ -904,7 +948,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4</strong></span> L–R 5.12 (<span class="math inline">\(\mathcal{S}/X\)</span>) and 5.14 (posets): verify the universal property of the proposed exponentials.</p>
+<p><span class="theorem-title"><strong>Exercise 17.4</strong></span> L–R 5.12 (<span class="math inline">\(\mathcal{S}/X\)</span>) and 5.14 (posets): verify the universal property of the proposed exponentials.</p>
 </div>
 </div>
 </div>
@@ -916,7 +960,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5</strong></span> L–R 5.13 for a group <span class="math inline">\(G\)</span>. <em>Bonus:</em> for a monoid <span class="math inline">\(M\)</span>, show that <span class="math inline">\(Y^X := \{\)</span>equivariant <span class="math inline">\(f : M \times X \to Y\}\)</span> with <span class="math inline">\((m\cdot f)(n, x) = f(nm, x)\)</span> is an exponential in <span class="math inline">\(M\)</span>-sets.</p>
+<p><span class="theorem-title"><strong>Exercise 17.5</strong></span> L–R 5.13 for a group <span class="math inline">\(G\)</span>. <em>Bonus:</em> for a monoid <span class="math inline">\(M\)</span>, show that <span class="math inline">\(Y^X := \{\)</span>equivariant <span class="math inline">\(f : M \times X \to Y\}\)</span> with <span class="math inline">\((m\cdot f)(n, x) = f(nm, x)\)</span> is an exponential in <span class="math inline">\(M\)</span>-sets.</p>
 </div>
 </div>
 </div>
@@ -928,7 +972,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6</strong></span> Using only arguments in the style of <a href="#lem-representability" class="quarto-xref">Lemma&nbsp;1</a>, show that in any cartesian closed category <span class="math inline">\(A \times (B + C) \cong A \times B + A \times C\)</span> whenever the sums exist, and that any object admitting a map to <span class="math inline">\(0\)</span> is itself initial.</p>
+<p><span class="theorem-title"><strong>Exercise 17.6</strong></span> Using only arguments in the style of <a href="#lem-representability" class="quarto-xref">Lemma&nbsp;<span>17.1</span></a>, show that in any cartesian closed category <span class="math inline">\(A \times (B + C) \cong A \times B + A \times C\)</span> whenever the sums exist, and that any object admitting a map to <span class="math inline">\(0\)</span> is itself initial.</p>
 </div>
 </div>
 </div>
@@ -1011,7 +1055,7 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/28left\.github\.io\/fom_quarto\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1338,20 +1382,19 @@ A &amp; \xrightarrow[\ \chi_m\ ]{} &amp; \Omega
     }
   });
   </script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Math 558 · Foundations of Mathematics · Penn State</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notes/finite-limits.html" class="pagination-link" aria-label="Finite Limits and Colimits">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Finite Limits and Colimits</span></span>
+      </a>          
   </div>
-</footer>
+  <div class="nav-page nav-page-next">
+      <a href="../notes/topos-examples.html" class="pagination-link" aria-label="A Gallery of Topoi">
+        <span class="nav-page-text"><span class="chapter-title">A Gallery of Topoi</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
 
 
 
