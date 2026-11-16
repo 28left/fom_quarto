@@ -1,5 +1,5 @@
 ---
-title: "Toposes and Intuitionistic Logic"
+title: "Topoi and Intuitionistic Logic"
 subtitle: "Truth values, Heyting algebras, and the internal language of a topos"
 author: "Jan Reimann"
 institute: "Penn State — Math 558"
@@ -24,7 +24,7 @@ In $\Sets$, parts of $X$ correspond to maps $X \to 2$, and the propositional con
 $2 \times 2 \to 2$ — the truth tables (L–R, Prop. 3.18). In a topos, $2$ is replaced by $\Omega$, and
 the parts of an object no longer form a Boolean algebra but a **Heyting algebra**. These notes show
 that this is not an accident of a few examples: **the logic of every topos is intuitionistic**,
-and intuitionistic logic is exactly the logic that is valid in all toposes.
+and intuitionistic logic is exactly the logic that is valid in all topoi.
 :::
 
 ## From truth tables to $\Omega$
@@ -204,15 +204,15 @@ an **internal language** (the Mitchell–Bénabou language).
 - A sentence **holds** in $\mathcal{E}$ if its interpretation is the top part, i.e. $\true : 1 \to \Omega$.
 
 ::: {#thm-ihol}
-## Toposes model intuitionistic higher-order logic
+## Topoi model intuitionistic higher-order logic
 \
 Every statement provable in intuitionistic higher-order logic holds in every topos. Conversely, a
-statement holding in all toposes is intuitionistically provable: every theory has a "free" topos
+statement holding in all topoi is intuitionistically provable: every theory has a "free" topos
 built from its syntax (Lambek–Scott).
 :::
 
 ::: {.box}
-**Slogan.** Toposes are to intuitionistic higher-order logic what Boolean-valued models are to
+**Slogan.** Topoi are to intuitionistic higher-order logic what Boolean-valued models are to
 classical logic. A mathematical argument that avoids excluded middle and choice is valid in
 *every* topos — for sheaves, $G$-sets, the effective topos, … all at once.
 :::
@@ -261,7 +261,7 @@ semantics.
 ## Where classical logic lives
 
 ::: {#thm-classical}
-## Classical toposes
+## Classical topoi
 \
 For a topos $\mathcal{E}$ the following are equivalent:
 
@@ -285,9 +285,9 @@ intuitionistic logic.
 | | classical | intuitionistic |
 |---|---|---|
 | algebras of truth values | Boolean algebras | Heyting algebras |
-| "canonical" model | $2$, $\Sets$ | $\O(X)$, toposes |
+| "canonical" model | $2$, $\Sets$ | $\O(X)$, topoi |
 | $\exists$ means | some witness exists | a witness exists *locally* / can be constructed |
-| completeness | Boolean algebras, $2$ | Heyting algebras, $\O(\R)$, all toposes |
+| completeness | Boolean algebras, $2$ | Heyting algebras, $\O(\R)$, all topoi |
 
 In a topos, intuitionistic logic is not a philosophical restriction imposed from outside: it is
 forced by the fact that truth is **local** — it varies over stages, points, or conditions.

@@ -26,7 +26,7 @@ format: html
 
 # Topos Theory and ZFC
 
-Over the last weeks we developed category theory up to elementary toposes and met Lawvere's *Elementary Theory of the Category of Sets* ($\ETCS$) as an alternative to $\ZFC$. This lecture closes Part II by comparing the two on three fronts:
+Over the last weeks we developed category theory up to elementary topoi and met Lawvere's *Elementary Theory of the Category of Sets* ($\ETCS$) as an alternative to $\ZFC$. This lecture closes Part II by comparing the two on three fronts:
 
 1. **Logical strength.** What can $\ETCS$ prove, and how does that compare with $\ZFC$?
 2. **Size.** Category theory constantly talks about "the category of *all* groups" or "the category of *all* sets". How do the set-theoretic antinomies resurface, and how are they handled?
@@ -197,9 +197,9 @@ $\ETCS + \mathsf{R}$ and $\ZFC$ are equiconsistent; in fact, the two constructio
 The strength gap between $\ZFC$ and $\ETCS$ has **nothing to do** with the material/structural distinction. Both styles come in a weak version ($\BZC$, $\ETCS$) and a strong version ($\ZFC$, $\ETCS + \mathsf{R}$). What separates them is Replacement.
 :::
 
-### Elementary toposes in general
+### Elementary topoi in general
 
-What about toposes that are not models of $\ETCS$? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is **intuitionistic higher-order arithmetic**, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of $\neg\neg$-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.
+What about topoi that are not models of $\ETCS$? The elementary topos axioms alone are logically very weak — the category of finite sets is a topos, and so is the degenerate one-object category. Adding a natural numbers object changes this: the internal language of a topos with NNO is **intuitionistic higher-order arithmetic**, and the free topos with NNO is essentially the syntactic category of that theory (Lambek–Scott). The corresponding material theory is intuitionistic bounded Zermelo set theory. Via the double-negation translation (or, categorically, by passing to the topos of $\neg\neg$-sheaves) one shows that this is equiconsistent with classical higher-order arithmetic.
 
 So neither well-pointedness, nor Booleanness, nor Choice adds logical strength; the strength of a topos with NNO comes from the **impredicative power objects** $\Omega^X$ together with the infinite object $N$.
 
@@ -223,7 +223,7 @@ Almost every interesting category is "too big to be a set":
 - $\Set$, $\Grp$, $\mathbf{Top}$ have a proper class of objects (every set carries the trivial group structure, etc.);
 - the category $\Cat$ of categories, and functor categories $[\mathcal{C}, \mathcal{D}]$ with $\mathcal{C}$ large, such as $[\Set, \Set]$ or the presheaf category $[\Set^{op},\Set]$ into which $\Set$ Yoneda-embeds;
 - localizations: inverting a class of morphisms in a locally small category can produce hom-collections that are proper classes;
-- the 2-category of all (Grothendieck) toposes and geometric morphisms.
+- the 2-category of all (Grothendieck) topoi and geometric morphisms.
 
 In $\ZFC$, the standard convention is: a category is **small** if its objects and arrows form sets, **locally small** if each $\Hom(A,B)$ is a set, and **large** if objects or arrows form a proper class. But classes in $\ZFC$ are merely formulas. We can talk about $\Set$ as a class, but we cannot quantify over classes, form classes of classes, or form $[\Set, \Set]$, whose objects are themselves class functions.
 
@@ -311,13 +311,13 @@ In $\ETCS$ or any topos, the theorem says: **no object can parametrize all of it
 
 Topos theory adds some specific twists.
 
-**Grothendieck vs. elementary toposes.** A Grothendieck topos is a category equivalent to sheaves $\mathrm{Sh}(\mathcal{C}, J)$ on a *small* site. Giraud's characterization (cocomplete, exact in a suitable sense, with a *small* set of generators) is inherently size-relative. One motivation for Lawvere and Tierney's elementary definition (1969–70) was to obtain a first-order, size-free notion.
+**Grothendieck vs. elementary topoi.** A Grothendieck topos is a category equivalent to sheaves $\mathrm{Sh}(\mathcal{C}, J)$ on a *small* site. Giraud's characterization (cocomplete, exact in a suitable sense, with a *small* set of generators) is inherently size-relative. One motivation for Lawvere and Tierney's elementary definition (1969–70) was to obtain a first-order, size-free notion.
 
 **Relativization to a base.** In the elementary theory, "small" becomes relative: a Grothendieck topos is really a topos $\mathcal{E}$ together with a bounded geometric morphism $\mathcal{E} \to \mathcal{S}$ to a base topos $\mathcal{S}$, and "small" means "internal to $\mathcal{S}$" or "indexed by an object of $\mathcal{S}$". Bénabou argued (1985) that this is how *all* naive category theory should be done — with fibrations over a base, rather than with an absolute ambient universe of sets.
 
 **Plurality of $\Set$.** $\ETCS$, being a consistent first-order theory, has many non-equivalent models (some satisfy $\CH$, some do not). Topos theory makes this plurality visible: Cohen's forcing can be presented as passing to a sheaf topos, and Tierney (1972) gave a topos-theoretic proof of the independence of $\CH$ along these lines. From this perspective "the" category of sets is just one topos among many.
 
-**Impredicativity.** The power object $\Omega^X$ "contains" all subobjects of $X$, including those defined by quantifying over $\Omega^X$ itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré's "vicious circle") that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of toposes (pretoposes with $\Pi$- and $W$-types, Joyal's arithmetic universes) correspond to Martin-Löf type theory, which we study next.
+**Impredicativity.** The power object $\Omega^X$ "contains" all subobjects of $X$, including those defined by quantifying over $\Omega^X$ itself. This is not an antinomy, but it is exactly the kind of definition (Poincaré's "vicious circle") that predicativists reject — and Feferman, as we will see, was a predicativist. Predicative relatives of topoi (pretopoi with $\Pi$- and $W$-types, Joyal's arithmetic universes) correspond to Martin-Löf type theory, which we study next.
 
 
 ## Grothendieck universes
